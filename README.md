@@ -18,6 +18,7 @@ Overview
 $ nmap -sC -sV -p- -Pn -A <IP address>
 $ nmap -sC -sV -p- -Pn -A -sU <IP address>
 $ nmap --top-ports=100 <IP address>
+$ nmap <IP address> --script vuln
 ```
 
 #2. - Exploitation

@@ -6,7 +6,7 @@ Overview
 2. - [Exploitation](#2---exploitation)
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
-5. - [Post Exploitation](#5---post-exploitation)
+5. - [Miscellaneous](#5---Miscellaneous)
 
      
 #1. - Enumeration
@@ -21,5 +21,5 @@ Overview
 #4. - Privilege Escalation
 -----------------------------------------
 
-#5. - Post Exploitation
+#5. - Miscellaneous
 -----------------------------------------

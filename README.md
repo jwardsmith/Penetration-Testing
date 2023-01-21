@@ -21,6 +21,30 @@ $ nmap --top-ports=100 <IP address>
 $ nmap <IP address> --script vuln
 ```
 
+- FTP
+
+```
+$ ftp <IP address> (anonymous:anonymous)
+ftp> dir
+ftp> get <file>
+ftp> put <file>
+```
+
+- Telnet
+
+```
+$ telnet <IP address>
+```
+
+- Smbclient
+
+```
+$ smbclient -L <IP address>
+$ smbclient -L <IP address> -U <username>
+$ smbclient \\\\<IP address>\\c$
+$ smbclient \\\\<IP address>\\c$ -U <username>
+```
+
 #2. - Exploitation
 -----------------------------------------
 

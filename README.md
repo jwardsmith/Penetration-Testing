@@ -7,7 +7,7 @@ Overview
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
 5. - [Miscellaneous](#5---Miscellaneous)
-
+6. - [Online Resources](#6---online-resources)
      
 #1. - Enumeration
 -----------------------------------------
@@ -45,6 +45,15 @@ $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
 ```
 
+- Redis-cli
+
+```
+$ redis-cli -h <IP address>
+<IP address>:6379> select <db number e.g. 0>
+<IP address>:6379> keys *
+<IP address>:6379> get <key>
+```
+
 #2. - Exploitation
 -----------------------------------------
 
@@ -67,4 +76,13 @@ $ sudo openvpn <filename>.ovpn
 
 ```
 $ git clone <URL.git>
+```
+
+#6. - Online Resources
+-----------------------------------------
+
+- Speedguide
+
+```
+https://www.speedguide.net/port.php?port=3389
 ```

@@ -54,6 +54,22 @@ $ redis-cli -h <IP address>
 <IP address>:6379> get <key>
 ```
 
+- Xfreerdp
+
+```
+$ xfreerdp /v:<IP address>
+$ xfreerdp /v:<IP address> /u:Administrator
+$ freerdp /v:<IP address> /cert:ignore /u:Administrator
+```
+
+- Gobuster
+
+```
+$ gobuster dir -w <wordlist> -u <URL>
+$ gobuster dir -w <wordlist> -u <URL> -x php,html
+$ gobuster vhost -w <wordlist> -u <URL>
+```
+
 #2. - Exploitation
 -----------------------------------------
 

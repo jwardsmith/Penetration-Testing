@@ -8,6 +8,7 @@ Overview
 4. - [Privilege Escalation](#4---privilege-escalation)
 5. - [Miscellaneous](#5---Miscellaneous)
 6. - [Online Resources](#6---online-resources)
+7. - [Browser Plugins](#7---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -70,6 +71,34 @@ $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL>
 ```
 
+- MongoDB
+
+```
+$ ./mongo mongodb://<IP address>:27017
+> show dbs;
+> use <db name>;
+> show collections;
+> db.<collection>.find().pretty();
+```
+
+- Rsync
+
+```
+$ rsync --list-only <IP address>::
+$ rsync --list-only <IP address>::<share>
+$ rsync <IP address>::<share>/<filename> <filename>
+```
+
+- MySQL
+
+```
+$ mysql -h <IP address> -u root
+MariaDB [(none)]> SHOW databases;
+MariaDB [(none)]> USE <database name>;
+MariaDB [(none)]> SHOW tables;
+MariaDB [(none)]> SELECT * FROM <table name>;
+```
+
 #2. - Exploitation
 -----------------------------------------
 
@@ -94,6 +123,12 @@ $ sudo openvpn <filename>.ovpn
 $ git clone <URL.git>
 ```
 
+- Enable a browser to resolve a hostname to a IP address
+
+```
+Edit /etc/hosts
+```
+
 #6. - Online Resources
 -----------------------------------------
 
@@ -101,4 +136,13 @@ $ git clone <URL.git>
 
 ```
 https://www.speedguide.net/port.php?port=3389
+```
+
+#7. - Browser Plugins
+-----------------------------------------
+
+- Wappalyzer: Website technology analyser
+
+```
+https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/
 ```

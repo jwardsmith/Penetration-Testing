@@ -6,9 +6,10 @@ Overview
 2. - [Exploitation](#2---exploitation)
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
-5. - [Miscellaneous](#5---Miscellaneous)
-6. - [Online Resources](#6---online-resources)
-7. - [Browser Plugins](#7---browser-plugins)
+5. - [Password Cracking](#5---password-cracking)
+6. - [Miscellaneous](#6---Miscellaneous)
+7. - [Online Resources](#7---online-resources)
+8. - [Browser Plugins](#8---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -295,7 +296,10 @@ $ sudo -l
 $ export PATH=/tmp:$PATH
 ```
 
-#5. - Miscellaneous
+#5. - Password Cracking
+-----------------------------------------
+
+#6. - Miscellaneous
 -----------------------------------------
 
 - Connect to OpenVPN
@@ -371,7 +375,7 @@ $ icacls <file>
 $ strings <file>
 ```
 
-#6. - Online Resources
+#7. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -386,7 +390,7 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
-#7. - Browser Plugins
+#8. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser

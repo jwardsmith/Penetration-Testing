@@ -107,6 +107,34 @@ $ aws --endpoint=<URL> s3 ls s3://<S3 bucket name>
 $ aws --endpoint=<URL> s3 cp <filename> s3://<S3 bucket name>
 ```
 
+- Curl
+
+```
+$ curl -v <URL>
+```
+
+- Server Side Template Injection (SSTI)
+
+```
+${7*7}
+```
+
+- PostgreSQL
+
+```
+$ psql -h <IP address> -U <username> -p <password>
+<username>=# \l
+<username>=# \c secrets
+<username>=# \dt
+<username>=# SELECT * FROM <table>;
+```
+
+- Jenkins
+
+```
+http://<domain name>/script
+```
+
 #2. - Exploitation
 -----------------------------------------
 
@@ -148,6 +176,12 @@ $ nc -nlvp <port>
 $ python3 -m http.server 8000
 ```
 
+- Hydra
+
+```
+$ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
+```
+
 #3. - Lateral Movement
 -----------------------------------------
 
@@ -155,6 +189,32 @@ $ python3 -m http.server 8000
 
 ```
 $ evil-winrm -i <IP address> -u <username> -p <password>
+```
+
+- Local Port Forwarding
+
+```
+$ ssh -L 1234:localhost:5432 <username>@<remote IP address>
+```
+
+- Dynamic Port Forwarding
+
+```
+$ ssh -D 1234 <username>@<remote IP address>
+```
+
+- Proxychains
+
+```
+Edit /etc/proxychains4.conf
+$ proxychains <command>
+```
+
+- PsExec
+
+```
+$ python psexec.py <username>:<password>@<IP address>
+$ python psexec.py <username>@<IP address>
 ```
 
 #4. - Privilege Escalation
@@ -179,6 +239,12 @@ $ git clone <URL.git>
 
 ```
 Edit /etc/hosts
+```
+
+- Check for local listening ports
+
+```
+$ ss -tulpn
 ```
 
 #6. - Online Resources

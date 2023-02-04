@@ -247,6 +247,12 @@ $ python psexec.py <username>@<IP address>
 $ sudo -l
 ```
 
+- SUID
+
+```
+https://github.com/Anon-Exploiter/SUID3NUM
+```
+
 - WinPEAS
 
 ```

@@ -9,8 +9,9 @@ Overview
 5. - [Brute Force](#5---brute-force)
 6. - [File Transfers](#6---file-transfers)
 7. - [Restricted Shell Escapes](#7---restricted-shell-escapes)
-8. - [Online Resources](#8---online-resources)
-9. - [Browser Plugins](#9---browser-plugins)
+8. - [Reverse Shells](#8---reverse-shells)
+9. - [Online Resources](#9---online-resources)
+10. - [Browser Plugins](#10---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -301,8 +302,13 @@ $ stty raw -echo
 $ fg
 $ export TERM=XTERM
 ```
+#8. - Reverse Shells
+-----------------------------------------
 
-#8 - Online Resources
+- Shell Escapes
+
+
+#9 - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -317,7 +323,7 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
-#9- Browser Plugins
+#10 - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser

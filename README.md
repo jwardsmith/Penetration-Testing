@@ -505,3 +505,9 @@ https://github.com/amriunix/CVE-2007-2447
 ```
 https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 ```
+
+- CVE-2021-4034
+
+```
+https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
+```

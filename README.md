@@ -389,3 +389,9 @@ https://github.com/3ndG4me/AutoBlue-MS17-010
 ```
 https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
 ```
+
+- CVE-2007-2447
+
+```
+https://github.com/amriunix/CVE-2007-2447
+```

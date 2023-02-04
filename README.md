@@ -48,7 +48,7 @@ tftp> get <file>
 tftp> put <file>
 ```
 
-- Gobuster (port 80)
+- HTTP/HTTPS (port 80/443)
 
 ```
 $ gobuster dir -w <wordlist> -u <URL>
@@ -56,7 +56,7 @@ $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL>
 ```
 
-- Smbclient (port 445)
+- SMB (port 445)
 
 ```
 $ smbclient -L <IP address>
@@ -92,7 +92,7 @@ MariaDB [(none)]> SHOW tables;
 MariaDB [(none)]> SELECT * FROM <table name>;
 ```
 
-- Xfreerdp (port 3389)
+- RDP (port 3389)
 
 ```
 $ xfreerdp /v:<IP address>
@@ -110,7 +110,7 @@ $ psql -h <IP address> -U <username> -p <password>
 <username>=# SELECT * FROM <table>;
 ```
 
-- Redis-cli (port 6379)
+- Redis (port 6379)
 
 ```
 $ redis-cli -h <IP address>

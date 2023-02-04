@@ -61,6 +61,9 @@ tftp> put <file>
 $ gobuster dir -w <wordlist> -u <URL>
 $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL>
+$ ffuf -u <URL>/FUZZ -w <wordlist>
+$ curl -I <URL>
+$ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
 ```
 
 - SMB (port 445)

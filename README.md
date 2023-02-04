@@ -273,6 +273,12 @@ $ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
 $ socat tcp-listen:9090,fork tcp:127.0.0.1:631 &
 ```
 
+- Meterpreter
+
+```
+meterpreter> portfwd add -l 8082 -p 631 -r 127.0.0.1
+```
+
 - PsExec
 
 ```

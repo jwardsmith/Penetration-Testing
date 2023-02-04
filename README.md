@@ -397,6 +397,7 @@ $ CTRL+Z
 $ stty raw -echo
 $ fg
 $ reset
+$ export TERM=xterm-256color
 ```
 
 #8. - Reverse Shells

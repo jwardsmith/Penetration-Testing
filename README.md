@@ -65,6 +65,7 @@ $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -I <URL>
 $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
 $ feroxbuster -u <URL>
+$ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 ```
 
 - SMB (port 445)

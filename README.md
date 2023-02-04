@@ -351,6 +351,18 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
+- Living Off The Land Binaries, Scripts and Libraries (LOLBAS)
+
+```
+https://lolbas-project.github.io/
+```
+
+- GTFOBins
+
+```
+https://gtfobins.github.io/
+```
+
 #10 - Browser Plugins
 -----------------------------------------
 

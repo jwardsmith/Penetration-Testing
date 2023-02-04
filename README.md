@@ -208,6 +208,7 @@ use exploit/multi/http/tomcat_mgr_upload
 ```
 C:\ProgramData\Paessler\PRTG Network Monitor\PRTG Configuration.dat
 https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
+use exploit/windows/http/prtg_authenticated_rce
 ```
 
 #3. - Lateral Movement

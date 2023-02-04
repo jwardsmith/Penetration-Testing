@@ -476,3 +476,9 @@ https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
 ```
 https://github.com/amriunix/CVE-2007-2447
 ```
+
+- PHP 8.1.0-dev Backdoor Remote Code Execution
+
+```
+https://github.com/flast101/php-8.1.0-dev-backdoor-rce
+```

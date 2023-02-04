@@ -7,8 +7,9 @@ Overview
 3. - [Lateral Movement](#3---lateral-movement)
 4. - [Privilege Escalation](#4---privilege-escalation)
 5. - [Brute Force](#5---brute-force)
-6. - [Online Resources](#6---online-resources)
-7. - [Browser Plugins](#7---browser-plugins)
+6. - [Restricted Shell Escapes](#6---restricted-shell-escapes)
+7. - [Online Resources](#7---online-resources)
+8. - [Browser Plugins](#8---browser-plugins)
      
 #1. - Enumeration
 -----------------------------------------
@@ -274,7 +275,10 @@ $ zip2john <ZIP file> > hashes.txt
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
-#6. - Online Resources
+#6. - Restricted Shell Escapes
+-----------------------------------------
+
+#7. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -289,7 +293,7 @@ https://www.speedguide.net/port.php?port=3389
 https://crackstation.net/
 ```
 
-#7. - Browser Plugins
+#8. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser

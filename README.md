@@ -376,4 +376,5 @@ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 https://github.com/worawit/MS17-010/blob/master/zzz_exploit.py
 $ ./zzz_exploit.py <IP address> ntsvcs
 https://github.com/helviojunior/MS17-010/blob/master/send_and_execute.py
+https://github.com/3ndG4me/AutoBlue-MS17-010
 ```

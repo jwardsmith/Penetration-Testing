@@ -226,7 +226,7 @@ C:\> .\winPEASx64.exe
 - LinPEAS
 
 ```
-$ .\linpeas.sh
+$ ./linpeas.sh
 ```
 
 #5. - Brute Force

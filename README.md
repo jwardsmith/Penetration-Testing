@@ -267,13 +267,19 @@ https://github.com/Anon-Exploiter/SUID3NUM
 - WinPEAS
 
 ```
-C:\> .\winPEASx64.exe
+https://github.com/carlospolop/PEASS-ng
 ```
 
 - LinPEAS
 
 ```
-$ ./linpeas.sh
+https://github.com/carlospolop/PEASS-ng
+```
+
+- LinEnum
+
+```
+https://github.com/rebootuser/LinEnum
 ```
 
 - Capabilities

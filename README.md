@@ -293,6 +293,7 @@ $ python psexec.py <username>@<IP address>
 
 ```
 $ sudo -l
+$ sudo -u <user> /bin/bash
 ```
 
 - SUID

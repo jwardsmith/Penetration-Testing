@@ -241,6 +241,12 @@ $ python psexec.py <username>@<IP address>
 #4. - Privilege Escalation
 -----------------------------------------
 
+- Sudo
+
+```
+$ sudo -l
+```
+
 - WinPEAS
 
 ```

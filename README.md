@@ -64,6 +64,7 @@ $ gobuster vhost -w <wordlist> -u <URL>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -I <URL>
 $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
+$ feroxbuster -u <URL>
 ```
 
 - SMB (port 445)

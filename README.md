@@ -35,6 +35,12 @@ ftp> get <file>
 ftp> put <file>
 ```
 
+- SSH (port 22)
+
+```
+$ ssh <user>@<IP address>
+```
+
 - Telnet (port 23)
 
 ```
@@ -161,6 +167,14 @@ http://<domain name>/<page>?page=//<IP address>/somefile
 ${7*7}
 ```
 
+- Insecure Direct Object Reference (IDOR)
+
+```
+http://<IP address>/data/0
+http://<IP address>/data/1
+http://<IP address>/data/2
+```
+
 - Webshell
 
 ```
@@ -237,6 +251,12 @@ C:\> .\winPEASx64.exe
 
 ```
 $ ./linpeas.sh
+```
+
+- Capabilities
+
+```
+CAP_SETUID
 ```
 
 #5. - Brute Force

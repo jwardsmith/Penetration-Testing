@@ -354,6 +354,18 @@ C:\> sc.exe start <service>
 C:\> whoami /priv
 ```
 
+- Windows Exploit Suggester
+
+```
+https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+(On Kali) $ ./windows-exploit-suggester.py --update
+$ install python-xlrd
+$ pip install xlrd --upgrade
+
+feed it "systeminfo" input, and point it to the microsoft database
+$ ./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo win7sp1-systeminfo.txt 
+```
+
 #5. - Brute Force
 -----------------------------------------
 

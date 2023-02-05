@@ -89,6 +89,7 @@ msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
+$ enum4linux -a <IP address>
 ```
 
 - CUPS (port 631)
@@ -142,6 +143,12 @@ $ psql -h <IP address> -U <username> -p <password>
 <username>=# \c secrets
 <username>=# \dt
 <username>=# SELECT * FROM <table>;
+```
+
+- WinRM (port 5985)
+
+```
+$ evil-winrm -i <IP address> -u <username> -p <password>
 ```
 
 - Redis (port 6379)
@@ -233,12 +240,6 @@ use exploit/windows/http/prtg_authenticated_rce
 
 #3. - Lateral Movement
 -----------------------------------------
-
-- Evil-winrm
-
-```
-$ evil-winrm -i <IP address> -u <username> -p <password>
-```
 
 - Local Port Forwarding
 

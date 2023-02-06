@@ -66,6 +66,7 @@ $ curl -I <URL>
 $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
 $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
+$ nikto -h <IP address>
 ```
 
 - SNMP (udp/port 161)
@@ -364,6 +365,12 @@ $ pip install xlrd --upgrade
 
 feed it "systeminfo" input, and point it to the microsoft database
 $ ./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo win7sp1-systeminfo.txt 
+```
+
+- Metasploit
+
+```
+msf> use post/multi/recon/local_exploit_suggester
 ```
 
 #5. - Brute Force

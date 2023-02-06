@@ -67,6 +67,10 @@ $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
 $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>
+$ curl -v -X OPTIONS <IP address>
+$ curl http://<IP address> --upload-file test.txt
+$ curl -X PUT http://<IP address>/test.txt -d @test.txt 
+$ davtest -url http://<IP address>
 ```
 
 - SNMP (udp/port 161)

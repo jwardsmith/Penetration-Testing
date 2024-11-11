@@ -17,6 +17,12 @@ Overview
 #1. - Enumeration
 -----------------------------------------
 
+- OSINT
+
+```
+https://searchcode.com/
+```
+
 - Nmap
 
 ```

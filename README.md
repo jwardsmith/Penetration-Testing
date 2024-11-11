@@ -17,6 +17,18 @@ Overview
    
 #1. - Passive Enumeration
 -----------------------------------------
+
+- Searchcode
+
+```
+https://searchcode.com/
+```
+
+- Shodan
+
+```
+https://www.shodan.io/
+```
      
 #2. - Active Enumeration
 -----------------------------------------

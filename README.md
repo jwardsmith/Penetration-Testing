@@ -645,5 +645,5 @@ https://packetstormsecurity.com/
 - NIST
 
 ```
-https://nvd.nist.gov/vuln/
+https://nvd.nist.gov/vuln/search?execution=e2s1
 ```

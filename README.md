@@ -14,6 +14,7 @@ Overview
 10. - [Online Resources](#10---online-resources)
 11. - [Browser Plugins](#11---browser-plugins)
 12. - [Exploits](#12---exploits)
+13. - [Exploit Research](#13---exploit-research)
    
 #1. - Passive Enumeration
 -----------------------------------------
@@ -612,4 +613,37 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 
 ```
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
+```
+
+#13. - Exploit Research
+-----------------------------------------
+
+- CVEdetails
+
+```
+https://www.cvedetails.com/
+```
+
+- Exploit DB
+
+```
+https://www.exploit-db.com/
+```
+
+- Vulners
+
+```
+https://vulners.com/
+```
+
+- Packet Storm Security
+
+```
+https://packetstormsecurity.com/
+```
+
+- NIST
+
+```
+https://nvd.nist.gov/vuln/
 ```

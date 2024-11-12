@@ -43,6 +43,12 @@ $ nmap --top-ports=100 <IP address>
 $ nmap <IP address> --script vuln
 ```
 
+- Netcat
+
+```
+$ netcat <IP address> <port>
+```
+
 - FTP (port 21)
 
 ```

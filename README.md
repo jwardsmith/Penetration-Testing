@@ -84,6 +84,8 @@ tftp> put <file>
 - HTTP/HTTPS (port 80/443)
 
 ```
+Right-Click -> View Page Source
+https://<URL>/robots.txt
 $ gobuster dir -w <wordlist> -u <URL>
 $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL>
@@ -96,6 +98,7 @@ $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>
 $ eyewitness -f <URL list.txt> --web
+$ whatweb <IP address>
 $ curl -v -X OPTIONS <IP address>
 $ curl http://<IP address> --upload-file test.txt
 $ curl -X PUT http://<IP address>/test.txt -d @test.txt

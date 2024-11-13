@@ -241,6 +241,12 @@ $ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")}
 #3. - Exploitation
 -----------------------------------------
 
+- Searchsploit
+
+```
+$ searchsploit <term>
+```
+
 - Local File Inclusion (LFI)
 
 ```

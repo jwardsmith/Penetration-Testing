@@ -41,12 +41,13 @@ $ nmap -sC -sV -p- -Pn -A <IP address>
 $ nmap -sC -sV -p- -Pn -A -sU <IP address>
 $ nmap --top-ports=100 <IP address>
 $ nmap <IP address> --script vuln
+$ nmap -sV <IP address> --script banner
 ```
 
 - Netcat
 
 ```
-$ netcat <IP address> <port>
+$ nc -nv <IP address> <port>
 ```
 
 - FTP (port 21)
@@ -54,8 +55,10 @@ $ netcat <IP address> <port>
 ```
 $ ftp <IP address> (anonymous:anonymous)
 ftp> dir
+ftp> cd <folder>
 ftp> get <file>
 ftp> put <file>
+ftp> exit
 ```
 
 - SSH (port 22)

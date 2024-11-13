@@ -111,6 +111,7 @@ dav:/ put cmdasp.txt cmdasp.aspx
 ```
 $ snmpwalk -v 2c -c <community string> <IP address>
 $ snmpwalk -v 2c -c <community string> <IP address> .1.3.6.1.4.1.11.2.3.9.1.1.13.0
+$ onesixtyone -c dict.txt <IP address>
 ```
 
 - SMB (port 445)

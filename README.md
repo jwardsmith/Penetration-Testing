@@ -657,6 +657,18 @@ https://www.exploit-db.com/
 https://vulners.com/
 ```
 
+- Rapid7
+
+```
+https://www.rapid7.com/db/
+```
+
+- Vulnerability Lab
+
+```
+https://www.vulnerability-lab.com/
+```
+
 - Packet Storm Security
 
 ```

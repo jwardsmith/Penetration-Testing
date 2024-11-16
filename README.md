@@ -532,6 +532,7 @@ $ stty raw -echo
 $ fg
 $ reset
 $ export TERM=xterm-256color
+$ stty rows 67 columns 318
 ```
 
 #9. - Shells

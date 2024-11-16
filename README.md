@@ -407,6 +407,12 @@ https://github.com/carlospolop/PEASS-ng
 https://github.com/rebootuser/LinEnum
 ```
 
+- Linuxprivchecker
+
+```
+https://github.com/sleventyeleven/linuxprivchecker
+```
+
 - Capabilities
 
 ```
@@ -421,6 +427,18 @@ CAP_SETUID
 >>> os.setuid(0)
 >>> os.system("/bin/bash")
 $ python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
+```
+
+- Seatbelt
+
+```
+https://github.com/GhostPack/Seatbelt
+```
+
+- JAWS
+
+```
+https://github.com/411Hall/JAWS
 ```
 
 - Weak Service

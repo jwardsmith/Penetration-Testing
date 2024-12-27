@@ -65,6 +65,7 @@ ftp> exit
 
 ```
 $ ssh <user>@<IP address>
+$ ssh <user>@<IP address> -p <port>
 ```
 
 - Telnet (port 23)

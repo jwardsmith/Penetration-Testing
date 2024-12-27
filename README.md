@@ -449,6 +449,14 @@ C:\> sc.exe stop <service>
 C:\> sc.exe start <service>
 ```
 
+- Cron Jobs
+
+```
+$ ls /etc/crontab
+$ ls /etc/cron.d
+$ ls /var/spool/cron/crontabs/root
+```
+
 - Whoami
 
 ```

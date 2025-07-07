@@ -44,6 +44,7 @@ $ nmap --top-ports=100 <IP address>
 $ nmap <IP address> --script vuln
 $ nmap -sV <IP address> --script banner
 $ nmap -sV <IP address> --packet-trace	--reason
+$ nmap <IP address> -oA scan
 ```
 
 - Netcat

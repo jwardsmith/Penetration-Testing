@@ -29,6 +29,14 @@ https://searchcode.com/
 
 ```
 https://www.shodan.io/
+$ for i in $(cat ip-addresses.txt);do shodan host $i;done	
+```
+
+- Certificate Search
+
+```
+https://crt.sh/
+$ curl -s https://crt.sh/\?q\=<Target Domain Name>\&output\=json | jq .
 ```
      
 #2. - Active Enumeration
@@ -66,6 +74,7 @@ ftp> cd <folder>
 ftp> get <file>
 ftp> put <file>
 ftp> exit
+$ openssl s_client -connect <IP address>:21 -starttls ftp	
 ```
 
 - SSH (port 22)

@@ -45,6 +45,7 @@ $ nmap <IP address> --script vuln
 $ nmap -sV <IP address> --script banner
 $ nmap -sV <IP address> --packet-trace	--reason
 $ nmap <IP address> -oA scan
+$ xsltproc target.xml -o target.html
 ```
 
 - Netcat

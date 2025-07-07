@@ -37,6 +37,7 @@ https://www.shodan.io/
 - Nmap
 
 ```
+$ nmap -sn <IP address>
 $ nmap -sC -sV -p- -Pn -A <IP address>
 $ nmap -sC -sV -p- -Pn -A -sU <IP address>
 $ nmap --top-ports=100 <IP address>

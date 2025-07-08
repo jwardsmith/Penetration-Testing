@@ -107,6 +107,7 @@ $ dig ns <domain.tld> @<nameserver>
 $ dig any <domain.tld> @<nameserver>
 $ dig axfr <domain.tld> @<nameserver>
 $ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f ~/subdomains.list <domain.tld>
+$ for i in $(cat subdomainlist.txt);do host $i | grep "has address" | grep <Target Domain Name> | cut -d" " -f4 >> ip-addresses.txt;done
 ```
 
 - TFTP (udp/port 69)

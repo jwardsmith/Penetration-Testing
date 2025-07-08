@@ -39,6 +39,25 @@ https://crt.sh/
 $ curl -s https://crt.sh/\?q\=<Target Domain Name>\&output\=json | jq .
 $ curl -s https://crt.sh/\?q\=<Target Domain Name>\&output\=json | jq . | grep name | cut -d":" -f2 | grep -v "CN=" | cut -d'"' -f2 | awk '{gsub(/\\n/,"\n");}1;' | sort -u
 ```
+
+- Google Dorks
+
+```
+intext:<company name> inurl:amazonaws.com
+intext:<company name> inurl:blob.core.windows.net
+```
+
+- Whois
+
+```
+https://domain.glass/
+```
+
+- Cloud Bucket Search
+
+```
+https://buckets.grayhatwarfare.com/
+```
      
 #2. - Active Enumeration
 -----------------------------------------

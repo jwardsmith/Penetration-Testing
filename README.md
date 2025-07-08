@@ -94,7 +94,8 @@ ftp> cd <folder>
 ftp> get <file>
 ftp> put <file>
 ftp> exit
-$ openssl s_client -connect <IP address>:21 -starttls ftp	
+$ openssl s_client -connect <IP address>:21 -starttls ftp
+$ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
 ```
 
 - SSH (port 22)

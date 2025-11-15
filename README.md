@@ -239,7 +239,7 @@ $ telnet <IP address> 143
 $ snmpwalk -v 2c -c <community string> <IP address>
 $ snmpwalk -v 2c -c public <IP address> 1.3.6.1.2.1.1.5.0
 $ snmpwalk -v 2c -c private <IP address> 1.3.6.1.2.1.1.5.0
-$ onesixtyone -c dict.txt <IP address>
+$ onesixtyone -c /opt/useful/seclists/Discovery/SNMP/snmp.txt <IP address>
 $ braa <community string>@<IP address>:.1.*
 ```
 

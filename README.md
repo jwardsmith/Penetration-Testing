@@ -104,6 +104,7 @@ $ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
 ```
 $ ssh <user>@<IP address>
 $ ssh <user>@<IP address> -p <port>
+$ chmod 600 id_rsa
 $ ssh -i id_rsa <user>@<IP address>
 $ ssh <user>@<IP address> -o PreferredAuthentications=password
 $ ssh-audit.py <IP address>

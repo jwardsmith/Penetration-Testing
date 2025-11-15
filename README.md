@@ -178,6 +178,7 @@ $ wmiexec.py <user>:"<password>"@<IP address> "<command>"
 - SMB (port 137/139/445)
 
 ```
+$ smbclient -N -L <IP address>
 $ smbclient -L <IP address>
 $ smbclient -L <IP address> -U <username>
 $ smbclient \\\\<IP address>\\c$

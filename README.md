@@ -65,6 +65,7 @@ https://buckets.grayhatwarfare.com/
 - Nmap
 
 ```
+$ sudo nmap --script-updatedb
 $ nmap -sn <IP address>
 $ nmap -sC -sV -p- -Pn -A <IP address>
 $ nmap -sC -sV -p- -Pn -A -sU <IP address>

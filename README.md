@@ -80,6 +80,26 @@ $ nmap <IP address> -oA scan
 $ xsltproc target.xml -o target.html
 ```
 
+- Nessus
+
+```
+$ dpkg -i Nessus-8.15.1-ubuntu910_amd64.deb
+$ sudo systemctl start nessusd.service
+https://localhost:8834
+https://raw.githubusercontent.com/eelsivart/nessus-report-downloader/master/nessus6-report-downloader.rb
+./nessus_downloader.rb
+```
+
+- OpenVAS
+
+```
+$ sudo apt-get install gvm && openvas
+$ gvm-setup
+$ gvm-start
+https://github.com/TheGroundZero/openvasreporting
+$ python3 -m openvasreporting -i report-2bf466b5-627d-4659-bea6-1758b43235b1.xml -f xlsx
+```
+
 - Netcat
 
 ```

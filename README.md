@@ -119,6 +119,7 @@ $ telnet <IP address>
 
 ```
 $ telnet <IP address> 25
+VRFY root
 ```
 
 - DNS (udp/port 53)

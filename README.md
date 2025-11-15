@@ -261,9 +261,10 @@ use multi/escalate/cups_root_file_read
 - Rsync (port 873)
 
 ```
-$ rsync --list-only <IP address>::
-$ rsync --list-only <IP address>::<share>
-$ rsync <IP address>::<share>/<filename> <filename>
+$ rsync -av --list-only rsync://<IP address>
+$ rsync -av --list-only rsync://<IP address>/<share>
+$ rsync rsync://<IP address>/<share>/<filename> <filename>
+$ rsync -av rsync:/<IP address>/<share>
 ```
 
 - IMAPS (port 993)

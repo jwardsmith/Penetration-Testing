@@ -125,6 +125,9 @@ $ telnet <IP address> 25
 
 ```
 $ dig ns <domain.tld> @<nameserver>
+$ dig mx <domain.tld> @<nameserver>
+$ dig txt <domain.tld> @<nameserver>
+$ dig soa <domain.tld> @<nameserver>
 $ dig any <domain.tld> @<nameserver>
 $ dig axfr <domain.tld> @<nameserver>
 $ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt <domain.tld>

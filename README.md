@@ -309,10 +309,12 @@ $ sudo useradd -u <UID> <user>
 
 ```
 $ mysql -h <IP address> -u root
-MariaDB [(none)]> SHOW databases;
-MariaDB [(none)]> USE <database name>;
-MariaDB [(none)]> SHOW tables;
-MariaDB [(none)]> SELECT * FROM <table name>;
+MySQL [(none)]> SELECT version();
+MySQL [(none)]> SHOW databases;
+MySQL [(none)]> USE <database name>;
+MySQL [(none)]> SHOW tables;
+MySQL [(none)]> SELECT * FROM <table name>;
+MySQL [(none)]> SELECT * from <table name> where <column> = "<string>";
 ```
 
 - RDP (port 3389)

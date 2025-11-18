@@ -925,6 +925,13 @@ C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
 C:\> scp /tmp/exploit.sh <user>@<IP address>:/tmp/exploit.sh
 ```
 
+- OpenSSL Encrypted Download (Kali -> Linux)
+
+```
+$ openssl enc -aes256 -iter 100000 -pbkdf2 -in /etc/passwd -out passwd.enc
+$ openssl enc -d -aes256 -iter 100000 -pbkdf2 -in passwd.enc -out passwd
+```
+
 - PowerShell DownloadFile (Kali -> Windows)
 
 ```
@@ -978,6 +985,14 @@ PS C:\> Test-NetConnection -ComputerName <computer_name> -Port 5985
 PS C:\> $Session = New-PSSession -ComputerName <computer_name>
 PS C:\> Copy-Item -Path C:\samplefile.txt -ToSession $Session -Destination C:\Users\Administrator\Desktop\
 PS C:\> Copy-Item -Path "C:\Users\Administrator\Desktop\DATABASE.txt" -Destination C:\ -FromSession $Session
+```
+
+- PowerShell Encrypted Download (Kali -> Windows)
+
+```
+# https://www.powershellgallery.com/packages/DRTools/4.0.2.3/Content/Functions%5CInvoke-AESEncryption.ps1
+PS C:\> Import-Module .\Invoke-AESEncryption.ps1
+PS C:\> Invoke-AESEncryption -Mode Encrypt -Key "<password>" -Path .\scan-results.txt
 ```
 
 - SMB Downloads (Kali -> Windows)

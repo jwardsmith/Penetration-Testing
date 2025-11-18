@@ -971,6 +971,15 @@ $ nc -nlvp 8000
 $ echo <base64> | base64 -d -w 0 > hosts
 ```
 
+- PowerShell Remoting (Windows -> Windows)
+
+```
+PS C:\> Test-NetConnection -ComputerName <computer_name> -Port 5985
+PS C:\> $Session = New-PSSession -ComputerName <computer_name>
+PS C:\> Copy-Item -Path C:\samplefile.txt -ToSession $Session -Destination C:\Users\Administrator\Desktop\
+PS C:\> Copy-Item -Path "C:\Users\Administrator\Desktop\DATABASE.txt" -Destination C:\ -FromSession $Session
+```
+
 - SMB Downloads (Kali -> Windows)
 
 ```

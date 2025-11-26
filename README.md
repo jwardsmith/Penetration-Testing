@@ -446,6 +446,7 @@ $ searchsploit <term>
 - Metasploit
 
 ```
+$ sudo msfdb init
 $ msfconsole
 msf6 > show exploits
 msf6 > show payloads

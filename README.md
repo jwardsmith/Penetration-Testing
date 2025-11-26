@@ -448,6 +448,8 @@ $ searchsploit <term>
 ```
 $ sudo msfdb init
 $ msfconsole
+msf6 > loadpath /usr/share/metasploit-framework/modules/
+msf6 > reload_all
 msf6 > show exploits
 msf6 > show payloads
 msf6 > search exploit eternalblue

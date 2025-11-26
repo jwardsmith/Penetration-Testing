@@ -761,6 +761,18 @@ msf> use post/multi/recon/local_exploit_suggester
 #6. - Brute Force
 -----------------------------------------
 
+- Cewl
+
+```
+$ cewl https://www.example.com -d 4 -m 6 --lowercase -w example.wordlist
+```
+
+- Username-Anarchy
+
+```
+$ ./username-anarchy -i listoffirstandlastnames.txt
+```
+
 - HashID
 
 ```
@@ -789,6 +801,7 @@ $ zip2john <ZIP file> > hashes.txt
 - Hashcat
 
 ```
+$ hashcat --force password.list -r custom.rule --stdout > mut_password.list
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 ```
 

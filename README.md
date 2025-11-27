@@ -803,6 +803,7 @@ $ ./Pcredz -f demo.pcapng -t -v
 ```
 $ hashid <hash>
 $ hashid -j <hash>
+$ hashid -m <hash>
 ```
 
 - Sample Hashes
@@ -810,6 +811,7 @@ $ hashid -j <hash>
 ```
 https://openwall.info/wiki/john/sample-hashes
 https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats
+https://hashcat.net/wiki/doku.php?id=example_hashes
 ```
 
 - Md5sum

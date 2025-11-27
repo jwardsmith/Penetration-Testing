@@ -851,6 +851,13 @@ $ hydra -L <usernames.txt> -P <passwords.txt> ssh://<IP address>
 $ hydra -C <user_pass.txt> ssh://<IP address>
 ```
 
+- FileInfo Formats
+
+```
+https://fileinfo.com/filetypes/encoded
+https://fileinfo.com/filetypes/compressed
+```
+
 - Zip2john
 
 ```

@@ -896,6 +896,8 @@ $ john --show pdf.hash
 
 ```
 $ bitlocker2john -i Backup.vhd > backup.hashes
+$ grep "bitlocker\$0" backup.hashes > backup.hash
+$ hashcat -a 0 -m 22100 '<hash>' <wordlist>
 ```
 
 - Hashcat

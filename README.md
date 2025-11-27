@@ -856,6 +856,7 @@ $ hydra -C <user_pass.txt> ssh://<IP address>
 ```
 https://fileinfo.com/filetypes/encoded
 https://fileinfo.com/filetypes/compressed
+$ curl -s https://fileinfo.com/filetypes/compressed | html2text | awk '{print tolower($1)}' | grep "\." | tee -a compressed_ext.txt
 ```
 
 - Zip2john

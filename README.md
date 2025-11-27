@@ -802,6 +802,7 @@ $ ./Pcredz -f demo.pcapng -t -v
 
 ```
 $ hashid <hash>
+$ hashid -j <hash>
 ```
 
 - Sample Hashes

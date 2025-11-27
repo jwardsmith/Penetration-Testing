@@ -898,6 +898,18 @@ $ john --show pdf.hash
 $ bitlocker2john -i Backup.vhd > backup.hashes
 $ grep "bitlocker\$0" backup.hashes > backup.hash
 $ hashcat -a 0 -m 22100 '<hash>' <wordlist>
+
+# How to mount on Linux
+$ sudo apt-get install dislocker
+$ sudo mkdir -p /media/bitlocker
+$ sudo mkdir -p /media/bitlockermount
+$ sudo losetup -f -P Backup.vhd
+$ sudo dislocker /dev/loop0p2 -u1234qwer -- /media/bitlocker
+$ sudo mount -o loop /media/bitlocker/dislocker-file /media/bitlockermount
+$ cd /media/bitlockermount/
+$ ls -la
+$ sudo umount /media/bitlockermount
+$ sudo umount /media/bitlocker
 ```
 
 - Hashcat

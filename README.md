@@ -808,6 +808,7 @@ $ hashid <hash>
 
 ```
 https://openwall.info/wiki/john/sample-hashes
+https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats
 ```
 
 - Md5sum

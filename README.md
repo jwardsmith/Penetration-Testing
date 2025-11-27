@@ -804,6 +804,12 @@ $ ./Pcredz -f demo.pcapng -t -v
 $ hashid <hash>
 ```
 
+- Sample Hashes
+
+```
+https://openwall.info/wiki/john/sample-hashes
+```
+
 - Md5sum
 
 ```

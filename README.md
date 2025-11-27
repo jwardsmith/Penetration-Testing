@@ -861,6 +861,7 @@ $ zip2john <ZIP file> > hashes.txt
 
 ```
 $ python3 ssh2john.py <SSH-private-keys.txt> > ssh.hash
+$ john --wordlist=<wordlist> ssh.hash
 $ john --show ssh.hash
 ```
 
@@ -868,14 +869,16 @@ $ john --show ssh.hash
 
 ```
 $ office2john.py Protected.docx > protected-docx.hash
-$john --wordlist=<wordlist> protected-docx.hash
+$ john --wordlist=<wordlist> protected-docx.hash
+$ john --show protected-docx.hash
 ```
 
 - Pdf2john
 
 ```
 $ pdf2john.pl PDF.pdf > pdf.hash
-$ john --wordlist=<wordlist> pdf.hash	
+$ john --wordlist=<wordlist> pdf.hash
+$ john --show pdf.hash
 ```
 
 - Bitlocker2john
@@ -988,6 +991,7 @@ $ for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*"
 $ grep -rnw "PRIVATE KEY" /* 2>/dev/null | grep ":1"
 $ grep -rnw "PRIVATE KEY" /home/* 2>/dev/null | grep ":1"
 $ grep -rnw "ssh-rsa" /home/* 2>/dev/null | grep ":1"
+$ grep -rnE '^\-{5}BEGIN [A-Z0-9]+ PRIVATE KEY\-{5}$' /* 2>/dev/null
 ```
 
 - Cron

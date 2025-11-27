@@ -849,6 +849,7 @@ $ john --show hash.txt
 $ hydra -l '<username>' -p '<password>' <IP address> ssh
 $ hydra -L <usernames.txt> -P <passwords.txt> ssh://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> rdp://<IP address>
+$ hydra -L <usernames.txt> -P <passwords.txt> smb://<IP address>
 $ hydra -C <user_pass.txt> ssh://<IP address>
 ```
 

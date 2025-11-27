@@ -828,7 +828,9 @@ $ echo -n <password> | sha256sum
 $ unshadow passwd.txt shadow.txt > unshadowed.txt
 $ john --single hash.txt
 $ john -w=/usr/share/wordlists/rockyou.txt hash.txt
-$ john --show hashes.txt
+$ john --single hash.txt
+$ john --incremental hash.txt
+$ john --show hash.txt
 ```
 
 - Hydra

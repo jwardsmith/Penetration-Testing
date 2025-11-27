@@ -847,6 +847,7 @@ $ john --show hash.txt
 - Hydra
 
 ```
+# Upgrade hydra if any errors
 $ hydra -l '<username>' -p '<password>' <IP address> ssh
 $ hydra -L <usernames.txt> -P <passwords.txt> ssh://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> rdp://<IP address>

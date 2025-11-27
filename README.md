@@ -890,6 +890,7 @@ $ bitlocker2john -i Backup.vhd > backup.hashes
 $ hashcat --force password.list -r custom.rule --stdout > mut_password.list
 $ hashcat -a 0 -m 0 hashes.txt <wordlist>
 $ hashcat -a 0 -m 0 <md5-hash> <wordlist>
+$ hashcat -a 0 -m 0 <md5-hash> <wordlist> -r /usr/share/hashcat/rules/best64.rule
 $ hashcat -m 1000 ntlm-hashes.txt <wordlist>
 $ hashcat -m 1000 <ntlm-hash> <wordlist> --show
 $ hashcat -m 1800 -a 0 unshadowed.txt <wordlist> -o /tmp/unshadowed.cracked

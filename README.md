@@ -958,7 +958,7 @@ https://www.softwaretestinghelp.com/default-router-username-and-password-list/
 #7. - Password Dumping
 -----------------------------------------
 
-- Places to Hunt
+- Windows Places to Hunt
 
 ```
 Passwords in Group Policy in the SYSVOL share
@@ -970,6 +970,17 @@ Passwords in the AD user or computer description fields
 KeePass databases (if we are able to guess or crack the master password)
 Found on user systems and shares
 Files with names like pass.txt, passwords.docx, passwords.xlsx found on user systems, shares, and Sharepoint
+```
+
+- Linux Places to Hunt
+
+```
+Configuration files
+Databases
+Notes
+Scripts
+Cronjobs
+SSH keys
 ```
 
 - Findstr
@@ -1065,6 +1076,11 @@ $ grep -rnE '^\-{5}BEGIN [A-Z0-9]+ PRIVATE KEY\-{5}$' /* 2>/dev/null
 ```
 $ cat /etc/crontab
 $ ls -la /etc/cron.*/
+$ cat /etc/cron.daily
+$ cat /etc/cron.hourly
+$ cat /etc/cron.monthly
+$ cat /etc/cron.weekly
+$ cat /etc/cron.d
 ```
 
 - Mimipenguin

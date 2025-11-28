@@ -767,6 +767,20 @@ $ find / -name *keytab* -ls 2>/dev/null
 $ crontab -l
 ```
 
+- List Linux KeyTab File Information
+
+```
+$ klist -k -t /opt/specialfiles/carlos.keytab 
+```
+
+- Impersonate a User With Linux KeyTab File
+
+```
+# kinit is case-sensitive, so be sure to use the name of the principal as shown in klist. In this case, the username is lowercase, and the domain name is uppercase
+# To keep the ticket from the current session, before importing the keytab, save a copy of the ccache file present in the environment variable KRB5CCNAME
+$ kinit carlos@<Domain> -k -t /opt/specialfiles/carlos.keytab
+```
+
 - Find Kerberos Ccache Files
 
 ```

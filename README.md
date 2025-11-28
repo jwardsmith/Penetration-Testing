@@ -747,6 +747,33 @@ C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /ptt
 C:\> Rubeus.exe createnetonly /program:"C:\Windows\System32\cmd.exe" /show
 ```
 
+- Check if Linux is domain-joined
+
+```
+$ realm list
+$ ps -ef | grep -i "winbind\|sssd"
+```
+
+- Find Linux KeyTab Files
+
+```
+# To use a keytab file, we must have read and write (rw) privileges on the file
+$ find / -name *keytab* -ls 2>/dev/null
+```
+
+- Find Linux KeyTab Files in Cronjobs
+
+```
+$ crontab -l
+```
+
+- Find Kerberos Ccache Files
+
+```
+# Check KRB5CCNAME environment variable
+$ env | grep -i krb5
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

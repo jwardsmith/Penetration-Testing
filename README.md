@@ -385,6 +385,7 @@ MySQL [(none)]> SELECT * from <table name> where <column> = "<string>";
 ```
 $ xfreerdp /v:<IP address>
 $ xfreerdp /v:<IP address> /u:Administrator
+$ xfreerdp /v:<IP address> /u:Administrator /d:<Domain>
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
 $ rdp-sec-check.pl <IP address>
 ```

@@ -981,6 +981,25 @@ Notes
 Scripts
 Cronjobs
 SSH keys
+History Files
+Application logs
+Event logs
+Service logs
+System logs
+/var/log/messages	Generic system activity logs.
+/var/log/syslog	Generic system activity logs.
+/var/log/auth.log	(Debian) All authentication related logs.
+/var/log/secure	(RedHat/CentOS) All authentication related logs.
+/var/log/boot.log	Booting information.
+/var/log/dmesg	Hardware and drivers related information and logs.
+/var/log/kern.log	Kernel related warnings, errors and logs.
+/var/log/faillog	Failed login attempts.
+/var/log/cron	Information related to cron jobs.
+/var/log/mail.log	All mail server related logs.
+/var/log/httpd	All Apache related logs.
+/var/log/mysqld.log	All MySQL server related logs.
+Memory and cache
+Keyrings e.g. browser stored credentials
 ```
 
 - Findstr
@@ -1060,6 +1079,7 @@ $ for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; f
 $ find /home/* -type f -name "*.txt" -o ! -name "*.*"
 $ for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc|lib|headers|share";done
 $ for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib|fonts|share|core" ;done
+$ for i in $(ls /var/log/* 2>/dev/null);do GREP=$(grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2>/dev/null); if [[ $GREP ]];then echo -e "\n#### Log file: " $i; grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2>/dev/null;fi;done
 ```
 
 - Grep
@@ -1146,6 +1166,24 @@ mimikatz # dpapi::chrome /in:"C:\Users\bob\AppData\Local\Google\Chrome\User Data
 
 ```
 $ sudo cat /etc/security/opasswd
+```
+
+- Bash History
+
+```
+$ cat .bash_history
+```
+
+- Bashrc
+
+```
+$ cat .bashrc
+```
+
+- Bash Profile
+
+```
+$ cat .bash_profile
 ```
 
 #8. - File Transfers

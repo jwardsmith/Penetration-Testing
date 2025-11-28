@@ -938,6 +938,15 @@ $ file GZIP.gzip
 $ for i in $(cat rockyou.txt);do openssl enc -aes-256-cbc -d -in GZIP.gzip -k $i 2>/dev/null | tar xz;done
 ```
 
+- Default Credentials
+
+```
+https://github.com/ihebski/DefaultCreds-cheat-sheet
+$ pip3 install defaultcreds-cheat-sheet
+$ creds search linksys
+https://www.softwaretestinghelp.com/default-router-username-and-password-list/
+```
+
 #7. - Password Dumping
 -----------------------------------------
 

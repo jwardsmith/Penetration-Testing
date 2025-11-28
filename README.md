@@ -383,8 +383,8 @@ MySQL [(none)]> SELECT * from <table name> where <column> = "<string>";
 
 ```
 $ xfreerdp /v:<IP address>
-$ xfreerdp /v:<IP address> /u:Administrator /p:<password>
-$ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:<password>
+$ xfreerdp /v:<IP address> /u:Administrator
+$ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
 $ rdp-sec-check.pl <IP address>
 ```
 

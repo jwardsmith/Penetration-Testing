@@ -783,6 +783,12 @@ $ cewl https://www.example.com -d 4 -m 6 --lowercase -w example.wordlist
 $ ./username-anarchy -i listoffirstandlastnames.txt
 ```
 
+- Kerbrute Username Enumeration
+
+```
+$ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> names.txt
+```
+
 - Netexec
 
 ```

@@ -1086,6 +1086,7 @@ mimikatz # kerberos::list
 mimikatz # kerberos::list /export
 mimikatz # kerberos::purge
 mimikatz # sekurlsa::credman
+mimikatz # vault::cred
 ```
 
 - DPAPI

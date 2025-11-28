@@ -970,6 +970,10 @@ Passwords in the AD user or computer description fields
 KeePass databases (if we are able to guess or crack the master password)
 Found on user systems and shares
 Files with names like pass.txt, passwords.docx, passwords.xlsx found on user systems, shares, and Sharepoint
+Keywords within files such as passw, user, token, key, and secret
+Files with extensions commonly associated with stored credentials, such as .ini, .cfg, .env, .xlsx, .ps1, and .bat
+Files with "interesting" names that include terms like config, user, passw, cred, or initial
+Search for files containing the string <Domain>\
 ```
 
 - Linux Places to Hunt
@@ -1006,6 +1010,12 @@ Keyrings e.g. browser stored credentials
 
 ```
 C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml	
+```
+
+- Get-ChildItem
+
+```
+PS C:\> Get-ChildItem -Recurse -Include *.ext \\Server\Share | Select-String -Pattern "pass"
 ```
 
 - Rundll32

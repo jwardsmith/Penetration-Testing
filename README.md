@@ -1065,6 +1065,7 @@ $ bash mimipenguin.sh
 ```
 $ python2.7 lazagne.py all
 $ python3 lazagne.py browsers
+C:\> start LaZagne.exe all
 ```
 
 - Firefox Credentials

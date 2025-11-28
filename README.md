@@ -1259,6 +1259,7 @@ mimikatz # kerberos::purge
 mimikatz # sekurlsa::credman
 mimikatz # vault::cred
 mimikatz # sekurlsa::ekeys
+mimikatz # misc::cmd
 ```
 
 - DPAPI

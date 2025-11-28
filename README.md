@@ -781,6 +781,13 @@ $ klist -k -t /opt/specialfiles/carlos.keytab
 $ kinit carlos@<Domain> -k -t /opt/specialfiles/carlos.keytab
 ```
 
+- Extract Linux KeyTab Hashes
+
+```
+https://github.com/sosdave/KeyTabExtract
+$ python3 /opt/keytabextract.py /opt/specialfiles/carlos.keytab
+```
+
 - Find Kerberos Ccache Files
 
 ```
@@ -1000,6 +1007,12 @@ $ echo -n <password> | sha1sum
 
 ```
 $ echo -n <password> | sha256sum
+```
+
+- CrackStation
+
+```
+https://crackstation.net/
 ```
 
 - John The Ripper

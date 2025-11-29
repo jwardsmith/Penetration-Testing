@@ -847,6 +847,13 @@ https://github.com/fortra/impacket/blob/master/examples/ticketConverter.py
 $ impacket-ticketConverter <ticket.kirbi> krb5cc_647401106_I8I133
 ```
 
+- Linkatz
+
+```
+https://github.com/CiscoCXSecurity/linikatz
+$ ./linikatz.sh
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

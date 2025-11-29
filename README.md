@@ -1041,6 +1041,7 @@ $ cewl https://www.example.com -d 4 -m 6 --lowercase -w example.wordlist
 - Username-Anarchy
 
 ```
+https://github.com/urbanadventurer/username-anarchy
 $ ./username-anarchy -i listoffirstandlastnames.txt
 ```
 

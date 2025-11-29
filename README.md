@@ -596,7 +596,7 @@ Edit [ProxyList] e.g. 127.0.0.1 9050
 $ proxychains <command>
 ```
 
-- Proxychains with Kerbereos
+- Proxychains with Kerberos
 
 ```
 Edit /etc/proxychains4.conf
@@ -643,6 +643,24 @@ C:\> runas /savecred /user:<username> cmd
 
 ```
 PS C:\> Enter-PSSession -ComputerName <computer>
+```
+
+- Evil-WinRM
+
+```
+$ evil-winrm -i <IP address> -u <username> -p <password>
+$ evil-winrm -i <IP address> -u <username> -H <passwordhash>
+```
+
+- Evil-WinRM with Kerberos
+
+```
+# While installing, we'll get a prompt for the Kerberos realm. Use the domain name, and the KDC
+$ sudo apt-get install krb5-user -y
+OR
+# Edit this file if already installed
+$ cat /etc/krb5.conf
+$ proxychains evil-winrm -i <FQDN> -r <Domain>
 ```
 
 - Mimikatz Pass-The-Hash (PTH)
@@ -813,6 +831,20 @@ $ ls -la /tmp
 # cp /tmp/krb5cc_647401106_I8I133 .
 # export KRB5CCNAME=/root/krb5cc_647401106_I8I133
 # klist
+```
+
+- Convert Linux Ccache File to a Windows .kirbi File
+
+```
+https://github.com/fortra/impacket/blob/master/examples/ticketConverter.py
+$ impacket-ticketConverter krb5cc_647401106_I8I133 <ticket.kirbi>
+```
+
+- Convert Windows .kirbi File to a Linux Ccache File
+
+```
+https://github.com/fortra/impacket/blob/master/examples/ticketConverter.py
+$ impacket-ticketConverter <ticket.kirbi> krb5cc_647401106_I8I133
 ```
 
 #5. - Privilege Escalation

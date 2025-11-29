@@ -595,6 +595,8 @@ $ ssh -D 1234 <username>@<remote IP address>
 Edit /etc/proxychains4.conf
 Edit [ProxyList] e.g. 127.0.0.1 9050
 $ proxychains <command>
+# Note that the -sT option is required when using Nmap with ProxyChains
+$ sudo proxychains -q nmap -sT -Pn 172.16.119.13 --open
 ```
 
 - Proxychains with Kerberos

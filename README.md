@@ -1195,6 +1195,14 @@ $ sudo umount /media/bitlockermount
 $ sudo umount /media/bitlocker
 ```
 
+- Pwsafe2john
+
+```
+$ pwsafe2john PWSAFE.psafe3 > pwsafe.hash
+$ john --wordlist=<wordlist> pwsafe.hash
+$ john --show pwsafe.hash
+```
+
 - Hashcat
 
 ```

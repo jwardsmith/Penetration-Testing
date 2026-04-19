@@ -254,7 +254,8 @@ $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
-$ crackmapexec winrm <IP address> -u <username> -p '<password>'
+$ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec-method smbexec
+$ impacket-psexec <username>:'<password>'@<IP address>
 ```
 
 - IMAP (port 143)

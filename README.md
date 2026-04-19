@@ -411,6 +411,7 @@ $ psql -h <IP address> -U <username> -p <password>
 ```
 $ evil-winrm -i <IP address> -u <username> -p <password>
 $ evil-winrm -i <IP address> -u <username> -H <passwordhash>
+$ crackmapexec winrm <IP address> -u <usernames.txt> -p '<password>'
 ```
 
 - X11 (port 6000)

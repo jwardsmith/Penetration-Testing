@@ -339,6 +339,8 @@ $ openssl s_client -connect <IP address>:imaps
 
 ```
 $ openssl s_client -connect <IP address>:pop3s
+$ sudo apt-get install evolution        # https://www.youtube.com/watch?v=xelO2CiaSVs
+$ export WEBKIT_FORCE_SANDBOX=0 && evolution
 ```
 
 - MSSQL (port 1433)

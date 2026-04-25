@@ -119,6 +119,10 @@ ftp> put <file>
 ftp> exit
 $ openssl s_client -connect <IP address>:21 -starttls ftp
 $ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
+https://lftp.yar.ru/
+https://www.ncftp.com/
+https://filezilla-project.org/
+https://www.crossftp.com/
 ```
 
 - SSH (port 22)
@@ -145,6 +149,14 @@ $ telnet <IP address>
 $ telnet <IP address> 25
 VRFY root
 $ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
+https://www.thunderbird.net/en-US/
+https://www.claws-mail.org/
+https://wiki.gnome.org/Apps/Geary
+https://www.getmailspring.com/
+https://www.mutt.org/
+https://mailutils.org/
+https://github.com/mogaal/sendemail
+https://www.jetmore.org/john/code/swaks/
 ```
 
 - DNS (udp/port 53)
@@ -368,6 +380,7 @@ SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
 https://learn.microsoft.com/en-us/ssms/install/install
 sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=gU6iQP5rFMw
+https://github.com/dbcli/mssql-cli
 ```
 
 - Oracle TNS (port 1521)
@@ -428,6 +441,7 @@ MySQL [(none)]> show variables like "secure_file_priv";
 MySQL [(none)]> select LOAD_FILE("/etc/passwd");
 https://dev.mysql.com/downloads/workbench/
 sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=PeuWmz8S6G8
+https://github.com/dbcli/mycli
 ```
 
 - RDP (port 3389)

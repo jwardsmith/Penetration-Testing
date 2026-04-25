@@ -119,6 +119,7 @@ ftp> put <file>
 ftp> exit
 $ openssl s_client -connect <IP address>:21 -starttls ftp
 $ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
+$ nmap -Pn -v -n -p80 -b anonymous:password@<IP address> <IP address for bounce attack>        # https://www.geeksforgeeks.org/what-is-ftp-bounce-attack/
 https://lftp.yar.ru/
 https://www.ncftp.com/
 https://filezilla-project.org/
@@ -1212,6 +1213,12 @@ $ hydra -L <usernames.txt> -P <passwords.txt> ftp://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> rdp://<IP address>
 $ hydra -L <usernames.txt> -P <passwords.txt> smb://<IP address>
 $ hydra -C <user_pass.txt> ssh://<IP address>
+```
+
+- Medusa
+
+```
+medusa -u <username> -P <passwords.txt> -h <IP address> -M <protocol> 
 ```
 
 - FileInfo Formats

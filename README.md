@@ -1355,11 +1355,23 @@ C:\> dir n:\*secret* /s /b
 C:\> dir n:\*key* /s /b
 ```
 
+- Find
+
+```
+$ find <directory> -name *cred*
+```
+
 - Findstr
 
 ```
 C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
 C:\> findstr /s /i cred n:\*.*
+```
+
+- Grep
+
+```
+$ grep -rn <directory> -ie cred
 ```
 
 - Get-ChildItem

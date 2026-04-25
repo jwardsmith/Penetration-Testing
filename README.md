@@ -369,6 +369,7 @@ C:\> sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30    
 C:\> sqlcmd -S <IP address> -U <username> -P '<password>' -y 30 -Y 30        # if we use sqlcmd, we will need to use GO after our query to execute the SQL syntax
 $ sqsh -S <IP address> -U <username> -P '<password>' -h
 $ sqsh -S <IP address> -U .\\<username> -P '<password>' -h
+$ mssql-cli -S <sIP address> -U <username> -P <password>
 SQL> SELECT name FROM master.dbo.sysdatabases
 SQL> SELECT name from sys.databases
 SQL> SELECT * FROM <database name>.INFORMATION_SCHEMA.TABLES
@@ -393,7 +394,6 @@ SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
 https://learn.microsoft.com/en-us/ssms/install/install
 sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=gU6iQP5rFMw
-https://github.com/dbcli/mssql-cli
 ```
 
 - Oracle TNS (port 1521)

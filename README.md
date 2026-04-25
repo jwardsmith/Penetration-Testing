@@ -365,8 +365,8 @@ $ export WEBKIT_FORCE_SANDBOX=0 && evolution
 
 ```
 $ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
-C:\> sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30
-C:\> sqlcmd -S <IP address> -U <username> -P '<password>' -y 30 -Y 30
+C:\> sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30        # if we use sqlcmd, we will need to use GO after our query to execute the SQL syntax
+C:\> sqlcmd -S <IP address> -U <username> -P '<password>' -y 30 -Y 30        # if we use sqlcmd, we will need to use GO after our query to execute the SQL syntax
 $ sqsh -S <IP address> -U <username> -P '<password>' -h
 $ sqsh -S <IP address> -U .\\<username> -P '<password>' -h
 SQL> SELECT name FROM master.dbo.sysdatabases

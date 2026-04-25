@@ -274,6 +274,8 @@ PS C:\> New-PSDrive -Name "N" -Root "\\<IP address>\<share name>" -PSProvider "F
 PS C:\> New-PSDrive -Name "N" -Root "\\<IP address>\<share name>" -PSProvider "FileSystem" -Credential (New-Object System.Management.Automation.PSCredential("<username>",(ConvertTo-SecureString "<password>" -AsPlainText -Force)))
 C:\> dir n: /a-d /s /b | find /c ":\"
 PS:\> (Get-ChildItem -File -Recurse | Measure-Object).Count
+$ sudo mount -t cifs -o username=plaintext,password=<password>,domain=. //<IP address>/<share name> <target share name>
+$ mount -t cifs //<IP address>/<share name> <target share name> -o credentials=<credential file>        # credential file has to be structured per line: username=test password=test domain=.
 ```
 
 - IMAP (port 143)

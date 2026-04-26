@@ -369,7 +369,7 @@ C:\> sqlcmd -S SRVMSSQL\SQLEXPRESS -U <username> -P '<password>' -y 30 -Y 30    
 C:\> sqlcmd -S <IP address> -U <username> -P '<password>' -y 30 -Y 30        # if we use sqlcmd, we will need to use GO after our query to execute the SQL syntax
 $ sqsh -S <IP address> -U <username> -P '<password>' -h
 $ sqsh -S <IP address> -U .\\<username> -P '<password>' -h
-$ mssql-cli -S <sIP address> -U <username> -P <password>
+$ mssql-cli -S <IP address> -U <username> -P <password>
 SQL> SELECT name FROM master.dbo.sysdatabases
 SQL> SELECT name from sys.databases
 SQL> SELECT * FROM <database name>.INFORMATION_SCHEMA.TABLES

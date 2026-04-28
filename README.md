@@ -178,6 +178,14 @@ $ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f /
 $ for i in $(cat subdomainlist.txt);do host $i | grep "has address" | grep <Target Domain Name> | cut -d" " -f4 >> ip-addresses.txt;done
 $ subfinder -d <domain.tld> -v
 $ swaks --from <email address> --to <email address> --header 'Subject: Notification' --body 'Message' --server <IP address>
+$ fierce --domain <domain.tld>
+$ ./subfinder -d <domain.tld> -v
+https://dnsdumpster.com/
+$ python sublist3r.py -d <domain.tld>
+$ ./subbrute.py <domain.tld> -s ./names.txt -r ./resolvers.txt        # $ echo "<nameserver.tld>" > ./resolvers.txt
+https://github.com/EdOverflow/can-i-take-over-xyz
+https://www.ettercap-project.org/
+https://www.bettercap.org/
 ```
 
 - TFTP (udp/port 69)

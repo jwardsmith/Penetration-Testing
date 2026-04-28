@@ -149,6 +149,9 @@ $ telnet <IP address>
 ```
 $ telnet <IP address> 25
 VRFY root
+EXPN root
+EXPN all
+RCPT TO:root
 $ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
 $ host -t MX <domain.tld>
 $ dig mx <domain.tld> | grep "MX" | grep -v ";"

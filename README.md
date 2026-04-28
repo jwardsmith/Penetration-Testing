@@ -150,6 +150,9 @@ $ telnet <IP address>
 $ telnet <IP address> 25
 VRFY root
 $ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
+$ host -t MX <domain.tld>
+$ dig mx <domain.tld> | grep "MX" | grep -v ";"
+$ host -t A <domain.tld>
 https://www.thunderbird.net/en-US/
 https://www.claws-mail.org/
 https://wiki.gnome.org/Apps/Geary

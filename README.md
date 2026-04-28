@@ -156,6 +156,7 @@ $ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
 $ host -t MX <domain.tld>
 $ dig mx <domain.tld> | grep "MX" | grep -v ";"
 $ host -t A <domain.tld>
+$ swaks --from <email address> --to <email address> --header 'Subject: Notification' --body 'Message' --server <IP address>
 https://www.thunderbird.net/en-US/
 https://www.claws-mail.org/
 https://wiki.gnome.org/Apps/Geary
@@ -163,7 +164,6 @@ https://www.getmailspring.com/
 https://www.mutt.org/
 https://mailutils.org/
 https://github.com/mogaal/sendemail
-https://www.jetmore.org/john/code/swaks/
 https://mxtoolbox.com/
 ```
 
@@ -184,7 +184,6 @@ $ for sub in $(cat /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110
 $ dnsenum --dnsserver <nameserver> --enum -p 0 -s 0 -o found_subdomains.txt -f /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt <domain.tld>
 $ for i in $(cat subdomainlist.txt);do host $i | grep "has address" | grep <Target Domain Name> | cut -d" " -f4 >> ip-addresses.txt;done
 $ subfinder -d <domain.tld> -v
-$ swaks --from <email address> --to <email address> --header 'Subject: Notification' --body 'Message' --server <IP address>
 $ fierce --domain <domain.tld>
 $ ./subfinder -d <domain.tld> -v
 https://dnsdumpster.com/

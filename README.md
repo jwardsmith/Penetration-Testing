@@ -158,6 +158,7 @@ https://www.mutt.org/
 https://mailutils.org/
 https://github.com/mogaal/sendemail
 https://www.jetmore.org/john/code/swaks/
+https://mxtoolbox.com/
 ```
 
 - DNS (udp/port 53)

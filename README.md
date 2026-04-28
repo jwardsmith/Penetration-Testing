@@ -1159,6 +1159,13 @@ $ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> na
 python3 o365spray.py --validate --domain <domain.tld>
 python3 o365spray.py --enum -U usernames.txt --domain <domain.tld>
 python3 o365spray.py --spray -U usersnamesfound.txt -p '<password>' --count 1 --lockout 1 --domain <domain.tld>
+https://github.com/dafthack/MailSniper
+```
+
+- Gmail/Okta Password Spray
+
+```
+https://github.com/ustayready/CredKing
 ```
 
 - Netexec

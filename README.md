@@ -416,6 +416,12 @@ SQL> REVERT
 SQL> USE master; EXECUTE AS LOGIN = 'sa'; SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
 SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]
+SQL> SELECT * FROM OPENQUERY([LOCAL.TEST.LINKED.SRV], 'SELECT @@version');
+SQL> EXECUTE ('xp_cmdshell ''whoami''') AT [LOCAL.TEST.LINKED.SRV]
+SQL> EXECUTE ('sp_configure ''show advanced options'', 1') AT [LOCAL.TEST.LINKED.SRV]
+SQL> EXECUTE ('RECONFIGURE') AT [LOCAL.TEST.LINKED.SRV]
+SQL> EXECUTE ('sp_configure ''xp_cmdshell'',1') AT [LOCAL.TEST.LINKED.SRV]
+SQL> EXECUTE ('RECONFIGURE') AT [LOCAL.TEST.LINKED.SRV]
 https://learn.microsoft.com/en-us/ssms/install/install
 sudo dpkg -i dbeaver-<version>.deb && dbeaver &        # https://github.com/dbeaver/dbeaver, https://www.youtube.com/watch?v=gU6iQP5rFMw
 ```

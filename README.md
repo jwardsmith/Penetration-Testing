@@ -117,6 +117,7 @@ ftp> cd <folder>
 ftp> get <file>
 ftp> put <file>
 ftp> exit
+ftp> passive        # if ls is hanging
 $ openssl s_client -connect <IP address>:21 -starttls ftp
 $ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
 $ nmap -Pn -v -n -p80 -b anonymous:password@<IP address> <IP address for bounce attack>        # https://www.geeksforgeeks.org/what-is-ftp-bounce-attack/

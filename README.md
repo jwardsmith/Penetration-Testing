@@ -120,6 +120,7 @@ ftp> exit
 $ openssl s_client -connect <IP address>:21 -starttls ftp
 $ wget -m --no-passive ftp://anonymous:anonymous@<IP address>
 $ nmap -Pn -v -n -p80 -b anonymous:password@<IP address> <IP address for bounce attack>        # https://www.geeksforgeeks.org/what-is-ftp-bounce-attack/
+hydra -L <usernames.txt> -p '<password>' -f <IP address> ftp
 https://lftp.yar.ru/
 https://www.ncftp.com/
 https://filezilla-project.org/
@@ -136,6 +137,7 @@ $ chmod 600 id_rsa
 $ ssh -i id_rsa <user>@<IP address>
 $ ssh <user>@<IP address> -o PreferredAuthentications=password
 $ ssh-audit.py <IP address>
+hydra -L <usernames.txt> -p '<password>' -f <IP address> ssh
 ```
 
 - Telnet (port 23)
@@ -157,6 +159,7 @@ $ host -t MX <domain.tld>
 $ dig mx <domain.tld> | grep "MX" | grep -v ";"
 $ host -t A <domain.tld>
 $ swaks --from <email address> --to <email address> --header 'Subject: Notification' --body 'Message' --server <IP address>
+hydra -L <usernames.txt> -p '<password>' -f <IP address> smtp
 https://www.thunderbird.net/en-US/
 https://www.claws-mail.org/
 https://wiki.gnome.org/Apps/Geary
@@ -307,7 +310,7 @@ PS:\> (Get-ChildItem -File -Recurse | Measure-Object).Count
 $ sudo mount -t cifs -o username=plaintext,password=<password>,domain=. //<IP address>/<share name> <target share name>
 $ mount -t cifs //<IP address>/<share name> <target share name> -o credentials=<credential file>        # credential file has to be structured per line: username=test password=test domain=.
 $ sudo responder -I tun0
-
+hydra -L <usernames.txt> -p '<password>' -f <IP address> smb
 ```
 
 - IMAP (port 143)

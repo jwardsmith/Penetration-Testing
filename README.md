@@ -394,7 +394,7 @@ SQL> SELECT name FROM master.dbo.sysdatabases
 SQL> SELECT name from sys.databases
 SQL> SELECT * FROM <database name>.INFORMATION_SCHEMA.TABLES
 SQL> USE <database name>;
-SQL> SHOW tables;
+SQL> SELECT name FROM sys.tables
 SQL> SELECT * FROM <table name>;
 SQL> SELECT * from <table name> where <column> = "<string>";
 SQL> SELECT is_srvrolemember('sysadmin');

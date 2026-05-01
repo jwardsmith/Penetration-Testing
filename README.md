@@ -692,6 +692,20 @@ use exploit/windows/http/prtg_authenticated_rce
 #4. - Lateral Movement
 -----------------------------------------
 
+- Network Configuration
+
+```
+C:\> ipconfig
+$ ifconfig
+```
+
+- Routing Table
+
+```
+C:\> netstat -r
+$ netstat -r
+```
+
 - Local Port Forwarding
 
 ```

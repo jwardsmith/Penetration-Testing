@@ -706,10 +706,18 @@ C:\> netstat -r
 $ netstat -r
 ```
 
+- Network Connections
+
+```
+C:\> netstat -ano
+$ netstat -antp
+```
+
 - Local Port Forwarding
 
 ```
 $ ssh -L 1234:localhost:5432 <username>@<remote IP address>
+$ ssh -L 1234:localhost:3306 -L 8080:localhost:80 <username>@<remote IP address>
 ```
 
 - Dynamic Port Forwarding

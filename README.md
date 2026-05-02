@@ -64,6 +64,14 @@ https://buckets.grayhatwarfare.com/
 #2. - Active Enumeration
 -----------------------------------------
 
+- Ping
+
+```
+$ for i in {1..254} ;do (ping -c 1 172.16.5.$i | grep "bytes from" &) ;done
+C:\> for /L %i in (1 1 254) do ping 172.16.5.%i -n 1 -w 100 | find "Reply"
+PS C:\> 1..254 | % {"172.16.5.$($_): $(Test-Connection -count 1 -comp 172.15.5.$($_) -quiet)"}
+```
+
 - Nmap
 
 ```
@@ -729,14 +737,27 @@ $ ssh -R <InternalIPofPivotHost>:8080:0.0.0.0:80 <username>@<remote IP address> 
 - Dynamic Port Forwarding
 
 ```
-$ ssh -D 1234 <username>@<remote IP address>
+$ ssh -D 9050 <username>@<remote IP address>
+```
+
+- SOCKS Proxy Metasploit Module
+
+```
+msf6 > use auxiliary/server/socks_proxy
+msf6 auxiliary(server/socks_proxy) > jobs
+```
+
+- Autoroute Metasploit Module
+
+```
+msf6 > use post/multi/manage/autoroute
 ```
 
 - Proxychains
 
 ```
 Edit /etc/proxychains4.conf
-Edit [ProxyList] e.g. 127.0.0.1 9050
+Edit [ProxyList] e.g. socks4 127.0.0.1 9050 OR socks5 127.0.0.1 9050
 $ proxychains <command>
 # Note that the -sT option is required when using Nmap with ProxyChains - also use sudo
 $ sudo proxychains -q nmap -sT -Pn 172.16.119.13 --open

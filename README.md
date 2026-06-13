@@ -791,6 +791,12 @@ Edit [ProxyList] e.g. 127.0.0.1 9050
 $ proxychains <command> -k
 ```
 
+- Proxifier
+
+```
+https://www.proxifier.com/
+```
+
 - Chisel
 
 ```

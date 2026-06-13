@@ -810,7 +810,7 @@ $ sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0 -v
 - Socat
 
 ```
-$ socat tcp-listen:9090,fork tcp:127.0.0.1:631 &
+$ socat TCP4-LISTEN:8080,fork TCP4:<IPAddressofAttackHost>:80
 ```
 
 - Rpivot

@@ -758,6 +758,9 @@ msf6 > use post/multi/manage/autoroute
 msf6 post(multi/manage/autoroute) > set SESSION 1
 msf6 post(multi/manage/autoroute) > set SUBNET 172.16.5.0
 msf6 post(multi/manage/autoroute) > run
+OR
+meterpreter > run autoroute -s 172.16.5.0/23
+meterpreter > run autoroute -p
 ```
 
 - Proxychains

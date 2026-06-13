@@ -810,7 +810,7 @@ $ ./chisel client -v 10.129.202.64:1234 socks
 - Sshuttle
 
 ```
-$ sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0 -v
+$ sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0/23 -v
 ```
 
 - Socat

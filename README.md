@@ -600,7 +600,7 @@ msf6 > jobs
 msf6 > jobs kill 1
 msf6 > route print
 msf6 > route add 192.168.1.0/24 11
-msf6 > use multi/manage/autoroute
+msf6 > use post/multi/manage/autoroute
 ```
 
 - Meterpreter

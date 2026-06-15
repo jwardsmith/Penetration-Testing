@@ -801,8 +801,10 @@ https://www.proxifier.com/
 
 ```
 https://github.com/jpillora/chisel
-$ sudo ./chisel server -p 8000 --reverse
-$ ./chisel client <IP address>:8000 R:631:127.0.0.1:631
+$ cd chisel
+$ go build
+$ sudo ./chisel server -v -p 8000 --reverse --socks5
+$ ./chisel client -v <IP address>:8000 R:socks
 $ sudo ./chisel server -v -p 1234 --socks5
 $ ./chisel client -v 10.129.202.64:1234 socks
 ```

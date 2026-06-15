@@ -832,6 +832,9 @@ $ python client.py --server-ip <IP address> --server-port 8080 --ntlm-proxy-ip <
 
 ```
 https://github.com/iagox86/dnscat2
+$ cd dnscat2/server/
+$ sudo gem install bundler
+$ sudo bundle install
 $ sudo ruby dnscat2.rb --dns host=10.10.14.18,port=53,domain=inlanefreight.local --no-cache
 ```
 

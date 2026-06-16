@@ -800,6 +800,8 @@ https://www.proxifier.com/
 - Chisel
 
 ```
+# Depending on the version of the glibc library installed on both (target and workstation) systems, there might be discrepancies that could result in an error. When this happens, it is important to compare the versions of the library on both systems, or we can use an older prebuilt version of chisel, which can be found in the Releases section of the GitHub repository
+
 https://github.com/jpillora/chisel
 $ cd chisel
 $ go build

@@ -856,6 +856,9 @@ dnscat2> window -i 1
 
 ```
 https://github.com/utoni/ptunnel-ng
+$ sudo apt install automake autoconf -y
+$ cd ptunnel-ng/
+$ sed -i '$s/.*/LDFLAGS=-static "${NEW_WD}\/configure" --enable-static $@ \&\& make clean \&\& make -j${BUILDJOBS:-4} all/' autogen.sh
 $ sudo ./autogen.sh
 $ sudo ./ptunnel-ng -r10.129.202.64 -R22
 $ sudo ./ptunnel-ng -p10.129.202.64 -l2222 -r10.129.202.64 -R22

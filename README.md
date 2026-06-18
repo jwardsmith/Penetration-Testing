@@ -864,6 +864,13 @@ $ sudo ./ptunnel-ng -r10.129.202.64 -R22
 $ sudo ./ptunnel-ng -p10.129.202.64 -l2222 -r10.129.202.64 -R22
 ```
 
+- SocksOverRDP
+
+```
+https://github.com/nccgroup/SocksOverRDP
+C:\SocksOverRDP-x64> regsvr32.exe SocksOverRDP-Plugin.dll
+```
+
 - Meterpreter Portfwd
 
 ```

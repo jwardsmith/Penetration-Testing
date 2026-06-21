@@ -116,6 +116,12 @@ $ python3 -m openvasreporting -i report-2bf466b5-627d-4659-bea6-1758b43235b1.xml
 $ nc -nv <IP address> <port>
 ```
 
+- TCPDump
+
+```
+$ sudo tcpdump -i ens224
+```
+
 - FTP (port 21)
 
 ```

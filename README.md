@@ -72,6 +72,12 @@ C:\> for /L %i in (1 1 254) do ping 172.16.5.%i -n 1 -w 100 | find "Reply"
 PS C:\> 1..254 | % {"172.16.5.$($_): $(Test-Connection -count 1 -comp 172.15.5.$($_) -quiet)"}
 ```
 
+- Fping
+
+```
+fping -asgq 172.16.5.0/23
+```
+
 - Nmap
 
 ```
@@ -120,6 +126,12 @@ $ nc -nv <IP address> <port>
 
 ```
 $ sudo tcpdump -i ens224
+```
+
+- Responder
+
+```
+sudo responder -I ens224 -A
 ```
 
 - FTP (port 21)

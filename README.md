@@ -361,6 +361,13 @@ $ snmpwalk -v 2c -c private <IP address> 1.3.6.1.2.1.1.5.0
 $ onesixtyone -c /opt/useful/seclists/Discovery/SNMP/snmp.txt <IP address>
 $ braa <community string>@<IP address>:.1.*
 ```
+
+- LDAP (port 389)
+
+```
+$ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "*" | grep -m 1 -B 10 pwdHistoryLength
+```
+
 - R-Services (port 512/513/514)
 
 ```

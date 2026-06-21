@@ -135,6 +135,18 @@ $ sudo tcpdump -i ens224
 sudo responder -I ens224 -A
 ```
 
+- Net
+
+```
+C:\> net accounts
+```
+
+- PowerView
+
+```
+PS C:\> Get-DomainPolicy
+```
+
 - FTP (port 21)
 
 ```

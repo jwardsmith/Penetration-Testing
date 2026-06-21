@@ -1826,6 +1826,14 @@ $ cat .bashrc
 $ cat .bash_profile
 ```
 
+- Inveigh
+
+```
+PS C:\> (Get-Command Invoke-Inveigh).Parameters
+PS C:\> Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
+C:\> .\Inveigh.exe
+```
+
 #8. - File Transfers
 -----------------------------------------
 

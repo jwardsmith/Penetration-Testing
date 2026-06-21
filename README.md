@@ -379,6 +379,7 @@ $ braa <community string>@<IP address>:.1.*
 
 ```
 $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "*" | grep -m 1 -B 10 pwdHistoryLength
+$ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"
 ```
 
 - R-Services (port 512/513/514)

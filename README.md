@@ -93,6 +93,7 @@ $ nmap <IP address> -S <Spoofed IP address> -e tun0
 $ nmap <IP address> -D RND:5
 $ nmap <IP address> --source-port <Spoofed port>
 $ nmap <IP address> -oA scan
+$ nmap -iL hosts.txt -oA scan
 $ xsltproc target.xml -o target.html
 ```
 

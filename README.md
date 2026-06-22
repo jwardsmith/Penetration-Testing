@@ -139,6 +139,14 @@ sudo responder -I ens224 -A
 
 ```
 C:\> net accounts
+C:\> net user
+C:\> net user /domain
+```
+
+- SetSPN
+
+```
+C:\> setspn.exe -Q */*
 ```
 
 - PowerView

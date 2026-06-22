@@ -1791,6 +1791,7 @@ C:\> cmdkey /list
 ```
 https://github.com/SnaffCon/Snaffler
 C:\> snaffler.exe -s
+C:\> snaffler.exe -d <domain> -s -v data
 ```
 
 - PowerHuntShares

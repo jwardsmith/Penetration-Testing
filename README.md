@@ -145,7 +145,47 @@ C:\> net accounts
 
 ```
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+PS C:\> Export-PowerViewCSV
+PS C:\> ConvertTo-SID
 PS C:\> Get-DomainPolicy
+PS C:\> Get-DomainSPNTicket
+PS C:\> Get-Domain
+PS C:\> Get-DomainController
+PS C:\> Get-DomainUser
+PS C:\> Get-DomainComputer
+PS C:\> Get-DomainGroup
+PS C:\> Get-DomainOU
+PS C:\> Find-InterestingDomainAcl
+PS C:\> Get-DomainGroupMember
+PS C:\> Get-DomainFileServer
+PS C:\> Get-DomainDFSShare
+PS C:\> Get-DomainGPO
+PS C:\> Get-NetLocalGroup
+PS C:\> Get-NetLocalGroupMember
+PS C:\> Get-NetShare
+PS C:\> Get-NetSession
+PS C:\> Test-AdminAccess
+PS C:\> Find-DomainUserLocation
+PS C:\> Find-DomainShare
+PS C:\>
+```
+
+- Active Directory Module
+
+```
+PS C:\> Import-Module ActiveDirectory
+PS C:\> Get-ADDomain
+PS C:\> Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+PS C:\> Get-ADTrust -Filter *
+PS C:\> Get-ADGroup -Filter * | select name
+PS C:\> Get-ADGroup -Identity "Backup Operators"
+PS C:\> Get-ADGroupMember -Identity "Backup Operators"
+```
+
+- BloodHound
+
+```
+$ sudo bloodhound-python -u '<username>' -p '<password>' -ns <name server> -d <domain> -c all
 ```
 
 - LAPSToolkit

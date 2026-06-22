@@ -167,7 +167,15 @@ PS C:\> Get-NetSession
 PS C:\> Test-AdminAccess
 PS C:\> Find-DomainUserLocation
 PS C:\> Find-DomainShare
-PS C:\>
+PS C:\> Find-InterestingDomainShareFile
+PS C:\> Find-LocalAdminAccess
+PS C:\> Get-DomainTrust
+PS C:\> Get-ForestTrust
+PS C:\> Get-DomainForeignUser
+PS C:\> Get-DomainForeignGroupMember
+PS C:\> Get-DomainTrustMapping
+PS C:\> Get-DomainGroupMember -Identity "Domain Admins" -Recurse
+PS C:\> Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
 ```
 
 - Active Directory Module

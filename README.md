@@ -1948,6 +1948,15 @@ PS C:\> Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
 C:\> .\Inveigh.exe
 ```
 
+- GetUserSPNs
+
+```
+$ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username>
+$ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request
+$ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username>
+$ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username> -request-user <username> -outputfile <filename>
+```
+
 #8. - File Transfers
 -----------------------------------------
 

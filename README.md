@@ -45,6 +45,7 @@ $ curl -s https://crt.sh/\?q\=<Target Domain Name>\&output\=json | jq . | grep n
 - Google Dorks
 
 ```
+https://www.exploit-db.com/google-hacking-database
 intext:<company name> inurl:amazonaws.com
 intext:<company name> inurl:blob.core.windows.net
 ```
@@ -59,6 +60,44 @@ https://domain.glass/
 
 ```
 https://buckets.grayhatwarfare.com/
+```
+
+- ASN/IP Registrars
+
+```
+https://www.iana.org/
+https://www.arin.net/
+https://www.ripe.net/
+https://bgp.he.net/
+```
+
+- Domain Registrars & DNS
+
+```
+https://www.domaintools.com/
+https://securitytrails.com/
+https://lookup.icann.org/en
+```
+
+- Social Media
+
+```
+https://www.linkedin.com/
+https://x.com/
+https://www.facebook.com/
+```
+
+- Cloud & Development Storage Spaces
+
+```
+https://github.com/
+```
+
+- Breach Data Sources
+
+```
+https://haveibeenpwned.com/
+https://www.dehashed.com/
 ```
      
 #2. - Active Enumeration

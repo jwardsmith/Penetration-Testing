@@ -54,6 +54,7 @@ intext:<company name> inurl:blob.core.windows.net
 
 ```
 https://domain.glass/
+https://whois.domaintools.com/
 ```
 
 - Cloud Bucket Search
@@ -77,14 +78,16 @@ https://bgp.he.net/
 https://www.domaintools.com/
 https://securitytrails.com/
 https://lookup.icann.org/en
+https://viewdns.info/
 ```
 
 - Social Media
 
 ```
 https://www.linkedin.com/
-https://x.com/
 https://www.facebook.com/
+https://www.instagram.com/
+https://x.com/
 ```
 
 - Cloud & Development Storage Spaces
@@ -98,6 +101,12 @@ https://github.com/
 ```
 https://haveibeenpwned.com/
 https://www.dehashed.com/
+```
+
+- Trufflehog
+
+```
+https://github.com/trufflesecurity/truffleHog
 ```
      
 #2. - Active Enumeration
@@ -1613,6 +1622,12 @@ $ cewl https://www.example.com -d 4 -m 6 --lowercase -w example.wordlist
 ```
 https://github.com/urbanadventurer/username-anarchy
 $ ./username-anarchy -i listoffirstandlastnames.txt
+```
+
+- Linkedin2username
+
+```
+https://github.com/initstring/linkedin2username
 ```
 
 - Kerbrute Username Enumeration

@@ -177,9 +177,29 @@ $ nc -nv <IP address> <port>
 $ sudo tcpdump -i ens224
 ```
 
+- Wireshark
+
+```
+$ sudo -E wireshark
+```
+
+- Net-creds
+
+```
+https://github.com/DanMcInerney/net-creds
+```
+
+- NetMiner
+
+```
+https://www.netminer.com/en/product/netminer.php?ckattempt=1
+```
+
 - Responder
 
 ```
+https://github.com/lgandx/Responder
+https://github.com/lgandx/Responder-Windows
 sudo responder -I ens224 -A
 ```
 

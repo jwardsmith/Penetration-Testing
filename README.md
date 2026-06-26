@@ -1651,6 +1651,12 @@ $ ./username-anarchy -i listoffirstandlastnames.txt
 https://github.com/initstring/linkedin2username
 ```
 
+- Insidetrust Username Wordlist
+
+```
+https://github.com/insidetrust/statistically-likely-usernames
+```
+
 - Kerbrute Username Enumeration
 
 ```

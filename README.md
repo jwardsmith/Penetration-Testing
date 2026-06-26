@@ -1888,7 +1888,7 @@ $ hashcat -m 1000 <ntlm-hash> <wordlist> --show
 $ hashcat -m 1800 -a 0 unshadowed.txt <wordlist> -o /tmp/unshadowed.cracked
 $ hashcat -m 500 -a 0 md5-hashes.txt <wordlist>
 $ hashcat -m 2100 -a 0 <dcc2-hash> <wordlist>
-$ hashcat -m 5600 -a 0 <ntlm2-hash> <wordlist>
+$ hashcat -m 5600 -a 0 <ntlm2-hash> <wordlist>        # Cannot be used for PTH, and have to be cracked to be used
 $ hashcat -m 13100 -a 0 <kerberos-hash> <wordlist> --force
 $ hashcat -m 18200 -a 0 <asrep-hash> <wordlist>
 $ hashcat -m 22100 bitlocker-hashes.txt <wordlist> -o backup.cracked

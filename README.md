@@ -1660,7 +1660,7 @@ https://github.com/insidetrust/statistically-likely-usernames
 - Kerbrute Username Enumeration
 
 ```
-$ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> names.txt
+$ ./kerbrute_linux_amd64 userenum --dc <DC IP address> --domain <Domain Name> names.txt -o valid_ad_users
 ```
 
 - LookupSID

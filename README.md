@@ -551,6 +551,7 @@ $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(object
 $ ./windapsearch.py --dc-ip <IP address> -u "" -U
 $ python3 windapsearch.py --dc-ip <IP address> -u <domain>\<username> -p <password> --da
 $ python3 windapsearch.py --dc-ip <IP address> -u <domain>\<username> -p <password> -PU
+$ python ldapdomaindump.py -u 'DOMAIN\<username>' -p '<password>' <IP address>
 ```
 
 - R-Services (port 512/513/514)

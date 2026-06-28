@@ -184,24 +184,10 @@ $ sudo tcpdump -i ens224
 $ sudo -E wireshark
 ```
 
-- Net-creds
-
-```
-https://github.com/DanMcInerney/net-creds
-```
-
 - NetMiner
 
 ```
 https://www.netminer.com/en/product/netminer.php?ckattempt=1
-```
-
-- Responder
-
-```
-https://github.com/lgandx/Responder
-https://github.com/lgandx/Responder-Windows
-sudo responder -I ens224 -A
 ```
 
 - Net
@@ -210,12 +196,6 @@ sudo responder -I ens224 -A
 C:\> net accounts
 C:\> net user
 C:\> net user /domain
-```
-
-- SetSPN
-
-```
-C:\> setspn.exe -Q */*
 ```
 
 - PowerView
@@ -2212,12 +2192,32 @@ $ cat .bashrc
 $ cat .bash_profile
 ```
 
+- Net-creds
+
+```
+https://github.com/DanMcInerney/net-creds
+```
+
+- Responder
+
+```
+https://github.com/lgandx/Responder
+https://github.com/lgandx/Responder-Windows
+sudo responder -I ens224 -A
+```
+
 - Inveigh
 
 ```
 PS C:\> (Get-Command Invoke-Inveigh).Parameters
 PS C:\> Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
 C:\> .\Inveigh.exe
+```
+
+- SetSPN
+
+```
+C:\> setspn.exe -Q */*
 ```
 
 - GetUserSPNs

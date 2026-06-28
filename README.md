@@ -488,7 +488,7 @@ msf> use exploit/windows/smb/ms08_067_netapi
 msf> use exploit/multi/samba/usermap_script
 msf> use exploit/windows/smb/psexec
 $ enum4linux -a <IP address>
-$ enum4linux-ng.py -A -C <IP address>
+$ enum4linux-ng.py -A -C <IP address> -oA output
 $ crackmapexec smb <IP address> --shares
 $ crackmapexec smb <IP address> --shares -u '' -p ''
 $ crackmapexec smb <IP address> -u <usernames.txt> -p '<password>'

@@ -298,6 +298,7 @@ $ bloodhound-python -d <domain> -dc <Domain Controller hostname> -c All -u <user
 $ zip -r mass_bh.zip *.json
 $ sudo neo4j start
 $ bloodhound
+PS C:\> .\SharpHound.exe -c All --zipfilename bloodhound
 https://hausec.com/2019/09/09/bloodhound-cypher-cheatsheet/
 ```
 

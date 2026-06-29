@@ -286,7 +286,7 @@ PS C:\> Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 - BloodHound
 
 ```
-$ sudo bloodhound-python -u '<username>' -p '<password>' -ns <name server> -d <domain> -c all
+$ sudo bloodhound-python -u '<username>' -p '<password>' -ns <name server/Domain Controller> -d <domain> -c all
 $ bloodhound-python -d <domain> -dc <Domain Controller hostname> -c All -u <username> -p <password>
 $ zip -r mass_bh.zip *.json
 ```

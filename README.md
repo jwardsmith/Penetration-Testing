@@ -267,6 +267,7 @@ PS C:\> Get-DomainGroup -Domain <domain> -Identity "Enterprise Admins" | select 
 - Active Directory Module
 
 ```
+PS C:\> Get-Module
 PS C:\> Import-Module ActiveDirectory
 PS C:\> Get-ADDomain
 PS C:\> Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName

@@ -284,6 +284,12 @@ PS C:\> Get-GPO -All | Select DisplayName
 PS C:\> Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 ```
 
+- SharpView
+
+```
+PS C:\> .\SharpView.exe Get-DomainUser -Identity <username>
+```
+
 - BloodHound
 
 ```

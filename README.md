@@ -194,12 +194,37 @@ https://www.netminer.com/en/product/netminer.php?ckattempt=1
 
 ```
 C:\> net accounts
+C:\> net accounts /domain
 C:\> net user
 C:\> net user /domain
+C:\> net user <username> /domain
+C:\> net localgroup
+C:\> net localgroup administrators
+C:\> net localgroup administrators /domain
+C:\> net group
+C:\> net group /domain
+C:\> net group "Domain Computers" /domain
+C:\> net group "Domain Controllers" /domain
+C:\> net group "Domain Admins" /domain
+C:\> net share
+C:\> net use x: \<computer>\<share name>
+C:\> net view
+C:\> net view /all /domain[:<domain name>]
+C:\> net view \computer /ALL
+C:\> net view /domain
 C:\> hostname
 C:\> [System.Environment]::OSVersion.Version
 C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn
+C:\> wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List
+C:\> wmic process list /format:list
+C:\> wmic ntdomain list /format:list
+C:\> wmic useraccount list /format:list
+C:\> wmic group list /format:list
+C:\> wmic sysaccount list /format:list
+https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
 C:\> ipconfig /all
+C:\> arp -a
+C:\> route print
 C:\> set
 C:\> echo %USERDOMAIN%
 C:\> echo %logonserver%
@@ -1612,6 +1637,12 @@ $ ssh <user>@<IP address> -i key
 C:\> whoami /priv
 ```
 
+- Add User To Administrators
+
+```
+C:\> net localgroup administrators james /add
+```
+
 - Windows Exploit Suggester
 
 ```
@@ -2925,7 +2956,7 @@ PS C:\> Get-Host
 - View Windows Firewall Settings
 
 ```
-PS C:\> netsh advfirewall show allprofiles
+C:\> netsh advfirewall show allprofiles
 C:\> sc query windefend
 ```
 

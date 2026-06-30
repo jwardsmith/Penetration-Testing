@@ -222,6 +222,11 @@ C:\> wmic useraccount list /format:list
 C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
+C:\> dsquery user
+C:\> dsquery computer
+C:\> dsquery * "CN=Users,DC=<domain>,DC=<domain>"
+C:\> dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))" -attr distinguishedName userAccountControl
+C:\> dsquery * -filter "(userAccountControl:1.2.840.113556.1.4.803:=8192)" -limit 5 -attr sAMAccountName
 C:\> ipconfig /all
 C:\> arp -a
 C:\> route print

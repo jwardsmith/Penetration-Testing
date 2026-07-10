@@ -1676,6 +1676,7 @@ msf> use post/multi/recon/local_exploit_suggester
 
 ```
 https://github.com/netspi/PowerUpSQL
+https://github.com/NetSPI/PowerUpSQL/wiki/PowerUpSQL-Cheat-Sheet
 PS C:\> Get-SQLInstanceDomain
 PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\<username>" -password "<password>" -query 'Select @@version'
 ```

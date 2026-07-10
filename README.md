@@ -265,6 +265,7 @@ PS C:\> Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv
 PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalname,msds-supportedencryptiontypes
 PS C:\> Get-DomainUser * | Select-Object samaccountname,description
 PS C:\> Get-DomainUser -UACFilter PASSWD_NOTREQD | Select-Object samaccountname,useraccountcontrol
+PS C:\> Get-DomainUser -Identity * | ? {$_.useraccountcontrol -like '*ENCRYPTED_TEXT_PWD_ALLOWED*'} |select samaccountname,useraccountcontrol
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
@@ -316,6 +317,7 @@ PS C:\> Import-Module ActiveDirectory
 PS C:\> Get-ADDomain
 PS C:\> Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
 PS C:\> Get-ADUser -Filter * | Select-Object -ExpandProperty SamAccountName > ad_users.txt
+PS C:\> Get-ADUser -Filter 'userAccountControl -band 128' -Properties userAccountControl
 PS C:\> Get-ADTrust -Filter *
 PS C:\> Get-ADGroup -Filter * | select name
 PS C:\> Get-ADGroup -Identity "Help Desk Level 1" -Properties * | Select -ExpandProperty Members

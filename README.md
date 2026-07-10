@@ -1492,7 +1492,7 @@ $ python3 gettgtpkinit.py -cert-pfx ../eFUVVTPf.pfx -pfx-pass 'bmRH4LK7UwPrAOfvI
 - Create a PSCredential Object
 
 ```
-PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force $Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\wley', $SecPassword)
+PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force; $Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\wley', $SecPassword)
 ```
 
 - Create a SecureString Object

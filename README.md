@@ -3088,6 +3088,19 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
 ```
 
+- CVE-2019-1040
+
+```
+https://github.com/itzvenom/Security-Assessment-PS
+https://github.com/NotMedic/NetNTLMtoSilverTicket
+```
+
+- MS14-068
+
+```
+https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068/pykek
+```
+
 #15. - Exploit Research
 -----------------------------------------
 

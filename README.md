@@ -2309,6 +2309,7 @@ $ python GetUserSPNs.py -request -target-domain <domain> <domain>/<username>
 
 ```
 C:\> gpp-decrypt VPe/o9YRyz2cksnYRbNeQj35w9KxQ5ttbvtRaAVqxaE
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN
 ```
 
 #8. - File Transfers

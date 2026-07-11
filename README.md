@@ -213,6 +213,8 @@ C:\> net view /all /domain[:<domain name>]
 C:\> net view \computer /ALL
 C:\> net view /domain
 C:\> netdom query /domain:<domain> trust
+C:\> netdom query /domain:<domain> dc
+C:\> netdom query /domain:<domain> workstation
 C:\> hostname
 C:\> [System.Environment]::OSVersion.Version
 C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn

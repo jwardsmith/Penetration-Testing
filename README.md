@@ -351,6 +351,12 @@ PS C:\> .\SharpView.exe Get-DomainUser -Identity <username>
 https://github.com/sense-of-security/ADRecon
 ```
 
+- AD Explorer
+
+```
+https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer
+```
+
 - Pingcastle
 
 ```

@@ -329,6 +329,7 @@ PS C:\> Get-ADGroup -Filter * | select name
 PS C:\> Get-ADGroup -Identity "Help Desk Level 1" -Properties * | Select -ExpandProperty Members
 PS C:\> Get-ADGroup -Identity "Backup Operators"
 PS C:\> Get-ADGroupMember -Identity "Backup Operators"
+PS C:\> Get-ADGroup -Identity "Protected Users" -Properties Name,Description,Members
 PS C:\> $guid= "00299570-246d-11d0-a768-00aa006e0529" Get-ADObject -SearchBase "CN=Extended-Rights,$((Get-ADRootDSE).ConfigurationNamingContext)" -Filter {ObjectClass -like 'ControlAccessRight'} -Properties * | Select Name,DisplayName,DistinguishedName,rightsGuid | ?{$_.rightsGuid -eq $guid} | fl
 PS C:\> foreach($line in [System.IO.File]::ReadLines("C:\Users\htb-student\Desktop\ad_users.txt")) {get-acl "AD:\$(Get-ADUser $line)" | Select-Object Path -ExpandProperty Access | Where-Object {$_.IdentityReference -match 'INLANEFREIGHT\\wley'}}
 PS C:\> ConvertFrom-SddlString

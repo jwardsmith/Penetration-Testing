@@ -1616,8 +1616,18 @@ Add:
 domain INLANEFREIGHT.LOCAL
 nameserver 172.16.5.5
 
-$ bloodhound-python -d <target domain> -dc  <target Domain Controller> -c All -u <username -p <password>
-$ zip -r ilfreight_bh.zip *.json
+$ bloodhound-python -d INLANEFREIGHT.LOCAL -dc  <target Domain Controller> -c All -u <username -p <password>
+$ zip -r mass_bh.zip *.json
+
+$ sudo nano /etc/resolv.conf
+
+Add:
+#nameserver 1.1.1.1
+#nameserver 8.8.8.8
+domain FREIGHTLOGISTICS.LOCAL
+nameserver 172.16.5.238
+
+$ bloodhound-python -d FREIGHTLOGISTICS.LOCAL -dc <target Domain Controller> -c All -u <username -p <password>
 ```
 
 #5. - Privilege Escalation

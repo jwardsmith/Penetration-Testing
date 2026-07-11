@@ -266,6 +266,8 @@ PS C:\> Get-DomainUser <username> -Properties samaccountname,serviceprincipalnam
 PS C:\> Get-DomainUser * | Select-Object samaccountname,description
 PS C:\> Get-DomainUser -UACFilter PASSWD_NOTREQD | Select-Object samaccountname,useraccountcontrol
 PS C:\> Get-DomainUser -Identity * | ? {$_.useraccountcontrol -like '*ENCRYPTED_TEXT_PWD_ALLOWED*'} |select samaccountname,useraccountcontrol
+PS C:\> Get-DomainUser * | Select-Object samaccountname,description |Where-Object {$_.Description -ne $null}
+PS C:\> Get-DomainUser -UACFilter PASSWD_NOTREQD | Select-Object samaccountname,useraccountcontrol
 PS C:\> Get-DomainComputer
 PS C:\> Get-DomainGroup
 PS C:\> Get-DomainOU
@@ -1964,7 +1966,7 @@ https://www.softwaretestinghelp.com/default-router-username-and-password-list/
 - Windows Places to Hunt
 
 ```
-Passwords in Group Policy in the SYSVOL share
+Passwords in Group Policy in the SYSVOL share - ls \\<Domain Controller>\SYSVOL\<Domain>\scripts
 Passwords in scripts in the SYSVOL share
 Password in scripts on IT shares
 Passwords in web.config files on dev machines and IT shares

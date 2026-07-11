@@ -341,6 +341,18 @@ PS C:\> Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 PS C:\> .\SharpView.exe Get-DomainUser -Identity <username>
 ```
 
+- ADRecon
+
+```
+https://github.com/sense-of-security/ADRecon
+```
+
+- Pingcastle
+
+```
+https://www.pingcastle.com/
+```
+
 - BloodHound
 
 ```
@@ -360,6 +372,12 @@ https://github.com/leoloobeek/lapstoolkit
 PS C:\> Find-LAPSDelegatedGroups
 PS C:\> Find-AdmPwdExtendedRights
 PS C:\> Get-LAPSComputers
+```
+
+- Group3r
+
+```
+https://github.com/Group3r/Group3r
 ```
 
 - FTP (port 21)

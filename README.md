@@ -380,6 +380,12 @@ PS C:\> Get-LAPSComputers
 https://github.com/Group3r/Group3r
 ```
 
+- SharpGPOAbuse
+
+```
+https://github.com/ReversecLabs/SharpGPOAbuse
+```
+
 - FTP (port 21)
 
 ```

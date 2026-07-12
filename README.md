@@ -813,6 +813,7 @@ https://github.com/dbcli/mycli
 $ xfreerdp /v:<IP address>
 $ xfreerdp /v:<IP address> /u:Administrator
 $ xfreerdp /v:<IP address> /u:Administrator /d:<Domain>
+$ xfreerdp /v:<IP address> /u:Administrator /d:<Domain> /drive:Shared,//home/james/
 $ xfreerdp /v:<IP address> /u:Administrator@test.local
 $ xfreerdp /v:<IP address>  /u:Administrator /pth:<hash>
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'

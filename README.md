@@ -3014,9 +3014,8 @@ $ vim -c ':!/bin/sh'
 
 ```
 $ CTRL+Z
-$ stty raw -echo
-$ fg
-$ reset
+$ stty raw -echo && fg
+# press enter twice
 $ export TERM=xterm-256color
 $ stty rows 67 columns 318
 ```

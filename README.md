@@ -1907,6 +1907,7 @@ $ netexec smb <IP address> --local-auth -u <username> -p <password> --sam
 $ netexec smb <IP address> --local-auth -u <username> -p <password> --lsa
 $ netexec smb <IP address> -u <username> -p <password> --ntds
 $ netexec smb <IP address> -u <username> -p <password> -M ntdsutil
+$ netexec smb <IP address> -u <username> -p <password> -M spooler
 $ nxc smb <IP address> -u <username> -p <password> --spider IT --content --pattern "passw"
 ```
 

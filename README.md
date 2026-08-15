@@ -1751,7 +1751,7 @@ PS C:\> Get-Content (Get-PSReadlineOption).HistorySavePath
 $ cat /home/user/.ssh/id_rsa
 $ cat /root/.ssh/id_rsa
 $ chmod 600 id_rsa
-$  ssh <user>@<IP address> -i id_rsa
+$ ssh <user>@<IP address> -i id_rsa
 ```
 
 - SSH Authorized Keys

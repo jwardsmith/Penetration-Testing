@@ -2322,11 +2322,17 @@ $ python3 lazagne.py browsers
 C:\> start LaZagne.exe all
 ```
 
+- Filezilla Credentials
+
+```
+$ cat /home/<user>/.filezilla/filezilla.xml
+```
+
 - Firefox Credentials
 
 ```
-$ ls -l .mozilla/firefox/ | grep default
-$ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
+$ ls -l /home/<user>/.mozilla/firefox/ | grep default
+$ cat /home/<user>/.mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 ```
 
 - Firefox_decrypt
@@ -2339,7 +2345,8 @@ $ python3.9 firefox_decrypt.py
 - Decrypt_chrome_passwords
 
 ```
-[$ python3.9 firefox_decrypt.py](https://github.com/ohyicong/decrypt-chrome-passwords)
+https://github.com/ohyicong/decrypt-chrome-passwords
+$ python decrypt_chrome_password.py
 ```
 
 - Enable WDigest which user credentials in plaintext within memory, making them accessible to tools like Mimikatz for extraction

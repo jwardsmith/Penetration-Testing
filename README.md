@@ -1731,6 +1731,14 @@ $ ls /etc/cron.d
 $ ls /var/spool/cron/crontabs/root
 ```
 
+- Disk Group
+
+```
+$ debugfs /dev/sda2
+debugfs:  cat /etc/shadow
+debugfs:  cat /root/.ssh/id_rsa
+```
+
 - Vulnerable Software
 
 ```

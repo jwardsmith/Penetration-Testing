@@ -1061,6 +1061,8 @@ https://github.com/droope/droopescan
 $ curl -s <URL> | grep Drupal
 $ curl -s http://<domain name>/CHANGELOG.txt | grep -m2 ""
 $ droopescan scan drupal -u <URL>
+# Before version 8 - Enable PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
+# After version 8 -  wget https://ftp.drupal.org/files/projects/php-8.x-1.1.tar.gz -> Administration -> Reports -> Available updates -. Browse -> Install PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
 ```
 
 - Jenkins

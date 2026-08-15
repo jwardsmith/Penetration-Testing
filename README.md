@@ -792,6 +792,7 @@ $ sudo useradd -u <UID> <user>
 ```
 $ mysql -h <IP address> -u root
 $ mysql -h <IP address> -u root -p<password>
+$ mysql -h <IP address> -u root -p<password> --skip-ssl
 MySQL [(none)]> SELECT version();
 MySQL [(none)]> SHOW databases;
 MySQL [(none)]> USE <database name>;

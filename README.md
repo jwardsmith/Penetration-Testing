@@ -146,6 +146,14 @@ $ nmap -iL hosts.txt -oA scan
 $ xsltproc target.xml -o target.html
 ```
 
+- Host Resolution/VHOST Mapping
+
+```
+$ sudo nano /etc/hosts
+
+<IP address> <FQDN>
+```
+
 - Nessus
 
 ```

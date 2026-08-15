@@ -2464,6 +2464,12 @@ $ cat .bashrc
 $ cat .bash_profile
 ```
 
+- Apache Access Log
+
+```
+$ grep "password" /var/log/apache2/access.log.1
+```
+
 - Net-creds
 
 ```

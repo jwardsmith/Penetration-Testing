@@ -1039,6 +1039,7 @@ use exploit/unix/webapp/wp/admin_shell_upload
 - Joomla
 
 ```
+# If you receive an error stating "An error has occurred. Call to a member function format() on null" after logging in, navigate to "http://<domain name>/administrator/index.php?option=com_plugins" and disable the "Quick Icon - PHP Version Check" plugin. This will allow the control panel to display properly.
 https://github.com/droope/droopescan
 https://github.com/drego85/JoomlaScan
 https://github.com/OWASP/joomscan

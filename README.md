@@ -1039,8 +1039,16 @@ use exploit/unix/webapp/wp/admin_shell_upload
 - Joomla
 
 ```
+https://github.com/droope/droopescan
+https://github.com/drego85/JoomlaScan
+https://github.com/OWASP/joomscan
+https://github.com/ajnik/joomla-bruteforce
+$ curl -s <URL> | grep Joomla
+$ curl -s http://<IP address>/README.txt | head -n 5
+$ curl -s http://<IP address>/administrator/manifests/files/joomla.xml | xmllint --format -
 $ droopescan scan joomla --url <URL>
 $ sudo python3 joomla-brute.py -u <URL> -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr users.txt
+$ python2 joomlascan.py -u <URL>
 ```
 
 - Jenkins

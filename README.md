@@ -2470,6 +2470,12 @@ $ cat .bash_profile
 $ grep "password" /var/log/apache2/access.log.1
 ```
 
+- Tomcat Users XML
+
+```
+$ cat /etc/tomcat9/tomcat-users.xml
+```
+
 - Net-creds
 
 ```

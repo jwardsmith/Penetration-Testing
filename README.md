@@ -2263,6 +2263,12 @@ C:\> rundll32 keymgr.dll,KRShowKeyMgr
 C:\> cmdkey /list
 ```
 
+- PowerShell ConsoleHost_history.txt
+
+```
+PS C:\> type C:\Users\<username>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+```
+
 - Snaffler
 
 ```

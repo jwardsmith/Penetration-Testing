@@ -1064,8 +1064,7 @@ https://github.com/rithchard/Drupalgeddon3
 $ curl -s <URL> | grep Drupal
 $ curl -s http://<domain name>/CHANGELOG.txt | grep -m2 ""
 $ droopescan scan drupal -u <URL>
-msf > use exploit/multi/http/drupal/drupageddon
-msf > use exploit/multi/http/drupal_drupageddon3
+msf > use exploit/multi/http/drupal_drupageddon
 
 
 # Before version 8 - Enable PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code

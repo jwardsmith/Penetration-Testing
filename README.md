@@ -1028,6 +1028,8 @@ $ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/d
 - WordPress
 
 ```
+$ curl -s <URL> | grep themes
+$ curl -s <URL> | grep plugins
 $ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
 $ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 ```

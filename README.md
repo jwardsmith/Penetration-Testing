@@ -840,7 +840,7 @@ $ psql -h <IP address> -U <username> -p <password>
 
 ```
 $ evil-winrm -i <IP address> -u <username> -p <password>
-$ evil-winrm -i <IP address> -u <username> -H <passwordhash>
+$ evil-winrm -i <IP address> -u <username> -H <hash>
 $ crackmapexec winrm <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec winrm <IP address> -u <usernames.txt> -p '<password>' -X 'whoami'
 $ netexec winrm <IP address> -u <usernames.txt> -p <passwords.txt>

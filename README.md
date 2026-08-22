@@ -1132,6 +1132,7 @@ http://<IP address>:<port>/explore
 https://www.exploit-db.com/exploits/49821
 https://github.com/dpgg101/GitLabUserEnum
 $ ./gitlab_userenum.sh --url <URL> --userlist users.txt
+https://www.exploit-db.com/exploits/49951
 ```
 
 #4. - Lateral Movement

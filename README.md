@@ -1130,6 +1130,7 @@ msf > use exploit/windows/http/prtg_authenticated_rce
 http://<IP address>:<port>/help
 http://<IP address>:<port>/explore
 https://www.exploit-db.com/exploits/49821
+https://github.com/dpgg101/GitLabUserEnum
 ```
 
 #4. - Lateral Movement

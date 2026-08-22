@@ -1118,6 +1118,7 @@ https://github.com/0xjpuff/reverse_shell_splunk
 - PRTG Network Monitor
 
 ```
+$ curl -s http://<IP address>:<port>/index.htm -A "Mozilla/5.0 (compatible;  MSIE 7.01; Windows NT 5.0)" | grep version
 C:\ProgramData\Paessler\PRTG Network Monitor\PRTG Configuration.dat
 https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
 msf > use exploit/windows/http/prtg_authenticated_rce

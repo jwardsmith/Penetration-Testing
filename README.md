@@ -1127,6 +1127,7 @@ msf > use exploit/windows/http/prtg_authenticated_rce
 - GitLab
 
 ```
+http://<IP address>:<port>/help
 http://<IP address>:<port>/explore
 https://www.exploit-db.com/exploits/49821
 ```

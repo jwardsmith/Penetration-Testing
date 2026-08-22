@@ -1166,6 +1166,13 @@ $ ssh -R <InternalIPofPivotHost>:8080:0.0.0.0:80 <username>@<remote IP address> 
 $ ssh -D 9050 <username>@<remote IP address>
 ```
 
+- Metasploit Module PROXIES
+
+```
+msf6 > use auxiliary/scanner/http/tomcat_mgr_login
+msf6 > auxiliary(scanner/http/tomcat_mgr_login) > set PROXIES HTTP:127.0.0.1:8080
+```
+
 - SOCKS Proxy Metasploit Module (run Autoroute after this)
 
 ```

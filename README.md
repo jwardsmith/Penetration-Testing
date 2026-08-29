@@ -896,6 +896,8 @@ $ mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("<Object ID>")}
 
 ```
 $ searchsploit <term>
+$ searchsploit -p 14641
+$ cp /usr/share/exploitdb/exploits/multiple/remote/14641.py .
 ```
 
 - Metasploit

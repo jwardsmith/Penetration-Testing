@@ -150,8 +150,9 @@ $ xsltproc target.xml -o target.html
 
 ```
 $ sudo nano /etc/hosts
-
 <IP address> <FQDN>
+
+C:\> echo <IP address> <FQDN> >> C:\Windows\System32\drivers\etc\hosts
 ```
 
 - Nessus

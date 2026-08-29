@@ -654,6 +654,7 @@ $ braa <community string>@<IP address>:.1.*
 ```
 $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "*" | grep -m 1 -B 10 pwdHistoryLength
 $ ldapsearch -h <IP address> -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"
+$ ldapsearch -H ldap://<domain name>:389 -D "cn=admin,dc=example,dc=com" -w <password> -b "ou=people,dc=example,dc=com" "(mail=john.doe@example.com)"
 $ python3 windapsearch.py --dc-ip <IP address> -u "" -U
 $ python3 windapsearch.py --dc-ip <IP address> -u <domain>\<username> -p <password> --da
 $ python3 windapsearch.py --dc-ip <IP address> -u <domain>\<username> -p <password> -PU

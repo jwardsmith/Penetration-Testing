@@ -1155,6 +1155,13 @@ $ python3 gitlab_13_10_2_rce.py -t <URL> -u <username> -p <password> -c 'rm /tmp
 http://<IP address>:8500/CFIDE/administrator
 ```
 
+- IIS
+
+```
+https://github.com/irsdl/IIS-ShortName-Scanner
+$ java -jar iis_shortname_scanner.jar 0 5 http://<IP addresss>/
+```
+
 #4. - Lateral Movement
 -----------------------------------------
 

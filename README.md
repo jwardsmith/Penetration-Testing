@@ -2030,6 +2030,18 @@ C:\> dir "C:\Program Files"
 C:\> dir "C:\Program Files (x86)"
 ```
 
+- CPU Type/Version
+
+```
+$ lscpu 
+```
+
+- Login Shells
+
+```
+$ cat /etc/shells
+```
+
 - Exposed Credentials
 
 ```

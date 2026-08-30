@@ -1167,28 +1167,6 @@ $ java -jar iis_shortname_scanner.jar 0 5 http://<IP addresss>/
 #4. - Lateral Movement
 -----------------------------------------
 
-- Network Configuration
-
-```
-C:\> ipconfig
-$ ifconfig
-$ ip a
-```
-
-- Routing Table
-
-```
-C:\> netstat -r
-$ netstat -r
-```
-
-- Network Connections
-
-```
-C:\> netstat -ano
-$ netstat -antp
-```
-
 - Local Port Forwarding
 
 ```
@@ -1990,10 +1968,57 @@ debugfs:  cat /etc/shadow
 debugfs:  cat /root/.ssh/id_rsa
 ```
 
-- Unmounted File Systems/Drives
+- Block Devices (hard disks/USBs/optical drives)
 
 ```
 $ lsblk
+```
+
+- Mounted/Unmounted File Systems/Drives
+
+```
+$ cat /etc/fstab
+```
+
+- Printers
+
+```
+$ lpstat
+```
+
+- Network Configuration
+
+```
+C:\> ipconfig
+$ ifconfig
+$ ip a
+```
+
+- Routing Table
+
+```
+C:\> netstat -r
+$ netstat -rn
+$ route
+```
+
+- Network Connections
+
+```
+C:\> netstat -ano
+$ netstat -antp
+```
+
+- DNS Configuration
+
+```
+$ cat /etc/resolv.conf
+```
+
+- ARP Table
+
+```
+$ arp -a
 ```
 
 - World-Writeable Directories

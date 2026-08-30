@@ -1814,6 +1814,13 @@ $ sudo -u <user> /bin/bash
 
 ```
 https://github.com/Anon-Exploiter/SUID3NUM
+$ find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
+```
+
+- SETGID
+
+```
+$ find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
 ```
 
 - WinPEAS
@@ -1840,11 +1847,19 @@ https://github.com/rebootuser/LinEnum
 https://github.com/sleventyeleven/linuxprivchecker
 ```
 
+- Lynis
+
+```
+https://github.com/cisofy/lynis
+```
+
 - Running Processes
 
 ```
 $ ps aux
 $ ps aux | grep root
+https://github.com/dominicbreuker/pspy
+$ ./pspy64 -pf -i 1000
 ```
 
 - Logged In Users
@@ -3454,6 +3469,18 @@ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 
 #14. - Exploits
 -----------------------------------------
+
+- Compile Shared Library
+
+```
+$ gcc src.c -fPIC -shared -o /development/libshared.so
+```
+
+- Compile C Exploit
+
+```
+$ gcc kernel_expoit.c -o kernel_expoit
+```
 
 - EternalBlue - MS17-010
 

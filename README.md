@@ -1172,6 +1172,7 @@ $ java -jar iis_shortname_scanner.jar 0 5 http://<IP addresss>/
 ```
 C:\> ipconfig
 $ ifconfig
+$ ip a
 ```
 
 - Routing Table
@@ -1802,6 +1803,28 @@ $ bloodhound-python -d FREIGHTLOGISTICS.LOCAL -dc <target Domain Controller> -c 
 
 #5. - Privilege Escalation
 -----------------------------------------
+
+- Enumerate Current User
+
+```
+C:\> whoami
+$ whoami
+```
+
+- Enumerate Current Groups
+
+```
+C:\> net user <username>
+C:\> net user <username> /domain
+$ id
+```
+
+- Hostname
+
+```
+C:\> hostname
+$ hostname
+```
 
 - Sudo
 

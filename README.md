@@ -2000,6 +2000,12 @@ $ cat /etc/fstab
 $ df -h
 ```
 
+- Unmounted File Systems
+
+```
+$ cat /etc/fstab | grep -v "#" | column -t
+```
+
 - Printers
 
 ```
@@ -2051,6 +2057,26 @@ $ find / -path /proc -prune -o -type d -perm -o+w 2>/dev/null
 
 ```
 $ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
+```
+
+- Hidden Files
+
+```
+$ find / -type f -name ".*" -exec ls -l {} \; 2>/dev/null | grep <username>
+```
+
+- Hidden Directories
+
+```
+$ find / -type d -name ".*" -ls 2>/dev/null
+```
+
+- Temporary Files
+
+```
+$ ls -l /tmp
+$ ls -l /var/tmp
+$ ls -l /dev/shm
 ```
 
 - Vulnerable Kernel

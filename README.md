@@ -1811,6 +1811,12 @@ $ cat /etc/passwd
 $ cat /etc/passwd | cut -f1 -d:
 ```
 
+- Groups
+
+```
+$ cat /etc/group
+```
+
 - Sudo
 
 ```

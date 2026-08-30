@@ -1840,6 +1840,19 @@ https://github.com/rebootuser/LinEnum
 https://github.com/sleventyeleven/linuxprivchecker
 ```
 
+- Running Processes
+
+```
+$ ps aux
+$ ps aux | grep root
+```
+
+- Logged In Users
+
+```
+$ ps au
+```
+
 - Capabilities
 
 ```
@@ -1881,6 +1894,7 @@ C:\> sc.exe start <service>
 ```
 $ ls /etc/crontab
 $ ls /etc/cron.d
+$ ls -la /etc/cron.daily
 $ ls /var/spool/cron/crontabs/root
 ```
 
@@ -1926,6 +1940,37 @@ debugfs:  cat /etc/shadow
 debugfs:  cat /root/.ssh/id_rsa
 ```
 
+- Unmounted File Systems/Drives
+
+```
+$ lsblk
+```
+
+- World-Writeable Directories
+
+```
+$ find / -path /proc -prune -o -type d -perm -o+w 2>/dev/null
+```
+
+- World-Writeable Files
+
+```
+$ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
+```
+
+- Vulnerable Kernel
+
+```
+$ uname -a
+```
+
+- Vulnerable OS
+
+```
+$ cat /etc/os-release
+$ cat /etc/lsb-release
+```
+
 - Vulnerable Software
 
 ```
@@ -1937,6 +1982,7 @@ C:\> dir "C:\Program Files (x86)"
 - Exposed Credentials
 
 ```
+$ history
 $ cat .bash_history
 PS C:\> Get-Content (Get-PSReadlineOption).HistorySavePath
 ```

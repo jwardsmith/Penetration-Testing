@@ -1782,14 +1782,14 @@ $ bloodhound-python -d FREIGHTLOGISTICS.LOCAL -dc <target Domain Controller> -c 
 #5. - Privilege Escalation
 -----------------------------------------
 
-- Enumerate Current User
+- Current User
 
 ```
 C:\> whoami
 $ whoami
 ```
 
-- Enumerate Current Groups
+- Current Groups
 
 ```
 C:\> net user <username>
@@ -1802,6 +1802,13 @@ $ id
 ```
 C:\> hostname
 $ hostname
+```
+
+- Users
+
+```
+$ cat /etc/passwd
+$ cat /etc/passwd | cut -f1 -d:
 ```
 
 - Sudo

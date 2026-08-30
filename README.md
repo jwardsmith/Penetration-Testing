@@ -1815,6 +1815,7 @@ $ cat /etc/passwd | cut -f1 -d:
 
 ```
 $ cat /etc/group
+$ getent group sudo
 ```
 
 - Sudo

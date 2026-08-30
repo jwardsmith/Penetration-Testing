@@ -1994,6 +1994,12 @@ $ lsblk
 $ cat /etc/fstab
 ```
 
+- Mounted File Systems
+
+```
+$ df -h
+```
+
 - Printers
 
 ```

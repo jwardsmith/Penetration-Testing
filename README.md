@@ -2101,6 +2101,12 @@ $ strace ping -c1 <IP address>
 $ find / -type f \( -name *.conf -o -name *.config \) -exec ls -l {} \; 2>/dev/null
 ```
 
+- Scripts
+
+```
+$ find / -type f -name "*.sh" 2>/dev/null | grep -v "src\|snap\|share"
+```
+
 - Vulnerable Kernel
 
 ```

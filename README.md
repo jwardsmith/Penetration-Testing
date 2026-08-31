@@ -2089,6 +2089,18 @@ $ ls -l /var/tmp
 $ ls -l /dev/shm
 ```
 
+- Trace System Calls
+
+```
+$ strace ping -c1 <IP address>
+```
+
+- Configuration Files
+
+```
+$ find / -type f \( -name *.conf -o -name *.config \) -exec ls -l {} \; 2>/dev/null
+```
+
 - Vulnerable Kernel
 
 ```

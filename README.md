@@ -2111,6 +2111,25 @@ C:\> dir "C:\Program Files"
 C:\> dir "C:\Program Files (x86)"
 ```
 
+- Installed Packages
+
+```
+$ apt list --installed | tr "/" " " | cut -d" " -f1,3 | sed 's/[0-9]://g' | tee -a installed_pkgs.list
+$ for i in $(curl -s https://gtfobins.org/api.json | jq -r '.executables | keys[]'); do if grep -q "$i" installed_pkgs.list; then echo "Check for GTFO: $i";fi; done
+```
+
+- Binaries
+
+```
+$ ls -l /bin /usr/bin/ /usr/sbin/
+```
+
+- Vulnerable Sudo
+
+```
+$ sudo -V
+```
+
 - CPU Type/Version
 
 ```

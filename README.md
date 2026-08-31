@@ -1843,6 +1843,7 @@ $ find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
 
 ```
 $ echo $PATH
+$ env | grep PATH
 ```
 
 - Environment Variable

@@ -1893,6 +1893,15 @@ $ ./pspy64 -pf -i 1000
 
 ```
 $ ps au
+$ who
+$ finger
+$ w
+```
+
+- Login History
+
+```
+$ lastlog
 ```
 
 - Capabilities
@@ -2038,6 +2047,7 @@ $ netstat -antp
 - DNS Configuration
 
 ```
+$ cat /etc/hosts
 $ cat /etc/resolv.conf
 ```
 

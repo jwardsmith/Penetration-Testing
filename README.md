@@ -2000,7 +2000,7 @@ $ lxc image list
 $ lxc init alpine r00t -c security.privileged=true
 $ lxc config device add r00t mydev disk source=/ path=/mnt/root recursive=true
 $ lxc start r00t
-$ lxc exec r00t /bin/bash
+$ lxc exec r00t /bin/sh
 ```
 
 - Docker

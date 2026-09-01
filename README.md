@@ -1910,7 +1910,11 @@ $ lastlog
 
 ```
 $ getcap -r / 2>/dev/null
+$ find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
 CAP_SETUID
+CAP_SETGID
+CAP_SYS_ADMIN
+CAP_DAC_OVERRIDE
 $ sudo setcap cap_net_bind_service=+ep /usr/bin/vim.basic
 ```
 

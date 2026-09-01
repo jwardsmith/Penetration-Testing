@@ -1833,10 +1833,10 @@ https://github.com/Anon-Exploiter/SUID3NUM
 $ find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
 ```
 
-- SETGID
+- SGID
 
 ```
-$ find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
+$ find / -user root -perm -2000 -exec ls -ldb {} \; 2>/dev/null
 ```
 
 - PATH Variable

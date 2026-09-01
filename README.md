@@ -1911,6 +1911,7 @@ $ lastlog
 ```
 $ getcap -r / 2>/dev/null
 CAP_SETUID
+$ sudo setcap cap_net_bind_service=+ep /usr/bin/vim.basic
 ```
 
 - Python

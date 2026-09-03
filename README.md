@@ -2018,6 +2018,14 @@ $ /tmp/docker -H unix:///app/docker.sock exec -it 7ae3bcc818af /bin/bash
 $ docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it ubuntu chroot /mnt bash
 ```
 
+- Kubernetes
+
+```
+$ curl https://<IP address>:6443 -k
+$ curl https://<IP address>:10250/pods -k | jq .
+
+```
+
 - Disk Group
 
 ```

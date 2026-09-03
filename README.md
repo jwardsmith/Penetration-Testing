@@ -2400,12 +2400,6 @@ $ netexec smb <IP address> -u <username> -p <password> -M spooler
 $ nxc smb <IP address> -u <username> -p <password> --spider IT --content --pattern "passw"
 ```
 
-- PCredz
-
-```
-$ ./Pcredz -f demo.pcapng -t -v
-```
-
 - HashID
 
 ```
@@ -2937,6 +2931,12 @@ $ cat /etc/tomcat9/tomcat-users.xml
 
 ```
 https://github.com/DanMcInerney/net-creds
+```
+
+- PCredz
+
+```
+$ ./Pcredz -f demo.pcapng -t -v
 ```
 
 - Responder

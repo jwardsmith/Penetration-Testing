@@ -2092,6 +2092,19 @@ $ ldd <binary>
 $ readelf -d <binary>  | grep PATH
 ```
 
+- Python Library Hijack
+
+```
+$ cat <python script>
+$ grep -r "def <function name>" /usr/local/lib/python3.8/dist-packages/<module>/*
+$ ls -l /usr/local/lib/python3.8/dist-packages/<module>/__init__.py
+$ nano /usr/local/lib/python3.8/dist-packages/<module>/__init__.py
+$ sudo /usr/bin/python3 <python script>
+$ python3 -c 'import sys; print("\n".join(sys.path))'
+$ pip3 show <module>
+$ sudo PYTHONPATH=/tmp/ /usr/bin/python3 <python script>
+```
+
 - Disk Group
 
 ```

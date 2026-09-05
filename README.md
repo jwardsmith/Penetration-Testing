@@ -2085,6 +2085,13 @@ $  ps aux | grep tmux
 $ tmux -S /<socket path>
 ```
 
+- Shared Object Hijack
+
+```
+$ ldd <binary>
+$ readelf -d <binary>  | grep PATH
+```
+
 - Disk Group
 
 ```

@@ -3801,6 +3801,7 @@ https://github.com/flast101/php-8.1.0-dev-backdoor-rce
 
 ```
 https://github.com/joeammond/CVE-2021-4034/blob/main/CVE-2021-4034.py
+https://github.com/arthepsy/CVE-2021-4034
 ```
 
 - NoPac - CVE-2021-42278 & CVE-2021-42287
@@ -3898,10 +3899,10 @@ https://github.com/blasty/CVE-2021-3156
 $ sudo -u#-1 id
 ```
 
-- PwnKit - CVE-2021-4034
+- DirtyPipe - CVE-2022-0847
 
 ```
-https://github.com/arthepsy/CVE-2021-4034
+https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits
 ```
 
 #15. - Exploit Research

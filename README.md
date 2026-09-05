@@ -3905,6 +3905,24 @@ $ sudo -u#-1 id
 https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits
 ```
 
+- Linux Netfilter - CVE-2021-22555
+
+```
+https://github.com/google/security-research/tree/master/pocs/linux/cve-2021-22555
+```
+
+- Linux Netfilter nf_dup_netdev - CVE-2022-25636
+
+```
+https://github.com/Bonfee/CVE-2022-25636
+```
+
+- Linux Netfilter nf_tables - CVE-2023-32233
+
+```
+https://github.com/Liuk3r/CVE-2023-32233
+```
+
 #15. - Exploit Research
 -----------------------------------------
 

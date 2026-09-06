@@ -2207,6 +2207,14 @@ $ find / -path /proc -prune -o -type d -perm -o+w 2>/dev/null
 $ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
 ```
 
+- File Ownership
+
+```
+C:\> dir /q <file>
+C:\> takeown /f <file>
+PS C:\> Get-ChildItem -Path '<file>' | select name,directory, @{Name=“Owner”;Expression={(Ge t-ACL $_.Fullname).Owner}}
+```
+
 - Hidden Files
 
 ```

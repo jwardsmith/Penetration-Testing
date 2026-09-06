@@ -3680,6 +3680,12 @@ PS C:\> Set-MpPreference -DisableRealtimeMonitoring $true
 PS C:\> Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 ```
 
+- Test Applocker Policies
+
+```
+PS C:\> Get-AppLockerPolicy -Local | Test-AppLockerPolicy -path C:\Windows\System32\cmd.exe -User Everyone
+```
+
 - View PowerShell Language Mode
 
 ```

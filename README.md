@@ -1988,6 +1988,12 @@ https://github.com/GhostPack/Seatbelt
 https://github.com/411Hall/JAWS
 ```
 
+- PowerUp
+
+```
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
+```
+
 - SharpUp
 
 ```

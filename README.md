@@ -2001,6 +2001,12 @@ https://github.com/ghostpack/sharpup
 C:\> .\SharpUp.exe audit
 ```
 
+- Watson
+
+```
+https://github.com/rasta-mouse/Watson
+```
+
 - Weak Service
 
 ```

@@ -232,7 +232,9 @@ C:\> Get-WmiObject -Class Win32_OperatingSystem | select Description
 C:\> hostname
 C:\> [System.Environment]::OSVersion.Version
 C:\> [Environment]::OSVersion.Version
+C:\> wmic qfe
 C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn
+PS C:\> Get-HotFix | ft -AutoSize
 C:\> wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List
 C:\> wmic process list /format:list
 C:\> wmic ntdomain list /format:list
@@ -241,6 +243,7 @@ C:\> wmic useraccount where name="<username>" get sid
 C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 C:\> wmic product get name
+PS C:\> Get-WmiObject -Class Win32_Product |  select Name, Version
 C:\> tasklist /svc
 PS C:\> Get-Process
 PS C:\> Get-Process -Id <PID>

@@ -229,6 +229,7 @@ C:\> netdom query /domain:<domain> dc
 C:\> netdom query /domain:<domain> workstation
 C:\> hostname
 C:\> [System.Environment]::OSVersion.Version
+C:\> [Environment]::OSVersion.Version
 C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn
 C:\> wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List
 C:\> wmic process list /format:list
@@ -239,6 +240,7 @@ C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 C:\> wmic product get name
 C:\> tasklist /svc
+C:\> cmd /c echo %PATH%
 https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
 C:\> dsquery user
 C:\> dsquery computer

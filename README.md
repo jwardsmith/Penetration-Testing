@@ -1856,6 +1856,13 @@ $ sudo -l
 $ sudo -u <user> /bin/bash
 ```
 
+- Enable Privileges
+
+```
+https://www.powershellgallery.com/packages/PoshPrivilege/0.3.0.0/Content/Scripts%5CEnable-Privilege.ps1
+https://www.leeholmes.com/adjusting-token-privileges-in-powershell/
+```
+
 - SUID
 
 ```

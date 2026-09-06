@@ -233,6 +233,7 @@ C:\> wmic ntdomain list /format:list
 C:\> wmic useraccount list /format:list
 C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
+C:\> wmic product get name
 https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
 C:\> dsquery user
 C:\> dsquery computer

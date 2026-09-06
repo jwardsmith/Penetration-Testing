@@ -2007,6 +2007,12 @@ C:\> .\SharpUp.exe audit
 https://github.com/rasta-mouse/Watson
 ```
 
+- Windows Exploit Suggester - Next Generation (WES-NG)
+
+```
+https://github.com/bitsadmin/wesng
+```
+
 - Weak Service
 
 ```

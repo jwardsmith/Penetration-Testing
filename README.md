@@ -2248,6 +2248,7 @@ $ netstat -antp
 ```
 C:\> pipelist.exe /accepteula
 PS C:\> gci \\.\pipe\
+C:\> accesschk.exe -w \pipe\* -v
 C:\> accesschk.exe /accepteula \\.\Pipe\lsass -v
 ```
 

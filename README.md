@@ -1861,6 +1861,7 @@ $ sudo -u <user> /bin/bash
 ```
 https://www.powershellgallery.com/packages/PoshPrivilege/0.3.0.0/Content/Scripts%5CEnable-Privilege.ps1
 https://www.leeholmes.com/adjusting-token-privileges-in-powershell/
+https://github.com/fashionproof/EnableAllTokenPrivs
 ```
 
 - SUID

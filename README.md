@@ -4045,6 +4045,12 @@ C:\> reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Poli
 C:\> reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ /v ConsentPromptBehaviorAdmin
 ```
 
+- Bypass UAC
+
+```
+https://github.com/hfiref0x/UACME
+```
+
 - Downgrade PowerShell
 
 ```

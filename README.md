@@ -234,6 +234,8 @@ C:\> [System.Environment]::OSVersion.Version
 C:\> [Environment]::OSVersion.Version
 C:\> wmic qfe
 C:\> wmic qfe get Caption,Description,HotFixID,InstalledOn
+C:\> wmic qfe list brief
+PS C:\> Get-Hotfix
 PS C:\> Get-HotFix | ft -AutoSize
 C:\> wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List
 C:\> wmic process list /format:list

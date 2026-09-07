@@ -2290,6 +2290,7 @@ $ find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
 ```
 C:\> dir /q <file>
 C:\> takeown /f <file>
+PS C:\> Get-ChildItem -Path '<file>' | Select Fullname,LastWriteTime,Attributes,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }}
 PS C:\> Get-ChildItem -Path '<file>' | select name,directory, @{Name=“Owner”;Expression={(Get-ACL $_.Fullname).Owner}}
 C:\> icacls "<file"
 C:\> icacls "<file>" /grant <username>:F

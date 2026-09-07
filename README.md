@@ -2468,6 +2468,14 @@ PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\
 $ raiseChild.py -target-exec <IP address> <domain>/<username>
 ```
 
+- SeImpersonate/SeAssignPrimaryToken
+
+```
+https://github.com/ohpe/juicy-potato
+https://github.com/itm4n/PrintSpoofer
+https://github.com/antonioCoco/RoguePotato
+```
+
 - SeDebugPrivilege
 
 ```

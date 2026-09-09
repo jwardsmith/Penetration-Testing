@@ -3582,7 +3582,8 @@ PS C:\> type C:\Users\julio\AppData\Roaming\mRemoteNG\confCons.xml
 https://github.com/haseebT/mRemoteNG-Decrypt
 $ python3 mremoteng_decrypt.py -s "<password>"
 $ python3 mremoteng_decrypt.py -s "<password>" -p <master_password>
-$ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<password>" -p $password 2>/dev/null;done    
+$ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<password>" -p $password 2>/dev/null;done
+$ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<Protected blob from confCons.xml>" -p $password 2>/dev/null;done    
 ```
 
 - Slack

@@ -3262,7 +3262,7 @@ PS C:\> Invoke-SessionGopher -Target <hostname>
 
 ```
 C:\> netsh wlan show profile
-C:\> netsh wlan show profile ilfreight_corp key=clear
+C:\> netsh wlan show profile <SSID> key=clear
 ```
 
 - Unattended Installation Files
@@ -3487,6 +3487,13 @@ C:\> reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\
 
 ```
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPAutologon.ps1
+```
+
+- Putty
+
+```
+C:\> reg query HKEY_CURRENT_USER\SOFTWARE\SimonTatham\PuTTY\Sessions
+C:\> reg query HKEY_CURRENT_USER\SOFTWARE\SimonTatham\PuTTY\Sessions\kali%20ssh
 ```
 
 - ProcDump

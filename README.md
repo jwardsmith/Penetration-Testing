@@ -3027,8 +3027,7 @@ C:\> findstr /spin "password" *.*
 - Where
 
 ```
-C:\> where /R C:\ *.config
-PS C:\> Get-ChildItem C:\ -Recurse -Include *.rdp, *.config, *.vnc, *.cred -ErrorAction Ignore
+C:\> where /R C:\ *.confige
 ```
 
 - Grep
@@ -3046,6 +3045,7 @@ PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *password* -File
 PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *users* -File
 PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *secret* -File
 PS C:\> Get-ChildItem -Recurse -Path N:\ -Include *key* -File
+PS C:\> Get-ChildItem C:\ -Recurse -Include *.rdp, *.config, *.vnc, *.cred -ErrorAction Ignore
 ```
 
 - Select-String

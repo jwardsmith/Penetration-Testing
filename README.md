@@ -2410,7 +2410,7 @@ $ cat .bash_history
 - PowerShell History
 
 ```
-PS C:\> Get-Content (Get-PSReadlineOption).HistorySavePath
+PS C:\> (Get-PSReadlineOption).HistorySavePath
 PS C:\> gc (Get-PSReadLineOption).HistorySavePath
 ```
 

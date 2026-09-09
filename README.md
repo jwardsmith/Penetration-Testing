@@ -2412,6 +2412,7 @@ $ cat .bash_history
 ```
 PS C:\> (Get-PSReadlineOption).HistorySavePath
 PS C:\> gc (Get-PSReadLineOption).HistorySavePath
+PS C:\> foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
 ```
 
 - SSH Key Login
@@ -3344,12 +3345,15 @@ $ cat .bash_history
 ```
 PS C:\> (Get-PSReadLineOption).HistorySavePath
 PS C:\> gc (Get-PSReadLineOption).HistorySavePath
+PS C:\> foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
 ```
 
 - Decrypt PowerShell Credentials
 
 ```
 PS C:\> $credential = Import-Clixml -Path 'C:\scripts\pass.xml'
+PS C:\> $credential.GetNetworkCredential().username
+PS C:\> $credential.GetNetworkCredential().password
 ```
 
 - Bashrc

@@ -3226,6 +3226,13 @@ C:\> netsh wlan show profile
 C:\> netsh wlan show profile ilfreight_corp key=clear
 ```
 
+- Unattended Installation Files
+
+```
+C:\unattend.xml
+C:\Windows\Panther\unattend.xml
+```
+
 - Filezilla Credentials
 
 ```
@@ -3239,7 +3246,7 @@ $ ls -l /home/<user>/.mozilla/firefox/ | grep default
 $ cat /home/<user>/.mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 ```
 
-- Chrome Credentials
+- Chrome Dictionary Files
 
 ```
 PS C:\> gc 'C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password

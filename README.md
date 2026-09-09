@@ -4048,6 +4048,16 @@ $ export TERM=xterm-256color
 $ stty rows 67 columns 318
 ```
 
+- Citrix Breakout
+
+```
+Use a Dialog box e.g. Paint -> File -> Open -> Enter UNC paths in File Name field
+Use alternate programs e.g. https://explorerplusplus.com/, https://www.q-dir.com/, https://sourceforge.net/projects/simpregedit/, https://sourceforge.net/projects/uberregedit/, https://sourceforge.net/projects/sre/
+Modify shortcut file Target fields to point towards C:\Windows\System32\cmd.exe
+Execute a batch script that opens cmd.exe
+PowerUp Write-UserAddMSI
+```
+
 #11. - Shells
 -----------------------------------------
 

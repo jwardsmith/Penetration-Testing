@@ -3504,6 +3504,20 @@ C:\> reg query HKEY_CURRENT_USER\SOFTWARE\SimonTatham\PuTTY\Sessions\kali%20ssh
 C:\> procdump.exe -accepteula -ma lsass.exe lsass.dmp
 ```
 
+- Monitor Command Lines
+
+```
+while($true)
+{
+
+  $process = Get-WmiObject Win32_Process | Select-Object CommandLine
+  Start-Sleep 1
+  $process2 = Get-WmiObject Win32_Process | Select-Object CommandLine
+  Compare-Object -ReferenceObject $process -DifferenceObject $process2
+
+}
+```
+
 #9. - File Transfers
 -----------------------------------------
 

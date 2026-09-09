@@ -2966,6 +2966,24 @@ Keywords within files such as passw, user, token, key, and secret
 Files with extensions commonly associated with stored credentials, such as .ini, .cfg, .env, .xlsx, .ps1, and .bat
 Files with "interesting" names that include terms like config, user, passw, cred, or initial
 Search for files containing the string <Domain>\
+%SYSTEMDRIVE%\pagefile.sys
+%WINDIR%\debug\NetSetup.log
+%WINDIR%\repair\sam
+%WINDIR%\repair\system
+%WINDIR%\repair\software, %WINDIR%\repair\security
+%WINDIR%\iis6.log
+%WINDIR%\system32\config\AppEvent.Evt
+%WINDIR%\system32\config\SecEvent.Evt
+%WINDIR%\system32\config\default.sav
+%WINDIR%\system32\config\security.sav
+%WINDIR%\system32\config\software.sav
+%WINDIR%\system32\config\system.sav
+%WINDIR%\system32\CCM\logs\\*.log
+%USERPROFILE%\ntuser.dat
+%USERPROFILE%\LocalS~1\Tempor~1\Content.IE5\index.dat
+%WINDIR%\System32\drivers\etc\hosts
+C:\ProgramData\Configs\\*
+C:\Program Files\Windows PowerShell\\*
 ```
 
 - Linux Places to Hunt
@@ -3102,6 +3120,19 @@ C:\> cmdkey /list
 
 ```
 PS C:\> type C:\Users\<username>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+```
+
+- Sticky Notes Passwords
+
+```
+C:\Users\<username>\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite
+https://sqlitebrowser.org/dl/
+select Text from Note;
+https://github.com/RamblingCookieMonster/PSSQLite
+PS C:\> Import-Module .\PSSQLite.psd1
+PS C:\> $db = 'C:\Users\htb-student\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite'
+PS C:\> Invoke-SqliteQuery -Database $db -Query "SELECT Text FROM Note" | ft -wrap
+$ strings plum.sqlite-wal
 ```
 
 - Windows Event Logs Cleartext Credentials

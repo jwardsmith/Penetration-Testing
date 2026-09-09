@@ -2911,6 +2911,13 @@ $ python2.7 kirbi2john.py sqldev.kirbi        # used to extract the Kerberos tic
 $ sed 's/\$krb5tgs\$\(.*\):\(.*\)/\$krb5tgs\$23\$\*\1\*\$\2/' crack_file > sqldev_tgs_hashcat        # used to modify the crack_file for Hashcat from a Linux-based host
 ```
 
+- Keepass2john
+
+```
+https://gist.githubusercontent.com/HarmJ0y/116fa1b559372804877e604d7d367bbc/raw/c0c6f45ad89310e61ec0363a69913e966fe17633/keepass2john.py
+$ python2.7 keepass2john.py <filename.kdbx>
+```
+
 - Hashcat
 
 ```

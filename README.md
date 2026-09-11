@@ -2033,6 +2033,8 @@ C:\> .\SharpUp.exe audit
 
 ```
 https://github.com/rasta-mouse/Sherlock
+PS C:\> Import-Module .\Sherlock.ps1
+PS C:\> Find-AllVulns
 ```
 
 - Watson

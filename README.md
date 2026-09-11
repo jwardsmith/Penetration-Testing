@@ -2029,6 +2029,12 @@ https://github.com/ghostpack/sharpup
 C:\> .\SharpUp.exe audit
 ```
 
+- Sherlock
+
+```
+https://github.com/rasta-mouse/Sherlock
+```
+
 - Watson
 
 ```

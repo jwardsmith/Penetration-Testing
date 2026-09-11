@@ -3552,6 +3552,24 @@ while($true)
 }
 ```
 
+- Mount VMDK
+
+```
+$ guestmount -a <VMDK file> -i --ro /mnt/vmdk
+Right-click -> Map Virtual Disk
+VMWare Workstation File -> Map Virtual Disks
+https://www.nakivo.com/blog/extract-content-vmdk-files-step-step-guide/
+```
+
+- Mount VHD/VHDX
+
+```
+$ guestmount --add <VHD/VHDX file>  --ro /mnt/vhdx/ -m /dev/sda1
+Right-click -> Mount
+Disk Management utility
+https://learn.microsoft.com/en-us/powershell/module/hyper-v/mount-vhd?view=windowsserver2019-ps
+```
+
 - Malicious SCF File
 
 ```

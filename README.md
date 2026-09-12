@@ -474,6 +474,7 @@ VRFY root
 EXPN root
 EXPN all
 RCPT TO:root
+https://github.com/pentestmonkey/smtp-user-enum
 $ smtp-user-enum -M RCPT -U <usernames.txt> -D <domain.tld> -t <IP address>
 $ host -t MX <domain.tld>
 $ dig mx <domain.tld> | grep "MX" | grep -v ";"

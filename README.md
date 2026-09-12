@@ -852,7 +852,8 @@ $ xfreerdp /v:<IP address> /u:Administrator
 $ xfreerdp /v:<IP address> /u:Administrator /d:<Domain>
 $ xfreerdp /v:<IP address> /u:Administrator /d:<Domain> /drive:Shared,//home/james/
 $ xfreerdp /v:<IP address> /u:Administrator@test.local
-$ xfreerdp /v:<IP address>  /u:Administrator /pth:<hash>
+$ xfreerdp /v:<IP address> /u:Administrator /pth:<hash>
+$ xfreerdp /v:<IP address> /u:Administrator /p:<password> /d: /cert:ignore '/auth-pkg-list:!kerberos,!u2u'
 $ freerdp /v:<IP address> /cert:ignore /u:Administrator /p:'<password>'
 $ rdesktop -u <username> -p <password> <IP address>
 $ rdp-sec-check.pl <IP address>

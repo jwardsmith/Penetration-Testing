@@ -1299,6 +1299,19 @@ $ ./chisel client -v 10.129.202.64:1234 socks
 $ sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0/23 -v
 ```
 
+- Ligolo
+
+```
+https://github.com/sysdream/ligolo
+```
+
+- Ligolo-ng
+
+```
+https://github.com/nicocha30/ligolo-ng
+https://github.com/gunyakit/command-cheatsheet/blob/main/5.Lateral-Movement/5.3.Ligolo-ng-Complete-Guide.md
+```
+
 - Socat
 
 ```

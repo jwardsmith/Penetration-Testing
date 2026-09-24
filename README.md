@@ -2260,6 +2260,7 @@ $ sudo PYTHONPATH=/tmp/ /usr/bin/python3 <python script>
 - Disk Group
 
 ```
+$ ls -l /dev/sd* /dev/nvme* /dev/mapper/* 2>/dev/null
 $ debugfs /dev/sda2
 debugfs:  cat /etc/shadow
 debugfs:  cat /root/.ssh/id_rsa

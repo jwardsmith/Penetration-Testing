@@ -879,6 +879,7 @@ $ psql -h <IP address> -U <username> -p <password>
 
 ```
 $ evil-winrm -i <IP address> -u <username> -p <password>
+$ evil-winrm -i <IP address> -u '<domain>\<username>' -p <password>
 $ evil-winrm -i <IP address> -u <username> -H <hash>
 $ crackmapexec winrm <IP address> -u <usernames.txt> -p '<password>'
 $ crackmapexec winrm <IP address> -u <usernames.txt> -p '<password>' -X 'whoami'

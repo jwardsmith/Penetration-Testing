@@ -539,7 +539,7 @@ Right-Click -> View Page Source
 https://<URL>/robots.txt
 $ gobuster dir -w <wordlist> -u <URL>
 $ gobuster dir -w <wordlist> -u <URL> -x php,html
-$ gobuster vhost -w <wordlist> -u <URL>
+$ gobuster vhost -w <wordlist> -u <URL> --append-domain
 $ gobuster dns -w <wordlist> -d <Domain Name>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -IL <URL>

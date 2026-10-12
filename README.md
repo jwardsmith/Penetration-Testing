@@ -2655,6 +2655,12 @@ C:\> reg save HKLM\SAM SAM.SAVE
 C:\> reg save HKLM\SECURITY SECURITY.SAVE
 ```
 
+- BackupOperatorToDA
+
+```
+https://github.com/mpgn/BackupOperatorToDA
+```
+
 - Event Log Readers
 
 ```

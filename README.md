@@ -3577,6 +3577,12 @@ PS C:\> Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
 C:\> .\Inveigh.exe
 ```
 
+- Bad-PDF
+
+```
+https://github.com/deepzec/Bad-Pdf/tree/master
+```
+
 - SetSPN
 
 ```

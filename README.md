@@ -540,7 +540,7 @@ https://<URL>/robots.txt
 $ gobuster dir -w <wordlist> -u <URL>
 $ gobuster dir -w <wordlist> -u <URL> -x php,html
 $ gobuster vhost -w <wordlist> -u <URL> --append-domain
-$ gobuster dns -w <wordlist> -d <Domain Name>
+$ gobuster dns -w <wordlist> --domain <Domain Name>
 $ ffuf -u <URL>/FUZZ -w <wordlist>
 $ curl -IL <URL>
 $ curl <URL> -H 'User-agent: zerodiumsystem("curl <IP address>");'

